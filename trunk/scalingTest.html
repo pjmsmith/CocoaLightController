@@ -1,0 +1,403 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<style>
+
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+img {
+	-webkit-user-drag:none;
+}
+
+div.layoutColumns {
+	float:left;
+	height:100%;
+}
+
+div#topPanels {
+	width: 100%;
+	height: 15%;
+	background-color: grey;
+}
+
+div#bottomPanels {
+	width: 100%;
+	height: 85%;
+}
+
+div#columnLeft {
+	background-color: yellow;
+	overflow:hidden;
+	width:32%;
+}
+
+div#columnCenter {
+	background-color:green;
+	width:36%;
+
+
+}
+
+div#columnRight {
+	background-color:yellow;
+	width:32%;
+
+
+}
+
+div#centralControls {
+	//height: 300px;
+	width: 100%;
+	margin: 0 auto;
+	overflow: visible;
+}
+
+div#center {
+	position: relative;
+	height: 45%;
+	width: 35%;
+	margin:0 auto;
+	top: 25%;
+	//background-color:blue;
+	margin-bottom:-45%;
+}
+
+.row1, .row2 {
+	height: 20%;
+	width: 20%;
+	//border: 1px solid #000000;
+	float:left;
+	margin-left:10%;
+
+}
+
+div#yellow {
+	margin-top: 20%;
+}
+
+div#green {
+	margin-top: 3%
+}
+
+div#cyan {
+	margin-top: 20%;
+}
+
+div#clear {
+	clear:both;
+}
+
+div#red {
+	margin-top: 15%;
+}
+
+div#magenta {
+	margin-top: 32%;
+}
+
+div#blue {
+	margin-top: 15%;
+}
+
+div.controls {
+	background-color:white;
+	border: 1px solid black;
+	height: 20%;
+	position: absolute;
+	opacity: 0;
+	overflow:hidden;
+
+	-webkit-transition: all .25s ease-out;
+}
+/*
+div#yellow:hover div.controls, div#red:hover div.controls {
+	width: 50%;
+	-webkit-transform: scale(1);
+	opacity: 1;
+	margin-left:-50%;
+}
+
+div#yellow div.controls, div#red div.controls{
+	margin-left:0%;
+	width: 0%;
+}
+
+div#green:hover div.controls {
+	opacity:1;
+	height: 20%;
+	margin-top: -20%;
+
+}
+
+div#green div.controls{
+	margin-left:-15%;
+	margin-top: 0%;
+	opacity:0;
+	width:50%;
+	height:0%;
+}
+
+div#cyan:hover div.controls, div#blue:hover div.controls {
+	width: 50%;
+	-webkit-transform: scale(1);
+	opacity: 1;
+	margin-left:20%;
+}
+
+div#cyan div.controls, div#blue div.controls{
+	margin-left:20%;
+	width:0%;
+}
+
+div#magenta:hover div.controls {
+	opacity: 1;
+	width 50%;
+	height:20%;
+}
+
+div#magenta div.controls {
+	margin-left:-15%;
+	margin-top:20%;
+	opactity: 0;
+	height:0%;
+	width:50%;
+}
+*/
+div.row1 img, div.row2 img {
+	height:100%;
+	width: 100%;
+}
+
+h1 {
+	font-size: 5em;
+}
+
+div#leftControls {
+	width: 200px;
+	height: 34px;
+	margin-left:auto;margin-right:auto;
+}
+
+.aniControls {
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+.clearfix { clear:both; }
+div.keep-aspect-ratio > div { border:0;padding:0;margin:0;position:relative; background-color:#333333; overflow:visible; }
+div.keep-aspect-ratio > div > img { border:0;padding:0;margin:0;z-index:-1000;position:relative;top:0;bottom:0;left:0;width:100%;display:block; }
+div.keep-aspect-ratio > div > div { border:0;padding:0;margin:0;position:absolute;top:0;bottom:0;left:0;width:100%;overflow:visible}
+
+
+#mycooldiv {
+	//border:1px solid black;
+	overflow:visible;
+}
+
+</style>
+
+<script src="jquery-1.3.2.js" />
+<!--<script src="jquery-ui-1.7.2.js" />
+<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.7.2.custom.css" />-->
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+		//window.AppController.showMessage_("jquery works");
+		
+		$("body").keypress(function(e){
+			if (e.which == 117) { //u
+				window.AppController.setColor_("yellow");			
+			} 
+			if (e.which == 105) { //i
+				window.AppController.setColor_("green");			
+			} 
+			if (e.which == 111) { //o
+				window.AppController.setColor_("cyan");			
+			} 
+			if (e.which == 106) { //j
+				window.AppController.setColor_("red");			
+			}
+			if (e.which == 107) { //k
+				window.AppController.setColor_("magenta");			
+			} 
+			if (e.which == 108) { //l
+				window.AppController.setColor_("blue");			
+			}  
+		});
+		
+		
+		$(".colorButton").click(function(){
+			var color = $(this).attr("id"); 
+			//window.AppController.showMessage_(color);
+			window.AppController.setColor_(color);
+		});
+		
+		$(".colorButton").mousedown(function(){
+			var cssObj = {
+			'opacity' : '.5'
+			}
+			$(this).css(cssObj);
+		});
+		
+		$(".colorButton").mouseup(function(){
+			var cssObj = {
+			'opacity' : '1'
+			}
+			$(this).css(cssObj);
+		});
+				
+		/*$(".aniControls").mousedown(function(){
+			var fileName = $(this).attr("src");
+			var fileNameAlt = fileName.substr(0,fileName.length-7) +"BH.tiff";
+			
+			$(this).attr("src",fileNameAlt);
+			
+			window.AppController.runAnimation_("run");			
+		});
+		
+		$(".aniControls").mouseup(function(){
+			var fileName = $(this).attr("src");
+			var fileNameAlt = fileName.substr(0,fileName.length-7) +"0D.tiff";
+			
+			$(this).attr("src",fileNameAlt);
+		});
+		
+		
+		$(".aniControls").mouseenter(function(){
+			var fileName = $(this).attr("src");
+			var fileNameAlt = fileName.substr(0,fileName.length-7) +"0N.tiff";
+			
+			$(this).attr("src",fileNameAlt);
+			
+			//window.AppController.showMessage_(fileName);
+			
+		});
+		
+		$(".aniControls").mouseleave(function(){
+			var fileName = $(this).attr("src");
+			var fileNameAlt = fileName.substr(0,fileName.length-7) +"0D.tiff";
+			
+			$(this).attr("src",fileNameAlt);
+			
+			//window.AppController.showMessage_(fileName);			
+			//window.AppController.runAnimation_();
+        }); */
+		
+		$("#playButton").toggle(
+		function() {
+			window.AppController.runAnimation_("");
+			$(this).attr("src","PlayBH.tiff");
+		},
+		function() {
+			window.AppController.runAnimation_("");
+			$(this).attr("src","Play0D.tiff");
+		});
+		
+		
+		$("#blackoutButton").toggle(
+		function() {
+			window.AppController.blackout_("");
+			$(this).attr("src","light-blackout.png");
+		},
+		function() {
+			window.AppController.recover_("");
+			$(this).attr("src","dark-blackout.png");
+		});
+		
+		
+		$("#recordButton").toggle(
+		function() {
+			window.AppController.toggleRecord_("");
+			$(this).attr("src","Record1BN.tiff");
+		},
+		function() {
+			window.AppController.toggleRecord_("");
+			$(this).attr("src","Record0N.tiff");
+		});
+		
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div id="topPanels">
+
+<img style=" height:100%;float:right;" id="blackoutButton" src="dark-blackout.png">
+<img style="float:right;" id="recordButton" src="Record0N.tiff">
+<input type="text" style="float:right;width:30px;">
+</div>
+
+<div id="bottomPanels">
+
+	<div id="columnLeft" class="layoutColumns">
+		<div id="leftControls">
+		
+			<img class="aniControls" src="Beginning0D.tiff"/>
+			<img class="aniControls" src="Rewind0D.tiff"/>
+			<img class="aniControls" id="playButton" src="Play0D.tiff"/>
+			<img class="aniControls" src="FFwd0D.tiff"/>
+			<img class="aniControls" src="Repeat0D.tiff"/>
+		
+		</div>
+		
+		<table style="clear:both;float:left;" border="1px" width="100%">
+		<tr><th width="10%">#</th><th width="65%">Descr.</th><th width="25%">Controls</th></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		</table>
+	</div>
+
+	<div id="columnCenter" class="layoutColumns">
+	
+		<div class="keep-aspect-ratio" id="mycooldiv"><div><img src="squareAspect.png" /><div>
+       		<!--...content goes here... -->
+
+		<div id="centralControls">
+		
+			<div id="center">
+			<img style="margin: 0 auto;" height=100% src="Bars.png" />
+			<img style="margin: 0 auto;" height=100% src="Bars.png" />
+			<img style="margin: 0 auto;" height=100% src="Bars.png" />
+			</div>
+
+			<div class="row1 colorButton" id="yellow"><div class="controls">click me</div><img src="ButtonYellow.png"/></div>
+			<div class="row1 colorButton" id="green"><div class="controls">controls</div><img src="ButtonGreen.png"/></div>
+			<div class="row1 colorButton" id="cyan"><div class="controls" onClick="alert('hi')">controls</div><img src="ButtonCyan.png"/></div>
+
+			<!--<div id="clear"></div>-->
+
+			<div class="row2 colorButton" id="red"><div class="controls">controls</div><img src="ButtonRed.png"/></div>
+			<div class="row2 colorButton" id="magenta"><div class="controls">controls</div><img  src="ButtonMagenta.png"/></div>
+			<div class="row2 colorButton" id="blue"><div class="controls">controls</div><img  src="ButtonBlue.png"/></div>
+			
+									
+		</div>
+		
+		
+
+		</div></div><div class="clearfix"></div></div>
+
+	</div>
+
+	<div id="columnRight" class="layoutColumns"></div>
+
+</div>
+
+</body>
+</html>
