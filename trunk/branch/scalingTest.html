@@ -37,7 +37,7 @@ div#columnLeft {
 }
 
 div#columnCenter {
-	background-color:green;
+	background-color:#333;
 	width:36%;
 
 
@@ -200,6 +200,21 @@ div.keep-aspect-ratio > div > div { border:0;padding:0;margin:0;position:absolut
 	overflow:visible;
 }
 
+#phyiscalButtons {
+	clear:both;
+	width:100%;
+	overflow:hidden;
+	//background-color:magenta;
+	border-top: 1px solid black;
+	padding-left:2%;
+	padding-top:5%;
+}
+
+#phyiscalButtons img {
+	float:left;
+	margin: 0 4%;
+	width:25%;
+}
 
 </style>
 
@@ -411,8 +426,38 @@ $(document).ready(function(){
 					window.AppController.setAnimationSpeed_();
 				}
 			}
-		});		
-
+		});
+		
+		$("#firstAction").mousedown(function() {
+			window.AppController.firstAction_("");
+			$(this).attr("src","Beginning0N.tiff");
+		});
+		$("#firstAction").mouseup(function() {
+			$(this).attr("src","Beginning0D.tiff");
+		});
+		$("#firstAction").mouseleave(function() {
+			$(this).attr("src","Beginning0D.tiff");
+		});
+		$("#prevAction").mousedown(function() {
+			window.AppController.prevAction_("");
+			$(this).attr("src","Rewind0N.tiff");
+		});
+		$("#prevAction").mouseup(function() {
+			$(this).attr("src","Rewind0D.tiff");
+		});
+		$("#prevAction").mouseleave(function() {
+			$(this).attr("src","Rewind0D.tiff");
+		});
+		$("#nextAction").mousedown(function() {
+			window.AppController.nextAction_("");
+			$(this).attr("src","FFwd0N.tiff");
+		});
+		$("#nextAction").mouseup(function() {
+			$(this).attr("src","FFwd0D.tiff");
+		});
+		$("#nextAction").mouseleave(function() {
+			$(this).attr("src","FFwd0D.tiff");
+		});
 });
 
 function deactivateLooping() {
@@ -445,10 +490,10 @@ function deactivatePlaying() {
 	<div id="columnLeft" class="layoutColumns">
 		<div id="leftControls">
 		
-			<img class="aniControls" src="Beginning0D.tiff"/>
-			<img class="aniControls" src="Rewind0D.tiff"/>
+			<img class="aniControls" id="firstAction" src="Beginning0D.tiff"/>
+			<img class="aniControls" id="prevAction" src="Rewind0D.tiff"/>
 			<img class="aniControls" id="playButton" src="Play0D.tiff"/>
-			<img class="aniControls" src="FFwd0D.tiff"/>
+			<img class="aniControls" id="nextAction" src="FFwd0D.tiff"/>
 			<img class="aniControls" id="loopButton" src="Repeat0D.tiff"/>
 		
 		</div>
@@ -507,6 +552,12 @@ function deactivatePlaying() {
 		
 
 		</div></div><div class="clearfix"></div></div>
+
+		<div id="phyiscalButtons">
+			<img id="arcadeBlue" src="ArcadeBlue.png"/>
+			<img id="arcadeGreen" src="ArcadeGreen.png"/>
+			<img id="arcadeYellow" src="ArcadeYellow.png"/>
+		</div>
 
 	</div>
 
