@@ -309,11 +309,11 @@ $(document).ready(function(){
 		
 		$("#loopButton").toggle(
 		function() {
-			//window.AppController.runAnimation_("");
+			window.AppController.toggleLooping("");
 			$(this).attr("src","RepeatBH.tiff");
 		},
 		function() {
-			//window.AppController.runAnimation_("");
+			window.AppController.toggleLooping("");
 			$(this).attr("src","Repeat0D.tiff");
 		});
 		$("#loopButton").mousedown(function(){
