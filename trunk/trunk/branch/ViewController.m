@@ -239,6 +239,9 @@
     if (aSelector == @selector(toggleLooping:)) {
         return NO; // i.e. toggleLooping: is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(setAnimationSpeed:)) {
+        return NO; // i.e. setAnimationSpeed: is NOT _excluded_ from scripting, so it can be called.
+    }
     return YES; // disallow everything else
 }
 
@@ -247,7 +250,9 @@
     testAnimation.isRunning = !testAnimation.isRunning;
     if(testAnimation.isRunning && [testAnimation.actions count])
     {
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         [self performSelectorInBackground:@selector(threadedRunAnimation) withObject:nil];
+        [pool release];
     }
     else {
         printf("animation already running\n");
@@ -260,24 +265,28 @@
 {
     if(testAnimation.isRunning)
     {
-        NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
-        for(id a in immutableActionList)
+        if([testAnimation.actions count])
         {
-            testLight.currentAction = (Action*)a;
-            [testLight applyAction];
-            if(black_out || !testAnimation.isRunning)
+            NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
+            for(id a in immutableActionList)
             {
-                break;
+                testLight.currentAction = (Action*)a;
+                [testLight applyAction];
+                if(black_out || !testAnimation.isRunning || [testAnimation.actions count] == 0)
+                {
+                    
+                    break;
+                }
+                [self send:NULL];
+                usleep((int)([testAnimation.timeBetweenSteps doubleValue]*1000000)); //timeInBetweenSteps
             }
-            [self send:NULL];
-            usleep(500000); //timeInBetweenSteps
+            if (testAnimation.isLooping && !black_out)
+            {
+                [self threadedRunAnimation];
+            }
+            [immutableActionList dealloc];
         }
-        if (testAnimation.isLooping && !black_out)
-        {
-            printf("working loop\n");
-            [self threadedRunAnimation];
-        }
-        [immutableActionList dealloc];
+        
     }
 }
 
@@ -388,7 +397,6 @@
 {
     Action* tempAction = [Action alloc];
     [tempAction initWithDetails:@"" numChans:3];
-    
     [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue])]];
     [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+1)]];
     [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+2)]];
@@ -426,7 +434,7 @@
  stillSelecting:(BOOL)flag
 {
     // disable text selection
-    return NO;
+    return YES;
 }
 
 -(IBAction)makeTextLarger:(id)sender
