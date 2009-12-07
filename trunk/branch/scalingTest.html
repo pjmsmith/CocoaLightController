@@ -200,13 +200,17 @@ div.keep-aspect-ratio > div > div { border:0;padding:0;margin:0;position:absolut
 	overflow:visible;
 }
 
+
 </style>
 
 <script src="jquery-1.3.2.js" />
 <!--<script src="jquery-ui-1.7.2.js" />
-<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.7.2.custom.css" />-->
+<link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.7.2.custom.css" /> -->
 
 <script type="text/javascript">
+
+var loopActive = false;
+var playActive = false;
 
 
 $(document).ready(function(){
@@ -290,7 +294,20 @@ $(document).ready(function(){
 			//window.AppController.showMessage_(fileName);			
 			//window.AppController.runAnimation_();
         }); */
-		
+		$("#playButton").mousedown(function(){
+			$(this).attr("src","Play0H.tiff");
+		});
+		$("#playButton").click(function(){
+			if(!playActive) {
+				playActive = true;
+				$(this).attr("src","PlayBN.tiff");
+			}
+			else {
+				playActive = false;
+				$(this).attr("src","Play0D.tiff");
+			}
+		});
+		/*
 		$("#playButton").toggle(
 		function() {
 			window.AppController.runAnimation_("");
@@ -303,11 +320,25 @@ $(document).ready(function(){
 		$("#playButton").mousedown(function(){
 			$(this).attr("src","Play0H.tiff");
 		});
-		/*$("#playButton").mouseleave(function(){
+		$("#playButton").mouseleave(function(){
 			$(this).attr("src","Play0D.tiff");
 		});*/
 		
-		$("#loopButton").toggle(
+		
+		$("#loopButton").mousedown(function(){
+			$(this).attr("src","Repeat0H.tiff");
+		});
+		$("#loopButton").click(function(){
+			if(!loopActive) {
+				loopActive = true;
+				$(this).attr("src","RepeatBH.tiff");
+			}
+			else {
+				loopActive = false;
+				$(this).attr("src","Repeat0D.tiff");
+			}
+		});
+		/*$("#loopButton").toggle(
 		function() {
 			window.AppController.toggleLooping_("");
 			$(this).attr("src","RepeatBH.tiff");
@@ -319,7 +350,7 @@ $(document).ready(function(){
 		$("#loopButton").mousedown(function(){
 			$(this).attr("src","Repeat0H.tiff");
 		});
-		/*$("#loopButton").mouseleave(function(){
+		$("#loopButton").mouseleave(function(){
 			$(this).attr("src","Repeat0D.tiff");
 		});*/
 		
@@ -366,15 +397,30 @@ $(document).ready(function(){
 		$("#removeButton").mouseup(function(){
 			$(this).attr("src","RemoveAnimation0D.tiff");
 		});
-		
+				
 		$("#animationSpeedInput").keydown(function(e) {
 			if (e.which == 13) {
-				//window.AppController.showMessage_($(this).attr('value'));			
-				window.AppController.setAnimationSpeed_($(this).attr('value'));
+				var inputValue = $(this).attr('value');
+				var numericExpression = /^[0-9]+$/;
+				if(inputValue.match(numericExpression)){
+					//window.AppController.showMessage_($(this).attr('value'));			
+					window.AppController.setAnimationSpeed_();
+				}
 			}
-		});
-		
+		});		
+
 });
+
+function deactivateLooping() {
+	loopActive = false;
+	$("#loopButton").attr("src","Repeat0D.tiff");
+}
+
+function deactivatePlaying() {
+	playActive = false;
+	$("#playButton").attr("src","Play0D.tiff");
+}
+
 
 </script>
 
@@ -383,6 +429,8 @@ $(document).ready(function(){
 <body>
 
 <div id="topPanels">
+
+<div id="slider"></div>
 
 <img style=" height:100%;float:right;" id="blackoutButton" src="dark-blackout.png">
 <img style="float:right;" id="recordButton" src="Record0N.tiff">
