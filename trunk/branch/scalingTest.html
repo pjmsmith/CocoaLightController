@@ -300,10 +300,12 @@ $(document).ready(function(){
 		$("#playButton").click(function(){
 			if(!playActive) {
 				playActive = true;
+				window.AppController.runAnimation_("");
 				$(this).attr("src","PlayBN.tiff");
 			}
 			else {
 				playActive = false;
+				window.AppController.runAnimation_("");
 				$(this).attr("src","Play0D.tiff");
 			}
 		});
