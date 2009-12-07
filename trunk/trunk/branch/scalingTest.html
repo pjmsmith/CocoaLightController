@@ -331,12 +331,12 @@ $(document).ready(function(){
 		$("#loopButton").click(function(){
 			if(!loopActive) {
 				loopActive = true;
-				window.AppController.runAnimation_("");
+				window.AppController.toggleLooping_("");
 				$(this).attr("src","RepeatBH.tiff");
 			}
 			else {
 				loopActive = false;
-				window.AppController.runAnimation_("");
+				window.AppController.toggleLooping_("");
 				$(this).attr("src","Repeat0D.tiff");
 			}
 		});
@@ -461,7 +461,7 @@ function deactivatePlaying() {
 		
 		<img class="actionControls" id="clearButton" src="ClearTrack0N.tiff"/>
 		<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
-		<input type="text" id="animationSpeedInput" value="2" style="float:right;width:50px;margin-right:10px;">
+		<input type="text" id="animationSpeedInput" value="0.5" style="float:right;width:50px;margin-right:10px;">
 		
 		<table style="clear:both;float:left;" border="1px" width="100%">
 		<tr><th width="10%">#</th><th width="65%">Descr.</th><th width="25%">Controls</th></tr>
