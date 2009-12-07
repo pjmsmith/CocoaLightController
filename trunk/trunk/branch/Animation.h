@@ -11,6 +11,7 @@
 
 @interface Animation : Action {
     NSMutableArray* actions;
+    NSNumber* lastActionIndex;
     NSNumber* timeBetweenSteps;
     BOOL isLooping;
     BOOL isRunning;
@@ -20,6 +21,7 @@
 @property (readwrite, retain) NSNumber* timeBetweenSteps;
 @property (readwrite) BOOL isLooping;
 @property (readwrite) BOOL isRunning;
+@property (readwrite, retain) NSNumber* lastActionIndex;
 
 - (id) initWithDetails:(NSString*)newName isLooping:(BOOL)loop time:(double)newTime;
 

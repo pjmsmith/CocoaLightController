@@ -51,8 +51,11 @@
 // This method is called from JavaScript on the web page.
 - (void)showMessage:(NSString *)message;
 - (void)setColor:(NSString *)color;
+- (void)firstAction:(NSString *)f;
+- (void)nextAction:(NSString *)n;
+- (void)prevAction:(NSString *)p;
 - (void)runAnimation:(NSString *)run;
-- (void)threadedRunAnimation;
+- (void)threadedRunAnimation:(NSNumber*)startActionIndex;
 - (void)blackout:(NSString *)black;
 - (void)recover:(NSString *)r;
 - (void)toggleRecord:(NSString *)rec;
