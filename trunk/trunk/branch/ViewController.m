@@ -408,6 +408,8 @@
     [self send:NULL];
     
     [testAnimation.actions setArray:[[NSMutableArray alloc] initWithCapacity:10]];
+	
+	[webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
 }
 
 - (void)showMessage:(NSString *)message
