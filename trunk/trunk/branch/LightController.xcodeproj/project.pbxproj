@@ -43,6 +43,9 @@
 		A2409DEE10CB2A2B00075EC1 /* ui-icons_888888_256x240.png in Resources */ = {isa = PBXBuildFile; fileRef = A2409DE010CB2A2B00075EC1 /* ui-icons_888888_256x240.png */; };
 		A2409DEF10CB2A2B00075EC1 /* ui-icons_cd0a0a_256x240.png in Resources */ = {isa = PBXBuildFile; fileRef = A2409DE110CB2A2B00075EC1 /* ui-icons_cd0a0a_256x240.png */; };
 		A2409DF010CB2A2B00075EC1 /* jquery-ui-1.7.2.custom.css in Resources */ = {isa = PBXBuildFile; fileRef = A2409DE210CB2A2B00075EC1 /* jquery-ui-1.7.2.custom.css */; };
+		A281B9A710CCB27300DFE30E /* ArcadeGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A281B9A410CCB27300DFE30E /* ArcadeGreen.png */; };
+		A281B9A810CCB27300DFE30E /* ArcadeYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = A281B9A510CCB27300DFE30E /* ArcadeYellow.png */; };
+		A281B9A910CCB27300DFE30E /* ArcadeBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = A281B9A610CCB27300DFE30E /* ArcadeBlue.png */; };
 		A28C0A6A10C7783C0077602E /* ButtonBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = A28C0A6410C7783C0077602E /* ButtonBlue.png */; };
 		A28C0A6B10C7783C0077602E /* ButtonCyan.png in Resources */ = {isa = PBXBuildFile; fileRef = A28C0A6510C7783C0077602E /* ButtonCyan.png */; };
 		A28C0A6C10C7783C0077602E /* ButtonGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A28C0A6610C7783C0077602E /* ButtonGreen.png */; };
@@ -145,6 +148,9 @@
 		A2409DE010CB2A2B00075EC1 /* ui-icons_888888_256x240.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui-icons_888888_256x240.png"; sourceTree = "<group>"; };
 		A2409DE110CB2A2B00075EC1 /* ui-icons_cd0a0a_256x240.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui-icons_cd0a0a_256x240.png"; sourceTree = "<group>"; };
 		A2409DE210CB2A2B00075EC1 /* jquery-ui-1.7.2.custom.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "jquery-ui-1.7.2.custom.css"; sourceTree = "<group>"; };
+		A281B9A410CCB27300DFE30E /* ArcadeGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArcadeGreen.png; sourceTree = "<group>"; };
+		A281B9A510CCB27300DFE30E /* ArcadeYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArcadeYellow.png; sourceTree = "<group>"; };
+		A281B9A610CCB27300DFE30E /* ArcadeBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArcadeBlue.png; sourceTree = "<group>"; };
 		A28C0A6410C7783C0077602E /* ButtonBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonBlue.png; sourceTree = "<group>"; };
 		A28C0A6510C7783C0077602E /* ButtonCyan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonCyan.png; sourceTree = "<group>"; };
 		A28C0A6610C7783C0077602E /* ButtonGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonGreen.png; sourceTree = "<group>"; };
@@ -271,6 +277,7 @@
 				A281B87810CC8AD000DFE30E /* Buttons - Controls */,
 				A2E69FF010CC7BD000638127 /* vu-on.tiff */,
 				A2E69FF110CC7BD000638127 /* vu-off.tiff */,
+				A281B9AA10CCB27B00DFE30E /* Buttons - Arcade */,
 				A28C0A6310C7783C0077602E /* Buttons - Colors */,
 				462F899110B8FB5F009B5181 /* MainMenu.xib */,
 				A2E53EC110C383910035A4BA /* testCircle.svg */,
@@ -417,6 +424,16 @@
 			name = "Buttons - Controls";
 			sourceTree = "<group>";
 		};
+		A281B9AA10CCB27B00DFE30E /* Buttons - Arcade */ = {
+			isa = PBXGroup;
+			children = (
+				A281B9A410CCB27300DFE30E /* ArcadeGreen.png */,
+				A281B9A510CCB27300DFE30E /* ArcadeYellow.png */,
+				A281B9A610CCB27300DFE30E /* ArcadeBlue.png */,
+			);
+			name = "Buttons - Arcade";
+			sourceTree = "<group>";
+		};
 		A28C0A6310C7783C0077602E /* Buttons - Colors */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +568,9 @@
 				A2E69F9810CC49C900638127 /* PlayBN.tiff in Resources */,
 				A2E69FF210CC7BD000638127 /* vu-on.tiff in Resources */,
 				A2E69FF310CC7BD000638127 /* vu-off.tiff in Resources */,
+				A281B9A710CCB27300DFE30E /* ArcadeGreen.png in Resources */,
+				A281B9A810CCB27300DFE30E /* ArcadeYellow.png in Resources */,
+				A281B9A910CCB27300DFE30E /* ArcadeBlue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
