@@ -267,41 +267,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A2E69DC910CC339100638127 /* Record1D.tiff */,
-				A2E69DCA10CC339100638127 /* Record1BN.tiff */,
-				A2E69DCB10CC339100638127 /* Record1BH.tiff */,
-				A2E69DCC10CC339100638127 /* Record0N.tiff */,
-				A2E69DCD10CC339100638127 /* Record0H.tiff */,
-				A2E69DCE10CC339100638127 /* Record0D.tiff */,
-				A2C0C11E10CB794700E46647 /* Beginning0N.tiff */,
-				A2C0C19110CB817D00E46647 /* BeginningBH.tiff */,
-				A2C0C11F10CB794700E46647 /* Beginning0D.tiff */,
-				A2C0C11A10CB793600E46647 /* FFwd0N.tiff */,
-				A2C0C19C10CB820600E46647 /* FFwdBH.tiff */,
-				A2C0C11B10CB793600E46647 /* FFwd0D.tiff */,
-				A2C0C11610CB792600E46647 /* Rewind0N.tiff */,
-				A2C0C11710CB792600E46647 /* Rewind0D.tiff */,
-				A2C0C19910CB81E600E46647 /* RewindBH.tiff */,
-				A2C0C11210CB790D00E46647 /* Repeat0H.tiff */,
-				A2C0C18B10CB815B00E46647 /* RepeatBH.tiff */,
-				A2C0C17310CB802900E46647 /* Repeat0N.tiff */,
-				A2C0C11310CB790D00E46647 /* Repeat0D.tiff */,
-				A2C0C17010CB800400E46647 /* Play0N.tiff */,
-				A2E69F9710CC49C900638127 /* PlayBN.tiff */,
-				A2C0C10E10CB790500E46647 /* Play0H.tiff */,
-				A2C0C10F10CB790500E46647 /* Play0D.tiff */,
-				A2C0C19E10CB821400E46647 /* PlayBH.tiff */,
-				A2E69E3310CC454300638127 /* ClearTrack0N.tiff */,
-				A2E69E3410CC454300638127 /* ClearTrack0H.tiff */,
-				A2E69F3F10CC474D00638127 /* RemoveAnimationBH.tiff */,
-				A2E69F4010CC474D00638127 /* RemoveAnimation0N.tiff */,
-				A2E69F4110CC474D00638127 /* RemoveAnimation0D.tiff */,
-				A2E69F4210CC474D00638127 /* RemoveAnimationBN.tiff */,
+				A281B87710CC8A9000DFE30E /* Buttons */,
+				A281B87810CC8AD000DFE30E /* Buttons - Controls */,
 				A2E69FF010CC7BD000638127 /* vu-on.tiff */,
 				A2E69FF110CC7BD000638127 /* vu-off.tiff */,
-				A2C0C08D10CB337600E46647 /* jquery-1.3.2.js */,
-				A2C0C08E10CB337600E46647 /* jquery-ui-1.7.2.js */,
-				A28C0A6310C7783C0077602E /* Buttons */,
+				A28C0A6310C7783C0077602E /* Buttons - Colors */,
 				462F899110B8FB5F009B5181 /* MainMenu.xib */,
 				A2E53EC110C383910035A4BA /* testCircle.svg */,
 				A2409DD210CB2A2B00075EC1 /* css */,
@@ -403,7 +373,51 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		A28C0A6310C7783C0077602E /* Buttons */ = {
+		A281B87710CC8A9000DFE30E /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		A281B87810CC8AD000DFE30E /* Buttons - Controls */ = {
+			isa = PBXGroup;
+			children = (
+				A2E69DCD10CC339100638127 /* Record0H.tiff */,
+				A2E69DCE10CC339100638127 /* Record0D.tiff */,
+				A2C0C11E10CB794700E46647 /* Beginning0N.tiff */,
+				A2C0C19110CB817D00E46647 /* BeginningBH.tiff */,
+				A2C0C11F10CB794700E46647 /* Beginning0D.tiff */,
+				A2C0C11A10CB793600E46647 /* FFwd0N.tiff */,
+				A2C0C19C10CB820600E46647 /* FFwdBH.tiff */,
+				A2C0C11B10CB793600E46647 /* FFwd0D.tiff */,
+				A2C0C11610CB792600E46647 /* Rewind0N.tiff */,
+				A2C0C11710CB792600E46647 /* Rewind0D.tiff */,
+				A2C0C19910CB81E600E46647 /* RewindBH.tiff */,
+				A2C0C11210CB790D00E46647 /* Repeat0H.tiff */,
+				A2C0C18B10CB815B00E46647 /* RepeatBH.tiff */,
+				A2C0C17310CB802900E46647 /* Repeat0N.tiff */,
+				A2C0C11310CB790D00E46647 /* Repeat0D.tiff */,
+				A2C0C17010CB800400E46647 /* Play0N.tiff */,
+				A2E69F9710CC49C900638127 /* PlayBN.tiff */,
+				A2C0C10E10CB790500E46647 /* Play0H.tiff */,
+				A2C0C10F10CB790500E46647 /* Play0D.tiff */,
+				A2C0C19E10CB821400E46647 /* PlayBH.tiff */,
+				A2E69E3310CC454300638127 /* ClearTrack0N.tiff */,
+				A2E69E3410CC454300638127 /* ClearTrack0H.tiff */,
+				A2E69F3F10CC474D00638127 /* RemoveAnimationBH.tiff */,
+				A2E69F4010CC474D00638127 /* RemoveAnimation0N.tiff */,
+				A2E69F4110CC474D00638127 /* RemoveAnimation0D.tiff */,
+				A2E69F4210CC474D00638127 /* RemoveAnimationBN.tiff */,
+				A2E69DC910CC339100638127 /* Record1D.tiff */,
+				A2E69DCA10CC339100638127 /* Record1BN.tiff */,
+				A2E69DCB10CC339100638127 /* Record1BH.tiff */,
+				A2E69DCC10CC339100638127 /* Record0N.tiff */,
+			);
+			name = "Buttons - Controls";
+			sourceTree = "<group>";
+		};
+		A28C0A6310C7783C0077602E /* Buttons - Colors */ = {
 			isa = PBXGroup;
 			children = (
 				A28C0A7810C786720077602E /* Bars.png */,
@@ -414,12 +428,15 @@
 				A28C0A6810C7783C0077602E /* ButtonRed.png */,
 				A28C0A6910C7783C0077602E /* ButtonYellow.png */,
 			);
+			name = "Buttons - Colors";
 			path = Buttons;
 			sourceTree = "<group>";
 		};
 		A2C0C05410CB30FC00E46647 /* js */ = {
 			isa = PBXGroup;
 			children = (
+				A2C0C08D10CB337600E46647 /* jquery-1.3.2.js */,
+				A2C0C08E10CB337600E46647 /* jquery-ui-1.7.2.js */,
 			);
 			name = js;
 			sourceTree = "<group>";
