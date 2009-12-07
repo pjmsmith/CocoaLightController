@@ -274,6 +274,7 @@
         }
         if (testAnimation.isLooping && !black_out)
         {
+            printf("working loop\n");
             [self threadedRunAnimation];
         }
         [immutableActionList dealloc];
@@ -367,9 +368,7 @@
     [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+1)]];
     [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+2)]];
     
-    [tempAction.targetValues addObject:[[NSNumber alloc] initWithInt:0]];
-    [tempAction.targetValues addObject:[[NSNumber alloc] initWithInt:0]];
-    [tempAction.targetValues addObject:[[NSNumber alloc] initWithInt:0]];
+    [self setColorHelper:tempAction.targetValues red:0 green:0 blue:0];
     
     Action* recoverAction = testLight.currentAction;
     testLight.currentAction = tempAction;
@@ -387,7 +386,19 @@
 
 - (void)clearCurrentAnimationActions:(NSString *)c
 {
-    [testAnimation.actions dealloc];
+    Action* tempAction = [Action alloc];
+    [tempAction initWithDetails:@"" numChans:3];
+    
+    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue])]];
+    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+1)]];
+    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+2)]];
+    
+    [self setColorHelper:tempAction.targetValues red:0 green:0 blue:0];
+    
+    testLight.currentAction = tempAction;
+    [testLight applyAction];
+    [self send:NULL];
+    
     [testAnimation.actions setArray:[[NSMutableArray alloc] initWithCapacity:10]];
 }
 
