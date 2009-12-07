@@ -13,6 +13,7 @@
 @synthesize actions;
 @synthesize isLooping;
 @synthesize isRunning;
+@synthesize lastActionIndex;
 @synthesize timeBetweenSteps;
 
 - (id) init

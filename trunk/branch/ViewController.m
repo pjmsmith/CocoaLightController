@@ -34,18 +34,17 @@
 	/// set up notifications
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAddPorts:) name:AMSerialPortListDidAddPortsNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRemovePorts:) name:AMSerialPortListDidRemovePortsNotification object:nil];
-	
+    
 	/// initialize port list to arm notifications
 	[AMSerialPortList sharedPortList];
     testLight = [[Light alloc] initWithDetails:@"newLight" size:[[NSNumber alloc] initWithInt:3] address:[[NSNumber alloc] initWithInt:1]];
-    testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:YES time:1];
+    testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
     [[testLight.channels objectAtIndex:0] setLabel:@"RED"];
     [[testLight.channels objectAtIndex:1] setLabel:@"GREEN"];
     [[testLight.channels objectAtIndex:2] setLabel:@"BLUE"];
 
     black_out = NO;
     isRecording = NO;
-    testAnimation.isLooping = NO;
 	[self listDevices];
 
 	// Set us up as the delegate of the webView for relevant events.
@@ -243,16 +242,56 @@
     if (aSelector == @selector(setAnimationSpeed:)) {
         return NO; // i.e. setAnimationSpeed: is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(firstAction:)) {
+        return NO; // i.e. firstAction: is NOT _excluded_ from scripting, so it can be called.
+    }
+    if (aSelector == @selector(nextAction:)) {
+        return NO; // i.e. nextAction: is NOT _excluded_ from scripting, so it can be called.
+    }
+    if (aSelector == @selector(prevAction:)) {
+        return NO; // i.e. prevAction: is NOT _excluded_ from scripting, so it can be called.
+    }
+    
     return YES; // disallow everything else
+}
+
+- (void) firstAction:(NSString*)f
+{
+    testAnimation.isRunning = NO;
+    testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:0];
+    [self runAnimation:@""];
+}
+
+- (void) nextAction:(NSString*)n
+{
+    testAnimation.isRunning = NO;
+    int num = [testAnimation.lastActionIndex intValue];
+    if (num == ([testAnimation.actions count]-1)) {
+        num = 0;
+    }
+    testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:num];
+    [self runAnimation:@""];    
+}
+
+- (void) prevAction:(NSString*)p
+{
+    testAnimation.isRunning = NO;
+    int num = [testAnimation.lastActionIndex intValue];
+    if (num == 0) {
+        num = [testAnimation.actions count]-1;
+    }
+    testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:num];
+    [self runAnimation:@""];    
 }
 
 - (void) runAnimation:(NSString*) run //string is arbitrary
 {
     testAnimation.isRunning = !testAnimation.isRunning;
+    printf("Got into runAnimation: %d\n", testAnimation.isRunning);
     if(testAnimation.isRunning && [testAnimation.actions count])
     {
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        [self performSelectorInBackground:@selector(threadedRunAnimation) withObject:nil];
+        [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:testAnimation.lastActionIndex];
         [pool release];
     }
     else {
@@ -262,18 +301,22 @@
     
 }
 
-- (void) threadedRunAnimation
+- (void) threadedRunAnimation:(NSNumber*) startActionIndex
 {
     if(testAnimation.isRunning && [testAnimation.actions count])
     {
         NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
-        for(id a in immutableActionList)
-        {
-            testLight.currentAction = (Action*)a;
+        for(int i = [startActionIndex intValue]; i < [immutableActionList count]; i++)        {
+            testLight.currentAction = (Action*)[immutableActionList objectAtIndex:i];
             [testLight applyAction];
-            if(black_out || !testAnimation.isRunning || [testAnimation.actions count] == 0)
+            if(black_out)
             {
-                
+                testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
+                break;
+            }
+            if (!testAnimation.isRunning || [testAnimation.actions count] == 0)
+            {
+                testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
                 break;
             }
             [self send:NULL];
@@ -281,7 +324,7 @@
         }
         if (testAnimation.isLooping && !black_out)
         {
-            [self threadedRunAnimation];
+            [self threadedRunAnimation:0];
         }
         [immutableActionList dealloc];
     }
@@ -386,6 +429,7 @@
 - (void)recover:(NSString *)r
 {
     black_out = NO;
+    [self runAnimation:@""];    
     [testLight applyAction];
     [self send:NULL];
 }
