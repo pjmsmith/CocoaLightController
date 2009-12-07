@@ -42,6 +42,7 @@
     [[testLight.channels objectAtIndex:0] setLabel:@"RED"];
     [[testLight.channels objectAtIndex:1] setLabel:@"GREEN"];
     [[testLight.channels objectAtIndex:2] setLabel:@"BLUE"];
+
     black_out = NO;
     isRecording = NO;
     testAnimation.isLooping = NO;
@@ -396,6 +397,7 @@
 - (void)clearCurrentAnimationActions:(NSString *)c
 {
     Action* tempAction = [Action alloc];
+    testAnimation.isRunning = NO;
     [tempAction initWithDetails:@"" numChans:3];
     [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue])]];
     [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+1)]];
