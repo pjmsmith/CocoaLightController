@@ -331,10 +331,12 @@ $(document).ready(function(){
 		$("#loopButton").click(function(){
 			if(!loopActive) {
 				loopActive = true;
+				window.AppController.runAnimation_("");
 				$(this).attr("src","RepeatBH.tiff");
 			}
 			else {
 				loopActive = false;
+				window.AppController.runAnimation_("");
 				$(this).attr("src","Repeat0D.tiff");
 			}
 		});
