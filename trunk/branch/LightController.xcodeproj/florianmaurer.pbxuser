@@ -197,6 +197,16 @@
 			A281B92D10CCA51400DFE30E /* PBXTextBookmark */ = A281B92D10CCA51400DFE30E /* PBXTextBookmark */;
 			A281B92E10CCA52300DFE30E /* PBXTextBookmark */ = A281B92E10CCA52300DFE30E /* PBXTextBookmark */;
 			A281B92F10CCA52300DFE30E /* PBXTextBookmark */ = A281B92F10CCA52300DFE30E /* PBXTextBookmark */;
+			A281B93010CCA62700DFE30E /* PBXTextBookmark */ = A281B93010CCA62700DFE30E /* PBXTextBookmark */;
+			A281B93110CCA62700DFE30E /* PBXTextBookmark */ = A281B93110CCA62700DFE30E /* PBXTextBookmark */;
+			A281B93210CCA62700DFE30E /* PBXTextBookmark */ = A281B93210CCA62700DFE30E /* PBXTextBookmark */;
+			A281B93310CCA62700DFE30E /* PBXTextBookmark */ = A281B93310CCA62700DFE30E /* PBXTextBookmark */;
+			A281B93410CCA62700DFE30E /* PBXTextBookmark */ = A281B93410CCA62700DFE30E /* PBXTextBookmark */;
+			A281B93510CCA62700DFE30E /* PBXTextBookmark */ = A281B93510CCA62700DFE30E /* PBXTextBookmark */;
+			A281B93710CCA67200DFE30E /* PBXTextBookmark */ = A281B93710CCA67200DFE30E /* PBXTextBookmark */;
+			A281B93810CCA67200DFE30E /* PBXTextBookmark */ = A281B93810CCA67200DFE30E /* PBXTextBookmark */;
+			A281B93910CCA67C00DFE30E /* PBXTextBookmark */ = A281B93910CCA67C00DFE30E /* PBXTextBookmark */;
+			A281B93A10CCA67C00DFE30E /* PBXTextBookmark */ = A281B93A10CCA67C00DFE30E /* PBXTextBookmark */;
 			A28C0A5910C4D4100077602E = A28C0A5910C4D4100077602E /* PBXTextBookmark */;
 			A28C0A5C10C4D4100077602E = A28C0A5C10C4D4100077602E /* PBXTextBookmark */;
 			A2C0C05710CB311100E46647 = A2C0C05710CB311100E46647 /* PBXBookmark */;
@@ -303,9 +313,9 @@
 	};
 	462D6CDC10B8F75100486DE6 /* ViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {952, 6258}}";
-			sepNavSelRange = "{13167, 0}";
-			sepNavVisRange = "{12348, 1550}";
+			sepNavIntBoundsRect = "{{0, 0}, {952, 6482}}";
+			sepNavSelRange = "{13099, 75}";
+			sepNavVisRange = "{13176, 958}";
 		};
 	};
 	8D1107260486CEB800E47090 /* LightController */ = {
@@ -319,7 +329,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 439";
 		rLen = 0;
-		rLoc = 10385;
+		rLoc = 10473;
 		rType = 0;
 		vrLen = 1394;
 		vrLoc = 8897;
@@ -377,7 +387,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 439";
 		rLen = 0;
-		rLoc = 10385;
+		rLoc = 10473;
 		rType = 0;
 		vrLen = 1542;
 		vrLoc = 7355;
@@ -397,7 +407,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 439";
 		rLen = 0;
-		rLoc = 10385;
+		rLoc = 10473;
 		rType = 0;
 		vrLen = 1131;
 		vrLoc = 6109;
@@ -407,7 +417,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 439";
 		rLen = 0;
-		rLoc = 10385;
+		rLoc = 10473;
 		rType = 0;
 		vrLen = 1131;
 		vrLoc = 6109;
@@ -427,7 +437,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 349";
 		rLen = 0;
-		rLoc = 7138;
+		rLoc = 7226;
 		rType = 0;
 		vrLen = 1078;
 		vrLoc = 6067;
@@ -437,7 +447,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 350";
 		rLen = 0;
-		rLoc = 7182;
+		rLoc = 7270;
 		rType = 0;
 		vrLen = 1102;
 		vrLoc = 6067;
@@ -447,7 +457,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 349";
 		rLen = 0;
-		rLoc = 7122;
+		rLoc = 7210;
 		rType = 0;
 		vrLen = 988;
 		vrLoc = 5903;
@@ -611,7 +621,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 339";
 		rLen = 0;
-		rLoc = 6854;
+		rLoc = 6942;
 		rType = 0;
 		vrLen = 979;
 		vrLoc = 5863;
@@ -621,7 +631,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 320";
 		rLen = 0;
-		rLoc = 6452;
+		rLoc = 6540;
 		rType = 0;
 		vrLen = 1039;
 		vrLoc = 4780;
@@ -631,7 +641,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 316";
 		rLen = 0;
-		rLoc = 6332;
+		rLoc = 6420;
 		rType = 0;
 		vrLen = 987;
 		vrLoc = 4932;
@@ -641,7 +651,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 372";
 		rLen = 0;
-		rLoc = 8072;
+		rLoc = 8160;
 		rType = 0;
 		vrLen = 953;
 		vrLoc = 6400;
@@ -651,7 +661,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 373";
 		rLen = 0;
-		rLoc = 7904;
+		rLoc = 7992;
 		rType = 0;
 		vrLen = 1019;
 		vrLoc = 6400;
@@ -661,7 +671,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 373";
 		rLen = 0;
-		rLoc = 7904;
+		rLoc = 7992;
 		rType = 0;
 		vrLen = 442;
 		vrLoc = 0;
@@ -681,7 +691,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 373";
 		rLen = 0;
-		rLoc = 7904;
+		rLoc = 7992;
 		rType = 0;
 		vrLen = 462;
 		vrLoc = 0;
@@ -691,7 +701,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 373";
 		rLen = 0;
-		rLoc = 7904;
+		rLoc = 7992;
 		rType = 0;
 		vrLen = 462;
 		vrLoc = 0;
@@ -711,7 +721,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 376";
 		rLen = 0;
-		rLoc = 8023;
+		rLoc = 8111;
 		rType = 0;
 		vrLen = 933;
 		vrLoc = 6740;
@@ -721,7 +731,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 377";
 		rLen = 0;
-		rLoc = 8071;
+		rLoc = 8159;
 		rType = 0;
 		vrLen = 934;
 		vrLoc = 6740;
@@ -731,7 +741,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 392";
 		rLen = 0;
-		rLoc = 8342;
+		rLoc = 8430;
 		rType = 0;
 		vrLen = 942;
 		vrLoc = 7368;
@@ -751,7 +761,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 373";
 		rLen = 0;
-		rLoc = 7744;
+		rLoc = 7832;
 		rType = 0;
 		vrLen = 1642;
 		vrLoc = 8324;
@@ -761,7 +771,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 396";
 		rLen = 0;
-		rLoc = 8368;
+		rLoc = 8456;
 		rType = 0;
 		vrLen = 959;
 		vrLoc = 7424;
@@ -771,7 +781,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 396";
 		rLen = 0;
-		rLoc = 8368;
+		rLoc = 8456;
 		rType = 0;
 		vrLen = 959;
 		vrLoc = 7424;
@@ -781,7 +791,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8367;
+		rLoc = 8455;
 		rType = 0;
 		vrLen = 940;
 		vrLoc = 7143;
@@ -791,7 +801,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8367;
+		rLoc = 8455;
 		rType = 0;
 		vrLen = 894;
 		vrLoc = 7143;
@@ -801,7 +811,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8366;
+		rLoc = 8454;
 		rType = 0;
 		vrLen = 1284;
 		vrLoc = 7502;
@@ -811,7 +821,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 384";
 		rLen = 0;
-		rLoc = 8082;
+		rLoc = 8170;
 		rType = 0;
 		vrLen = 827;
 		vrLoc = 6920;
@@ -821,7 +831,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 373";
 		rLen = 0;
-		rLoc = 7744;
+		rLoc = 7832;
 		rType = 0;
 		vrLen = 847;
 		vrLoc = 6920;
@@ -861,7 +871,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 384";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -871,7 +881,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 384";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 326;
 		vrLoc = 7175;
@@ -881,7 +891,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 384";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 810;
 		vrLoc = 7372;
@@ -891,7 +901,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 383";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -911,7 +921,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 398";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -921,7 +931,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 325";
 		rLen = 0;
-		rLoc = 6126;
+		rLoc = 6214;
 		rType = 0;
 		vrLen = 822;
 		vrLoc = 5514;
@@ -931,7 +941,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 398";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -941,7 +951,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 324";
 		rLen = 0;
-		rLoc = 6092;
+		rLoc = 6136;
 		rType = 0;
 		vrLen = 822;
 		vrLoc = 5514;
@@ -951,7 +961,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -971,7 +981,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -981,7 +991,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 324";
 		rLen = 0;
-		rLoc = 6126;
+		rLoc = 6214;
 		rType = 0;
 		vrLen = 915;
 		vrLoc = 5144;
@@ -991,7 +1001,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 398";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1001,7 +1011,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 326";
 		rLen = 0;
-		rLoc = 6140;
+		rLoc = 6228;
 		rType = 0;
 		vrLen = 897;
 		vrLoc = 5432;
@@ -1011,7 +1021,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 398";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1021,7 +1031,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 326";
 		rLen = 0;
-		rLoc = 6140;
+		rLoc = 6228;
 		rType = 0;
 		vrLen = 899;
 		vrLoc = 5432;
@@ -1031,7 +1041,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 398";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1041,7 +1051,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 326";
 		rLen = 0;
-		rLoc = 6140;
+		rLoc = 6228;
 		rType = 0;
 		vrLen = 910;
 		vrLoc = 5432;
@@ -1051,7 +1061,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1061,7 +1071,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 326";
 		rLen = 0;
-		rLoc = 6140;
+		rLoc = 6228;
 		rType = 0;
 		vrLen = 862;
 		vrLoc = 5432;
@@ -1071,7 +1081,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1091,7 +1101,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1101,7 +1111,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 323";
 		rLen = 0;
-		rLoc = 6092;
+		rLoc = 6136;
 		rType = 0;
 		vrLen = 863;
 		vrLoc = 5432;
@@ -1111,7 +1121,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 397";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1121,7 +1131,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 319";
 		rLen = 0;
-		rLoc = 6013;
+		rLoc = 6057;
 		rType = 0;
 		vrLen = 947;
 		vrLoc = 5432;
@@ -1131,7 +1141,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 398";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1141,7 +1151,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 401";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 860;
 		vrLoc = 7073;
@@ -1151,7 +1161,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 398";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1161,7 +1171,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 402";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 857;
 		vrLoc = 7635;
@@ -1171,7 +1181,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 398";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1181,7 +1191,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 402";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 857;
 		vrLoc = 7635;
@@ -1191,7 +1201,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 404";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1201,7 +1211,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 403";
 		rLen = 0;
-		rLoc = 8085;
+		rLoc = 8173;
 		rType = 0;
 		vrLen = 849;
 		vrLoc = 7635;
@@ -1211,7 +1221,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 404";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1221,7 +1231,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 399";
 		rLen = 0;
-		rLoc = 8084;
+		rLoc = 8172;
 		rType = 0;
 		vrLen = 858;
 		vrLoc = 7635;
@@ -1231,7 +1241,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 404";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1241,7 +1251,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 404";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 858;
 		vrLoc = 7635;
@@ -1251,7 +1261,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 410";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1261,7 +1271,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 407";
 		rLen = 0;
-		rLoc = 8239;
+		rLoc = 8327;
 		rType = 0;
 		vrLen = 732;
 		vrLoc = 7506;
@@ -1271,7 +1281,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 410";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1291,7 +1301,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 423";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1311,7 +1321,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 423";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1321,7 +1331,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 421";
 		rLen = 0;
-		rLoc = 8279;
+		rLoc = 8367;
 		rType = 0;
 		vrLen = 754;
 		vrLoc = 7797;
@@ -1331,7 +1341,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 423";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1341,7 +1351,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 421";
 		rLen = 0;
-		rLoc = 8279;
+		rLoc = 8367;
 		rType = 0;
 		vrLen = 754;
 		vrLoc = 7797;
@@ -1351,7 +1361,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 423";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1361,7 +1371,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 414";
 		rLen = 17;
-		rLoc = 8100;
+		rLoc = 8188;
 		rType = 0;
 		vrLen = 803;
 		vrLoc = 7747;
@@ -1381,7 +1391,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 421";
 		rLen = 0;
-		rLoc = 8279;
+		rLoc = 8367;
 		rType = 0;
 		vrLen = 754;
 		vrLoc = 7797;
@@ -1401,7 +1411,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 414";
 		rLen = 17;
-		rLoc = 8100;
+		rLoc = 8188;
 		rType = 0;
 		vrLen = 803;
 		vrLoc = 7747;
@@ -1421,7 +1431,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 423";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1441,7 +1451,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 423";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1461,7 +1471,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 423";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1481,7 +1491,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 414";
 		rLen = 17;
-		rLoc = 8100;
+		rLoc = 8188;
 		rType = 0;
 		vrLen = 803;
 		vrLoc = 7747;
@@ -1501,7 +1511,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 420";
 		rLen = 0;
-		rLoc = 8229;
+		rLoc = 8317;
 		rType = 0;
 		vrLen = 779;
 		vrLoc = 7747;
@@ -1511,7 +1521,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 423";
 		rLen = 0;
-		rLoc = 8292;
+		rLoc = 8380;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -1521,10 +1531,110 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 410";
 		rLen = 0;
-		rLoc = 8084;
+		rLoc = 8172;
 		rType = 0;
 		vrLen = 777;
 		vrLoc = 7591;
+	};
+	A281B93010CCA62700DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 425";
+		rLen = 0;
+		rLoc = 8380;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	A281B93110CCA62700DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 462D6CDC10B8F75100486DE6 /* ViewController.m */;
+		name = "ViewController.m: 412";
+		rLen = 75;
+		rLoc = 13099;
+		rType = 0;
+		vrLen = 958;
+		vrLoc = 13176;
+	};
+	A281B93210CCA62700DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 410";
+		rLen = 0;
+		rLoc = 8172;
+		rType = 0;
+		vrLen = 777;
+		vrLoc = 7591;
+	};
+	A281B93310CCA62700DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 410";
+		rLen = 0;
+		rLoc = 8172;
+		rType = 0;
+		vrLen = 777;
+		vrLoc = 7591;
+	};
+	A281B93410CCA62700DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 462D6CDC10B8F75100486DE6 /* ViewController.m */;
+		name = "ViewController.m: 412";
+		rLen = 75;
+		rLoc = 13099;
+		rType = 0;
+		vrLen = 958;
+		vrLoc = 13176;
+	};
+	A281B93510CCA62700DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 340";
+		rLen = 0;
+		rLoc = 6182;
+		rType = 0;
+		vrLen = 940;
+		vrLoc = 5382;
+	};
+	A281B93710CCA67200DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 425";
+		rLen = 0;
+		rLoc = 8380;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	A281B93810CCA67200DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 421";
+		rLen = 0;
+		rLoc = 8311;
+		rType = 0;
+		vrLen = 779;
+		vrLoc = 7835;
+	};
+	A281B93910CCA67C00DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 425";
+		rLen = 0;
+		rLoc = 8380;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	A281B93A10CCA67C00DFE30E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 416";
+		rLen = 0;
+		rLoc = 8209;
+		rType = 0;
+		vrLen = 804;
+		vrLoc = 7835;
 	};
 	A28C0A5910C4D4100077602E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1711,9 +1821,9 @@
 	};
 	A2E53EC210C383910035A4BA /* scalingTest.html */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {952, 7364}}";
-			sepNavSelRange = "{8084, 0}";
-			sepNavVisRange = "{7591, 777}";
+			sepNavIntBoundsRect = "{{0, 0}, {952, 6720}}";
+			sepNavSelRange = "{8209, 0}";
+			sepNavVisRange = "{7835, 804}";
 		};
 	};
 	A2E53F4210C38C9D0035A4BA /* PBXTextBookmark */ = {
@@ -1735,7 +1845,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 220";
 		rLen = 0;
-		rLoc = 10191;
+		rLoc = 10279;
 		rType = 0;
 		vrLen = 493;
 		vrLoc = 1403;
@@ -1921,7 +2031,7 @@
 		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
 		name = "scalingTest.html: 439";
 		rLen = 0;
-		rLoc = 10385;
+		rLoc = 10473;
 		rType = 0;
 		vrLen = 1394;
 		vrLoc = 8897;

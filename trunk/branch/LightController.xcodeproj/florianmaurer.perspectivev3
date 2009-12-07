@@ -300,7 +300,7 @@
 							<real>302</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>140 59 1337 819 0 0 1440 878 </string>
+						<string>60 59 1337 819 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -330,7 +330,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A281B92E10CCA52300DFE30E</string>
+										<string>A281B93910CCA67C00DFE30E</string>
 										<key>history</key>
 										<array>
 											<string>A2E53F4210C38C9D0035A4BA</string>
@@ -438,11 +438,11 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A281B92F10CCA52300DFE30E</string>
+										<string>A281B93A10CCA67C00DFE30E</string>
 										<key>history</key>
 										<array>
-											<string>A281B92A10CCA51400DFE30E</string>
-											<string>A281B92B10CCA51400DFE30E</string>
+											<string>A281B93110CCA62700DFE30E</string>
+											<string>A281B93210CCA62700DFE30E</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -450,6 +450,8 @@
 											<string>A281B91F10CCA4B500DFE30E</string>
 											<string>A281B92010CCA4B500DFE30E</string>
 											<string>A281B92C10CCA51400DFE30E</string>
+											<string>A281B93310CCA62700DFE30E</string>
+											<string>A281B93410CCA62700DFE30E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -465,7 +467,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1013, 572}}</string>
 								<key>RubberWindowFrame</key>
-								<string>140 59 1337 819 0 0 1440 878 </string>
+								<string>60 59 1337 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -490,7 +492,7 @@
 										<key>Frame</key>
 										<string>{{10, 27}, {1013, 174}}</string>
 										<key>RubberWindowFrame</key>
-										<string>140 59 1337 819 0 0 1440 878 </string>
+										<string>60 59 1337 819 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -765,7 +767,7 @@
 		<string>/Users/florianmaurer/Documents/LightController/trunk/branch/LightController.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>140 59 1337 819 0 0 1440 878 </string>
+	<string>60 59 1337 819 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
