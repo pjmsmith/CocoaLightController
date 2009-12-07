@@ -264,30 +264,26 @@
 
 - (void) threadedRunAnimation
 {
-    if(testAnimation.isRunning)
+    if(testAnimation.isRunning && [testAnimation.actions count])
     {
-        if([testAnimation.actions count])
+        NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
+        for(id a in immutableActionList)
         {
-            NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
-            for(id a in immutableActionList)
+            testLight.currentAction = (Action*)a;
+            [testLight applyAction];
+            if(black_out || !testAnimation.isRunning || [testAnimation.actions count] == 0)
             {
-                testLight.currentAction = (Action*)a;
-                [testLight applyAction];
-                if(black_out || !testAnimation.isRunning || [testAnimation.actions count] == 0)
-                {
-                    
-                    break;
-                }
-                [self send:NULL];
-                usleep((int)([testAnimation.timeBetweenSteps doubleValue]*1000000)); //timeInBetweenSteps
+                
+                break;
             }
-            if (testAnimation.isLooping && !black_out)
-            {
-                [self threadedRunAnimation];
-            }
-            [immutableActionList dealloc];
+            [self send:NULL];
+            usleep((int)([testAnimation.timeBetweenSteps doubleValue]*1000000)); //timeInBetweenSteps
         }
-        
+        if (testAnimation.isLooping && !black_out)
+        {
+            [self threadedRunAnimation];
+        }
+        [immutableActionList dealloc];
     }
 }
 
