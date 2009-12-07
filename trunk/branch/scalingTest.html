@@ -7,6 +7,7 @@
 body {
 	padding: 0px;
 	margin: 0px;
+	-khtml-user-select: none;
 }
 
 img {
@@ -59,7 +60,7 @@ div#centralControls {
 div#center {
 	position: relative;
 	height: 45%;
-	width: 35%;
+	width: 25%;
 	margin:0 auto;
 	top: 25%;
 	//background-color:blue;
@@ -293,12 +294,34 @@ $(document).ready(function(){
 		$("#playButton").toggle(
 		function() {
 			window.AppController.runAnimation_("");
-			$(this).attr("src","PlayBH.tiff");
+			$(this).attr("src","PlayBN.tiff");
 		},
 		function() {
 			window.AppController.runAnimation_("");
 			$(this).attr("src","Play0D.tiff");
 		});
+		$("#playButton").mousedown(function(){
+			$(this).attr("src","Play0H.tiff");
+		});
+		/*$("#playButton").mouseleave(function(){
+			$(this).attr("src","Play0D.tiff");
+		});*/
+		
+		$("#loopButton").toggle(
+		function() {
+			//window.AppController.runAnimation_("");
+			$(this).attr("src","RepeatBH.tiff");
+		},
+		function() {
+			//window.AppController.runAnimation_("");
+			$(this).attr("src","Repeat0D.tiff");
+		});
+		$("#loopButton").mousedown(function(){
+			$(this).attr("src","Repeat0H.tiff");
+		});
+		/*$("#loopButton").mouseleave(function(){
+			$(this).attr("src","Repeat0D.tiff");
+		});*/
 		
 		
 		$("#blackoutButton").toggle(
@@ -322,6 +345,35 @@ $(document).ready(function(){
 			$(this).attr("src","Record0N.tiff");
 		});
 		
+		$("#clearButton").mousedown(function(){
+			window.AppController.clearCurrentAnimationActions_("");
+			$(this).attr("src","ClearTrack0H.tiff");
+		});
+		$("#clearButton").mouseleave(function(){
+			$(this).attr("src","ClearTrack0N.tiff");
+		});
+		$("#clearButton").mouseup(function(){
+			$(this).attr("src","ClearTrack0N.tiff");
+		});
+		
+		$("#removeButton").mousedown(function(){
+			//window.AppController.clearCurrentAnimationActions_("");
+			$(this).attr("src","RemoveAnimationBH.tiff");
+		});
+		$("#removeButton").mouseleave(function(){
+			$(this).attr("src","RemoveAnimation0D.tiff");
+		});
+		$("#removeButton").mouseup(function(){
+			$(this).attr("src","RemoveAnimation0D.tiff");
+		});
+		
+		$("#animationSpeedInput").keydown(function(e) {
+			if (e.which == 13) {
+				//window.AppController.showMessage_($(this).attr('value'));			
+				window.AppController.setAnimationSpeed_($(this).attr('value'));
+			}
+		});
+		
 });
 
 </script>
@@ -334,7 +386,6 @@ $(document).ready(function(){
 
 <img style=" height:100%;float:right;" id="blackoutButton" src="dark-blackout.png">
 <img style="float:right;" id="recordButton" src="Record0N.tiff">
-<input type="text" style="float:right;width:30px;">
 </div>
 
 <div id="bottomPanels">
@@ -346,9 +397,21 @@ $(document).ready(function(){
 			<img class="aniControls" src="Rewind0D.tiff"/>
 			<img class="aniControls" id="playButton" src="Play0D.tiff"/>
 			<img class="aniControls" src="FFwd0D.tiff"/>
-			<img class="aniControls" src="Repeat0D.tiff"/>
+			<img class="aniControls" id="loopButton" src="Repeat0D.tiff"/>
 		
 		</div>
+		
+		<table style="clear:both;float:left;" border="1px" width="100%">
+		<tr><th width="10%">#</th><th width="65%">Descr.</th><th width="25%">Controls</th></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		</table>
+		
+		<img class="actionControls" id="clearButton" src="ClearTrack0N.tiff"/>
+		<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
+		<input type="text" id="animationSpeedInput" value="2" style="float:right;width:50px;margin-right:10px;">
 		
 		<table style="clear:both;float:left;" border="1px" width="100%">
 		<tr><th width="10%">#</th><th width="65%">Descr.</th><th width="25%">Controls</th></tr>
@@ -371,14 +434,14 @@ $(document).ready(function(){
 		<div id="centralControls">
 		
 			<div id="center">
-			<img style="margin: 0 auto;" height=100% src="Bars.png" />
-			<img style="margin: 0 auto;" height=100% src="Bars.png" />
-			<img style="margin: 0 auto;" height=100% src="Bars.png" />
+			<img height=100% src="vu-on.tiff"/>
+			<img style="margin:0 15%;" height=100% src="Bars.png" />
+			<img height=100% src="vu-on.tiff"/>
 			</div>
 
 			<div class="row1 colorButton" id="yellow"><div class="controls">click me</div><img src="ButtonYellow.png"/></div>
 			<div class="row1 colorButton" id="green"><div class="controls">controls</div><img src="ButtonGreen.png"/></div>
-			<div class="row1 colorButton" id="cyan"><div class="controls" onClick="alert('hi')">controls</div><img src="ButtonCyan.png"/></div>
+			<div class="row1 colorButton" id="cyan"><div class="controls">controls</div><img src="ButtonCyan.png"/></div>
 
 			<!--<div id="clear"></div>-->
 
