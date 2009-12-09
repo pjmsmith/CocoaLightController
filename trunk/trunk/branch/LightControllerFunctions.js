@@ -285,4 +285,15 @@ $("#animationSpeedInput").keydown(function(e) {
 				tolerance: 'pointer'
 			});
 				  
+				  
+		$(function() {
+		  $("#slider").slider({ min: 0, max:255});
+		});	
+		
+		$("#slider").bind('slidestop', function(event, ui) {
+			var value = $("#slider").slider('option', 'value');
+			window.AppController.setBrightness_(value);	
+			//window.AppController.showMessage_(value+" ");
+		});				  
+				  
 	  });
