@@ -27,7 +27,8 @@
     Animation *testAnimation;
     BOOL black_out;
     BOOL isRecording;
-	IBOutlet NSPopUpButton	*serialSelectMenu;
+	
+    IBOutlet NSPopUpButton	*serialSelectMenu;
 	IBOutlet NSTextField	*textField;
 	IBOutlet NSButton		*connectButton, *sendButton,
                             *redButton, *blueButton, *greenButton;
@@ -61,6 +62,7 @@
 - (void)toggleRecord:(NSString *)rec;
 - (void)toggleLooping:(NSString *)l;
 - (void)clearCurrentAnimationActions:(NSString *)c;
+- (void)setBrightness:(NSNumber *)brightness;
 
 // WebView Methods
 -(IBAction)makeTextLarger:(id)sender;
