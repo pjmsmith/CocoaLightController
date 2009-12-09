@@ -287,13 +287,17 @@ $("#animationSpeedInput").keydown(function(e) {
 				  
 				  
 		$(function() {
-		  $("#slider").slider({ min: 0, max:255});
+		  $("#slider").slider({ min: 0, max:254, step: 16});
 		});	
-		
-		$("#slider").bind('slidestop', function(event, ui) {
+				  
+		$("#slider").bind('slide', function(event, ui) {
 			var value = $("#slider").slider('option', 'value');
+			if (value > +255) {
+			value = 255;
+			}
+			$("#brightnessSliderInput").attr("value",value);
 			window.AppController.setBrightness_(value);	
-			//window.AppController.showMessage_(value+" ");
-		});				  
+							
+		});
 				  
 	  });
