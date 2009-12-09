@@ -37,12 +37,16 @@
     
 	/// initialize port list to arm notifications
 	[AMSerialPortList sharedPortList];
-    testLight = [[Light alloc] initWithDetails:@"newLight" size:[[NSNumber alloc] initWithInt:3] address:[[NSNumber alloc] initWithInt:1]];
+    testLight = [[Light alloc] initWithDetails:@"newLight" size:[[NSNumber alloc] initWithInt:7] address:[[NSNumber alloc] initWithInt:1]];
     testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
     [[testLight.channels objectAtIndex:0] setLabel:@"RED"];
     [[testLight.channels objectAtIndex:1] setLabel:@"GREEN"];
     [[testLight.channels objectAtIndex:2] setLabel:@"BLUE"];
-
+    [[testLight.channels objectAtIndex:3] setLabel:@"N/A"];
+    [[testLight.channels objectAtIndex:4] setLabel:@"N/A"];
+    [[testLight.channels objectAtIndex:5] setLabel:@"N/A"];
+    [[testLight.channels objectAtIndex:6] setLabel:@"BRIGHTNESS"];
+    ((Channel*)[testLight.channels objectAtIndex:6]).value = 255;
     black_out = NO;
     isRecording = NO;
 	[self listDevices];
@@ -251,6 +255,9 @@
     if (aSelector == @selector(prevAction:)) {
         return NO; // i.e. prevAction: is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(setBrightness:)) {
+        return NO; // i.e. setBrightness: is NOT _excluded_ from scripting, so it can be called.
+    }
     
     return YES; // disallow everything else
 }
@@ -330,6 +337,22 @@
     }
 }
 
+- (void) setBrightness:(NSNumber*)brightness
+{
+    Action* tempAction = [Action alloc];
+    [tempAction initWithDetails:@"" numChans:1];
+    
+    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+6)]];
+    [tempAction.targetValues addObject:brightness];
+    testLight.currentAction = tempAction;
+    [testLight applyAction];
+    [testLight displayState];
+    if (!testAnimation.isRunning) {
+        [self send:NULL];
+    }
+    
+}
+
 - (void) setColor:(NSString *)color
 {
     Action* tempAction = [Action alloc];
@@ -347,7 +370,7 @@
     else if ([color isEqualToString:@"green"])
 
     {
-        [self setColorHelper:tempAction.targetValues red:0 green:255 blue:0];        
+        [self setColorHelper:tempAction.targetValues red:0 green:255 blue:0];
     }
     else if ([color isEqualToString:@"blue"])
 
@@ -374,13 +397,11 @@
     {
         [testAnimation.actions addObject:tempAction];
     }
-    [testLight displayState];
     [testLight applyAction];
     [testLight displayState];
     if (!testAnimation.isRunning) {
         [self send:NULL];
-    }
-    
+    }    
 }
 
 - (void) setColorHelper:(NSMutableArray *)valueList red:(int)r green:(int)g blue:(int)b
