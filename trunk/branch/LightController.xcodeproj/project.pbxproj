@@ -46,6 +46,7 @@
 		A281B9A710CCB27300DFE30E /* ArcadeGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A281B9A410CCB27300DFE30E /* ArcadeGreen.png */; };
 		A281B9A810CCB27300DFE30E /* ArcadeYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = A281B9A510CCB27300DFE30E /* ArcadeYellow.png */; };
 		A281B9A910CCB27300DFE30E /* ArcadeBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = A281B9A610CCB27300DFE30E /* ArcadeBlue.png */; };
+		A281BA3410CCD9DB00DFE30E /* LightControllerFunctions.js in Resources */ = {isa = PBXBuildFile; fileRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */; };
 		A28C0A6A10C7783C0077602E /* ButtonBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = A28C0A6410C7783C0077602E /* ButtonBlue.png */; };
 		A28C0A6B10C7783C0077602E /* ButtonCyan.png in Resources */ = {isa = PBXBuildFile; fileRef = A28C0A6510C7783C0077602E /* ButtonCyan.png */; };
 		A28C0A6C10C7783C0077602E /* ButtonGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A28C0A6610C7783C0077602E /* ButtonGreen.png */; };
@@ -151,6 +152,7 @@
 		A281B9A410CCB27300DFE30E /* ArcadeGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArcadeGreen.png; sourceTree = "<group>"; };
 		A281B9A510CCB27300DFE30E /* ArcadeYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArcadeYellow.png; sourceTree = "<group>"; };
 		A281B9A610CCB27300DFE30E /* ArcadeBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArcadeBlue.png; sourceTree = "<group>"; };
+		A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = LightControllerFunctions.js; sourceTree = "<group>"; };
 		A28C0A6410C7783C0077602E /* ButtonBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonBlue.png; sourceTree = "<group>"; };
 		A28C0A6510C7783C0077602E /* ButtonCyan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonCyan.png; sourceTree = "<group>"; };
 		A28C0A6610C7783C0077602E /* ButtonGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonGreen.png; sourceTree = "<group>"; };
@@ -273,26 +275,20 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A281B87710CC8A9000DFE30E /* Buttons */,
+				A2E53EC210C383910035A4BA /* scalingTest.html */,
+				462F899110B8FB5F009B5181 /* MainMenu.xib */,
 				A281B87810CC8AD000DFE30E /* Buttons - Controls */,
-				A2E69FF010CC7BD000638127 /* vu-on.tiff */,
-				A2E69FF110CC7BD000638127 /* vu-off.tiff */,
+				A281BA4010CCDA2500DFE30E /* Buttons - Cocoa Test */,
 				A281B9AA10CCB27B00DFE30E /* Buttons - Arcade */,
 				A28C0A6310C7783C0077602E /* Buttons - Colors */,
-				462F899110B8FB5F009B5181 /* MainMenu.xib */,
-				A2E53EC110C383910035A4BA /* testCircle.svg */,
 				A2409DD210CB2A2B00075EC1 /* css */,
-				A2E53F3210C38B500035A4BA /* squareAspect.png */,
 				A2C0C05410CB30FC00E46647 /* js */,
-				A2E53EC210C383910035A4BA /* scalingTest.html */,
-				462D6CDE10B8F76500486DE6 /* BlueDown.png */,
-				462D6CDF10B8F76500486DE6 /* BlueUp.png */,
-				462D6CE010B8F76500486DE6 /* GreenDown.png */,
-				462D6CE110B8F76500486DE6 /* GreenUp.png */,
-				462D6CE210B8F76500486DE6 /* RedDown.png */,
-				462D6CE310B8F76500486DE6 /* RedUp.png */,
+				A2E53F3210C38B500035A4BA /* squareAspect.png */,
+				A2E53EC110C383910035A4BA /* testCircle.svg */,
 				A2409D9E10CB17B700075EC1 /* light-blackout.png */,
 				A2409D9F10CB17B700075EC1 /* dark-blackout.png */,
+				A2E69FF010CC7BD000638127 /* vu-on.tiff */,
+				A2E69FF110CC7BD000638127 /* vu-off.tiff */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
 			name = Resources;
@@ -380,13 +376,6 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		A281B87710CC8A9000DFE30E /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Buttons;
-			sourceTree = "<group>";
-		};
 		A281B87810CC8AD000DFE30E /* Buttons - Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +423,19 @@
 			name = "Buttons - Arcade";
 			sourceTree = "<group>";
 		};
+		A281BA4010CCDA2500DFE30E /* Buttons - Cocoa Test */ = {
+			isa = PBXGroup;
+			children = (
+				462D6CDE10B8F76500486DE6 /* BlueDown.png */,
+				462D6CDF10B8F76500486DE6 /* BlueUp.png */,
+				462D6CE010B8F76500486DE6 /* GreenDown.png */,
+				462D6CE110B8F76500486DE6 /* GreenUp.png */,
+				462D6CE210B8F76500486DE6 /* RedDown.png */,
+				462D6CE310B8F76500486DE6 /* RedUp.png */,
+			);
+			name = "Buttons - Cocoa Test";
+			sourceTree = "<group>";
+		};
 		A28C0A6310C7783C0077602E /* Buttons - Colors */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +454,7 @@
 		A2C0C05410CB30FC00E46647 /* js */ = {
 			isa = PBXGroup;
 			children = (
+				A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */,
 				A2C0C08D10CB337600E46647 /* jquery-1.3.2.js */,
 				A2C0C08E10CB337600E46647 /* jquery-ui-1.7.2.js */,
 			);
@@ -534,6 +537,7 @@
 				A2409DEE10CB2A2B00075EC1 /* ui-icons_888888_256x240.png in Resources */,
 				A2409DEF10CB2A2B00075EC1 /* ui-icons_cd0a0a_256x240.png in Resources */,
 				A2409DF010CB2A2B00075EC1 /* jquery-ui-1.7.2.custom.css in Resources */,
+				A281BA3410CCD9DB00DFE30E /* LightControllerFunctions.js in Resources */,
 				A2C0C08F10CB337600E46647 /* jquery-1.3.2.js in Resources */,
 				A2C0C09010CB337600E46647 /* jquery-ui-1.7.2.js in Resources */,
 				A2C0C11010CB790500E46647 /* Play0H.tiff in Resources */,
