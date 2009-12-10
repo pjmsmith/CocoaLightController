@@ -277,8 +277,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>16</integer>
-									<integer>15</integer>
+									<integer>8</integer>
 									<integer>7</integer>
 									<integer>0</integer>
 								</array>
@@ -301,7 +300,7 @@
 							<real>302</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>66 59 1337 819 0 0 1440 878 </string>
+						<string>16 10 1337 819 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -319,7 +318,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>A2E53E7C10C3659F0035A4BA</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>LightControllerFunctions.js</string>
+								<string>scalingTest.html</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>A2E53E7D10C3659F0035A4BA</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>LightControllerFunctions.js</string>
+										<string>scalingTest.html</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A219410210CF9624006CADB8</string>
+										<string>A219420E10D0A43D006CADB8</string>
 										<key>history</key>
 										<array>
 											<string>A2E53F4210C38C9D0035A4BA</string>
@@ -346,17 +345,11 @@
 											<string>A2C0C17A10CB807000E46647</string>
 											<string>A2C0C1A210CB82B400E46647</string>
 											<string>A2C0C1A310CB82B400E46647</string>
-											<string>A2E69E0010CC388A00638127</string>
-											<string>A2E69E0D10CC38D500638127</string>
-											<string>A2E69F0510CC46DE00638127</string>
 											<string>A2E69F4A10CC479100638127</string>
-											<string>A2E69F4B10CC479100638127</string>
 											<string>A2E69F4C10CC479100638127</string>
 											<string>A2E69F4F10CC479100638127</string>
 											<string>A2E69F7910CC47A500638127</string>
 											<string>A2E69F7A10CC47A500638127</string>
-											<string>A2E69F9C10CC4A1400638127</string>
-											<string>A2E69F9D10CC4A1400638127</string>
 											<string>A2E69FA910CC4ABF00638127</string>
 											<string>A281B87B10CC8B3600DFE30E</string>
 											<string>A281B87C10CC8B3600DFE30E</string>
@@ -368,14 +361,24 @@
 											<string>A281B88310CC8B3600DFE30E</string>
 											<string>A281B88410CC8B3600DFE30E</string>
 											<string>A281B88510CC8B3600DFE30E</string>
-											<string>A281B8A610CC8E4E00DFE30E</string>
 											<string>A2193EF410CF613F006CADB8</string>
 											<string>A2193F7C10CF7487006CADB8</string>
 											<string>A2193F7D10CF7487006CADB8</string>
 											<string>A219404210CF8597006CADB8</string>
 											<string>A21940B510CF8E7A006CADB8</string>
-											<string>A21940BC10CF8F24006CADB8</string>
-											<string>A21940BD10CF8F24006CADB8</string>
+											<string>A219410A10D08CDC006CADB8</string>
+											<string>A219410B10D08CDC006CADB8</string>
+											<string>A219410C10D08CDC006CADB8</string>
+											<string>A219410D10D08CDC006CADB8</string>
+											<string>A219410E10D08CDC006CADB8</string>
+											<string>A219410F10D08CDC006CADB8</string>
+											<string>A219413910D08F5E006CADB8</string>
+											<string>A219417610D0910F006CADB8</string>
+											<string>A219417710D0910F006CADB8</string>
+											<string>A219417810D0910F006CADB8</string>
+											<string>A219417910D0910F006CADB8</string>
+											<string>A219420310D0A403006CADB8</string>
+											<string>A219420410D0A403006CADB8</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -447,6 +450,72 @@
 											<string>A21940B810CF8E7A006CADB8</string>
 											<string>A21940BE10CF8F24006CADB8</string>
 											<string>A21940BF10CF8F24006CADB8</string>
+											<string>A219411210D08CDC006CADB8</string>
+											<string>A219411310D08CDC006CADB8</string>
+											<string>A219411410D08CDC006CADB8</string>
+											<string>A219411510D08CDC006CADB8</string>
+											<string>A219411610D08CDC006CADB8</string>
+											<string>A219411710D08CDC006CADB8</string>
+											<string>A219411810D08CDC006CADB8</string>
+											<string>A219411910D08CDC006CADB8</string>
+											<string>A219411F10D08D11006CADB8</string>
+											<string>A219412010D08D11006CADB8</string>
+											<string>A219412910D08DFB006CADB8</string>
+											<string>A219413F10D08F5E006CADB8</string>
+											<string>A219414010D08F5E006CADB8</string>
+											<string>A219414110D08F5E006CADB8</string>
+											<string>A219414210D08F5E006CADB8</string>
+											<string>A219414310D08F5E006CADB8</string>
+											<string>A219414410D08F5E006CADB8</string>
+											<string>A219414510D08F5E006CADB8</string>
+											<string>A219414610D08F5E006CADB8</string>
+											<string>A219414710D08F5E006CADB8</string>
+											<string>A219414810D08F5E006CADB8</string>
+											<string>A219414910D08F5E006CADB8</string>
+											<string>A219414A10D08F5E006CADB8</string>
+											<string>A219414B10D08F5E006CADB8</string>
+											<string>A219414C10D08F5E006CADB8</string>
+											<string>A219414D10D08F5E006CADB8</string>
+											<string>A219414E10D08F5E006CADB8</string>
+											<string>A219414F10D08F5E006CADB8</string>
+											<string>A219415010D08F5E006CADB8</string>
+											<string>A219415110D08F5E006CADB8</string>
+											<string>A219415210D08F5E006CADB8</string>
+											<string>A219415310D08F5E006CADB8</string>
+											<string>A219415410D08F5E006CADB8</string>
+											<string>A219415510D08F5E006CADB8</string>
+											<string>A219415610D08F5E006CADB8</string>
+											<string>A219415710D08F5E006CADB8</string>
+											<string>A219415810D08F5E006CADB8</string>
+											<string>A219415E10D09064006CADB8</string>
+											<string>A219416310D09084006CADB8</string>
+											<string>A219416410D09084006CADB8</string>
+											<string>A219416D10D090E9006CADB8</string>
+											<string>A219416E10D090E9006CADB8</string>
+											<string>A219416F10D090E9006CADB8</string>
+											<string>A219417010D090E9006CADB8</string>
+											<string>A219417110D090E9006CADB8</string>
+											<string>A219417B10D0910F006CADB8</string>
+											<string>A219417C10D0910F006CADB8</string>
+											<string>A219417D10D0910F006CADB8</string>
+											<string>A219417E10D0910F006CADB8</string>
+											<string>A219417F10D0910F006CADB8</string>
+											<string>A219418010D0910F006CADB8</string>
+											<string>A219418110D0910F006CADB8</string>
+											<string>A219418210D0910F006CADB8</string>
+											<string>A219419310D09640006CADB8</string>
+											<string>A219419E10D09703006CADB8</string>
+											<string>A21941A310D09758006CADB8</string>
+											<string>A21941B010D099DC006CADB8</string>
+											<string>A21941B110D099DC006CADB8</string>
+											<string>A21941B810D09BF6006CADB8</string>
+											<string>A21941B910D09BF6006CADB8</string>
+											<string>A21941BA10D09BF6006CADB8</string>
+											<string>A21941C910D09CDF006CADB8</string>
+											<string>A21941D210D09D2E006CADB8</string>
+											<string>A21941E210D09F07006CADB8</string>
+											<string>A21941E710D0A179006CADB8</string>
+											<string>A219420510D0A403006CADB8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -460,18 +529,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1013, 572}}</string>
+								<string>{{0, 0}, {1013, 773}}</string>
 								<key>RubberWindowFrame</key>
-								<string>66 59 1337 819 0 0 1440 878 </string>
+								<string>16 10 1337 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>572pt</string>
+							<string>773pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>201pt</string>
+							<string>0pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -485,9 +554,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1013, 174}}</string>
+										<string>{{10, 27}, {1013, -27}}</string>
 										<key>RubberWindowFrame</key>
-										<string>66 59 1337 819 0 0 1440 878 </string>
+										<string>16 10 1337 819 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -762,7 +831,7 @@
 		<string>/Users/florianmaurer/Documents/LightController/trunk/branch/LightController.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>66 59 1337 819 0 0 1440 878 </string>
+	<string>16 10 1337 819 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

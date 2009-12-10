@@ -27,6 +27,10 @@
 		462F899310B8FB5F009B5181 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462F899110B8FB5F009B5181 /* MainMenu.xib */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A219413410D08EE5006CADB8 /* NewTrackBH.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A219413010D08EE5006CADB8 /* NewTrackBH.tiff */; };
+		A219413510D08EE5006CADB8 /* NewTrack0D.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A219413110D08EE5006CADB8 /* NewTrack0D.tiff */; };
+		A219413610D08EE5006CADB8 /* NewTrack0N.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A219413210D08EE5006CADB8 /* NewTrack0N.tiff */; };
+		A219413710D08EE5006CADB8 /* NewTrackBN.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A219413310D08EE5006CADB8 /* NewTrackBN.tiff */; };
 		A2409DA010CB17B700075EC1 /* light-blackout.png in Resources */ = {isa = PBXBuildFile; fileRef = A2409D9E10CB17B700075EC1 /* light-blackout.png */; };
 		A2409DA110CB17B700075EC1 /* dark-blackout.png in Resources */ = {isa = PBXBuildFile; fileRef = A2409D9F10CB17B700075EC1 /* dark-blackout.png */; };
 		A2409DE310CB2A2B00075EC1 /* ui-bg_flat_0_aaaaaa_40x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A2409DD510CB2A2B00075EC1 /* ui-bg_flat_0_aaaaaa_40x100.png */; };
@@ -133,6 +137,10 @@
 		462F899210B8FB5F009B5181 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* LightController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A219413010D08EE5006CADB8 /* NewTrackBH.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = NewTrackBH.tiff; sourceTree = "<group>"; };
+		A219413110D08EE5006CADB8 /* NewTrack0D.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = NewTrack0D.tiff; sourceTree = "<group>"; };
+		A219413210D08EE5006CADB8 /* NewTrack0N.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = NewTrack0N.tiff; sourceTree = "<group>"; };
+		A219413310D08EE5006CADB8 /* NewTrackBN.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = NewTrackBN.tiff; sourceTree = "<group>"; };
 		A2409D9E10CB17B700075EC1 /* light-blackout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light-blackout.png"; sourceTree = "<group>"; };
 		A2409D9F10CB17B700075EC1 /* dark-blackout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark-blackout.png"; sourceTree = "<group>"; };
 		A2409DD510CB2A2B00075EC1 /* ui-bg_flat_0_aaaaaa_40x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui-bg_flat_0_aaaaaa_40x100.png"; sourceTree = "<group>"; };
@@ -379,6 +387,10 @@
 		A281B87810CC8AD000DFE30E /* Buttons - Controls */ = {
 			isa = PBXGroup;
 			children = (
+				A219413010D08EE5006CADB8 /* NewTrackBH.tiff */,
+				A219413110D08EE5006CADB8 /* NewTrack0D.tiff */,
+				A219413210D08EE5006CADB8 /* NewTrack0N.tiff */,
+				A219413310D08EE5006CADB8 /* NewTrackBN.tiff */,
 				A2E69DCD10CC339100638127 /* Record0H.tiff */,
 				A2E69DCE10CC339100638127 /* Record0D.tiff */,
 				A2C0C11E10CB794700E46647 /* Beginning0N.tiff */,
@@ -575,6 +587,10 @@
 				A281B9A710CCB27300DFE30E /* ArcadeGreen.png in Resources */,
 				A281B9A810CCB27300DFE30E /* ArcadeYellow.png in Resources */,
 				A281B9A910CCB27300DFE30E /* ArcadeBlue.png in Resources */,
+				A219413410D08EE5006CADB8 /* NewTrackBH.tiff in Resources */,
+				A219413510D08EE5006CADB8 /* NewTrack0D.tiff in Resources */,
+				A219413610D08EE5006CADB8 /* NewTrack0N.tiff in Resources */,
+				A219413710D08EE5006CADB8 /* NewTrackBN.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
