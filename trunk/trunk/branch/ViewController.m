@@ -264,42 +264,27 @@
 
 - (void) firstAction:(NSString*)f
 {
-    testAnimation.isRunning = NO;
-    testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:0];
-    [self runAnimation:@""];
+
 }
 
 - (void) nextAction:(NSString*)n
 {
-    testAnimation.isRunning = NO;
-    int num = [testAnimation.lastActionIndex intValue];
-    if (num == ([testAnimation.actions count]-1)) {
-        num = 0;
-    }
-    testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:num];
-    [self runAnimation:@""];    
+    
 }
 
 - (void) prevAction:(NSString*)p
 {
-    testAnimation.isRunning = NO;
-    int num = [testAnimation.lastActionIndex intValue];
-    if (num == 0) {
-        num = [testAnimation.actions count]-1;
-    }
-    testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:num];
-    [self runAnimation:@""];    
+    
 }
 
 - (void) runAnimation:(NSString*) run //string is arbitrary
 {
     testAnimation.isRunning = !testAnimation.isRunning;
-    printf("Got into runAnimation: %d\n", testAnimation.isRunning);
     if(testAnimation.isRunning && [testAnimation.actions count])
     {
-        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:testAnimation.lastActionIndex];
-        [pool release];
+        
+        [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:0];
+        
     }
     else {
         printf("animation already running\n");
@@ -310,20 +295,21 @@
 
 - (void) threadedRunAnimation:(NSNumber*) startActionIndex
 {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     if(testAnimation.isRunning && [testAnimation.actions count])
     {
         NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
-        for(int i = [startActionIndex intValue]; i < [immutableActionList count]; i++)        {
+        for(int i = 0; i < [immutableActionList count]; i++)        {
             testLight.currentAction = (Action*)[immutableActionList objectAtIndex:i];
             [testLight applyAction];
             if(black_out)
             {
-                testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
+                //testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
                 break;
             }
             if (!testAnimation.isRunning || [testAnimation.actions count] == 0)
             {
-                testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
+                //testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
                 break;
             }
             [self send:NULL];
@@ -335,6 +321,7 @@
         }
         [immutableActionList dealloc];
     }
+    [pool release];
 }
 
 - (void) setBrightness:(NSNumber*)brightness
@@ -350,7 +337,6 @@
     if (!testAnimation.isRunning) {
         [self send:NULL];
     }
-    
 }
 
 - (void) setColor:(NSString *)color
@@ -401,7 +387,7 @@
     [testLight displayState];
     if (!testAnimation.isRunning) {
         [self send:NULL];
-    }    
+    } 
 }
 
 - (void) setColorHelper:(NSMutableArray *)valueList red:(int)r green:(int)g blue:(int)b
