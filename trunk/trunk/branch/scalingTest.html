@@ -32,7 +32,7 @@ div#bottomPanels {
 }
 
 div#columnLeft {
-	background-color: yellow;
+	//background-color: yellow;
 	overflow:hidden;
 	width:32%;
 	overflow:hidden;
@@ -41,6 +41,9 @@ div#columnLeft {
 div#columnCenter {
 	background-color:#333;
 	width:36%;
+	border-left:1px solid black;
+	border-right:1px solid black;
+	height:100%;
 }
 
 div#columnRight {
@@ -202,7 +205,7 @@ div.keep-aspect-ratio > div > div { border:0;padding:0;margin:0;position:absolut
 
 #physicalButtons {
 	clear:both;
-	width:100%;
+	width:98%;
 	overflow:hidden;
 	//background-color:magenta;
 	border-top: 1px solid black;
@@ -230,6 +233,10 @@ div.keep-aspect-ratio > div > div { border:0;padding:0;margin:0;position:absolut
 	overflow: hidden;
 }
 
+#AnimationsLeft {
+	overflow: hidden;
+}
+
 div.animation {
 	//border: 1px solid black;
 	-webkit-border-radius: 15px;
@@ -247,7 +254,7 @@ div.animation:hover {
 
 #sliderContainer { 
 	padding: 10px;
-	width: 25%;
+	width: 40%;
 }
 
 #brightnessSliderInput {
@@ -299,19 +306,20 @@ div.animation:hover {
 		
 		</div>
 		
-		<table style="clear:both;float:left;" border="1px" width="100%">
-		<tr><th width="10%">#</th><th width="65%">Descr.</th><th width="25%">Controls</th></tr>
-		<tr><td>1</td><td>2</td><td>3</td></tr>
-		<tr><td>1</td><td>2</td><td>3</td></tr>
-		<tr><td>1</td><td>2</td><td>3</td></tr>
-		<tr><td>1</td><td>2</td><td>3</td></tr>
-		</table>
+		<div id="AnimationsLeft" style="margin:10px 0px 10px 0px;">	
+			<div class="animation">Animation 1</div>
+			<div class="animation">Animation 2</div>
+			<div class="animation">Animation 3</div>
+			<div class="animation">Animation 4</div>
+			<div class="animation">Animation 5</div>
+		</div>
 		
+		<img class="actionControls" id="newButton" src="NewTrack0D.tiff" />
 		<img class="actionControls" id="clearButton" src="ClearTrack0N.tiff"/>
 		<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
 		<input type="text" id="animationSpeedInput" value="0.5" style="float:right;width:50px;margin-right:10px;">
 		
-		<table style="clear:both;float:left;" border="1px" width="100%">
+		<!-- <table style="clear:both;float:left;" border="1px" width="100%">
 		<tr><th width="10%">#</th><th width="65%">Descr.</th><th width="25%">Controls</th></tr>
 		<tr><td>1</td><td>2</td><td>3</td></tr>
 		<tr><td>1</td><td>2</td><td>3</td></tr>
@@ -321,7 +329,7 @@ div.animation:hover {
 		<tr><td>1</td><td>2</td><td>3</td></tr>
 		<tr><td>1</td><td>2</td><td>3</td></tr>
 		<tr><td>1</td><td>2</td><td>3</td></tr>
-		</table>
+		</table> -->
 	</div>
 
 	<div id="columnCenter" class="layoutColumns">
@@ -359,6 +367,16 @@ div.animation:hover {
 	</div>
 
 	<div id="columnRight" class="layoutColumns">
+	
+		<div id="leftControls">
+		
+			<img class="aniControls" id="RfirstAction" src="Beginning0D.tiff"/>
+			<img class="aniControls" id="RprevAction" src="Rewind0D.tiff"/>
+			<img class="aniControls" id="RplayButton" src="Play0D.tiff"/>
+			<img class="aniControls" id="RnextAction" src="FFwd0D.tiff"/>
+			<img class="aniControls" id="RloopButton" src="Repeat0D.tiff"/>
+		
+		</div>	
 		<div id="AnimationsRight" style="margin-top:10px;">	
 			<div class="animation">Animation 1</div>
 			<div class="animation">Animation 2</div>
