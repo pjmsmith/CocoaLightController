@@ -143,16 +143,26 @@
 		if ([data length] > 0) {
 			
 			NSString *receivedText = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-			[textField setStringValue:receivedText];			
-			
-			//TODO: Do something meaningful with the data...
-			
-			//Typically, I arrange my serial messages coming from the Arduino in chunks, with the
-			//data being separated by a comma or semicolon. If you're doing something similar, a 
-			//variant of the following command is invaluable. 
-			
-			//NSArray *dataArray = [receivedText componentsSeparatedByString:@","];
+			NSLog(@"%@", receivedText);			
 
+            NSArray *dataArray = [receivedText componentsSeparatedByString:@","];
+            if([dataArray count]==3)
+            {
+                NSInteger cmd = [(NSString*)[dataArray objectAtIndex:0] integerValue];
+                if(cmd == 9)
+                {
+                    //button press
+                    NSInteger buttonNum = [(NSString*)[dataArray objectAtIndex:1] integerValue];
+                    printf("Button Number: %d\n", buttonNum);
+                    NSInteger state = [(NSString*)[dataArray objectAtIndex:2] integerValue];
+                    printf("State of Button %d: %d\n", buttonNum, state);
+                    
+                }
+                
+            }
+            else {
+                printf("No buttons\n");
+            }
 			
 			// continue listening
 			[sendPort readDataInBackground];
@@ -410,7 +420,10 @@
 
 - (void) setAnimationSpeed:(NSNumber *)speed
 {
-    testAnimation.timeBetweenSteps = speed;
+    if([speed doubleValue] > 0)
+    {
+        testAnimation.timeBetweenSteps = speed;
+    }
 }
 
 - (void)blackout:(NSString *)black
