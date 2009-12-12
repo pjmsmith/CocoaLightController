@@ -277,13 +277,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>8</integer>
+									<integer>16</integer>
+									<integer>15</integer>
 									<integer>7</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {302, 760}}</string>
+							<string>{{0, 5}, {302, 760}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -300,7 +301,7 @@
 							<real>302</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>16 10 1337 819 0 0 1440 878 </string>
+						<string>59 59 1337 819 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -318,7 +319,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>A2E53E7C10C3659F0035A4BA</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>scalingTest.html</string>
+								<string>LightControllerFunctions.js</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +327,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>A2E53E7D10C3659F0035A4BA</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>scalingTest.html</string>
+										<string>LightControllerFunctions.js</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A219420E10D0A43D006CADB8</string>
+										<string>A21942DB10D4649B006CADB8</string>
 										<key>history</key>
 										<array>
 											<string>A2E53F4210C38C9D0035A4BA</string>
@@ -377,8 +378,8 @@
 											<string>A219417710D0910F006CADB8</string>
 											<string>A219417810D0910F006CADB8</string>
 											<string>A219417910D0910F006CADB8</string>
-											<string>A219420310D0A403006CADB8</string>
-											<string>A219420410D0A403006CADB8</string>
+											<string>A21942C310D4629E006CADB8</string>
+											<string>A21942C410D4629E006CADB8</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -516,6 +517,25 @@
 											<string>A21941E210D09F07006CADB8</string>
 											<string>A21941E710D0A179006CADB8</string>
 											<string>A219420510D0A403006CADB8</string>
+											<string>A219421310D0A725006CADB8</string>
+											<string>A219421F10D0B4F4006CADB8</string>
+											<string>A219422710D0B729006CADB8</string>
+											<string>A219422D10D0B806006CADB8</string>
+											<string>A219423E10D45304006CADB8</string>
+											<string>A219424310D45519006CADB8</string>
+											<string>A219425F10D45775006CADB8</string>
+											<string>A219426410D458A1006CADB8</string>
+											<string>A219428210D45C4C006CADB8</string>
+											<string>A219428E10D45DC5006CADB8</string>
+											<string>A219429210D45E1E006CADB8</string>
+											<string>A219429910D45FDC006CADB8</string>
+											<string>A219429A10D45FDC006CADB8</string>
+											<string>A21942A210D46080006CADB8</string>
+											<string>A21942A310D46080006CADB8</string>
+											<string>A21942AF10D461B6006CADB8</string>
+											<string>A21942BC10D4627A006CADB8</string>
+											<string>A21942C010D46293006CADB8</string>
+											<string>A21942C510D4629E006CADB8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -529,18 +549,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1013, 773}}</string>
+								<string>{{0, 0}, {1013, 541}}</string>
 								<key>RubberWindowFrame</key>
-								<string>16 10 1337 819 0 0 1440 878 </string>
+								<string>59 59 1337 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>773pt</string>
+							<string>541pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>0pt</string>
+							<string>232pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -554,9 +574,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1013, -27}}</string>
+										<string>{{10, 27}, {1013, 205}}</string>
 										<key>RubberWindowFrame</key>
-										<string>16 10 1337 819 0 0 1440 878 </string>
+										<string>59 59 1337 819 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -831,7 +851,7 @@
 		<string>/Users/florianmaurer/Documents/LightController/trunk/branch/LightController.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>16 10 1337 819 0 0 1440 878 </string>
+	<string>59 59 1337 819 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

@@ -251,6 +251,10 @@ div.animation:hover {
 	background-color:#222;
 }
 
+div#AnimationsLeft .selected{
+	border: 1px solid #ddd;
+}
+
 
 #sliderContainer { 
 	padding: 10px;
@@ -262,6 +266,10 @@ div.animation:hover {
 	border:none;
 }
 
+#dialog {
+	//-webkit-box-shadow: 10px 10px 5px #888; padding: 5px 5px 5px 15px;
+}
+
 </style>
 
 <script src="jquery-1.3.2.js" />
@@ -269,16 +277,28 @@ div.animation:hover {
 <script src="LightControllerfunctions.js" />
 <link rel="stylesheet" type="text/css" href="jquery-ui-1.7.2.custom.css" />
 
-<script type="text/javascript">
-
-
-
-
-</script>
+<script type="text/javascript"></script>
 
 </head>
 
 <body>
+
+<div id="dialog" title="Add Light">
+
+<form id="addLight">
+<label>Name:</label><input name="lightName" type="text" value="New Light"/>
+<label>Channels:</label><select name="lightChannels"><option value="7" SELECTED>7</option></select>
+<input name="ch1" type="text" value="red" disabled/>
+<input name="ch2" type="text" value="green" disabled/>
+<input name="ch3" type="text" value="blue" disabled/>
+<input name="ch4" type="text" value="n/a" disabled/>
+<input name="ch5" type="text" value="n/a" disabled/>
+<input name="ch6" type="text" value="n/a" disabled/>
+<input name="ch7" type="text" value="brightness" disabled/><br />
+
+</form>
+
+</div>
 
 <div id="topPanels">
 
