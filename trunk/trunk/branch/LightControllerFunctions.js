@@ -330,15 +330,16 @@ $(document).ready(function(){
 								"Save": function() { 
 											$(this).dialog("close");
 											var lightName = $("input[name='lightName']").attr("value");
-											var channelNumber = $("select[name='lightChannels']").attr("value");
+											//var channelNumber = $("select[name='lightChannels']").attr("value");
+											var channelNumber = 7;
 											var channelNames = $("input[name='ch1']").attr("value");
 											for (i=2;i<=channelNumber;i++) {
 											var selector = "ch"+i;
 											channelNames = channelNames + ","+$("input[name="+selector+"]").attr("value");
 											}
-											//window.AppController.showMessage_(""+lightName+","+channelNumber+channelNames);
-											window.AppController.addLight_(lightName,channelNumber,channelNames);
-
+											//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
+											//window.AppController.addLight_(lightName,channelNumber,channelNames);
+											window.AppController.addLight_(lightName);
 										},
 								"Cancel":function() {
 											$(this).dialog("close");
