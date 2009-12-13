@@ -739,6 +739,11 @@
 			A21942EF10D46814006CADB8 /* PBXTextBookmark */ = A21942EF10D46814006CADB8 /* PBXTextBookmark */;
 			A21942F010D46814006CADB8 /* PBXTextBookmark */ = A21942F010D46814006CADB8 /* PBXTextBookmark */;
 			A21942F210D4682E006CADB8 /* PBXTextBookmark */ = A21942F210D4682E006CADB8 /* PBXTextBookmark */;
+			A21942F410D46866006CADB8 /* PBXTextBookmark */ = A21942F410D46866006CADB8 /* PBXTextBookmark */;
+			A21942F510D46866006CADB8 /* PBXTextBookmark */ = A21942F510D46866006CADB8 /* PBXTextBookmark */;
+			A21942F610D46866006CADB8 /* PBXTextBookmark */ = A21942F610D46866006CADB8 /* PBXTextBookmark */;
+			A21942F710D46866006CADB8 /* PBXTextBookmark */ = A21942F710D46866006CADB8 /* PBXTextBookmark */;
+			A21942F810D4686B006CADB8 /* PBXTextBookmark */ = A21942F810D4686B006CADB8 /* PBXTextBookmark */;
 			A23984FE10C4B1D8001A9519 = A23984FE10C4B1D8001A9519 /* PBXTextBookmark */;
 			A239850310C4B1D8001A9519 = A239850310C4B1D8001A9519 /* PBXTextBookmark */;
 			A239850410C4B1D8001A9519 = A239850410C4B1D8001A9519 /* PBXTextBookmark */;
@@ -5870,7 +5875,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 329";
 		rLen = 0;
-		rLoc = 8815;
+		rLoc = 8813;
 		rType = 0;
 		vrLen = 856;
 		vrLoc = 7171;
@@ -6060,7 +6065,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 328";
 		rLen = 0;
-		rLoc = 8812;
+		rLoc = 8810;
 		rType = 0;
 		vrLen = 876;
 		vrLoc = 7171;
@@ -6070,7 +6075,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 328";
 		rLen = 0;
-		rLoc = 8812;
+		rLoc = 8810;
 		rType = 0;
 		vrLen = 876;
 		vrLoc = 7171;
@@ -6090,7 +6095,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 328";
 		rLen = 0;
-		rLoc = 8812;
+		rLoc = 8810;
 		rType = 0;
 		vrLen = 876;
 		vrLoc = 7171;
@@ -6260,7 +6265,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 328";
 		rLen = 0;
-		rLoc = 8812;
+		rLoc = 8810;
 		rType = 0;
 		vrLen = 881;
 		vrLoc = 7166;
@@ -6280,7 +6285,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 329";
 		rLen = 0;
-		rLoc = 8815;
+		rLoc = 8813;
 		rType = 0;
 		vrLen = 936;
 		vrLoc = 7171;
@@ -6290,7 +6295,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 336";
 		rLen = 0;
-		rLoc = 8795;
+		rLoc = 8793;
 		rType = 0;
 		vrLen = 772;
 		vrLoc = 7472;
@@ -6940,7 +6945,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 350";
 		rLen = 0;
-		rLoc = 8841;
+		rLoc = 8839;
 		rType = 0;
 		vrLen = 1160;
 		vrLoc = 7706;
@@ -6960,7 +6965,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 350";
 		rLen = 0;
-		rLoc = 8841;
+		rLoc = 8839;
 		rType = 0;
 		vrLen = 1160;
 		vrLoc = 7706;
@@ -6980,7 +6985,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 351";
 		rLen = 0;
-		rLoc = 8903;
+		rLoc = 8901;
 		rType = 0;
 		vrLen = 1198;
 		vrLoc = 7706;
@@ -6990,7 +6995,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 351";
 		rLen = 0;
-		rLoc = 8903;
+		rLoc = 8901;
 		rType = 0;
 		vrLen = 1088;
 		vrLoc = 7841;
@@ -7000,7 +7005,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 342";
 		rLen = 0;
-		rLoc = 8716;
+		rLoc = 8714;
 		rType = 0;
 		vrLen = 1088;
 		vrLoc = 7841;
@@ -7020,7 +7025,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 342";
 		rLen = 0;
-		rLoc = 8716;
+		rLoc = 8714;
 		rType = 0;
 		vrLen = 1088;
 		vrLoc = 7841;
@@ -7044,6 +7049,56 @@
 		rType = 0;
 		vrLen = 1053;
 		vrLoc = 4231;
+	};
+	A21942F410D46866006CADB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 295";
+		rLen = 1;
+		rLoc = 4693;
+		rType = 0;
+		vrLen = 1053;
+		vrLoc = 4231;
+	};
+	A21942F510D46866006CADB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 342";
+		rLen = 0;
+		rLoc = 8714;
+		rType = 0;
+		vrLen = 1117;
+		vrLoc = 7812;
+	};
+	A21942F610D46866006CADB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 295";
+		rLen = 1;
+		rLoc = 4693;
+		rType = 0;
+		vrLen = 1053;
+		vrLoc = 4231;
+	};
+	A21942F710D46866006CADB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 340";
+		rLen = 0;
+		rLoc = 8672;
+		rType = 0;
+		vrLen = 1105;
+		vrLoc = 7812;
+	};
+	A21942F810D4686B006CADB8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 343";
+		rLen = 0;
+		rLoc = 8740;
+		rType = 0;
+		vrLen = 1115;
+		vrLoc = 7812;
 	};
 	A23984FE10C4B1D8001A9519 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -7173,9 +7228,9 @@
 	};
 	A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {952, 4858}}";
-			sepNavSelRange = "{8716, 0}";
-			sepNavVisRange = "{7841, 1088}";
+			sepNavIntBoundsRect = "{{0, 0}, {952, 4872}}";
+			sepNavSelRange = "{8740, 0}";
+			sepNavVisRange = "{7812, 1115}";
 		};
 	};
 	A281BABE10CCE8CA00DFE30E /* PBXTextBookmark */ = {
@@ -7381,7 +7436,7 @@
 	A2E53EC210C383910035A4BA /* scalingTest.html */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {952, 5992}}";
-			sepNavSelRange = "{4805, 0}";
+			sepNavSelRange = "{4693, 1}";
 			sepNavVisRange = "{4231, 1053}";
 		};
 	};

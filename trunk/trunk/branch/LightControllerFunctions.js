@@ -337,7 +337,7 @@ $(document).ready(function(){
 											channelNames = channelNames + ","+$("input[name="+selector+"]").attr("value");
 											}
 											//window.AppController.showMessage_(""+lightName+","+channelNumber+channelNames);
-											window.AppController.addLight_(lightName, channelNumber,channgleNames);
+											window.AppController.addLight_(lightName,channelNumber,channelNames);
 
 										},
 								"Cancel":function() {
