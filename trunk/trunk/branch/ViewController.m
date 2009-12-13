@@ -267,8 +267,8 @@
     if (aSelector == @selector(setBrightness:)) {
         return NO; // i.e. setBrightness: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(addLight:numChans:newLabels)) {
-        return NO; // i.e. addLight: is NOT _excluded_ from scripting, so it can be called.
+    if (aSelector == @selector(addLight:numChans:newLabels:)) {
+        return NO; // i.e. addLight:numChans:newLabels is NOT _excluded_ from scripting, so it can be called.
     }
     
     return YES; // disallow everything else
@@ -292,6 +292,7 @@
 - (void) addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels
 {
     NSInteger newAddr = 1;
+    printf("Adding Light...\n");
     if([lights count])
     {
         Light *lastLight = (Light*)[lights objectAtIndex:([lights count]-1)];
@@ -308,7 +309,7 @@
         i++;
     }
     ((Channel*)[newLight.channels objectAtIndex:6]).value = 255; //change this to reference the global brightness
-    //printf("%d\n", newAddr);
+    printf("%d\n", newAddr);
     
     [lights addObject:newLight];
 }
