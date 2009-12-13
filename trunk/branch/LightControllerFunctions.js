@@ -334,13 +334,13 @@ $(document).ready(function(){
 											//var channelNumber = 7;
 											var channelNames = $("input[name='ch1']").attr("value");
 											for (i=2;i<=channelNumber;i++) {
-											var selector = "ch"+i;
-											channelNames = channelNames + ","+$("input[name="+selector+"]").attr("value");
+												var selector = "ch"+i;
+												channelNames = channelNames + ","+$("input[name="+selector+"]").attr("value");
 											}
 											//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
 											//window.AppController.addLight_(lightName,channelNumber,channelNames);
-											window.AppController.addLight_(lightName+","+channelNumer+","+channelNames);
-										},
+											window.AppController.addLight_lightName_channelNumber_channelNames;
+											},
 								"Cancel":function() {
 											$(this).dialog("close");
 										}

@@ -301,7 +301,7 @@
 							<real>302</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>91 59 1337 819 0 0 1440 878 </string>
+						<string>8 59 1337 819 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -331,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A219432710D46D83006CADB8</string>
+										<string>A219433010D46FB2006CADB8</string>
 										<key>history</key>
 										<array>
 											<string>A2E53F4210C38C9D0035A4BA</string>
@@ -560,7 +560,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1013, 541}}</string>
 								<key>RubberWindowFrame</key>
-								<string>91 59 1337 819 0 0 1440 878 </string>
+								<string>8 59 1337 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -585,7 +585,7 @@
 										<key>Frame</key>
 										<string>{{10, 27}, {1013, 205}}</string>
 										<key>RubberWindowFrame</key>
-										<string>91 59 1337 819 0 0 1440 878 </string>
+										<string>8 59 1337 819 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -855,13 +855,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>A219432510D46C28006CADB8</string>
 		<string>A2193F8F10CF76A9006CADB8</string>
 		<string>A2193F9010CF76A9006CADB8</string>
 		<string>/Users/florianmaurer/Documents/LightController/trunk/branch/LightController.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>91 59 1337 819 0 0 1440 878 </string>
+	<string>8 59 1337 819 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
