@@ -41,7 +41,7 @@
     lights = [[NSMutableArray alloc] initWithCapacity:0];
     
     testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
-    [self addLight:@"newLight" numChans:[[NSNumber alloc] initWithInt:7] newLabels:@"RED,GREEN,BLUE,N/A,N/A,N/A,BRIGHTNESS"];
+    //[self addLight:@"newLight" numChans:[[NSNumber alloc] initWithInt:7] newLabels:@"RED,GREEN,BLUE,N/A,N/A,N/A,BRIGHTNESS"];
     black_out = NO;
     isRecording = NO;
 	
@@ -224,6 +224,7 @@
 		[self listDevices];
 	}
 
+
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector
 {
     // For security, you must explicitly allow a selector to be called from JavaScript.
@@ -292,7 +293,7 @@
 - (void) addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels
 {
     NSInteger newAddr = 1;
-    printf("Adding Light...\n");
+    
     if([lights count])
     {
         Light *lastLight = (Light*)[lights objectAtIndex:([lights count]-1)];
