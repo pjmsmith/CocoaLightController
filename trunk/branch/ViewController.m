@@ -37,19 +37,15 @@
     
 	/// initialize port list to arm notifications
 	[AMSerialPortList sharedPortList];
-    testLight = [[Light alloc] initWithDetails:@"newLight" size:[[NSNumber alloc] initWithInt:7] address:[[NSNumber alloc] initWithInt:1]];
+    
+    lights = [[NSMutableArray alloc] initWithCapacity:0];
+    
     testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
-    [[testLight.channels objectAtIndex:0] setLabel:@"RED"];
-    [[testLight.channels objectAtIndex:1] setLabel:@"GREEN"];
-    [[testLight.channels objectAtIndex:2] setLabel:@"BLUE"];
-    [[testLight.channels objectAtIndex:3] setLabel:@"N/A"];
-    [[testLight.channels objectAtIndex:4] setLabel:@"N/A"];
-    [[testLight.channels objectAtIndex:5] setLabel:@"N/A"];
-    [[testLight.channels objectAtIndex:6] setLabel:@"BRIGHTNESS"];
-    ((Channel*)[testLight.channels objectAtIndex:6]).value = 255;
+    //[self addLight:@"newLight" numChans:[[NSNumber alloc] initWithInt:7] newLabels:@"a,b,c,d,e,f,g"];
     black_out = NO;
     isRecording = NO;
-	[self listDevices];
+	
+    [self listDevices];
 
 	// Set us up as the delegate of the webView for relevant events.
     [webView setDrawsBackground:YES];
@@ -191,7 +187,10 @@
         if(!port) {
             [self initPort];
         }
-        [testLight sendState:port]; 
+        for(Light* l in lights)
+        {
+            [l sendState:port]; 
+        }
     }
 	
 	- (AMSerialPort *)port
@@ -268,6 +267,9 @@
     if (aSelector == @selector(setBrightness:)) {
         return NO; // i.e. setBrightness: is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(addLight:)) {
+        return NO; // i.e. addLight: is NOT _excluded_ from scripting, so it can be called.
+    }
     
     return YES; // disallow everything else
 }
@@ -285,6 +287,30 @@
 - (void) prevAction:(NSString*)p
 {
     
+}
+
+- (void) addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels
+{
+    NSInteger newAddr = 1;
+    if([lights count])
+    {
+        Light *lastLight = (Light*)[lights objectAtIndex:([lights count]-1)];
+        newAddr = [lastLight.startingAddress intValue] + [lastLight.sizeOfBlock intValue];
+    }
+    Light *newLight = [[Light alloc] initWithDetails:name size:numberOfChans address:[[NSNumber alloc] initWithInt:newAddr]];
+
+    //change channel labels
+    NSArray *labelArray = [labels componentsSeparatedByString:@","];
+    NSInteger i = 0;
+    for (Channel* c in newLight.channels)
+    {
+        c.label = [labelArray objectAtIndex:i];
+        i++;
+    }
+    ((Channel*)[newLight.channels objectAtIndex:6]).value = 255; //change this to reference the global brightness
+
+    
+    [lights addObject:newLight];
 }
 
 - (void) runAnimation:(NSString*) run //string is arbitrary
@@ -310,8 +336,12 @@
     {
         NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
         for(int i = 0; i < [immutableActionList count]; i++)        {
-            testLight.currentAction = (Action*)[immutableActionList objectAtIndex:i];
-            [testLight applyAction];
+            for(Light* l in lights) 
+            {
+                l.currentAction = (Action*)[immutableActionList objectAtIndex:i];
+                
+                [l applyAction];
+            }
             if(black_out)
             {
                 //testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
@@ -388,13 +418,17 @@
     {
         [self setColorHelper:tempAction.targetValues red:180 green:75 blue:0];        
     }
-    testLight.currentAction = tempAction;
+    
+    for(Light* l in lights)
+    {
+        testLight.currentAction = tempAction;
+        [testLight applyAction];
+        [testLight displayState];
+    }
     if (isRecording)
     {
         [testAnimation.actions addObject:tempAction];
     }
-    [testLight applyAction];
-    [testLight displayState];
     if (!testAnimation.isRunning) {
         [self send:NULL];
     } 
