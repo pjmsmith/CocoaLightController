@@ -194,7 +194,7 @@ void AMSerialPortWasRemovedNotification(void *refcon, io_iterator_t iterator);
 		[serialPort close];
 		
 		[portList removeObject:serialPort];
-		[removedPorts addObject:serialPort];
+		//[removedPorts addObject:serialPort];
 	}
 
 	NSNotificationCenter* notifCenter = [NSNotificationCenter defaultCenter];

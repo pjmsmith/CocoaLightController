@@ -216,12 +216,14 @@
 	{
 		NSLog(@"A port was added");
 		[self listDevices];
+        [connectButton setEnabled:YES];
 	}
 	
 	- (void)didRemovePorts:(NSNotification *)theNotification
 	{
 		NSLog(@"A port was removed");
 		[self listDevices];
+        [connectButton setEnabled:YES];
 	}
 
 
@@ -310,8 +312,8 @@
         i++;
     }
     ((Channel*)[newLight.channels objectAtIndex:6]).value = 255; //change this to reference the global brightness
-    printf("%d\n", newAddr);
-    
+    [newLight displayState];
+
     [lights addObject:newLight];
 }
 
@@ -324,7 +326,8 @@
         [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:0];
         
     }
-    else {
+    else 
+    {
         printf("animation already running\n");
     }
 
@@ -368,16 +371,21 @@
 
 - (void) setBrightness:(NSNumber*)brightness
 {
-    Action* tempAction = [Action alloc];
-    [tempAction initWithDetails:@"" numChans:1];
+    Action* tempAction;
     
-    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+6)]];
-    [tempAction.targetValues addObject:brightness];
-    testLight.currentAction = tempAction;
-    [testLight applyAction];
-    [testLight displayState];
-    if (!testAnimation.isRunning) {
-        [self send:NULL];
+    for (Light* l in lights)
+    {
+        tempAction = [Action alloc];
+        [tempAction initWithDetails:@"" numChans:1];
+        [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([l.startingAddress intValue]+6)]];
+        [tempAction.targetValues addObject:brightness];
+        l.currentAction = tempAction;
+        [l applyAction];
+        [l displayState];
+        if (!testAnimation.isRunning) {
+            [self send:NULL];
+        }
+        [tempAction release];
     }
 }
 
@@ -386,46 +394,54 @@
     Action* tempAction = [Action alloc];
     NSLog(@"%@", color);
     [tempAction initWithDetails:@"" numChans:3];
-    
-    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue])]];
-    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+1)]];
-    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+2)]];
 
     if ([color isEqualToString:@"red"])
     {
         [self setColorHelper:tempAction.targetValues red:255 green:0 blue:0];        
     }
     else if ([color isEqualToString:@"green"])
-
     {
         [self setColorHelper:tempAction.targetValues red:0 green:255 blue:0];
     }
     else if ([color isEqualToString:@"blue"])
-
     {
         [self setColorHelper:tempAction.targetValues red:0 green:75 blue:255];        
-
     }
     else if ([color isEqualToString:@"cyan"])
     {
         [self setColorHelper:tempAction.targetValues red:0 green:255 blue:255];        
-
     }
     else if ([color isEqualToString:@"magenta"])
     {
         [self setColorHelper:tempAction.targetValues red:255 green:0 blue:255];        
-
     }
     else if ([color isEqualToString:@"yellow"])
     {
         [self setColorHelper:tempAction.targetValues red:180 green:75 blue:0];        
     }
+    else if ([color isEqualToString:@"white"])
+    {
+        [self setColorHelper:tempAction.targetValues red:255 green:255 blue:255];        
+    }
+    else if ([color isEqualToString:@"black"])
+    {
+        [self setColorHelper:tempAction.targetValues red:0 green:0 blue:0];        
+    }
     
+    NSMutableArray* newTargetChannels = [[NSMutableArray alloc] initWithCapacity:3];
     for(Light* l in lights)
     {
+        [newTargetChannels addObject:l.startingAddress];
+        [newTargetChannels addObject:[[NSNumber alloc] initWithInt:([l.startingAddress intValue]+1)]];
+        [newTargetChannels addObject:[[NSNumber alloc] initWithInt:([l.startingAddress intValue]+2)]];
+
+        [tempAction.targetChannels setArray: newTargetChannels];
         l.currentAction = tempAction;
         [l applyAction];
         [l displayState];
+        [newTargetChannels removeLastObject];
+        [newTargetChannels removeLastObject];
+        [newTargetChannels removeLastObject];    
     }
     if (isRecording)
     {

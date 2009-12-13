@@ -24,7 +24,7 @@
 
 	AMSerialPort *port;
     
-    NSMutableArray *lights;
+    NSMutableArray* lights;
     
 	Light *testLight;
     Animation *testAnimation;

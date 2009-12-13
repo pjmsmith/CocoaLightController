@@ -1,6 +1,6 @@
 var loopActive = false;
 var playActive = false;
-
+var dialogActive = false;
 
 function deactivateLooping() {
 	loopActive = false;
@@ -15,24 +15,32 @@ function deactivatePlaying() {
 $(document).ready(function(){
 	//window.AppController.showMessage_("jquery works");
 	$("body").keypress(function(e){
-	   if (e.which == 117) { //u
-	   window.AppController.setColor_("yellow");			
-		} 
-		if (e.which == 105) { //i
-		   window.AppController.setColor_("green");			
-		} 
-		if (e.which == 111) { //o
-			window.AppController.setColor_("cyan");			
-		} 
-		if (e.which == 106) { //j
-			window.AppController.setColor_("red");			
-		}
-		if (e.which == 107) { //k
-			window.AppController.setColor_("magenta");			
-		} 
-		if (e.which == 108) { //l
-			window.AppController.setColor_("blue");			
-		}  
+        if (!dialogActive) {
+            if (e.which == 117) { //u
+               window.AppController.setColor_("yellow");			
+            } 
+            if (e.which == 105) { //i
+               window.AppController.setColor_("green");			
+            } 
+            if (e.which == 111) { //o
+                window.AppController.setColor_("cyan");			
+            } 
+            if (e.which == 106) { //j
+                window.AppController.setColor_("red");			
+            }
+            if (e.which == 107) { //k
+                window.AppController.setColor_("magenta");			
+            } 
+            if (e.which == 108) { //l
+                window.AppController.setColor_("blue");			
+            }
+            if (e.which == 109) { //m
+                window.AppController.setColor_("white");
+            }
+            if (e.which == 44) { //,
+                window.AppController.setColor_("black");
+            }
+        }
 	});
 
 	$(".colorButton").click(function(){
@@ -329,6 +337,7 @@ $(document).ready(function(){
 						   buttons: { 
 								"Save": function() { 
 											$(this).dialog("close");
+                                            dialogActive = false;
 											var lightName = $("input[name='lightName']").attr("value");
 											//var channelNumber = $("select[name='lightChannels']").attr("value");
 											var channelNumber = 7;
@@ -343,6 +352,7 @@ $(document).ready(function(){
 											},
 								"Cancel":function() {
 											$(this).dialog("close");
+                                            dialogActive = false;
 										}
 							} 
 						});
@@ -350,6 +360,7 @@ $(document).ready(function(){
 
 				  $("#addLightButton").click(function() {
 											 $("#dialog").dialog('open');
+                                             dialogActive = true;
 				});
 				  
 				  });
