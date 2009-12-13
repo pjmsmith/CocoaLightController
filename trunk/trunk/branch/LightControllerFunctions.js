@@ -330,8 +330,8 @@ $(document).ready(function(){
 								"Save": function() { 
 											$(this).dialog("close");
 											var lightName = $("input[name='lightName']").attr("value");
-											var channelNumber = $("select[name='lightChannels']").attr("value");
-											//var channelNumber = 7;
+											//var channelNumber = $("select[name='lightChannels']").attr("value");
+											var channelNumber = 7;
 											var channelNames = $("input[name='ch1']").attr("value");
 											for (i=2;i<=channelNumber;i++) {
 												var selector = "ch"+i;
@@ -339,7 +339,7 @@ $(document).ready(function(){
 											}
 											//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
 											//window.AppController.addLight_(lightName,channelNumber,channelNames);
-											window.AppController.addLight_lightName_channelNumber_channelNames;
+											window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
 											},
 								"Cancel":function() {
 											$(this).dialog("close");
