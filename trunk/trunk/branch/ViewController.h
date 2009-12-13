@@ -23,6 +23,9 @@
 @interface ViewController : NSObject {
 
 	AMSerialPort *port;
+    
+    NSMutableArray *lights;
+    
 	Light *testLight;
     Animation *testAnimation;
     BOOL black_out;
@@ -63,6 +66,7 @@
 - (void)toggleLooping:(NSString *)l;
 - (void)clearCurrentAnimationActions:(NSString *)c;
 - (void)setBrightness:(NSNumber *)brightness;
+- (void)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels;
 
 // WebView Methods
 -(IBAction)makeTextLarger:(id)sender;
