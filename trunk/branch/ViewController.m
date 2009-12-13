@@ -41,7 +41,7 @@
     lights = [[NSMutableArray alloc] initWithCapacity:0];
     
     testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
-    //[self addLight:@"newLight" numChans:[[NSNumber alloc] initWithInt:7] newLabels:@"a,b,c,d,e,f,g"];
+    [self addLight:@"newLight" numChans:[[NSNumber alloc] initWithInt:7] newLabels:@"RED,GREEN,BLUE,N/A,N/A,N/A,BRIGHTNESS"];
     black_out = NO;
     isRecording = NO;
 	
@@ -267,7 +267,7 @@
     if (aSelector == @selector(setBrightness:)) {
         return NO; // i.e. setBrightness: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(addLight:)) {
+    if (aSelector == @selector(addLight:numChans:newLabels)) {
         return NO; // i.e. addLight: is NOT _excluded_ from scripting, so it can be called.
     }
     
@@ -308,7 +308,7 @@
         i++;
     }
     ((Channel*)[newLight.channels objectAtIndex:6]).value = 255; //change this to reference the global brightness
-
+    //printf("%d\n", newAddr);
     
     [lights addObject:newLight];
 }
@@ -421,9 +421,9 @@
     
     for(Light* l in lights)
     {
-        testLight.currentAction = tempAction;
-        [testLight applyAction];
-        [testLight displayState];
+        l.currentAction = tempAction;
+        [l applyAction];
+        [l displayState];
     }
     if (isRecording)
     {
