@@ -346,4 +346,9 @@ $(document).ready(function(){
 							} 
 						});
 
-});
+
+				  $("#addLightButton").click(function() {
+											 $("#dialog").dialog('open');
+				});
+				  
+				  });
