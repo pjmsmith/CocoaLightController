@@ -17,7 +17,6 @@
     NSString* name;
     NSNumber* sizeOfBlock; //# of channels
     NSNumber* startingAddress;
-    NSMutableArray* channels; //list of channels
     BOOL changed;
     Action* currentAction; //current action
 }
@@ -31,7 +30,6 @@
 - (id) initWithDetails: (NSString*)newName size:(NSNumber*)newSize address:(NSNumber*)newAddress;
 - (void) displayState;
 - (NSInteger) sendState: (AMSerialPort*) port; //needs to know which port to send to
-- (NSString*) numberToTriple: (NSNumber*) num;
 - (void) applyAction;
 
 @end

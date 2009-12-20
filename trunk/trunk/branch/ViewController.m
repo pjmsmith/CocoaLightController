@@ -38,7 +38,11 @@
 	/// initialize port list to arm notifications
 	[AMSerialPortList sharedPortList];
     
-    lights = [[NSMutableArray alloc] initWithCapacity:0];
+    lights = [[NSMutableArray alloc] initWithCapacity:1];
+    animations = [[NSMutableArray alloc] initWithCapacity:1];
+    channels = [[NSMutableArray alloc] initWithCapacity:7];
+    names = [[NSMutableDictionary alloc] initWithCapacity:1];
+    
     
     testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
     //[self addLight:@"newLight" numChans:[[NSNumber alloc] initWithInt:7] newLabels:@"RED,GREEN,BLUE,N/A,N/A,N/A,BRIGHTNESS"];
@@ -292,7 +296,39 @@
     
 }
 
-- (void) addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels
+- (void) addChannels:(NSNumber *)numberOfChans newLabels:(NSArray *)labelArray startingAddr:(NSInteger)addr
+{
+    NSInteger address = addr;
+    for(int i = 0; i<[numberOfChans intValue]; i++)
+    {
+        [channels addObject:[[Channel alloc] initWithDetails:[labelArray objectAtIndex:i] addr:address val:0]];
+        if([(NSString*)[labelArray objectAtIndex:i] caseInsensitiveCompare:@"brightness"]==NSOrderedSame)
+        {
+            ((Channel*)[channels objectAtIndex:((addr-1)+i)]).value = 255;
+        }
+        address++; 
+    }    
+}
+
+- (NSString*)addLightName:(NSString*)name
+{
+    if([names objectForKey:name]==nil)
+    {
+        NSMutableArray* nameList = [[NSMutableArray alloc] initWithCapacity:1];
+        [nameList addObject:name];
+        [names setObject:nameList forKey:name];
+        return name;
+    }
+    else 
+    {
+        NSString* newName = [[NSString alloc] initWithFormat:@"%@ (%d)", name,([((NSMutableArray*)[names objectForKey:name]) count]+1)]; 
+        [((NSMutableArray*)[names objectForKey:name]) addObject:newName];
+        NSLog(@"%@", newName);
+        return newName;
+    }
+}
+
+- (NSString*) addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels
 {
     NSInteger newAddr = 1;
     
@@ -301,20 +337,22 @@
         Light *lastLight = (Light*)[lights objectAtIndex:([lights count]-1)];
         newAddr = [lastLight.startingAddress intValue] + [lastLight.sizeOfBlock intValue];
     }
-    Light *newLight = [[Light alloc] initWithDetails:name size:numberOfChans address:[[NSNumber alloc] initWithInt:newAddr]];
-
-    //change channel labels
+    NSString* retString = [self addLightName:name];
+    
+    Light *newLight = [[Light alloc] initWithDetails:retString size:numberOfChans address:[[NSNumber alloc] initWithInt:newAddr]];
+    printf("%d\n",newAddr);
+    //add channels
     NSArray *labelArray = [labels componentsSeparatedByString:@","];
-    NSInteger i = 0;
-    for (Channel* c in newLight.channels)
-    {
-        c.label = [labelArray objectAtIndex:i];
-        i++;
-    }
-    ((Channel*)[newLight.channels objectAtIndex:6]).value = 255; //change this to reference the global brightness
-    [newLight displayState];
+    [self addChannels:numberOfChans newLabels:labelArray startingAddr:newAddr];
+    
+    
+    //((Channel*)[newLight.channels objectAtIndex:6]).value = 255; //change this to reference the global brightness
+    
+    [self displayState:newLight];
 
     [lights addObject:newLight];
+    
+    return retString;
 }
 
 - (void) runAnimation:(NSString*) run //string is arbitrary
@@ -532,6 +570,38 @@
     // in the HTML. This shows you how to have HTML form elements call Cocoa methods.
     
     NSRunAlertPanel(@"Message from JavaScript", message, nil, nil, nil);
+}
+
+/* For debugging purposes */
+- (void) displayState:(id)d
+{
+    if([d isKindOfClass:[Light class]])
+    {
+        Light* l = (Light*)d;
+        NSLog(@"%@", l.name);
+        NSLog(@"--------------");
+        for(int i = 0; i < [l.sizeOfBlock intValue]; i++)
+        {
+            [((Channel*)[channels objectAtIndex:(([l.startingAddress intValue]-1)+i)]) display];
+        }
+    }
+    
+}
+
+- (NSString*) numberToTriple: (NSNumber*) num
+{
+    NSString* triple;
+    if ([num intValue] < 10) {
+        triple = [NSString stringWithFormat:@"00%d", [num intValue]];
+    }
+    else if ([num intValue] < 100) {
+        triple = [NSString stringWithFormat:@"0%d", [num intValue]];
+    }
+    else {
+        triple = [NSString stringWithFormat:@"%d", [num intValue]];
+    }
+    
+    return triple;
 }
 
 //Added methods to disable functions:

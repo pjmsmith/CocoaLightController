@@ -1,6 +1,6 @@
 var loopActive = false;
 var playActive = false;
-var dialogActive = false;
+var dialogActive = true;
 
 function deactivateLooping() {
 	loopActive = false;
