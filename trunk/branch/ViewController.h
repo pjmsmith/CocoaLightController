@@ -25,9 +25,14 @@
 	AMSerialPort *port;
     
     NSMutableArray* lights;
+    NSMutableArray* channels;
+    NSMutableArray* animations;
+    NSMutableDictionary* names;
     
 	Light *testLight;
     Animation *testAnimation;
+    
+    
     BOOL black_out;
     BOOL isRecording;
 	
@@ -66,7 +71,9 @@
 - (void)toggleLooping:(NSString *)l;
 - (void)clearCurrentAnimationActions:(NSString *)c;
 - (void)setBrightness:(NSNumber *)brightness;
-- (void)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels;
+- (NSString*)addLightName:(NSString *)name;
+- (NSString*)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels;
+- (void)addChannels:(NSNumber *)numberOfChans newLabels:(NSArray *)labelArray startingAddr:(NSInteger)addr;
 
 // WebView Methods
 -(IBAction)makeTextLarger:(id)sender;
@@ -74,6 +81,9 @@
 
 //Helper methods
 -(void)setColorHelper:(NSMutableArray *) valueList red:(int)r green:(int)g blue:(int)b;
+-(NSString*) numberToTriple: (NSNumber*) num;
+-(void)displayState:(id)d;
+
 
 //@property (nonatomic, retain) IBOutlet NSPopUpButton *serialSelectMenu;
 //@property (nonatomic, retain) IBOutlet NSTextField	 *textField;
