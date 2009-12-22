@@ -28,8 +28,6 @@
 @property (readwrite, retain) Action* currentAction;
 
 - (id) initWithDetails: (NSString*)newName size:(NSNumber*)newSize address:(NSNumber*)newAddress;
-- (void) displayState;
-- (NSInteger) sendState: (AMSerialPort*) port; //needs to know which port to send to
-- (void) applyAction;
 
 @end
+

@@ -17,6 +17,7 @@
 #import <Cocoa/Cocoa.h>
 #import "AMSerialPort.h"
 #import "Light.h"
+#import "Group.h"
 #import <WebKit/WebKit.h>
 
 
@@ -24,14 +25,21 @@
 
 	AMSerialPort *port;
     
-    NSMutableArray* lights;
     NSMutableArray* channels;
+    NSMutableArray* stateChange;
+    
+    NSMutableArray* lights;
+    NSMutableArray* groups;
     NSMutableArray* animations;
-    NSMutableDictionary* names;
+
+    NSMutableDictionary* lightNames;
+    NSMutableDictionary* groupNames;
+    NSMutableDictionary* animationNames;
+    
+    NSInteger globalBrightness;
     
 	Light *testLight;
-    Animation *testAnimation;
-    
+    Animation *testAnimation;    
     
     BOOL black_out;
     BOOL isRecording;
@@ -59,7 +67,7 @@
 
 // This method is called from JavaScript on the web page.
 - (void)showMessage:(NSString *)message;
-- (void)setColor:(NSString *)color;
+- (void)setColor:(NSString *)color selectString:(NSString*)selString;
 - (void)firstAction:(NSString *)f;
 - (void)nextAction:(NSString *)n;
 - (void)prevAction:(NSString *)p;
@@ -71,7 +79,8 @@
 - (void)toggleLooping:(NSString *)l;
 - (void)clearCurrentAnimationActions:(NSString *)c;
 - (void)setBrightness:(NSNumber *)brightness;
-- (NSString*)addLightName:(NSString *)name;
+- (NSString*)addGroup:(NSString *)name selected:(NSString *)selectLights;
+- (NSString*)addName:(NSString *)name dict:(NSMutableDictionary *)names;
 - (NSString*)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels;
 - (void)addChannels:(NSNumber *)numberOfChans newLabels:(NSArray *)labelArray startingAddr:(NSInteger)addr;
 
@@ -83,7 +92,11 @@
 -(void)setColorHelper:(NSMutableArray *) valueList red:(int)r green:(int)g blue:(int)b;
 -(NSString*) numberToTriple: (NSNumber*) num;
 -(void)displayState:(id)d;
-
+-(Action *)diffChannels;
+-(void)changeState:(Action *)action;
+-(void)applyState:(Action *)action;
+- (NSMutableArray*)getColorChannels:(Light*)l;
+- (Action*) buildColorAction:(NSMutableArray*)lightArray color:(NSString*)color;
 
 //@property (nonatomic, retain) IBOutlet NSPopUpButton *serialSelectMenu;
 //@property (nonatomic, retain) IBOutlet NSTextField	 *textField;
