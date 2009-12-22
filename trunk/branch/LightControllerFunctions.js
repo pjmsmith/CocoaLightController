@@ -498,10 +498,12 @@ $(document).ready(function(){
 				  
 				  $("#tempGroupNameInput").blur(function(){
 												$("#tempGroupNameInput").hide();
-												//var tempGroupName = $(this).attr("value");
-												var selectedLightsforGroup = $()
-												tempGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup);
+												var tempGroupName = $(this).attr("value");
+												var passedGroupName ="";
 												var lightsInGroup = "";
+												
+												passedGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup);
+												
 												$("#lightList > .selected").each(function(){
 													 lightsInGroup += "<li>"+$(this).text()+"</li>";
 												})
