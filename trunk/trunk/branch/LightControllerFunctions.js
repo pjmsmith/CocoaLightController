@@ -337,17 +337,17 @@ $(document).ready(function(){
 
 
 	$(function() {
-	  $("#slider").slider({ min: 0, max:255, step: 15,value:255});
-	  $("#sliderleft").slider({ min: 0, max:255, step: 15,value:255,orientation: 'vertical'});
-	  $("#slidercenter").slider({ min: 0, max:255, step: 15,value:255,orientation: 'vertical'});
-	  $("#sliderright").slider({ min: 0, max:255, step: 15,value:255,orientation: 'vertical'});
+        $("#slider").slider({ min: 0, max:255, step: 15,value:255});
+        $("#sliderleft").slider({ min: 0, max:255, step: 15,value:255,orientation: 'vertical'});
+        $("#slidercenter").slider({ min: 0, max:255, step: 15,value:255,orientation: 'vertical'});
+        $("#sliderright").slider({ min: 0, max:255, step: 15,value:255,orientation: 'vertical'});
 	});	
 
 	$("#slider").bind('slide', function(event, ui) {
 		//var value = $("#slider").slider('option', 'value');
 		var value = ui.value;			  
 		if (value > 255) {
-					  value = 255;
+            value = 255;
 		}
 		$("#brightnessSliderInput").attr("value",value);
 		window.AppController.setBrightness_selectString_(value,getSelectedLights());
@@ -394,7 +394,7 @@ $(document).ready(function(){
 
     $("#dialog").dialog("close");
 				  
-    $("#dialog").keyup(function(e) {
+    $("body").keyup(function(e) {
         if (e.keyCode == 13) {
             if(dialogActive){	
                 addLight();
@@ -403,18 +403,18 @@ $(document).ready(function(){
     });
 				  
 				  
-    $(".animation").live("click",function(){
+    $(".animation").live("click",function() {
         $(".animation").removeClass("selected");		
         $(this).toggleClass("selected");
     });
 				  
-    $(".animation > .animationControlRemove").live("click",function(){
+    $(".animation > .animationControlRemove").live("click",function() {
         $(this).parents(".animation").fadeOut("slow");
     });
 	  
-    $("#filterList > *").live("click",function(){
+    $("#filterList > *").live("click",function() {
         //$(this).toggleClass("selected");
-        if ($(this).hasClass("selected")){
+        if ($(this).hasClass("selected")) {
             $(this).removeClass("selected");
         }
         else {
@@ -495,20 +495,22 @@ $(document).ready(function(){
             $("#tempGroupNameInput").focus();
         });
     });
+    
+    $("#tempGroupNameInput").keyup(function(e) {
+        if (e.keyCode == 13) {
+            if(!$(this).is(':hidden')){	
+                $("#tempGroupNameInput").hide();
+                $(this).getGroupNameInput();
+            }
+        }
+    });
+                                                 
 				  
     $("#tempGroupNameInput").blur(function(){
-        $("#tempGroupNameInput").hide();
-        var tempGroupName = $(this).attr("value");
-        var passedGroupName ="";
-        var lightsInGroup = "";
-
-        passedGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup());
-
-        $("#lightList > .selected").each(function(){
-        lightsInGroup += "<li>"+$(this).text()+"</li>";
-                                         });
-        $("#groupList").append("<li name='"+passedGroupName+"'>"+passedGroupName+"<ul class='lightsInGroup'>"+lightsInGroup+"</ul></li>");
-
+        if(!$(this).is(':hidden')){	
+            $("#tempGroupNameInput").hide();
+            $(this).getGroupNameInput();
+        }
     });
 				  
 
@@ -627,4 +629,17 @@ function getSelectedLightsForGroup() {
     selected = selected.substring(0, selected.length-1);;
     //window.AppController.showMessage_(selected);
     return selected;
+}
+
+jQuery.fn.getGroupNameInput = function() {
+    var tempGroupName = $(this).attr("value");
+    var passedGroupName ="";
+    var lightsInGroup = "";
+    
+    passedGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup());
+    
+    $("#lightList > .selected").each(function(){
+                                     lightsInGroup += "<li>"+$(this).text()+"</li>";
+                                     });
+    $("#groupList").append("<li name='"+passedGroupName+"'>"+passedGroupName+"<ul class='lightsInGroup'>"+lightsInGroup+"</ul></li>");
 }
