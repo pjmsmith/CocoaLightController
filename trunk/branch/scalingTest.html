@@ -9,6 +9,7 @@ body {
 	margin: 0px;
 	-khtml-user-select: none;
 	background-color:#333;
+	overflow:hidden;
 }
 
 img {
@@ -35,21 +36,22 @@ div#columnLeft {
 	//background-color: yellow;
 	overflow:hidden;
 	width:32%;
-	overflow:hidden;
 }
 
 div#columnCenter {
-	background-color:#333;
+	background-color:#222;
 	width:36%;
-	border-left:1px solid black;
-	border-right:1px solid black;
+	//border-left:1px solid black;
+	//border-right:1px solid black;
 	height:100%;
 }
 
 div#columnRight {
-	background-color:#333;
+	//background-color:#123;
+	padding:0;
 	width:32%;
-	//border-left:1px solid black;
+	//border-left:2px solid black;
+	float:right;
 
 }
 
@@ -63,7 +65,7 @@ div#centralControls {
 div#center {
 	position: relative;
 	height: 45%;
-	width: 25%;
+	width: 34%;
 	margin:0 auto;
 	top: 25%;
 	//background-color:blue;
@@ -193,7 +195,7 @@ div#leftControls {
 }
 
 .clearfix { clear:both; }
-div.keep-aspect-ratio > div { border:0;padding:0;margin:0;position:relative; background-color:#333333; overflow:visible; }
+div.keep-aspect-ratio > div { border:0;padding:0;margin:0;position:relative; background-color:#222; overflow:visible; }
 div.keep-aspect-ratio > div > img { border:0;padding:0;margin:0;z-index:-1000;position:relative;top:0;bottom:0;left:0;width:100%;display:block; }
 div.keep-aspect-ratio > div > div { border:0;padding:0;margin:0;position:absolute;top:0;bottom:0;left:0;width:100%;overflow:visible}
 
@@ -219,7 +221,7 @@ div.keep-aspect-ratio > div > div { border:0;padding:0;margin:0;position:absolut
 	width:25%;
 	//background-color:white;
 	padding:2px 0px 0px 1%;
-	border: 2px solid #333;
+	border: 2px solid #222;
 }
 
 #physicalButtons img.droppableHover {
@@ -234,35 +236,49 @@ div.keep-aspect-ratio > div > div { border:0;padding:0;margin:0;position:absolut
 }
 
 #AnimationsLeft {
-	overflow: hidden;
+	//overflow: hidden;
+	height:50%;
+	overflow-y:auto;
+
 }
 
 div.animation {
-	//border: 1px solid black;
+	border: 1px solid #333;
 	-webkit-border-radius: 15px;
 	padding:.25em .25em .25em .75em;
 	margin:0 3px 1px 3px; 
-	width: 15em;
+	//width: 15em;
 	//background-color:none;
 	color: #ddd;
+	height:1.5em;
 }
 
 div.animation:hover {
 	background-color:#222;
 }
 
+div.animation img {
+	//background-color:inherit;
+	//border:none;
+	//color: white;
+	float:right;
+	height:100%;
+	display:none;
+}
+
 div#AnimationsLeft .selected{
 	border: 1px solid #ddd;
+	background-color: #222;
 }
 
 
 #sliderContainer { 
 	padding: 10px;
-	width: 40%;
+	width:20%;
 }
 
 #brightnessSliderInput {
-	background-color:grey;
+	background-color:inherit;
 	border:none;
 }
 
@@ -270,11 +286,135 @@ div#AnimationsLeft .selected{
 	//-webkit-box-shadow: 10px 10px 5px #888; padding: 5px 5px 5px 15px;
 }
 
+#filterList {
+	//background-color:white;
+	width:80%;
+	margin: 0 auto;
+	padding:0;
+	text-align:center;
+}
+
+#filterList li {
+	display:inline;
+	margin:1em;
+	-webkit-border-radius: 15px;
+	border: 1px solid grey;
+	padding: 0 10px;
+}
+
+#filterList li:hover {
+	display:inline;
+	-webkit-border-radius: 15px;
+	border: 1px solid #333;
+	background-color:#333;
+	cursor:default;
+	color:#ddd;
+}
+
+#filterList li.selected {
+	background-color:#333;
+	border: 1px solid #333;
+	border-top:1px solid black;
+	color:white;
+}
+
+#centerLeftDisplay {
+	width:23%;
+	margin:0 1%;
+	background-color:yellow;
+	float:left;
+}
+
+#centerCenterDisplay {
+	width:46%;
+	margin:0 2%;
+	background-color:green;
+	float:left;
+}
+
+#centerRightDisplay {
+	background-color:yellow;
+	width:23%;
+	margin:0 1%;
+	float:left;
+}
+
+.listBox {
+	float:left;
+	height:25%;
+	//overflow-y:auto;
+}
+
+#lightsListLeft {
+	//padding-left:2%;
+	width:50%;
+	overflow-x:hidden;
+}
+#lightsListCenter {
+	width:50%;
+}
+#lightsListRight {
+	width:36%;
+}
+
+.listBox ul {
+	padding: 0; margin: 0;
+	list-style-type: none;
+	//background-color:red;
+}
+
+.listBox ul li {
+	width:100%;
+}
+
+.listBox ul li.selected {
+	background-color:grey;
+}
+
+.listBox ul li:hover {
+	//background-color:grey;
+	cursor:pointer;
+}
+
+.lightsInGroup li{
+	margin-left:15px;
+}
+
+.lightsInGroup {
+	display:none;
+}
+
+#groupList > li.groupHoverDrop{
+	background-color:grey;
+}
+
+#tempGroupNameInput {
+	//background-color:inherit;
+	display:none;
+}
+#tempGroupNameInput:focus {
+	outline:0 none;
+}
+
+li.light {
+	list-style-type: none;
+}
+
+div.selected {
+	background-color:grey;
+}
+
+.ui-draggable-dragging, .selected.ui-draggable-dragging {
+	background-color:red;
+}
+
 </style>
 
-<script src="jquery-1.3.2.js" />
-<script src="jquery-ui-1.7.2.js" />
-<script src="LightControllerfunctions.js" />
+<script src="jquery-1.3.2.js" ></script>
+<script src="jquery-ui-1.7.2.js" /></script>
+<script src="jquery-hoverIntent.js" /></script>
+<script src="LightControllerfunctions.js" /></script>
+
 <link rel="stylesheet" type="text/css" href="jquery-ui-1.7.2.custom.css" />
 
 <script type="text/javascript"></script>
@@ -302,15 +442,15 @@ div#AnimationsLeft .selected{
 
 <div id="topPanels">
 
- <img style=" height:100%;float:right;" id="blackoutButton" src="dark-blackout.png">
-<img style="float:right;" id="recordButton" src="Record0N.tiff">
+ <img style="position:absolute;right:0;top:0;width:10%;height:14%;" id="blackoutButton" src="dark-blackout.png">
+<img style="position:absolute;right:10%;top:0;" id="recordButton" src="Record0N.tiff">
 
-<div id="sliderContainer"><div id="slider"></div></div>
-<input id="brightnessSliderInput" type="text" size="3" value="255" />
+<!-- <div id="sliderContainer"><div id="slider"></div></div>
+<input id="brightnessSliderInput" type="text" size="3" value="255" /> -->
 
-<input type="button" id="addLightButton" value="add light"/>
+<input type="button" value="All Full" onclick="changeDisplay('left',1);changeDisplay('center',1);changeDisplay('right',1);" />
 
-
+<ul id="filterList" style=""><li class="selected">All</li><li>group 1</li><li>group 2</li><li>group 3</li><li>group 4</li><li>group 5</li></ul>
 
 </div>
 
@@ -318,6 +458,7 @@ div#AnimationsLeft .selected{
 <div id="bottomPanels">
 
 	<div id="columnLeft" class="layoutColumns">
+		
 		<div id="leftControls">
 		
 			<img class="aniControls" id="firstAction" src="Beginning0D.tiff"/>
@@ -326,14 +467,14 @@ div#AnimationsLeft .selected{
 			<img class="aniControls" id="nextAction" src="FFwd0D.tiff"/>
 			<img class="aniControls" id="loopButton" src="Repeat0D.tiff"/>
 		
-		</div>
-		
+		</div>	
+			
 		<div id="AnimationsLeft" style="margin:10px 0px 10px 0px;">	
-			<div class="animation">Animation 1</div>
-			<div class="animation">Animation 2</div>
-			<div class="animation">Animation 3</div>
-			<div class="animation">Animation 4</div>
-			<div class="animation">Animation 5</div>
+			<div class="animation">Animation 1 <img class="animationControlRemove" src="removeAnimation.png"/></div>
+			<div class="animation">Animation 2 <img class="animationControlRemove" src="removeAnimation.png"/></div>
+			<div class="animation">Animation 3 <img class="animationControlRemove" src="removeAnimation.png"/></div>
+			<div class="animation">Animation 4 <img class="animationControlRemove" src="removeAnimation.png"/></div>
+			<div class="animation">Animation 5 <img class="animationControlRemove" src="removeAnimation.png"/></div>
 		</div>
 		
 		<img class="actionControls" id="newButton" src="NewTrack0D.tiff" />
@@ -362,7 +503,22 @@ div#AnimationsLeft .selected{
 		<div id="centralControls">
 		
 			<div id="center">
-			<img height=100% src="vu-on.tiff"/><img style="margin:0 20%;" height=100% src="Bars.png" /><img height=100% src="vu-on.tiff"/>
+				<div id="centerLeftDisplay">
+					<div style="float:left;height:100%;width:100%;background-color:green;text-align:center;"></div>
+					<div class="modifier" style="float:left;margin-left:-100%;overflow:hidden;background-color:grey;height:75%;width:100%;text-align:center;"></div>
+				</div>
+				
+				<div id="centerCenterDisplay">
+					<div style="float:left;height:100%;width:100%;background-color:green;text-align:center;"></div>
+					<div class="modifier" style="float:left;margin-left:-100%;overflow:hidden;background-color:grey;height:56%;width:100%;text-align:center;"></div>
+				</div>
+				
+				<div id="centerRightDisplay">
+					<div style="float:left;height:100%;width:100%;background-color:green;text-align:center;text-align:center;"></div>
+					<div class="modifier" style="float:left;margin-left:-100%;overflow:hidden;background-color:grey;height:23%;width:100%;text-align:center;"></div>
+				</div>
+			
+			 <!-- <div id="leftModifierDisplay" style="display:inline"><img height=100% src="vu-off.tiff"/><div class="modifier" height="100%" width="8%"style="margin-left:-8%;overflow:hidden;display:inline;background-color:green;"><img height="100%" style="margin-left:-8%;"src="vu-on.tiff"/></div></div><img style="margin:0 20%;" height=100% src="Bars.png" /><div id="rightModifierDisplay" style="display:inline;height:100%;"><img height=100% src="vu-off.tiff"/><img height=100% style="margin-left:-8%;"src="vu-on.tiff"/></div> --> 
 			</div>
 
 			<div class="row1 colorButton" id="yellow"><div class="controls">click me</div><img src="ButtonYellow.png"/></div>
@@ -389,24 +545,69 @@ div#AnimationsLeft .selected{
 	</div>
 
 	<div id="columnRight" class="layoutColumns">
-	
-		<div id="leftControls">
+
+		<div id="lightsListLeft" class="listBox">
 		
-			<img class="aniControls" id="RfirstAction" src="Beginning0D.tiff"/>
-			<img class="aniControls" id="RprevAction" src="Rewind0D.tiff"/>
-			<img class="aniControls" id="RplayButton" src="Play0D.tiff"/>
-			<img class="aniControls" id="RnextAction" src="FFwd0D.tiff"/>
-			<img class="aniControls" id="RloopButton" src="Repeat0D.tiff"/>
-		
-		</div>	
-		<div id="AnimationsRight" style="margin-top:10px;">	
-			<div class="animation">Animation 1</div>
-			<div class="animation">Animation 2</div>
-			<div class="animation">Animation 3</div>
-			<div class="animation">Animation 4</div>
-			<div class="animation">Animation 5</div>
+			
+			<ul id="groupList">
+				<li>All Lights
+					<ul class="lightsInGroup" id="group0">
+					</ul>
+				</li>
+				<li> Group 1
+					<ul class="lightsInGroup">
+						<li>asdf</li>
+						<li>asdf</li>
+						<li>asdf</li>
+					</ul>
+				</li>
+				<li>Group 2
+					<ul class="lightsInGroup">
+						<li>asdf</li>
+						<li>asdf</li>
+						<li>asdf</li>
+					</ul>
+				</li>
+				<li>Group 3
+					<ul class="lightsInGroup">
+						<li>asdf</li>
+						<li>asdf</li>
+						<li>asdf</li>
+					</ul>
+				</li>
+			</ul>
+			<input type='text' size='10' id='tempGroupNameInput' value='New Group'>
 		</div>
-	
+		<div id="lightsListCenter" class="listBox" style="background-color:white;">
+		
+			<div id="lightList">
+				<!--<div class="light">Light 1</div>
+				<div class="light">Light 1</div>
+				<div class="light">Light 1</div>-->
+			</div>
+		</div>	
+			 	 
+				 	 
+		<!--<ul id="lightList">
+				<li class="light">Light 1</li>
+				 <li>Light 2</li>
+				<li>Light 3</li>
+				<li>Light 4</li>
+				<li>Light 5</li> 
+			</ul>
+		</div>-->
+
+		<!-- <div id="lightsListRight" class="listBox">
+			<ul>
+				<li>Note 1</li>
+				<li>Note 2</li>
+				<li>Note 3</li>
+			</ul>
+		</div>-->
+		<input type="button" id="addGroupButton" value="add group"/>
+		<input type="button" id="addLightButton" value="add light"/>
+
+					
 	</div>
 
 </div>
