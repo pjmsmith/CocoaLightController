@@ -40,10 +40,19 @@
     
     lights = [[NSMutableArray alloc] initWithCapacity:1];
     animations = [[NSMutableArray alloc] initWithCapacity:1];
+    groups = [[NSMutableArray alloc] initWithCapacity:2];
+
     channels = [[NSMutableArray alloc] initWithCapacity:7];
-    names = [[NSMutableDictionary alloc] initWithCapacity:1];
+    stateChange = [[NSMutableArray alloc] initWithCapacity:7];
     
+    lightNames = [[NSMutableDictionary alloc] initWithCapacity:1];
+    groupNames = [[NSMutableDictionary alloc] initWithCapacity:2];
+    animationNames = [[NSMutableDictionary alloc] initWithCapacity:2];
     
+    globalBrightness = 255;
+    
+    [groups addObject:[[Group alloc] initWithDetails:@"ALL" size:2]];
+                       
     testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
     //[self addLight:@"newLight" numChans:[[NSNumber alloc] initWithInt:7] newLabels:@"RED,GREEN,BLUE,N/A,N/A,N/A,BRIGHTNESS"];
     black_out = NO;
@@ -186,17 +195,38 @@
 		}
 	}
 
-	- (IBAction)send:(id)sender
-    {
+- (IBAction)send:(id)sender
+{
         if(!port) {
             [self initPort];
         }
-        for(Light* l in lights)
+        
+        NSMutableString *sendString;
+        int i = 0;
+        
+        Action* sendAction = [self diffChannels];
+
+        for(id c in sendAction.targetChannels)
         {
-            [l sendState:port]; 
+            sendString = [NSMutableString stringWithFormat:@"1"];
+            [sendString appendString:[self numberToTriple:(NSNumber*)c]];
+            [sendString appendString:[self numberToTriple:(NSNumber*)[sendAction.targetValues objectAtIndex:i]]];
+            [sendString appendString:@"\r"];
+            NSLog(@"%@", sendString);
+            //port will be open
+            if([port isOpen]) {
+            [port writeString:sendString usingEncoding:NSUTF8StringEncoding error:NULL];
+            }
+            else 
+            {
+                NSLog(@"Error sending data. Check connection.");
+            }
+            i++;
         }
+        [self applyState:sendAction];
+        
     }
-	
+
 	- (AMSerialPort *)port
 	{
 		return port;
@@ -238,7 +268,7 @@
     if (aSelector == @selector(showMessage:)) {
         return NO; // i.e. showMessage: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(setColor:)) {
+    if (aSelector == @selector(setColor:selectString:)) {
         return NO; // i.e. setColor: is NOT _excluded_ from scripting, so it can be called.
     }
     if (aSelector == @selector(runAnimation:)) {
@@ -277,6 +307,9 @@
     if (aSelector == @selector(addLight:numChans:newLabels:)) {
         return NO; // i.e. addLight:numChans:newLabels is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(addGroup:selected:)) {
+        return NO; // i.e. addLight:numChans:newLabels is NOT _excluded_ from scripting, so it can be called.
+    }
     
     return YES; // disallow everything else
 }
@@ -302,28 +335,49 @@
     for(int i = 0; i<[numberOfChans intValue]; i++)
     {
         [channels addObject:[[Channel alloc] initWithDetails:[labelArray objectAtIndex:i] addr:address val:0]];
+        [stateChange addObject:[[Channel alloc] initWithDetails:[labelArray objectAtIndex:i] addr:address val:0]];
         if([(NSString*)[labelArray objectAtIndex:i] caseInsensitiveCompare:@"brightness"]==NSOrderedSame)
         {
-            ((Channel*)[channels objectAtIndex:((addr-1)+i)]).value = 255;
+            ((Channel*)[channels objectAtIndex:((addr-1)+i)]).value = globalBrightness;
+            ((Channel*)[stateChange objectAtIndex:((addr-1)+i)]).value = globalBrightness;
+
         }
         address++; 
     }    
 }
 
-- (NSString*)addLightName:(NSString*)name
+- (NSString*)addGroup:(NSString*)name selected:(NSString*)selectLights
+{
+    NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
+    NSString* retString = [self addName:name dict:groupNames];
+    Group* g = [[Group alloc] initWithDetails:retString size:[selectArray count]];
+    int i = 0;
+    for(id d in selectArray)
+    {
+        [g.groupLights addObject:(NSString*)[selectArray objectAtIndex:i]];
+        i++;
+    }
+    [groups addObject:g];
+    
+    return retString;
+    
+}
+
+- (NSString*)addName:(NSString*)name dict:(NSMutableDictionary*)names
 {
     if([names objectForKey:name]==nil)
     {
         NSMutableArray* nameList = [[NSMutableArray alloc] initWithCapacity:1];
         [nameList addObject:name];
         [names setObject:nameList forKey:name];
+        
         return name;
     }
     else 
     {
         NSString* newName = [[NSString alloc] initWithFormat:@"%@ (%d)", name,([((NSMutableArray*)[names objectForKey:name]) count]+1)]; 
         [((NSMutableArray*)[names objectForKey:name]) addObject:newName];
-        NSLog(@"%@", newName);
+        
         return newName;
     }
 }
@@ -337,19 +391,18 @@
         Light *lastLight = (Light*)[lights objectAtIndex:([lights count]-1)];
         newAddr = [lastLight.startingAddress intValue] + [lastLight.sizeOfBlock intValue];
     }
-    NSString* retString = [self addLightName:name];
+    NSString* retString = [self addName:name dict:lightNames];
     
     Light *newLight = [[Light alloc] initWithDetails:retString size:numberOfChans address:[[NSNumber alloc] initWithInt:newAddr]];
-    printf("%d\n",newAddr);
+
     //add channels
     NSArray *labelArray = [labels componentsSeparatedByString:@","];
     [self addChannels:numberOfChans newLabels:labelArray startingAddr:newAddr];
-    
-    
-    //((Channel*)[newLight.channels objectAtIndex:6]).value = 255; //change this to reference the global brightness
-    
+
     [self displayState:newLight];
 
+    [((Group*)[groups objectAtIndex:0]).groupLights addObject:[[NSNumber alloc] initWithInt:[lights count]]]; //add to ALL group
+    [self displayState:[groups objectAtIndex:0]];
     [lights addObject:newLight];
     
     return retString;
@@ -383,7 +436,7 @@
             {
                 l.currentAction = (Action*)[immutableActionList objectAtIndex:i];
                 
-                [l applyAction];
+                //[l applyAction];
             }
             if(black_out)
             {
@@ -395,7 +448,7 @@
                 //testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
                 break;
             }
-            [self send:NULL];
+            //[self send:NULL];
             usleep((int)([testAnimation.timeBetweenSteps doubleValue]*1000000)); //timeInBetweenSteps
         }
         if (testAnimation.isLooping && !black_out)
@@ -418,76 +471,161 @@
         [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([l.startingAddress intValue]+6)]];
         [tempAction.targetValues addObject:brightness];
         l.currentAction = tempAction;
-        [l applyAction];
-        [l displayState];
+        //[l applyAction];
+        //[l displayState];
         if (!testAnimation.isRunning) {
-            [self send:NULL];
+            //[self send:NULL];
         }
         [tempAction release];
     }
 }
 
-- (void) setColor:(NSString *)color
+- (void) changeState:(Action *)action
 {
-    Action* tempAction = [Action alloc];
-    NSLog(@"%@", color);
-    [tempAction initWithDetails:@"" numChans:3];
+    for(int i = 0; i < [action.targetChannels count]; i++)
+    {
+        ((Channel*)[stateChange objectAtIndex:([[action.targetChannels objectAtIndex:i] intValue]-1)]).value = [[action.targetValues objectAtIndex:i] intValue];
+    }
+}
 
-    if ([color isEqualToString:@"red"])
+- (void) applyState:(Action *)action
+{
+    for(int i = 0; i < [action.targetChannels count]; i++)
     {
-        [self setColorHelper:tempAction.targetValues red:255 green:0 blue:0];        
+        ((Channel*)[channels objectAtIndex:([[action.targetChannels objectAtIndex:i] intValue]-1)]).value = [[action.targetValues objectAtIndex:i] intValue];
     }
-    else if ([color isEqualToString:@"green"])
+}
+
+- (NSMutableArray*)getColorChannels:(Light*)l
+{
+    NSMutableArray* a = [[NSMutableArray alloc] initWithCapacity:3];
+    for(int i = [l.startingAddress intValue]-1; i < (([l.startingAddress intValue]-1)+[l.sizeOfBlock intValue]);i++)
     {
-        [self setColorHelper:tempAction.targetValues red:0 green:255 blue:0];
+        if ([((Channel*)[channels objectAtIndex:i]).label caseInsensitiveCompare:@"red"]==NSOrderedSame)
+        {
+            [a addObject:[[NSNumber alloc] initWithInt:i]];
+        }
+        if ([((Channel*)[channels objectAtIndex:i]).label caseInsensitiveCompare:@"green"]==NSOrderedSame)
+        {
+            [a addObject:[[NSNumber alloc] initWithInt:i]];
+        }
+        if ([((Channel*)[channels objectAtIndex:i]).label caseInsensitiveCompare:@"blue"]==NSOrderedSame)
+        {
+            [a addObject:[[NSNumber alloc] initWithInt:i]];
+        }
     }
-    else if ([color isEqualToString:@"blue"])
+    if ([a count] < 3)
     {
-        [self setColorHelper:tempAction.targetValues red:0 green:75 blue:255];        
+        NSLog(@"Could not find all 3 colors, check channel configuration");
     }
-    else if ([color isEqualToString:@"cyan"])
+    return a;
+}
+
+- (Action*) buildColorAction:(NSMutableArray*)lightArray color:(NSString*)color
+{
+    Action* colorAction = [Action alloc]; 
+    [colorAction initWithDetails:@"Set Color" numChans:(3*[lightArray count])];
+    //add the RGB channels of each light in lightArray
+    //set values appropriately
+    for (id i in lightArray)
     {
-        [self setColorHelper:tempAction.targetValues red:0 green:255 blue:255];        
-    }
-    else if ([color isEqualToString:@"magenta"])
-    {
-        [self setColorHelper:tempAction.targetValues red:255 green:0 blue:255];        
-    }
-    else if ([color isEqualToString:@"yellow"])
-    {
-        [self setColorHelper:tempAction.targetValues red:180 green:75 blue:0];        
-    }
-    else if ([color isEqualToString:@"white"])
-    {
-        [self setColorHelper:tempAction.targetValues red:255 green:255 blue:255];        
-    }
-    else if ([color isEqualToString:@"black"])
-    {
-        [self setColorHelper:tempAction.targetValues red:0 green:0 blue:0];        
+        Light* l = [lights objectAtIndex:[(NSString*)i integerValue]];
+        [colorAction.targetChannels addObjectsFromArray:[self getColorChannels:l]];
+        
+        if ([color isEqualToString:@"red"])
+        {
+            [self setColorHelper:colorAction.targetValues red:255 green:0 blue:0];        
+        }
+        else if ([color isEqualToString:@"green"])
+        {
+            [self setColorHelper:colorAction.targetValues red:0 green:255 blue:0];
+        }
+        else if ([color isEqualToString:@"blue"])
+        {
+            [self setColorHelper:colorAction.targetValues red:0 green:75 blue:255];        
+        }
+        else if ([color isEqualToString:@"cyan"])
+        {
+            [self setColorHelper:colorAction.targetValues red:0 green:255 blue:255];        
+        }
+        else if ([color isEqualToString:@"magenta"])
+        {
+            [self setColorHelper:colorAction.targetValues red:255 green:0 blue:255];        
+        }
+        else if ([color isEqualToString:@"yellow"])
+        {
+            [self setColorHelper:colorAction.targetValues red:180 green:75 blue:0];        
+        }
+        else if ([color isEqualToString:@"white"])
+        {
+            [self setColorHelper:colorAction.targetValues red:255 green:255 blue:255];        
+        }
+        else if ([color isEqualToString:@"black"])
+        {
+            [self setColorHelper:colorAction.targetValues red:0 green:0 blue:0];        
+        }
     }
     
-    NSMutableArray* newTargetChannels = [[NSMutableArray alloc] initWithCapacity:3];
-    for(Light* l in lights)
-    {
-        [newTargetChannels addObject:l.startingAddress];
-        [newTargetChannels addObject:[[NSNumber alloc] initWithInt:([l.startingAddress intValue]+1)]];
-        [newTargetChannels addObject:[[NSNumber alloc] initWithInt:([l.startingAddress intValue]+2)]];
+    return colorAction;
+}
 
-        [tempAction.targetChannels setArray: newTargetChannels];
-        l.currentAction = tempAction;
-        [l applyAction];
-        [l displayState];
-        [newTargetChannels removeLastObject];
-        [newTargetChannels removeLastObject];
-        [newTargetChannels removeLastObject];    
-    }
-    if (isRecording)
+- (void) setColor:(NSString *)color selectString:(NSString*) selString
+{
+    NSLog(@"%@", color);
+    BOOL error = NO;
+
+    NSArray *selectArray = [selString componentsSeparatedByString:@","];
+    Action* colorAction;
+    
+    //if you're setting color for a light
+    if ([(NSString*)[selectArray objectAtIndex:0] caseInsensitiveCompare:@"l"]==NSOrderedSame) 
     {
-        [testAnimation.actions addObject:tempAction];
+        printf("set color of lights\n");
+        NSMutableArray *lightArray = [[NSMutableArray alloc] initWithCapacity:([selectArray count]-1)];
+        for(int i = 1; i < [selectArray count]; i++)
+        {
+            [lightArray addObject:[selectArray objectAtIndex:i]];
+        }
+        colorAction = [self buildColorAction:lightArray color:color];
+    } //if you're setting color for a group of lights
+    else if ([(NSString*)[selectArray objectAtIndex:0] caseInsensitiveCompare:@"g"]==NSOrderedSame) {
+        printf("set color of group\n");
+        //find group
+        if([selectArray count]==2)
+        {
+            Group* g;
+            for(id d in groups)
+            {
+                g = (Group*)d;
+                if ([g.name caseInsensitiveCompare:(NSString*)[selectArray objectAtIndex:1]]==NSOrderedSame)
+                {
+                    printf("Name match\n");
+                    break;
+                }
+            }
+            NSMutableArray *lightArray = [[NSMutableArray alloc] initWithCapacity:([g.groupLights count])];
+            [lightArray arrayByAddingObjectsFromArray:g.groupLights];
+            colorAction = [self buildColorAction:lightArray color:color];
+        }
+        else 
+        {
+            NSLog(@"Error! Only send one group name to setColor!");
+            error = YES;
+        }
+
     }
-    if (!testAnimation.isRunning) {
-        [self send:NULL];
-    } 
+    else 
+    {
+        NSLog(@"Wrong string sent to setColor, send 'g' for group and 'l' for lights");
+        error = YES;
+    }
+
+    if(!error && (colorAction!=nil))
+    {
+        //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
+        [self changeState:colorAction];
+        [self send:nil];
+    }
 }
 
 - (void) setColorHelper:(NSMutableArray *)valueList red:(int)r green:(int)g blue:(int)b
@@ -531,8 +669,8 @@
     
     Action* recoverAction = testLight.currentAction;
     testLight.currentAction = tempAction;
-    [testLight applyAction];
-    [self send:NULL];
+    //[testLight applyAction];
+    //[self send:NULL];
     testLight.currentAction = recoverAction;
 }
 
@@ -540,8 +678,8 @@
 {
     black_out = NO;
     [self runAnimation:@""];    
-    [testLight applyAction];
-    [self send:NULL];
+    //[testLight applyAction];
+    //[self send:NULL];
 }
 
 - (void)clearCurrentAnimationActions:(NSString *)c
@@ -556,8 +694,8 @@
     [self setColorHelper:tempAction.targetValues red:0 green:0 blue:0];
     
     testLight.currentAction = tempAction;
-    [testLight applyAction];
-    [self send:NULL];
+    //[testLight applyAction];
+    //[self send:NULL];
     
     [testAnimation.actions setArray:[[NSMutableArray alloc] initWithCapacity:10]];
 	
@@ -578,14 +716,39 @@
     if([d isKindOfClass:[Light class]])
     {
         Light* l = (Light*)d;
-        NSLog(@"%@", l.name);
+        NSLog(@"Light: %@", l.name);
         NSLog(@"--------------");
         for(int i = 0; i < [l.sizeOfBlock intValue]; i++)
         {
             [((Channel*)[channels objectAtIndex:(([l.startingAddress intValue]-1)+i)]) display];
         }
     }
+    else if([d isKindOfClass:[Group class]])
+    {
+        Group* g = (Group*)d;
+        NSLog(@"Group: %@", g.name);
+        NSLog(@"--------------");
+        NSLog(@"Child Lights:");
+        for(int i = 0; i < [g.groupLights count]; i++)
+        {
+            NSLog(@"%d", [[g.groupLights objectAtIndex:i] intValue]);
+        }
+    }
+}
+- (Action *)diffChannels
+{
+    Action* diff = [[Action alloc] initWithDetails:@"DIFF" numChans:3];
     
+    for(int i = 0; i < [channels count]; i++)
+    {
+        if(((Channel*)[channels objectAtIndex:i]).value != ((Channel*)[stateChange objectAtIndex:i]).value)
+        {
+            [diff.targetChannels addObject:[[NSNumber alloc] initWithInt:((Channel*)[stateChange objectAtIndex:i]).address]];
+            [diff.targetValues addObject:[[NSNumber alloc] initWithInt:(((Channel*)[stateChange objectAtIndex:i]).value)]];
+        }
+    }
+ 
+    return diff;
 }
 
 - (NSString*) numberToTriple: (NSNumber*) num
