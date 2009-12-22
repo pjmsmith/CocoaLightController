@@ -583,7 +583,7 @@ function changeDisplay(display,value) {
 														},animateSpeed);
 			var brightnessValue = 255 * value;
 			//window.AppController.showMessage_(""+brightnessValue);
-			window.AppController.setBrightness_selectString_(value,getSelectedLights());
+			window.AppController.setBrightness_selectString_(brightnessValue,getSelectedLights());
 
 			break;
 			case "right":
