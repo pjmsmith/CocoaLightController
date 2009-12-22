@@ -327,7 +327,6 @@ $(document).ready(function(){
 	$("#groupList > li").droppable({drop:LightDropOnGroup,hoverClass:"groupHoverDrop"});
 	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", helper: 'clone', revert:true, revertDuration:'1' });
 
-
 	$(".physicalButtons").droppable({
 		drop: function() { 
 			window.AppController.showMessage_("physical buttons");
@@ -351,7 +350,7 @@ $(document).ready(function(){
 					  value = 255;
 		}
 		$("#brightnessSliderInput").attr("value",value);
-		window.AppController.setBrightness_(value);
+		window.AppController.setBrightness_selectString_(value,getSelectedLights());
 
 	});
 	
@@ -556,6 +555,11 @@ function addLight() {
 	$("#lightList").append("<div class='light'>"+lightName+"</div>");
 	$("#group0").append("<li>"+lightName+"</li>");
 	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
+	
+	
+	$(".light").draggable( 'destroy' );
+	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", helper: 'clone', revert:true, revertDuration:'1' });
+	
 	}
 
 function changeDisplay(display,value) {
@@ -579,7 +583,7 @@ function changeDisplay(display,value) {
 														},animateSpeed);
 			var brightnessValue = 255 * value;
 			//window.AppController.showMessage_(""+brightnessValue);
-			window.AppController.setBrightness_(value);
+			window.AppController.setBrightness_selectString_(value,getSelectedLights());
 
 			break;
 			case "right":
@@ -596,11 +600,11 @@ function LightDropOnGroup() {
 	//var numLights = 0;
 	var numLights = $("#lightList > .selected").length;
 	//window.AppController.showMessage_(""+numLights);
-	/*window.AppController.showMessage_("inside");
+	window.AppController.showMessage_("inside");
 	$("#lightList > .selected").each(function(){
-									 var lightName = $(this).html;
+									 var lightName = $(this).text();
 									 window.AppController.showMessage_(""+lightName);
-									 });*/
+									 });
 	
 	//$("#AnimationsLeft").append("<div class='animation'>Animation "+numofAnimations+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");
 	
