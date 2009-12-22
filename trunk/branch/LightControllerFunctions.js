@@ -489,8 +489,10 @@ $(document).ready(function(){
 					  //$(this).removeClass("selected");
 					  }
 					  else{
-					  $(".lightsInGroup").slideUp();
-					  $(this).children("ul").slideDown();
+							if($(this).attr("name") != "allLightsGroup"){
+											$(".lightsInGroup").slideUp();
+												$(this).children("ul").slideDown();
+							}
 					  //$(this).addClass("selected");
 					  }
 					});
