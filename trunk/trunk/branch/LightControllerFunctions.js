@@ -30,28 +30,28 @@ $(document).ready(function(){
 					   }
         if (!dialogActive) {
             if (e.which == 117) { //u
-               window.AppController.setColor_("yellow",selectedLights);			
+               window.AppController.setColor_selectString("yellow",selectedLights);			
             } 
             if (e.which == 105) { //i
-               window.AppController.setColor_("green",selectedLights);			
+               window.AppController.setColor_selectString("green",selectedLights);			
             } 
             if (e.which == 111) { //o
-                window.AppController.setColor_("cyan",selectedLights);			
+                window.AppController.setColor_selectString("cyan",selectedLights);			
             } 
             if (e.which == 106) { //j
-                window.AppController.setColor_("red",selectedLights);			
+                window.AppController.setColor_selectString("red",selectedLights);			
             }
             if (e.which == 107) { //k
-                window.AppController.setColor_("magenta",selectedLights);			
+                window.AppController.setColor_selectString("magenta",selectedLights);			
             } 
             if (e.which == 108) { //l
-                window.AppController.setColor_("blue",selectedLights);			
+                window.AppController.setColor_selectString("blue",selectedLights);			
             }
             if (e.which == 109) { //m
-                window.AppController.setColor_("white",selectedLights);
+                window.AppController.setColor_selectString("white",selectedLights);
             }
             if (e.which == 44) { //,
-                window.AppController.setColor_("black",selectedLights);
+                window.AppController.setColor_selectString("black",selectedLights);
             }
         }
 	});
@@ -60,7 +60,7 @@ $(document).ready(function(){
 		var selectedLights = getSelectedLights();			   
 		var color = $(this).attr("id"); 
 		//window.AppController.showMessage_(color);
-		window.AppController.setColor_(color, selectedLights);
+		window.AppController.setColor_selectString(color, selectedLights);
 	});
 
 	$(".colorButton").mousedown(function(){

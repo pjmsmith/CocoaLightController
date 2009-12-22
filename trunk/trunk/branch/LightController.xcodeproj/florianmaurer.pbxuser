@@ -454,6 +454,13 @@
 			A29A019210E09B340088952F /* PBXTextBookmark */ = A29A019210E09B340088952F /* PBXTextBookmark */;
 			A29A019410E09B430088952F /* PBXTextBookmark */ = A29A019410E09B430088952F /* PBXTextBookmark */;
 			A29A019510E09B770088952F /* PBXTextBookmark */ = A29A019510E09B770088952F /* PBXTextBookmark */;
+			A29A019810E09DD30088952F /* PBXTextBookmark */ = A29A019810E09DD30088952F /* PBXTextBookmark */;
+			A29A019910E09DD30088952F /* PBXTextBookmark */ = A29A019910E09DD30088952F /* PBXTextBookmark */;
+			A29A019B10E09E430088952F /* PBXTextBookmark */ = A29A019B10E09E430088952F /* PBXTextBookmark */;
+			A29A019C10E09E430088952F /* PBXTextBookmark */ = A29A019C10E09E430088952F /* PBXTextBookmark */;
+			A29A019D10E09E430088952F /* PBXTextBookmark */ = A29A019D10E09E430088952F /* PBXTextBookmark */;
+			A29A019E10E09E430088952F /* PBXTextBookmark */ = A29A019E10E09E430088952F /* PBXTextBookmark */;
+			A29A019F10E09E4A0088952F /* PBXTextBookmark */ = A29A019F10E09E4A0088952F /* PBXTextBookmark */;
 			A29AFE2E10DE2AAE0088952F /* PBXTextBookmark */ = A29AFE2E10DE2AAE0088952F /* PBXTextBookmark */;
 			A29AFE2F10DE2AAE0088952F /* PBXTextBookmark */ = A29AFE2F10DE2AAE0088952F /* PBXTextBookmark */;
 			A29AFE4610DE2CCD0088952F /* PBXTextBookmark */ = A29AFE4610DE2CCD0088952F /* PBXTextBookmark */;
@@ -1073,7 +1080,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 437";
 		rLen = 0;
-		rLoc = 15580;
+		rLoc = 15688;
 		rType = 0;
 		vrLen = 1597;
 		vrLoc = 11143;
@@ -1147,7 +1154,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 421";
 		rLen = 0;
-		rLoc = 13074;
+		rLoc = 13182;
 		rType = 0;
 		vrLen = 1657;
 		vrLoc = 10331;
@@ -1184,7 +1191,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 423";
 		rLen = 0;
-		rLoc = 13074;
+		rLoc = 13182;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 6701;
@@ -1244,7 +1251,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 423";
 		rLen = 0;
-		rLoc = 13074;
+		rLoc = 13182;
 		rType = 0;
 		vrLen = 1268;
 		vrLoc = 6705;
@@ -1264,7 +1271,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 411";
 		rLen = 0;
-		rLoc = 12834;
+		rLoc = 12942;
 		rType = 0;
 		vrLen = 1672;
 		vrLoc = 10542;
@@ -1324,7 +1331,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 445";
 		rLen = 0;
-		rLoc = 15525;
+		rLoc = 15633;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 11807;
@@ -1344,7 +1351,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 361";
 		rLen = 0;
-		rLoc = 10919;
+		rLoc = 11027;
 		rType = 0;
 		vrLen = 1579;
 		vrLoc = 12087;
@@ -1364,7 +1371,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 361";
 		rLen = 218;
-		rLoc = 10910;
+		rLoc = 11018;
 		rType = 0;
 		vrLen = 1551;
 		vrLoc = 8729;
@@ -1384,7 +1391,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 361";
 		rLen = 0;
-		rLoc = 10919;
+		rLoc = 11027;
 		rType = 0;
 		vrLen = 1592;
 		vrLoc = 8728;
@@ -1404,7 +1411,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 359";
 		rLen = 0;
-		rLoc = 10709;
+		rLoc = 10817;
 		rType = 0;
 		vrLen = 1872;
 		vrLoc = 8018;
@@ -1424,7 +1431,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 341";
 		rLen = 0;
-		rLoc = 9932;
+		rLoc = 10040;
 		rType = 0;
 		vrLen = 1689;
 		vrLoc = 8875;
@@ -1444,7 +1451,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 398";
 		rLen = 0;
-		rLoc = 11893;
+		rLoc = 12001;
 		rType = 0;
 		vrLen = 1276;
 		vrLoc = 10046;
@@ -1464,7 +1471,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 438";
 		rLen = 0;
-		rLoc = 13074;
+		rLoc = 13182;
 		rType = 0;
 		vrLen = 1752;
 		vrLoc = 10911;
@@ -1484,7 +1491,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 440";
 		rLen = 0;
-		rLoc = 13255;
+		rLoc = 13363;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 12192;
@@ -1504,7 +1511,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 441";
 		rLen = 0;
-		rLoc = 13247;
+		rLoc = 13355;
 		rType = 0;
 		vrLen = 1384;
 		vrLoc = 12050;
@@ -1524,7 +1531,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 445";
 		rLen = 0;
-		rLoc = 13255;
+		rLoc = 13363;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 12210;
@@ -1544,7 +1551,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 458";
 		rLen = 0;
-		rLoc = 14797;
+		rLoc = 14905;
 		rType = 0;
 		vrLen = 1440;
 		vrLoc = 12210;
@@ -1564,7 +1571,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 458";
 		rLen = 0;
-		rLoc = 14797;
+		rLoc = 14905;
 		rType = 0;
 		vrLen = 1440;
 		vrLoc = 12210;
@@ -1584,7 +1591,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 458";
 		rLen = 0;
-		rLoc = 14797;
+		rLoc = 14905;
 		rType = 0;
 		vrLen = 1555;
 		vrLoc = 12875;
@@ -1639,9 +1646,9 @@
 	};
 	A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1002, 8190}}";
-			sepNavSelRange = "{2081, 0}";
-			sepNavVisRange = "{1224, 1423}";
+			sepNavIntBoundsRect = "{{0, 0}, {951, 8078}}";
+			sepNavSelRange = "{1528, 0}";
+			sepNavVisRange = "{765, 1819}";
 		};
 	};
 	A28C0A5910C4D4100077602E /* PBXTextBookmark */ = {
@@ -1669,7 +1676,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1385;
 		vrLoc = 10138;
@@ -1739,7 +1746,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 10044;
@@ -1769,7 +1776,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 10044;
@@ -1799,7 +1806,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 444";
 		rLen = 0;
-		rLoc = 13130;
+		rLoc = 13238;
 		rType = 0;
 		vrLen = 1760;
 		vrLoc = 12806;
@@ -1829,7 +1836,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 444";
 		rLen = 0;
-		rLoc = 13130;
+		rLoc = 13238;
 		rType = 0;
 		vrLen = 1760;
 		vrLoc = 12806;
@@ -1869,7 +1876,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 444";
 		rLen = 0;
-		rLoc = 13130;
+		rLoc = 13238;
 		rType = 0;
 		vrLen = 1729;
 		vrLoc = 12806;
@@ -1889,7 +1896,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 374";
 		rLen = 0;
-		rLoc = 11033;
+		rLoc = 11141;
 		rType = 0;
 		vrLen = 1724;
 		vrLoc = 9256;
@@ -1899,7 +1906,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 368";
 		rLen = 0;
-		rLoc = 10533;
+		rLoc = 10641;
 		rType = 0;
 		vrLen = 1724;
 		vrLoc = 9256;
@@ -1909,7 +1916,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 367";
 		rLen = 0;
-		rLoc = 10500;
+		rLoc = 10608;
 		rType = 0;
 		vrLen = 1724;
 		vrLoc = 9256;
@@ -1919,7 +1926,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 367";
 		rLen = 0;
-		rLoc = 10500;
+		rLoc = 10608;
 		rType = 0;
 		vrLen = 1791;
 		vrLoc = 9256;
@@ -1939,7 +1946,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 367";
 		rLen = 0;
-		rLoc = 10500;
+		rLoc = 10608;
 		rType = 0;
 		vrLen = 1791;
 		vrLoc = 9256;
@@ -2069,7 +2076,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 374";
 		rLen = 0;
-		rLoc = 11033;
+		rLoc = 11141;
 		rType = 0;
 		vrLen = 1745;
 		vrLoc = 9236;
@@ -2089,7 +2096,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 374";
 		rLen = 0;
-		rLoc = 11033;
+		rLoc = 11141;
 		rType = 0;
 		vrLen = 1725;
 		vrLoc = 9256;
@@ -2109,7 +2116,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 374";
 		rLen = 0;
-		rLoc = 11033;
+		rLoc = 11141;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 9236;
@@ -2123,7 +2130,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 374";
 		rLen = 0;
-		rLoc = 11033;
+		rLoc = 11141;
 		rType = 0;
 		vrLen = 1744;
 		vrLoc = 9236;
@@ -2133,7 +2140,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 374";
 		rLen = 0;
-		rLoc = 11033;
+		rLoc = 11141;
 		rType = 0;
 		vrLen = 1744;
 		vrLoc = 9236;
@@ -2147,7 +2154,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 7800;
@@ -2157,7 +2164,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1411;
 		vrLoc = 7800;
@@ -2167,7 +2174,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 9991;
@@ -2177,7 +2184,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 9991;
@@ -2197,7 +2204,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 9991;
@@ -2217,7 +2224,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1399;
 		vrLoc = 9978;
@@ -2247,7 +2254,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1399;
 		vrLoc = 9978;
@@ -2287,7 +2294,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1386;
 		vrLoc = 9991;
@@ -2307,7 +2314,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8959;
+		rLoc = 9067;
 		rType = 0;
 		vrLen = 1447;
 		vrLoc = 7800;
@@ -2327,7 +2334,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 317";
 		rLen = 0;
-		rLoc = 8766;
+		rLoc = 8874;
 		rType = 0;
 		vrLen = 1468;
 		vrLoc = 7800;
@@ -2337,7 +2344,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 317";
 		rLen = 0;
-		rLoc = 8766;
+		rLoc = 8874;
 		rType = 0;
 		vrLen = 1468;
 		vrLoc = 7800;
@@ -2357,7 +2364,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 484";
 		rLen = 0;
-		rLoc = 14537;
+		rLoc = 14645;
 		rType = 0;
 		vrLen = 1767;
 		vrLoc = 12992;
@@ -2367,7 +2374,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 492";
 		rLen = 0;
-		rLoc = 14537;
+		rLoc = 14645;
 		rType = 0;
 		vrLen = 1744;
 		vrLoc = 12992;
@@ -2377,7 +2384,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 484";
 		rLen = 0;
-		rLoc = 14537;
+		rLoc = 14645;
 		rType = 0;
 		vrLen = 1711;
 		vrLoc = 12992;
@@ -2387,7 +2394,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 487";
 		rLen = 0;
-		rLoc = 14784;
+		rLoc = 14892;
 		rType = 0;
 		vrLen = 1682;
 		vrLoc = 12913;
@@ -2397,7 +2404,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 489";
 		rLen = 0;
-		rLoc = 14784;
+		rLoc = 14892;
 		rType = 0;
 		vrLen = 1657;
 		vrLoc = 12913;
@@ -2407,7 +2414,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 493";
 		rLen = 0;
-		rLoc = 14774;
+		rLoc = 14882;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 12913;
@@ -2417,7 +2424,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 492";
 		rLen = 0;
-		rLoc = 14773;
+		rLoc = 14881;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 12913;
@@ -2437,7 +2444,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 485";
 		rLen = 0;
-		rLoc = 14544;
+		rLoc = 14652;
 		rType = 0;
 		vrLen = 1507;
 		vrLoc = 12913;
@@ -2447,7 +2454,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 485";
 		rLen = 0;
-		rLoc = 14544;
+		rLoc = 14652;
 		rType = 0;
 		vrLen = 1507;
 		vrLoc = 12913;
@@ -2467,7 +2474,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 372";
 		rLen = 0;
-		rLoc = 10971;
+		rLoc = 11079;
 		rType = 0;
 		vrLen = 1634;
 		vrLoc = 9397;
@@ -2477,7 +2484,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 486";
 		rLen = 0;
-		rLoc = 14567;
+		rLoc = 14675;
 		rType = 0;
 		vrLen = 1645;
 		vrLoc = 13164;
@@ -2487,7 +2494,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 497";
 		rLen = 0;
-		rLoc = 14823;
+		rLoc = 14931;
 		rType = 0;
 		vrLen = 1698;
 		vrLoc = 13164;
@@ -2497,7 +2504,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8971;
+		rLoc = 9079;
 		rType = 0;
 		vrLen = 1448;
 		vrLoc = 7800;
@@ -2507,7 +2514,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 9011;
+		rLoc = 9119;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 7800;
@@ -2517,7 +2524,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8959;
+		rLoc = 9067;
 		rType = 0;
 		vrLen = 1456;
 		vrLoc = 7800;
@@ -2527,7 +2534,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8954;
+		rLoc = 9062;
 		rType = 0;
 		vrLen = 1459;
 		vrLoc = 7800;
@@ -2537,7 +2544,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 318";
 		rLen = 0;
-		rLoc = 8771;
+		rLoc = 8879;
 		rType = 0;
 		vrLen = 1480;
 		vrLoc = 7800;
@@ -2557,7 +2564,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8864;
+		rLoc = 8972;
 		rType = 0;
 		vrLen = 1555;
 		vrLoc = 7800;
@@ -2567,7 +2574,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8864;
+		rLoc = 8972;
 		rType = 0;
 		vrLen = 1555;
 		vrLoc = 7800;
@@ -2587,7 +2594,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 8950;
+		rLoc = 9058;
 		rType = 0;
 		vrLen = 1551;
 		vrLoc = 7800;
@@ -2597,7 +2604,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 321";
 		rLen = 0;
-		rLoc = 8847;
+		rLoc = 8955;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 7800;
@@ -2617,7 +2624,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8882;
+		rLoc = 8990;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 8180;
@@ -2627,7 +2634,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8882;
+		rLoc = 8990;
 		rType = 0;
 		vrLen = 1478;
 		vrLoc = 8180;
@@ -2647,7 +2654,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8918;
+		rLoc = 9026;
 		rType = 0;
 		vrLen = 1391;
 		vrLoc = 8180;
@@ -2657,7 +2664,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8918;
+		rLoc = 9026;
 		rType = 0;
 		vrLen = 1551;
 		vrLoc = 7930;
@@ -2667,7 +2674,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8918;
+		rLoc = 9026;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 7930;
@@ -2677,7 +2684,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8946;
+		rLoc = 9054;
 		rType = 0;
 		vrLen = 1551;
 		vrLoc = 7930;
@@ -2687,7 +2694,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8864;
+		rLoc = 8972;
 		rType = 0;
 		vrLen = 1593;
 		vrLoc = 7930;
@@ -2697,7 +2704,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 14;
-		rLoc = 8930;
+		rLoc = 9038;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 7930;
@@ -2717,7 +2724,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 14;
-		rLoc = 8930;
+		rLoc = 9038;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 7930;
@@ -2747,7 +2754,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 14;
-		rLoc = 8930;
+		rLoc = 9038;
 		rType = 0;
 		vrLen = 1625;
 		vrLoc = 7930;
@@ -2767,7 +2774,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8918;
+		rLoc = 9026;
 		rType = 0;
 		vrLen = 1544;
 		vrLoc = 7800;
@@ -2777,7 +2784,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 548";
 		rLen = 0;
-		rLoc = 16574;
+		rLoc = 16682;
 		rType = 0;
 		vrLen = 1425;
 		vrLoc = 14540;
@@ -2787,7 +2794,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8918;
+		rLoc = 9026;
 		rType = 0;
 		vrLen = 1519;
 		vrLoc = 7800;
@@ -2797,7 +2804,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8901;
+		rLoc = 9009;
 		rType = 0;
 		vrLen = 1541;
 		vrLoc = 7800;
@@ -2807,7 +2814,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8901;
+		rLoc = 9009;
 		rType = 0;
 		vrLen = 1570;
 		vrLoc = 7800;
@@ -2817,7 +2824,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 524";
 		rLen = 0;
-		rLoc = 15829;
+		rLoc = 15937;
 		rType = 0;
 		vrLen = 1425;
 		vrLoc = 14537;
@@ -2827,7 +2834,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 17102;
+		rLoc = 17210;
 		rType = 0;
 		vrLen = 1429;
 		vrLoc = 14537;
@@ -2837,7 +2844,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 17102;
+		rLoc = 17210;
 		rType = 0;
 		vrLen = 1427;
 		vrLoc = 14537;
@@ -2847,7 +2854,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9086;
+		rLoc = 9194;
 		rType = 0;
 		vrLen = 1557;
 		vrLoc = 7800;
@@ -2857,7 +2864,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9086;
+		rLoc = 9194;
 		rType = 0;
 		vrLen = 1586;
 		vrLoc = 7800;
@@ -2867,7 +2874,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1558;
 		vrLoc = 7800;
@@ -2877,7 +2884,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1587;
 		vrLoc = 7800;
@@ -2887,7 +2894,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9011;
+		rLoc = 9119;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 7800;
@@ -2897,7 +2904,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 304";
 		rLen = 0;
-		rLoc = 8375;
+		rLoc = 8483;
 		rType = 0;
 		vrLen = 1561;
 		vrLoc = 7800;
@@ -2907,7 +2914,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9086;
+		rLoc = 9194;
 		rType = 0;
 		vrLen = 1535;
 		vrLoc = 7800;
@@ -2917,7 +2924,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9086;
+		rLoc = 9194;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 7800;
@@ -2927,7 +2934,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 326";
 		rLen = 0;
-		rLoc = 9127;
+		rLoc = 9235;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 7800;
@@ -2937,7 +2944,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16730;
+		rLoc = 16838;
 		rType = 0;
 		vrLen = 1468;
 		vrLoc = 14531;
@@ -2947,7 +2954,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16684;
+		rLoc = 16792;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 14531;
@@ -2957,7 +2964,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 551";
 		rLen = 0;
-		rLoc = 16629;
+		rLoc = 16737;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 14531;
@@ -2967,7 +2974,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 551";
 		rLen = 0;
-		rLoc = 16627;
+		rLoc = 16735;
 		rType = 0;
 		vrLen = 1488;
 		vrLoc = 14531;
@@ -2977,7 +2984,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16630;
+		rLoc = 16738;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 14531;
@@ -2997,7 +3004,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16630;
+		rLoc = 16738;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 14531;
@@ -3047,7 +3054,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16630;
+		rLoc = 16738;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 14531;
@@ -3077,7 +3084,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16629;
+		rLoc = 16737;
 		rType = 0;
 		vrLen = 1331;
 		vrLoc = 14688;
@@ -3087,7 +3094,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16629;
+		rLoc = 16737;
 		rType = 0;
 		vrLen = 1331;
 		vrLoc = 14688;
@@ -3097,7 +3104,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 514";
 		rLen = 0;
-		rLoc = 15579;
+		rLoc = 15687;
 		rType = 0;
 		vrLen = 1331;
 		vrLoc = 14688;
@@ -3117,7 +3124,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 514";
 		rLen = 0;
-		rLoc = 15579;
+		rLoc = 15687;
 		rType = 0;
 		vrLen = 1331;
 		vrLoc = 14688;
@@ -3147,7 +3154,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16670;
+		rLoc = 16778;
 		rType = 0;
 		vrLen = 1404;
 		vrLoc = 14615;
@@ -3167,7 +3174,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16670;
+		rLoc = 16778;
 		rType = 0;
 		vrLen = 1404;
 		vrLoc = 14615;
@@ -3187,7 +3194,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16662;
+		rLoc = 16770;
 		rType = 0;
 		vrLen = 1418;
 		vrLoc = 14615;
@@ -3197,7 +3204,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16662;
+		rLoc = 16770;
 		rType = 0;
 		vrLen = 1418;
 		vrLoc = 14615;
@@ -3207,7 +3214,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 551";
 		rLen = 0;
-		rLoc = 16627;
+		rLoc = 16735;
 		rType = 0;
 		vrLen = 1420;
 		vrLoc = 14615;
@@ -3217,7 +3224,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 551";
 		rLen = 0;
-		rLoc = 16627;
+		rLoc = 16735;
 		rType = 0;
 		vrLen = 1420;
 		vrLoc = 14615;
@@ -3227,7 +3234,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 551";
 		rLen = 0;
-		rLoc = 16609;
+		rLoc = 16717;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 14688;
@@ -3237,7 +3244,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 547";
 		rLen = 0;
-		rLoc = 16572;
+		rLoc = 16680;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 11250;
@@ -3247,7 +3254,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16648;
+		rLoc = 16756;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 14688;
@@ -3257,7 +3264,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 525";
 		rLen = 0;
-		rLoc = 15882;
+		rLoc = 15990;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 14688;
@@ -3267,7 +3274,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16680;
+		rLoc = 16788;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 14688;
@@ -3277,7 +3284,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 548";
 		rLen = 0;
-		rLoc = 16574;
+		rLoc = 16682;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 14688;
@@ -3297,7 +3304,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 548";
 		rLen = 0;
-		rLoc = 16574;
+		rLoc = 16682;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 14688;
@@ -3327,7 +3334,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 548";
 		rLen = 0;
-		rLoc = 16574;
+		rLoc = 16682;
 		rType = 0;
 		vrLen = 1422;
 		vrLoc = 14615;
@@ -3347,7 +3354,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9086;
+		rLoc = 9194;
 		rType = 0;
 		vrLen = 1508;
 		vrLoc = 7715;
@@ -3357,7 +3364,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 308";
 		rLen = 0;
-		rLoc = 8483;
+		rLoc = 8591;
 		rType = 0;
 		vrLen = 1508;
 		vrLoc = 7715;
@@ -3367,7 +3374,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9086;
+		rLoc = 9194;
 		rType = 0;
 		vrLen = 1491;
 		vrLoc = 7715;
@@ -3377,7 +3384,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9047;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1508;
 		vrLoc = 7715;
@@ -3387,7 +3394,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9047;
+		rLoc = 9155;
 		rType = 0;
 		vrLen = 1558;
 		vrLoc = 7715;
@@ -3397,7 +3404,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9055;
+		rLoc = 9163;
 		rType = 0;
 		vrLen = 1530;
 		vrLoc = 7758;
@@ -3407,7 +3414,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9085;
+		rLoc = 9193;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 8389;
@@ -3417,7 +3424,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9085;
+		rLoc = 9193;
 		rType = 0;
 		vrLen = 1697;
 		vrLoc = 8389;
@@ -3427,7 +3434,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 8950;
+		rLoc = 9058;
 		rType = 0;
 		vrLen = 1727;
 		vrLoc = 8389;
@@ -3437,7 +3444,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1727;
 		vrLoc = 8389;
@@ -3447,7 +3454,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1727;
 		vrLoc = 8389;
@@ -3467,7 +3474,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1727;
 		vrLoc = 8389;
@@ -3497,7 +3504,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1727;
 		vrLoc = 8389;
@@ -3517,7 +3524,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 14718;
@@ -3527,7 +3534,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1422;
 		vrLoc = 14645;
@@ -3547,7 +3554,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 14718;
@@ -3567,7 +3574,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1422;
 		vrLoc = 14645;
@@ -3597,7 +3604,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9090;
+		rLoc = 9198;
 		rType = 0;
 		vrLen = 1422;
 		vrLoc = 14645;
@@ -3617,7 +3624,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 554";
 		rLen = 0;
-		rLoc = 17100;
+		rLoc = 17208;
 		rType = 0;
 		vrLen = 1750;
 		vrLoc = 8564;
@@ -3627,7 +3634,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8917;
+		rLoc = 9025;
 		rType = 0;
 		vrLen = 1591;
 		vrLoc = 7800;
@@ -3637,7 +3644,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 556";
 		rLen = 0;
-		rLoc = 17101;
+		rLoc = 17209;
 		rType = 0;
 		vrLen = 1376;
 		vrLoc = 14868;
@@ -3647,7 +3654,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 557";
 		rLen = 0;
-		rLoc = 16923;
+		rLoc = 17031;
 		rType = 0;
 		vrLen = 1496;
 		vrLoc = 14922;
@@ -3657,7 +3664,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 557";
 		rLen = 0;
-		rLoc = 16925;
+		rLoc = 17033;
 		rType = 0;
 		vrLen = 1459;
 		vrLoc = 14963;
@@ -3667,7 +3674,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 558";
 		rLen = 0;
-		rLoc = 16941;
+		rLoc = 17049;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 14963;
@@ -3677,7 +3684,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 556";
 		rLen = 0;
-		rLoc = 16865;
+		rLoc = 16973;
 		rType = 0;
 		vrLen = 1448;
 		vrLoc = 14963;
@@ -3687,7 +3694,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 556";
 		rLen = 0;
-		rLoc = 16837;
+		rLoc = 16945;
 		rType = 0;
 		vrLen = 1450;
 		vrLoc = 14963;
@@ -3697,7 +3704,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 557";
 		rLen = 0;
-		rLoc = 16877;
+		rLoc = 16985;
 		rType = 0;
 		vrLen = 1452;
 		vrLoc = 14963;
@@ -3707,7 +3714,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 558";
 		rLen = 0;
-		rLoc = 16936;
+		rLoc = 17044;
 		rType = 0;
 		vrLen = 1456;
 		vrLoc = 14963;
@@ -3717,7 +3724,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 552";
 		rLen = 0;
-		rLoc = 16679;
+		rLoc = 16787;
 		rType = 0;
 		vrLen = 1452;
 		vrLoc = 14963;
@@ -3727,7 +3734,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 8917;
+		rLoc = 9025;
 		rType = 0;
 		vrLen = 1562;
 		vrLoc = 7800;
@@ -3737,7 +3744,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 550";
 		rLen = 0;
-		rLoc = 16602;
+		rLoc = 16710;
 		rType = 0;
 		vrLen = 1482;
 		vrLoc = 14913;
@@ -3747,7 +3754,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 550";
 		rLen = 0;
-		rLoc = 16602;
+		rLoc = 16710;
 		rType = 0;
 		vrLen = 1474;
 		vrLoc = 14913;
@@ -3757,7 +3764,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 554";
 		rLen = 0;
-		rLoc = 16777;
+		rLoc = 16885;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 14913;
@@ -3767,7 +3774,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 554";
 		rLen = 0;
-		rLoc = 16777;
+		rLoc = 16885;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 14913;
@@ -3777,7 +3784,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 554";
 		rLen = 0;
-		rLoc = 16777;
+		rLoc = 16885;
 		rType = 0;
 		vrLen = 1520;
 		vrLoc = 14913;
@@ -3787,7 +3794,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 558";
 		rLen = 0;
-		rLoc = 16941;
+		rLoc = 17049;
 		rType = 0;
 		vrLen = 1484;
 		vrLoc = 14953;
@@ -3807,7 +3814,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 558";
 		rLen = 0;
-		rLoc = 16941;
+		rLoc = 17049;
 		rType = 0;
 		vrLen = 1636;
 		vrLoc = 9539;
@@ -3817,7 +3824,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 558";
 		rLen = 0;
-		rLoc = 16941;
+		rLoc = 17049;
 		rType = 0;
 		vrLen = 1636;
 		vrLoc = 9539;
@@ -3837,7 +3844,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 374";
 		rLen = 0;
-		rLoc = 10987;
+		rLoc = 11095;
 		rType = 0;
 		vrLen = 1644;
 		vrLoc = 9539;
@@ -3847,7 +3854,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 374";
 		rLen = 0;
-		rLoc = 10987;
+		rLoc = 11095;
 		rType = 0;
 		vrLen = 1644;
 		vrLoc = 9539;
@@ -3857,7 +3864,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 367";
 		rLen = 0;
-		rLoc = 10490;
+		rLoc = 10598;
 		rType = 0;
 		vrLen = 1670;
 		vrLoc = 9539;
@@ -3877,7 +3884,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 367";
 		rLen = 0;
-		rLoc = 10490;
+		rLoc = 10598;
 		rType = 0;
 		vrLen = 1670;
 		vrLoc = 9539;
@@ -3947,7 +3954,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 39";
 		rLen = 0;
-		rLoc = 1530;
+		rLoc = 1566;
 		rType = 0;
 		vrLen = 1592;
 		vrLoc = 564;
@@ -3957,7 +3964,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 569";
 		rLen = 0;
-		rLoc = 17185;
+		rLoc = 17293;
 		rType = 0;
 		vrLen = 1405;
 		vrLoc = 15385;
@@ -3967,7 +3974,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 424";
 		rLen = 0;
-		rLoc = 12199;
+		rLoc = 12307;
 		rType = 0;
 		vrLen = 1324;
 		vrLoc = 11345;
@@ -3977,7 +3984,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 424";
 		rLen = 0;
-		rLoc = 12185;
+		rLoc = 12293;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 11345;
@@ -3987,7 +3994,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 427";
 		rLen = 0;
-		rLoc = 12307;
+		rLoc = 12415;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 11345;
@@ -3997,7 +4004,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 426";
 		rLen = 0;
-		rLoc = 12252;
+		rLoc = 12360;
 		rType = 0;
 		vrLen = 1325;
 		vrLoc = 11345;
@@ -4007,7 +4014,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 577";
 		rLen = 0;
-		rLoc = 17185;
+		rLoc = 17293;
 		rType = 0;
 		vrLen = 1373;
 		vrLoc = 15644;
@@ -4027,7 +4034,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 577";
 		rLen = 0;
-		rLoc = 17185;
+		rLoc = 17293;
 		rType = 0;
 		vrLen = 1373;
 		vrLoc = 15644;
@@ -4077,7 +4084,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 577";
 		rLen = 0;
-		rLoc = 17185;
+		rLoc = 17293;
 		rType = 0;
 		vrLen = 1407;
 		vrLoc = 15610;
@@ -4097,7 +4104,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 577";
 		rLen = 0;
-		rLoc = 17185;
+		rLoc = 17293;
 		rType = 0;
 		vrLen = 1373;
 		vrLoc = 15644;
@@ -4117,7 +4124,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 578";
 		rLen = 0;
-		rLoc = 17248;
+		rLoc = 17356;
 		rType = 0;
 		vrLen = 1464;
 		vrLoc = 15646;
@@ -4127,7 +4134,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 575";
 		rLen = 0;
-		rLoc = 17133;
+		rLoc = 17241;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 15681;
@@ -4137,7 +4144,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1483;
 		vrLoc = 15681;
@@ -4147,7 +4154,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1483;
 		vrLoc = 15681;
@@ -4157,7 +4164,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 15681;
@@ -4167,7 +4174,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 15681;
@@ -4187,7 +4194,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 15681;
@@ -4217,7 +4224,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1497;
 		vrLoc = 15665;
@@ -4237,7 +4244,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1483;
 		vrLoc = 15681;
@@ -4247,7 +4254,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 15681;
@@ -4257,7 +4264,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 580";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 15681;
@@ -4277,7 +4284,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 582";
 		rLen = 0;
-		rLoc = 17266;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 15830;
@@ -4287,7 +4294,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 65";
 		rLen = 0;
-		rLoc = 2367;
+		rLoc = 2475;
 		rType = 0;
 		vrLen = 1423;
 		vrLoc = 1224;
@@ -4297,7 +4304,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 54";
 		rLen = 0;
-		rLoc = 2081;
+		rLoc = 2177;
 		rType = 0;
 		vrLen = 1423;
 		vrLoc = 1224;
@@ -4317,7 +4324,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 54";
 		rLen = 0;
-		rLoc = 2081;
+		rLoc = 2177;
 		rType = 0;
 		vrLen = 1423;
 		vrLoc = 1224;
@@ -4352,12 +4359,82 @@
 		vrLen = 999;
 		vrLoc = 12474;
 	};
+	A29A019810E09DD30088952F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 593";
+		rLen = 0;
+		rLoc = 13098;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 12474;
+	};
+	A29A019910E09DD30088952F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 583";
+		rLen = 0;
+		rLoc = 12861;
+		rType = 0;
+		vrLen = 992;
+		vrLoc = 12474;
+	};
+	A29A019B10E09E430088952F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 583";
+		rLen = 0;
+		rLoc = 12861;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 12474;
+	};
+	A29A019C10E09E430088952F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 54";
+		rLen = 0;
+		rLoc = 2177;
+		rType = 0;
+		vrLen = 1406;
+		vrLoc = 1224;
+	};
+	A29A019D10E09E430088952F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 583";
+		rLen = 0;
+		rLoc = 12861;
+		rType = 0;
+		vrLen = 999;
+		vrLoc = 12474;
+	};
+	A29A019E10E09E430088952F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 63";
+		rLen = 0;
+		rLoc = 2445;
+		rType = 0;
+		vrLen = 1792;
+		vrLoc = 765;
+	};
+	A29A019F10E09E4A0088952F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 40";
+		rLen = 0;
+		rLoc = 1528;
+		rType = 0;
+		vrLen = 1819;
+		vrLoc = 765;
+	};
 	A29AFE2E10DE2AAE0088952F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 458";
 		rLen = 0;
-		rLoc = 14797;
+		rLoc = 14905;
 		rType = 0;
 		vrLen = 1579;
 		vrLoc = 12851;
@@ -4367,7 +4444,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 458";
 		rLen = 0;
-		rLoc = 14797;
+		rLoc = 14905;
 		rType = 0;
 		vrLen = 1577;
 		vrLoc = 12851;
@@ -4387,7 +4464,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 480";
 		rLen = 0;
-		rLoc = 15693;
+		rLoc = 15801;
 		rType = 0;
 		vrLen = 1579;
 		vrLoc = 12851;
@@ -4397,7 +4474,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 480";
 		rLen = 0;
-		rLoc = 15693;
+		rLoc = 15801;
 		rType = 0;
 		vrLen = 1579;
 		vrLoc = 12851;
@@ -4417,7 +4494,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 480";
 		rLen = 0;
-		rLoc = 15693;
+		rLoc = 15801;
 		rType = 0;
 		vrLen = 1579;
 		vrLoc = 12851;
@@ -4437,7 +4514,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 441";
 		rLen = 0;
-		rLoc = 13255;
+		rLoc = 13363;
 		rType = 0;
 		vrLen = 1443;
 		vrLoc = 12000;
@@ -4447,7 +4524,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13544;
+		rLoc = 13652;
 		rType = 0;
 		vrLen = 1593;
 		vrLoc = 11676;
@@ -4457,7 +4534,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13543;
+		rLoc = 13651;
 		rType = 0;
 		vrLen = 1594;
 		vrLoc = 11676;
@@ -4467,7 +4544,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13536;
+		rLoc = 13644;
 		rType = 0;
 		vrLen = 1594;
 		vrLoc = 11676;
@@ -4477,7 +4554,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13543;
+		rLoc = 13651;
 		rType = 0;
 		vrLen = 1593;
 		vrLoc = 11676;
@@ -4487,7 +4564,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 440";
 		rLen = 0;
-		rLoc = 13209;
+		rLoc = 13317;
 		rType = 0;
 		vrLen = 1614;
 		vrLoc = 11676;
@@ -4497,7 +4574,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13543;
+		rLoc = 13651;
 		rType = 0;
 		vrLen = 1593;
 		vrLoc = 11676;
@@ -4507,7 +4584,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 446";
 		rLen = 0;
-		rLoc = 13346;
+		rLoc = 13454;
 		rType = 0;
 		vrLen = 1598;
 		vrLoc = 11676;
@@ -4517,7 +4594,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13770;
+		rLoc = 13878;
 		rType = 0;
 		vrLen = 1598;
 		vrLoc = 11676;
@@ -4527,7 +4604,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13533;
+		rLoc = 13641;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 11676;
@@ -4537,7 +4614,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13521;
+		rLoc = 13629;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 11676;
@@ -4547,7 +4624,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13498;
+		rLoc = 13606;
 		rType = 0;
 		vrLen = 1648;
 		vrLoc = 11676;
@@ -4557,7 +4634,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13498;
+		rLoc = 13606;
 		rType = 0;
 		vrLen = 1620;
 		vrLoc = 11676;
@@ -4567,7 +4644,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 451";
 		rLen = 0;
-		rLoc = 13711;
+		rLoc = 13819;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 11676;
@@ -4577,7 +4654,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 451";
 		rLen = 0;
-		rLoc = 13711;
+		rLoc = 13819;
 		rType = 0;
 		vrLen = 1517;
 		vrLoc = 11676;
@@ -4587,7 +4664,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13490;
+		rLoc = 13598;
 		rType = 0;
 		vrLen = 1517;
 		vrLoc = 11676;
@@ -4597,7 +4674,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13498;
+		rLoc = 13606;
 		rType = 0;
 		vrLen = 1420;
 		vrLoc = 11676;
@@ -4607,7 +4684,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13462;
+		rLoc = 13570;
 		rType = 0;
 		vrLen = 1421;
 		vrLoc = 11676;
@@ -4617,7 +4694,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 441";
 		rLen = 0;
-		rLoc = 13257;
+		rLoc = 13365;
 		rType = 0;
 		vrLen = 1421;
 		vrLoc = 11676;
@@ -4627,7 +4704,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13485;
+		rLoc = 13593;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 11676;
@@ -4637,7 +4714,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 443";
 		rLen = 0;
-		rLoc = 13305;
+		rLoc = 13413;
 		rType = 0;
 		vrLen = 1555;
 		vrLoc = 12896;
@@ -4657,7 +4734,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 443";
 		rLen = 0;
-		rLoc = 13305;
+		rLoc = 13413;
 		rType = 0;
 		vrLen = 1555;
 		vrLoc = 12896;
@@ -4717,7 +4794,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 443";
 		rLen = 0;
-		rLoc = 13305;
+		rLoc = 13413;
 		rType = 0;
 		vrLen = 1579;
 		vrLoc = 12872;
@@ -4737,7 +4814,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 451";
 		rLen = 0;
-		rLoc = 13636;
+		rLoc = 13744;
 		rType = 0;
 		vrLen = 1562;
 		vrLoc = 11883;
@@ -4747,7 +4824,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 448";
 		rLen = 0;
-		rLoc = 13542;
+		rLoc = 13650;
 		rType = 0;
 		vrLen = 1562;
 		vrLoc = 11883;
@@ -4757,7 +4834,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 443";
 		rLen = 0;
-		rLoc = 13305;
+		rLoc = 13413;
 		rType = 0;
 		vrLen = 1562;
 		vrLoc = 11883;
@@ -4767,7 +4844,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 440";
 		rLen = 0;
-		rLoc = 13209;
+		rLoc = 13317;
 		rType = 0;
 		vrLen = 1614;
 		vrLoc = 11883;
@@ -4787,7 +4864,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 440";
 		rLen = 0;
-		rLoc = 13209;
+		rLoc = 13317;
 		rType = 0;
 		vrLen = 1614;
 		vrLoc = 11883;
@@ -4837,7 +4914,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 440";
 		rLen = 0;
-		rLoc = 13209;
+		rLoc = 13317;
 		rType = 0;
 		vrLen = 1593;
 		vrLoc = 11883;
@@ -4857,7 +4934,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 448";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1411;
 		vrLoc = 11883;
@@ -4867,7 +4944,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 448";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1412;
 		vrLoc = 11883;
@@ -4877,7 +4954,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 448";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 11883;
@@ -4897,7 +4974,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 448";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 11883;
@@ -4977,7 +5054,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 448";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 11883;
@@ -4997,7 +5074,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 455";
 		rLen = 0;
-		rLoc = 13753;
+		rLoc = 13861;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 11883;
@@ -5007,7 +5084,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 451";
 		rLen = 0;
-		rLoc = 13591;
+		rLoc = 13699;
 		rType = 0;
 		vrLen = 1414;
 		vrLoc = 11883;
@@ -5017,7 +5094,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1429;
 		vrLoc = 11883;
@@ -5027,7 +5104,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1498;
 		vrLoc = 11883;
@@ -5047,7 +5124,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1498;
 		vrLoc = 11883;
@@ -5077,7 +5154,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1492;
 		vrLoc = 11883;
@@ -5097,7 +5174,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1498;
 		vrLoc = 11883;
@@ -5117,7 +5194,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1492;
 		vrLoc = 11883;
@@ -5137,7 +5214,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1418;
 		vrLoc = 11883;
@@ -5157,7 +5234,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1502;
 		vrLoc = 11883;
@@ -5167,7 +5244,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1502;
 		vrLoc = 11883;
@@ -5187,7 +5264,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1415;
 		vrLoc = 11883;
@@ -5197,7 +5274,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1415;
 		vrLoc = 11883;
@@ -5207,7 +5284,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1499;
 		vrLoc = 11883;
@@ -5227,7 +5304,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1499;
 		vrLoc = 11883;
@@ -5307,7 +5384,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 0;
-		rLoc = 13433;
+		rLoc = 13541;
 		rType = 0;
 		vrLen = 1499;
 		vrLoc = 11883;
@@ -5327,7 +5404,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 450";
 		rLen = 0;
-		rLoc = 13544;
+		rLoc = 13652;
 		rType = 0;
 		vrLen = 1417;
 		vrLoc = 12000;
@@ -5337,7 +5414,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 447";
 		rLen = 58;
-		rLoc = 13375;
+		rLoc = 13483;
 		rType = 0;
 		vrLen = 1565;
 		vrLoc = 12000;
@@ -5347,7 +5424,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 449";
 		rLen = 0;
-		rLoc = 13467;
+		rLoc = 13575;
 		rType = 0;
 		vrLen = 1634;
 		vrLoc = 12000;
@@ -5367,7 +5444,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 449";
 		rLen = 0;
-		rLoc = 13467;
+		rLoc = 13575;
 		rType = 0;
 		vrLen = 1634;
 		vrLoc = 12000;
@@ -5437,7 +5514,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1559;
 		vrLoc = 12133;
@@ -5457,7 +5534,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 12133;
@@ -5487,7 +5564,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1559;
 		vrLoc = 12133;
@@ -5507,7 +5584,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1498;
 		vrLoc = 12133;
@@ -5517,7 +5594,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1508;
 		vrLoc = 12133;
@@ -5527,7 +5604,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 466";
 		rLen = 0;
-		rLoc = 14538;
+		rLoc = 14646;
 		rType = 0;
 		vrLen = 1497;
 		vrLoc = 12133;
@@ -5537,7 +5614,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 12099;
@@ -5547,7 +5624,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 12099;
@@ -5557,7 +5634,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 464";
 		rLen = 0;
-		rLoc = 14133;
+		rLoc = 14241;
 		rType = 0;
 		vrLen = 1465;
 		vrLoc = 12099;
@@ -5567,7 +5644,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 464";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1414;
 		vrLoc = 12114;
@@ -5577,7 +5654,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 467";
 		rLen = 0;
-		rLoc = 14538;
+		rLoc = 14646;
 		rType = 0;
 		vrLen = 1503;
 		vrLoc = 12114;
@@ -5587,7 +5664,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 467";
 		rLen = 0;
-		rLoc = 14538;
+		rLoc = 14646;
 		rType = 0;
 		vrLen = 1669;
 		vrLoc = 12245;
@@ -5597,7 +5674,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1721;
 		vrLoc = 12245;
@@ -5617,7 +5694,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1721;
 		vrLoc = 12245;
@@ -5677,7 +5754,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1711;
 		vrLoc = 12255;
@@ -5697,7 +5774,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 467";
 		rLen = 0;
-		rLoc = 14538;
+		rLoc = 14646;
 		rType = 0;
 		vrLen = 1690;
 		vrLoc = 12255;
@@ -5707,7 +5784,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1605;
 		vrLoc = 12255;
@@ -5727,7 +5804,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 467";
 		rLen = 0;
-		rLoc = 14538;
+		rLoc = 14646;
 		rType = 0;
 		vrLen = 1711;
 		vrLoc = 12255;
@@ -5747,7 +5824,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1605;
 		vrLoc = 12255;
@@ -5797,7 +5874,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1605;
 		vrLoc = 12255;
@@ -5817,7 +5894,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 463";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1589;
 		vrLoc = 12255;
@@ -5827,7 +5904,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 467";
 		rLen = 4;
-		rLoc = 14172;
+		rLoc = 14280;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 12255;
@@ -5837,7 +5914,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 468";
 		rLen = 0;
-		rLoc = 14516;
+		rLoc = 14624;
 		rType = 0;
 		vrLen = 1602;
 		vrLoc = 12255;
@@ -5847,7 +5924,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 469";
 		rLen = 0;
-		rLoc = 14516;
+		rLoc = 14624;
 		rType = 0;
 		vrLen = 1616;
 		vrLoc = 12385;
@@ -5857,7 +5934,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 468";
 		rLen = 0;
-		rLoc = 14286;
+		rLoc = 14394;
 		rType = 0;
 		vrLen = 1622;
 		vrLoc = 12385;
@@ -5867,7 +5944,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 468";
 		rLen = 0;
-		rLoc = 14286;
+		rLoc = 14394;
 		rType = 0;
 		vrLen = 1625;
 		vrLoc = 12385;
@@ -5877,7 +5954,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 464";
 		rLen = 0;
-		rLoc = 13864;
+		rLoc = 13972;
 		rType = 0;
 		vrLen = 1531;
 		vrLoc = 12385;
@@ -5887,7 +5964,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 464";
 		rLen = 0;
-		rLoc = 13864;
+		rLoc = 13972;
 		rType = 0;
 		vrLen = 1557;
 		vrLoc = 12385;
@@ -5897,7 +5974,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 465";
 		rLen = 0;
-		rLoc = 13864;
+		rLoc = 13972;
 		rType = 0;
 		vrLen = 1486;
 		vrLoc = 12385;
@@ -5907,7 +5984,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 465";
 		rLen = 0;
-		rLoc = 14116;
+		rLoc = 14224;
 		rType = 0;
 		vrLen = 1624;
 		vrLoc = 12385;
@@ -5917,7 +5994,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 466";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1624;
 		vrLoc = 12385;
@@ -5937,7 +6014,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 450";
 		rLen = 46;
-		rLoc = 13501;
+		rLoc = 13609;
 		rType = 0;
 		vrLen = 1654;
 		vrLoc = 12385;
@@ -5947,7 +6024,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 450";
 		rLen = 46;
-		rLoc = 13501;
+		rLoc = 13609;
 		rType = 0;
 		vrLen = 1685;
 		vrLoc = 12385;
@@ -5967,7 +6044,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 465";
 		rLen = 0;
-		rLoc = 14116;
+		rLoc = 14224;
 		rType = 0;
 		vrLen = 1654;
 		vrLoc = 12385;
@@ -5977,7 +6054,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 466";
 		rLen = 0;
-		rLoc = 14117;
+		rLoc = 14225;
 		rType = 0;
 		vrLen = 1596;
 		vrLoc = 12385;
@@ -5987,7 +6064,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 467";
 		rLen = 0;
-		rLoc = 14080;
+		rLoc = 14188;
 		rType = 0;
 		vrLen = 1447;
 		vrLoc = 12385;
@@ -5997,7 +6074,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 475";
 		rLen = 0;
-		rLoc = 14516;
+		rLoc = 14624;
 		rType = 0;
 		vrLen = 1601;
 		vrLoc = 12518;
@@ -6017,7 +6094,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 478";
 		rLen = 0;
-		rLoc = 14538;
+		rLoc = 14646;
 		rType = 0;
 		vrLen = 1567;
 		vrLoc = 12873;
@@ -6027,7 +6104,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 475";
 		rLen = 0;
-		rLoc = 14515;
+		rLoc = 14623;
 		rType = 0;
 		vrLen = 1492;
 		vrLoc = 12375;
@@ -6047,7 +6124,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 478";
 		rLen = 0;
-		rLoc = 14538;
+		rLoc = 14646;
 		rType = 0;
 		vrLen = 1567;
 		vrLoc = 12873;
@@ -6067,7 +6144,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 474";
 		rLen = 0;
-		rLoc = 14230;
+		rLoc = 14338;
 		rType = 0;
 		vrLen = 1611;
 		vrLoc = 12873;
@@ -6077,7 +6154,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 446";
 		rLen = 0;
-		rLoc = 13362;
+		rLoc = 13470;
 		rType = 0;
 		vrLen = 1445;
 		vrLoc = 12337;
@@ -6087,7 +6164,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 476";
 		rLen = 0;
-		rLoc = 14419;
+		rLoc = 14527;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 12289;
@@ -6097,7 +6174,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 370";
 		rLen = 0;
-		rLoc = 10946;
+		rLoc = 11054;
 		rType = 0;
 		vrLen = 1643;
 		vrLoc = 9207;
@@ -6107,7 +6184,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1276;
 		vrLoc = 10168;
@@ -6117,7 +6194,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1280;
 		vrLoc = 10168;
@@ -6127,7 +6204,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1280;
 		vrLoc = 10168;
@@ -6147,7 +6224,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1280;
 		vrLoc = 10168;
@@ -6177,7 +6254,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1457;
 		vrLoc = 9991;
@@ -6197,7 +6274,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 9978;
@@ -6217,7 +6294,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 370";
 		rLen = 0;
-		rLoc = 10941;
+		rLoc = 11049;
 		rType = 0;
 		vrLen = 1798;
 		vrLoc = 8927;
@@ -6227,7 +6304,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 370";
 		rLen = 0;
-		rLoc = 10941;
+		rLoc = 11049;
 		rType = 0;
 		vrLen = 1798;
 		vrLoc = 8927;
@@ -6247,7 +6324,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 370";
 		rLen = 0;
-		rLoc = 10941;
+		rLoc = 11049;
 		rType = 0;
 		vrLen = 1798;
 		vrLoc = 8927;
@@ -6287,7 +6364,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 370";
 		rLen = 0;
-		rLoc = 10941;
+		rLoc = 11049;
 		rType = 0;
 		vrLen = 1705;
 		vrLoc = 9020;
@@ -6307,7 +6384,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1092;
 		vrLoc = 10510;
@@ -6317,7 +6394,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1136;
 		vrLoc = 10510;
@@ -6337,7 +6414,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1136;
 		vrLoc = 10510;
@@ -6377,7 +6454,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 382";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1136;
 		vrLoc = 10510;
@@ -6397,12 +6474,18 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1102;
 		vrLoc = 10510;
 	};
 	A29AFF7510DF130D0088952F /* ui.multidraggable.js */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.javascript;
+		name = ui.multidraggable.js;
+		path = /Users/florianmaurer/Documents/LightController/trunk/branch/ui.multidraggable.js;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {951, 8974}}";
 			sepNavSelRange = "{1116, 226}";
@@ -6414,7 +6497,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1547;
 		vrLoc = 9624;
@@ -6462,7 +6545,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1547;
 		vrLoc = 9624;
@@ -6540,7 +6623,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 383";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1547;
 		vrLoc = 9624;
@@ -6560,7 +6643,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1429;
 		vrLoc = 7800;
@@ -6570,7 +6653,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1449;
 		vrLoc = 7800;
@@ -6590,7 +6673,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1444;
 		vrLoc = 7800;
@@ -6600,7 +6683,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1444;
 		vrLoc = 7800;
@@ -6620,7 +6703,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1410;
 		vrLoc = 7800;
@@ -6630,7 +6713,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1406;
 		vrLoc = 7800;
@@ -6640,7 +6723,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1404;
 		vrLoc = 7800;
@@ -6650,7 +6733,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 12485;
@@ -6660,7 +6743,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 472";
 		rLen = 0;
-		rLoc = 13957;
+		rLoc = 14065;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 12485;
@@ -6670,7 +6753,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 483";
 		rLen = 0;
-		rLoc = 14333;
+		rLoc = 14441;
 		rType = 0;
 		vrLen = 1566;
 		vrLoc = 12485;
@@ -6680,7 +6763,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 483";
 		rLen = 0;
-		rLoc = 14301;
+		rLoc = 14409;
 		rType = 0;
 		vrLen = 1472;
 		vrLoc = 12485;
@@ -6690,7 +6773,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 483";
 		rLen = 0;
-		rLoc = 14301;
+		rLoc = 14409;
 		rType = 0;
 		vrLen = 1568;
 		vrLoc = 12485;
@@ -6700,7 +6783,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1406;
 		vrLoc = 7800;
@@ -6710,7 +6793,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 322";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1404;
 		vrLoc = 7800;
@@ -6720,7 +6803,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1606;
 		vrLoc = 9624;
@@ -6730,7 +6813,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1611;
 		vrLoc = 9624;
@@ -6750,7 +6833,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1611;
 		vrLoc = 9624;
@@ -6780,7 +6863,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1611;
 		vrLoc = 9624;
@@ -6800,7 +6883,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 7800;
@@ -6810,7 +6893,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 317";
 		rLen = 0;
-		rLoc = 8766;
+		rLoc = 8874;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 7800;
@@ -6830,7 +6913,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 317";
 		rLen = 0;
-		rLoc = 8766;
+		rLoc = 8874;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 7800;
@@ -6890,7 +6973,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 317";
 		rLen = 0;
-		rLoc = 8766;
+		rLoc = 8874;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 7800;
@@ -6920,7 +7003,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 317";
 		rLen = 0;
-		rLoc = 8766;
+		rLoc = 8874;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 7800;
@@ -6950,7 +7033,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 317";
 		rLen = 0;
-		rLoc = 8766;
+		rLoc = 8874;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 7800;
@@ -6970,7 +7053,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1417;
 		vrLoc = 7800;
@@ -6980,7 +7063,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1415;
 		vrLoc = 7800;
@@ -6990,7 +7073,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 7800;
@@ -7000,7 +7083,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 7800;
@@ -7010,7 +7093,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1386;
 		vrLoc = 7800;
@@ -7020,7 +7103,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1386;
 		vrLoc = 7800;
@@ -7040,7 +7123,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 321";
 		rLen = 0;
-		rLoc = 8817;
+		rLoc = 8925;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 10425;
@@ -7050,7 +7133,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 321";
 		rLen = 0;
-		rLoc = 8817;
+		rLoc = 8925;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 10425;
@@ -7070,7 +7153,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 321";
 		rLen = 0;
-		rLoc = 8817;
+		rLoc = 8925;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 10425;
@@ -7090,7 +7173,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1386;
 		vrLoc = 7800;
@@ -7100,7 +7183,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1391;
 		vrLoc = 7800;
@@ -7110,7 +7193,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1387;
 		vrLoc = 7800;
@@ -7120,7 +7203,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 323";
 		rLen = 0;
-		rLoc = 9091;
+		rLoc = 9199;
 		rType = 0;
 		vrLen = 1386;
 		vrLoc = 7800;
@@ -7130,7 +7213,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 312";
 		rLen = 0;
-		rLoc = 8606;
+		rLoc = 8714;
 		rType = 0;
 		vrLen = 1456;
 		vrLoc = 8303;
@@ -7154,7 +7237,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 312";
 		rLen = 0;
-		rLoc = 8606;
+		rLoc = 8714;
 		rType = 0;
 		vrLen = 1456;
 		vrLoc = 8303;
@@ -7268,7 +7351,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 312";
 		rLen = 0;
-		rLoc = 8606;
+		rLoc = 8714;
 		rType = 0;
 		vrLen = 1374;
 		vrLoc = 8303;
@@ -7298,7 +7381,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1372;
 		vrLoc = 10138;
@@ -7308,7 +7391,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 386";
 		rLen = 0;
-		rLoc = 11315;
+		rLoc = 11423;
 		rType = 0;
 		vrLen = 1385;
 		vrLoc = 10138;
@@ -7559,8 +7642,8 @@
 	};
 	A2E53EC210C383910035A4BA /* scalingTest.html */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {3216, 7280}}";
-			sepNavSelRange = "{13098, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {3216, 8008}}";
+			sepNavSelRange = "{12861, 0}";
 			sepNavVisRange = "{12474, 999}";
 		};
 	};
