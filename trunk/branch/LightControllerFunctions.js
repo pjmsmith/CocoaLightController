@@ -1,6 +1,6 @@
 var loopActive = false;
 var playActive = false;
-var dialogActive = true;
+var dialogActive = false;
 
 var numofAnimations = 5;
 
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		var selectedLights = getSelectedLights();			   
 		var color = $(this).attr("id"); 
 		//window.AppController.showMessage_(color);
-		window.AppController.setColor_selectString(color, selectedLights);
+		window.AppController.setColor_selectString_(color, selectedLights);
 	});
 
 	$(".colorButton").mousedown(function(){
@@ -464,6 +464,7 @@ $(document).ready(function(){
 				  
 				  $("#groupList > li").live("click",function() {
 											 $("#groupList > li").removeClass("selected");
+											$("#filterList > li").removeClass("selected");
 											 
 											 if(!$(this).children("ul").is(":hidden")){
 												$(this).children("ul").slideUp();
@@ -580,5 +581,6 @@ function getSelectedLights() {
 	$("#filterList > .selected").each(function(){
 									  selected += ","+$(this).html();
     });
-	window.AppController.showMessage_(selected);
+	return selected;
+	//window.AppController.showMessage_(selected);
 }
