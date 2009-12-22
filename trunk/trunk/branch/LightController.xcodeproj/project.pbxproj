@@ -25,6 +25,7 @@
 		462D6CE910B8F76500486DE6 /* RedUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 462D6CE310B8F76500486DE6 /* RedUp.png */; };
 		462D6CF410B8F7E800486DE6 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462D6CF310B8F7E800486DE6 /* IOKit.framework */; };
 		462F899310B8FB5F009B5181 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462F899110B8FB5F009B5181 /* MainMenu.xib */; };
+		467D202A10D4645C00EBB5D9 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D202910D4645C00EBB5D9 /* Group.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A219413410D08EE5006CADB8 /* NewTrackBH.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A219413010D08EE5006CADB8 /* NewTrackBH.tiff */; };
@@ -137,6 +138,8 @@
 		462D6CE310B8F76500486DE6 /* RedUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedUp.png; sourceTree = "<group>"; };
 		462D6CF310B8F7E800486DE6 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		462F899210B8FB5F009B5181 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		467D202810D4645C00EBB5D9 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		467D202910D4645C00EBB5D9 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* LightController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A219413010D08EE5006CADB8 /* NewTrackBH.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = NewTrackBH.tiff; sourceTree = "<group>"; };
@@ -329,6 +332,8 @@
 				462D6CD410B8F74300486DE6 /* Channel.m */,
 				462D6CD510B8F74300486DE6 /* Light.h */,
 				462D6CD610B8F74300486DE6 /* Light.m */,
+				467D202810D4645C00EBB5D9 /* Group.h */,
+				467D202910D4645C00EBB5D9 /* Group.m */,
 			);
 			name = LCClasses;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				462D6CD910B8F74300486DE6 /* Channel.m in Sources */,
 				462D6CDA10B8F74300486DE6 /* Light.m in Sources */,
 				462D6CDD10B8F75100486DE6 /* ViewController.m in Sources */,
+				467D202A10D4645C00EBB5D9 /* Group.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

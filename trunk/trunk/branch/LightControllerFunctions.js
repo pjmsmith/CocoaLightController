@@ -25,33 +25,34 @@ function deactivatePlaying() {
 $(document).ready(function(){
 	//window.AppController.showMessage_("jquery works");
 	$("body").keypress(function(e){
-					   if(e.which == 117 || e.which == 105 || e.which == 106 || e.which == 107 || e.which == 108 || e.which == 109 || e.which == 44){
-						var selectedLights = getSelectedLights();			   
-					   }
+        var selectedLights = "";
+        if(e.which == 117 || e.which == 105 || e.which == 106 || e.which == 107 || e.which == 108 || e.which == 109 || e.which == 44){
+            selectedLights += getSelectedLights();			   
+        }
         if (!dialogActive) {
             if (e.which == 117) { //u
-               window.AppController.setColor_selectString("yellow",selectedLights);			
+               window.AppController.setColor_selectString_("yellow",selectedLights);			
             } 
             if (e.which == 105) { //i
-               window.AppController.setColor_selectString("green",selectedLights);			
+               window.AppController.setColor_selectString_("green",selectedLights);			
             } 
             if (e.which == 111) { //o
-                window.AppController.setColor_selectString("cyan",selectedLights);			
+                window.AppController.setColor_selectString_("cyan",selectedLights);			
             } 
             if (e.which == 106) { //j
-                window.AppController.setColor_selectString("red",selectedLights);			
+                window.AppController.setColor_selectString_("red",selectedLights);			
             }
             if (e.which == 107) { //k
-                window.AppController.setColor_selectString("magenta",selectedLights);			
+                window.AppController.setColor_selectString_("magenta",selectedLights);			
             } 
             if (e.which == 108) { //l
-                window.AppController.setColor_selectString("blue",selectedLights);			
+                window.AppController.setColor_selectString_("blue",selectedLights);			
             }
             if (e.which == 109) { //m
-                window.AppController.setColor_selectString("white",selectedLights);
+                window.AppController.setColor_selectString_("white",selectedLights);
             }
             if (e.which == 44) { //,
-                window.AppController.setColor_selectString("black",selectedLights);
+                window.AppController.setColor_selectString_("black",selectedLights);
             }
         }
 	});
@@ -578,6 +579,6 @@ function getSelectedLights() {
 	var selected = "g";
 	$("#filterList > .selected").each(function(){
 									  selected += ","+$(this).html();
-									  });
-	//window.AppController.showMessage_(selected);
+    });
+	window.AppController.showMessage_(selected);
 }
