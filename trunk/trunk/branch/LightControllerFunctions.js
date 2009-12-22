@@ -26,7 +26,7 @@ $(document).ready(function(){
 	//window.AppController.showMessage_("jquery works");
 	$("body").keypress(function(e){
         var selectedLights = "";
-        if(e.which == 117 || e.which == 105 || e.which == 106 || e.which == 107 || e.which == 108 || e.which == 109 || e.which == 44){
+        if(e.which == 117 || e.which == 105 || e.which == 106 || e.which == 111 || e.which == 107 || e.which == 108 || e.which == 109 || e.which == 44){
             selectedLights += getSelectedLights();			   
         }
         if (!dialogActive) {
@@ -360,9 +360,9 @@ $(document).ready(function(){
 						   buttons: { 
 								"Save": function() { 
 						
-											//addLight();
+											addLight();
 						
-											$(this).dialog("close");
+											/*$(this).dialog("close");
                                             dialogActive = false;
 											var lightName = $("input[name='lightName']").attr("value");
 											//var channelNumber = $("select[name='lightChannels']").attr("value");
@@ -377,7 +377,8 @@ $(document).ready(function(){
 											var lightName =window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
 											$("#lightList").append("<div class='light'>"+lightName+"</div>");
 											$("#group0").append("<li>"+lightName+"</li>");
-											//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
+											//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);*/
+						
 											},
 								"Cancel":function() {
 											$(this).dialog("close");
@@ -401,7 +402,7 @@ $(document).ready(function(){
 				  
 	  $("#dialog").keyup(function(e) {
 			if (e.keyCode == 13) {
-						 if(dialogOpen){	
+						 if(dialogActive){	
 							addLight;}
 						 else{
 						 window.AppController.showMessage_("returnPressed");}
@@ -427,6 +428,10 @@ $(document).ready(function(){
 								}
 								else {
 									$("#filterList > *").removeClass("selected");
+									$("#groupList > li").removeClass("selected");
+									$(".light").removeClass("selected");
+
+
 									$(this).addClass("selected");
 								}
 								
@@ -465,6 +470,8 @@ $(document).ready(function(){
 				  $("#groupList > li").live("click",function() {
 											 $("#groupList > li").removeClass("selected");
 											$("#filterList > li").removeClass("selected");
+											$(".light").removeClass("selected");
+
 											 
 											 if(!$(this).children("ul").is(":hidden")){
 												$(this).children("ul").slideUp();
@@ -486,8 +493,6 @@ $(document).ready(function(){
 																		 $("#tempGroupNameInput").show();
 																		 $("#tempGroupNameInput").focus();
 																		 });
-											 
-
 											 });
 				  
 				  $("#tempGroupNameInput").blur(function(){
@@ -495,11 +500,14 @@ $(document).ready(function(){
 												var tempGroupName = $(this).attr("value");
 												var selectedLightsforGroup = $()
 												//tempGroupName = window.AppController.addGroup_selected_(tempGroupName);
-												$("#groupList").append("<li>"+tempGroupName+"<ul class='lightsInGroup'></ul></li>")
+												$("#groupList").append("<li name='"+tempGroupName+"'>"+tempGroupName+"<ul class='lightsInGroup'></ul></li>")
 												})
 				  
 				  
 				  $(".light").live("click",function(e) {
+								   $("#filterList > li").removeClass("selected");
+								   $("#groupList > li").removeClass("selected");
+								   
 									if(e.metaKey){
 										$(this).toggleClass("selected");
 									}
@@ -508,10 +516,12 @@ $(document).ready(function(){
 										$(this).toggleClass("selected");
 									}
 									})
+				  
 });
 
 function addLight() {
-	window.AppController.showMessage_("arrived");
+	$("#dialog").dialog("close");
+	dialogActive = false;
 	var lightName = $("input[name='lightName']").attr("value");
 	//var channelNumber = $("select[name='lightChannels']").attr("value");
 	var channelNumber = 7;
@@ -522,11 +532,11 @@ function addLight() {
 	}
 	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
 	//window.AppController.addLight_(lightName,channelNumber,channelNames);
-	//var lightName = window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
-	$("ul").append("<li></li>");
-	$("#dialog").dialog("close");
-	dialogOpen = false;
-}
+	var lightName =window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
+	$("#lightList").append("<div class='light'>"+lightName+"</div>");
+	$("#group0").append("<li>"+lightName+"</li>");
+	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
+	}
 
 function changeDisplay(display,value) {
 	// display parameter can be: left, right, or center
@@ -581,6 +591,16 @@ function getSelectedLights() {
 	$("#filterList > .selected").each(function(){
 									  selected += ","+$(this).html();
     });
+	$("#groupList > .selected").each(function() {
+									 selected += ","+$(this).attr("name");
+									 });
+	
+	if ($(".light").length > 0) {
+			selected = "l";
+		$("#lightList > .selected").each(function(index) {
+						 selected += "," +index;
+						 });
+	}
+	window.AppController.showMessage_(selected);
 	return selected;
-	//window.AppController.showMessage_(selected);
 }
