@@ -278,13 +278,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>16</integer>
+									<integer>24</integer>
+									<integer>23</integer>
 									<integer>15</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 145}, {302, 756}}</string>
+							<string>{{0, 128}, {302, 756}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -319,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>A2E53E7C10C3659F0035A4BA</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>scalingTest.html</string>
+								<string>LightControllerFunctions.js</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>A2E53E7D10C3659F0035A4BA</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>scalingTest.html</string>
+										<string>LightControllerFunctions.js</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A29A019510E09B770088952F</string>
+										<string>A29A019F10E09E4A0088952F</string>
 										<key>history</key>
 										<array>
 											<string>A2E53F4210C38C9D0035A4BA</string>
@@ -383,9 +384,8 @@
 											<string>A29AFF8010DF13930088952F</string>
 											<string>A29AFFE510DF18FB0088952F</string>
 											<string>A29A004210DF1DDD0088952F</string>
-											<string>A29A00CE10DF6BDE0088952F</string>
-											<string>A29A018F10E09B340088952F</string>
-											<string>A29A019010E09B340088952F</string>
+											<string>A29A019B10E09E430088952F</string>
+											<string>A29A019C10E09E430088952F</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -489,9 +489,7 @@
 											<string>A29AFF7010DEFB380088952F</string>
 											<string>A29AFF8510DF13930088952F</string>
 											<string>A29AFF8610DF13930088952F</string>
-											<string>A29AFF8710DF13930088952F</string>
 											<string>A29AFF8810DF13930088952F</string>
-											<string>A29AFF8910DF13930088952F</string>
 											<string>A29AFF8A10DF13930088952F</string>
 											<string>A29AFF9010DF13FF0088952F</string>
 											<string>A29AFF9610DF149A0088952F</string>
@@ -509,17 +507,13 @@
 											<string>A29AFFE710DF18FB0088952F</string>
 											<string>A29AFFE810DF18FB0088952F</string>
 											<string>A29AFFFA10DF1A2B0088952F</string>
-											<string>A29AFFFB10DF1A2B0088952F</string>
 											<string>A29A000010DF1A5F0088952F</string>
-											<string>A29A000510DF1A820088952F</string>
 											<string>A29A000C10DF1AAA0088952F</string>
 											<string>A29A000D10DF1AAA0088952F</string>
-											<string>A29A001310DF1AEC0088952F</string>
 											<string>A29A001410DF1AEC0088952F</string>
 											<string>A29A001C10DF1BFF0088952F</string>
 											<string>A29A002710DF1CFE0088952F</string>
 											<string>A29A002F10DF1D470088952F</string>
-											<string>A29A003010DF1D470088952F</string>
 											<string>A29A003D10DF1DBF0088952F</string>
 											<string>A29A003E10DF1DBF0088952F</string>
 											<string>A29A003F10DF1DBF0088952F</string>
@@ -530,9 +524,7 @@
 											<string>A29A005410DF1FF10088952F</string>
 											<string>A29A005B10DF201F0088952F</string>
 											<string>A29A006010DF20560088952F</string>
-											<string>A29A006110DF20560088952F</string>
 											<string>A29A007210DF21310088952F</string>
-											<string>A29A007310DF21310088952F</string>
 											<string>A29A008410DF23060088952F</string>
 											<string>A29A008510DF23060088952F</string>
 											<string>A29A008B10DF235D0088952F</string>
@@ -541,7 +533,6 @@
 											<string>A29A009D10DF24630088952F</string>
 											<string>A29A00C810DF28380088952F</string>
 											<string>A29A00D010DF6BDE0088952F</string>
-											<string>A29A00D110DF6BDE0088952F</string>
 											<string>A29A00D710DF6C250088952F</string>
 											<string>A29A00DC10DF6C640088952F</string>
 											<string>A29A00DD10DF6C640088952F</string>
@@ -567,6 +558,7 @@
 											<string>A29A017D10E0985A0088952F</string>
 											<string>A29A018210E098980088952F</string>
 											<string>A29A019110E09B340088952F</string>
+											<string>A29A019D10E09E430088952F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
