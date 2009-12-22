@@ -212,10 +212,10 @@
             [sendString appendString:[self numberToTriple:(NSNumber*)c]];
             [sendString appendString:[self numberToTriple:(NSNumber*)[sendAction.targetValues objectAtIndex:i]]];
             [sendString appendString:@"\r"];
-            NSLog(@"%@", sendString);
             //port will be open
             if([port isOpen]) {
-            [port writeString:sendString usingEncoding:NSUTF8StringEncoding error:NULL];
+                [port writeString:sendString usingEncoding:NSUTF8StringEncoding error:NULL];
+                NSLog(@"Sending %@", [sendString substringToIndex:([sendString length]-1)]);
             }
             else 
             {
@@ -224,6 +224,7 @@
             i++;
         }
         [self applyState:sendAction];
+        [self displayState:[lights objectAtIndex:0]];
         
     }
 
@@ -338,7 +339,7 @@
         [stateChange addObject:[[Channel alloc] initWithDetails:[labelArray objectAtIndex:i] addr:address val:0]];
         if([(NSString*)[labelArray objectAtIndex:i] caseInsensitiveCompare:@"brightness"]==NSOrderedSame)
         {
-            ((Channel*)[channels objectAtIndex:((addr-1)+i)]).value = globalBrightness;
+            ((Channel*)[channels objectAtIndex:((addr-1)+i)]).value = 0;
             ((Channel*)[stateChange objectAtIndex:((addr-1)+i)]).value = globalBrightness;
 
         }
@@ -503,15 +504,15 @@
     {
         if ([((Channel*)[channels objectAtIndex:i]).label caseInsensitiveCompare:@"red"]==NSOrderedSame)
         {
-            [a addObject:[[NSNumber alloc] initWithInt:i]];
+            [a addObject:[[NSNumber alloc] initWithInt:i+1]];
         }
         if ([((Channel*)[channels objectAtIndex:i]).label caseInsensitiveCompare:@"green"]==NSOrderedSame)
         {
-            [a addObject:[[NSNumber alloc] initWithInt:i]];
+            [a addObject:[[NSNumber alloc] initWithInt:i+1]];
         }
         if ([((Channel*)[channels objectAtIndex:i]).label caseInsensitiveCompare:@"blue"]==NSOrderedSame)
         {
-            [a addObject:[[NSNumber alloc] initWithInt:i]];
+            [a addObject:[[NSNumber alloc] initWithInt:i+1]];
         }
     }
     if ([a count] < 3)
@@ -529,6 +530,7 @@
     //set values appropriately
     for (id i in lightArray)
     {
+        NSLog(@"In loop");
         Light* l = [lights objectAtIndex:[(NSString*)i integerValue]];
         [colorAction.targetChannels addObjectsFromArray:[self getColorChannels:l]];
         
@@ -572,11 +574,13 @@
 - (void) setColor:(NSString *)color selectString:(NSString*) selString
 {
     NSLog(@"%@", color);
+    NSLog(@"%d", [selString length]);
+    
     BOOL error = NO;
 
     NSArray *selectArray = [selString componentsSeparatedByString:@","];
     Action* colorAction;
-    
+
     //if you're setting color for a light
     if ([(NSString*)[selectArray objectAtIndex:0] caseInsensitiveCompare:@"l"]==NSOrderedSame) 
     {
@@ -604,8 +608,12 @@
                 }
             }
             NSMutableArray *lightArray = [[NSMutableArray alloc] initWithCapacity:([g.groupLights count])];
-            [lightArray arrayByAddingObjectsFromArray:g.groupLights];
+            for(id h in g.groupLights)
+            {
+                [lightArray addObject:h];
+            }
             colorAction = [self buildColorAction:lightArray color:color];
+            [self displayState:colorAction];
         }
         else 
         {
@@ -734,7 +742,20 @@
             NSLog(@"%d", [[g.groupLights objectAtIndex:i] intValue]);
         }
     }
+    else if([d isKindOfClass:[Action class]])
+    {
+        Action* a = (Action*)d;
+        NSLog(@"Action: %@", a.name);
+        NSLog(@"--------------");
+        NSLog(@"Chan - Val:");
+        for(int i = 0; i < [a.targetChannels count]; i++)
+        {
+            NSLog(@"%d      %d", [[a.targetChannels objectAtIndex:i] intValue], [[a.targetValues objectAtIndex:i] intValue]);
+        }
+        
+    }
 }
+
 - (Action *)diffChannels
 {
     Action* diff = [[Action alloc] initWithDetails:@"DIFF" numChans:3];
