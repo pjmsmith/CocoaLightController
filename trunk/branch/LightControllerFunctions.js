@@ -597,10 +597,12 @@ function getSelectedLights() {
 	
 	if ($(".light").length > 0) {
 			selected = "l";
-		$("#lightList > .selected").each(function(index) {
-						 selected += "," +index;
+		$(".light").each(function(index) {
+						 if($(this).hasClass("selected")){
+							selected += "," +index;
+						 }
 						 });
 	}
-	window.AppController.showMessage_(selected);
+	//window.AppController.showMessage_(selected);
 	return selected;
 }
