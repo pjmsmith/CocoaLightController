@@ -469,21 +469,31 @@ $(document).ready(function(){
 					});
 				  
 				  $("#groupList > li").live("click",function() {
-											 $("#groupList > li").removeClass("selected");
-											$("#filterList > li").removeClass("selected");
-											$(".light").removeClass("selected");
-
-											 
-											 if(!$(this).children("ul").is(":hidden")){
-												$(this).children("ul").slideUp();
-												$(this).removeClass("selected");
-											 }
-											 else{
-												$(".lightsInGroup").slideUp();
-												$(this).children("ul").slideDown();
+											
+											
+											if($(this).hasClass("selected")){
+												$(this).removeClass("selected")
+											}
+											else {
+												$("#filterList > li").removeClass("selected");
+												$(".light").removeClass("selected");
+												$("#groupList > li").removeClass("selected");
 												$(this).addClass("selected");
-											 }
+											}
+
 											 });
+				  
+				  $("#groupList > li").live("dblclick",function() {
+					  if(!$(this).children("ul").is(":hidden")){
+					  $(this).children("ul").slideUp();
+					  //$(this).removeClass("selected");
+					  }
+					  else{
+					  $(".lightsInGroup").slideUp();
+					  $(this).children("ul").slideDown();
+					  //$(this).addClass("selected");
+					  }
+					});
 				  
 				  
 				  
@@ -502,12 +512,12 @@ $(document).ready(function(){
 												var passedGroupName ="";
 												var lightsInGroup = "";
 												
-												passedGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup);
+												passedGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup());
 												
 												$("#lightList > .selected").each(function(){
 													 lightsInGroup += "<li>"+$(this).text()+"</li>";
 												})
-												$("#groupList").append("<li name='"+tempGroupName+"'>"+tempGroupName+"<ul class='lightsInGroup'>"+lightsInGroup+"</ul></li>")
+												$("#groupList").append("<li name='"+passedGroupName+"'>"+passedGroupName+"<ul class='lightsInGroup'>"+lightsInGroup+"</ul></li>")
 												
 												})
 				  
