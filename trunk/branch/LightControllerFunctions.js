@@ -27,7 +27,7 @@ $(document).ready(function(){
 	$("body").keypress(function(e){
         var selectedLights = "";
         if(e.which == 117 || e.which == 105 || e.which == 106 || e.which == 111 || e.which == 107 || e.which == 108 || e.which == 109 || e.which == 44){
-            selectedLights += getSelectedLights();			   
+            selectedLights += getSelectedLights(false);			   
         }
         if (!dialogActive) {
             if (e.which == 117) { //u
@@ -402,10 +402,11 @@ $(document).ready(function(){
 				  
 	  $("#dialog").keyup(function(e) {
 			if (e.keyCode == 13) {
+						 window.AppController.showMessage_("returnPressed:"+dialogActive);}
 						 if(dialogActive){	
-							addLight;}
+							addLight;
+						 }
 						 else{
-						 window.AppController.showMessage_("returnPressed");}
 
 						 
 			}
@@ -497,10 +498,15 @@ $(document).ready(function(){
 				  
 				  $("#tempGroupNameInput").blur(function(){
 												$("#tempGroupNameInput").hide();
-												var tempGroupName = $(this).attr("value");
+												//var tempGroupName = $(this).attr("value");
 												var selectedLightsforGroup = $()
-												//tempGroupName = window.AppController.addGroup_selected_(tempGroupName);
-												$("#groupList").append("<li name='"+tempGroupName+"'>"+tempGroupName+"<ul class='lightsInGroup'></ul></li>")
+												tempGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup);
+												var lightsInGroup = "";
+												$("#lightList > .selected").each(function(){
+													 lightsInGroup += "<li>"+$(this).text()+"</li>";
+												})
+												$("#groupList").append("<li name='"+tempGroupName+"'>"+tempGroupName+"<ul class='lightsInGroup'>"+lightsInGroup+"</ul></li>")
+												
 												})
 				  
 				  
@@ -587,6 +593,7 @@ function LightDropOnGroup() {
 }
 
 function getSelectedLights() {
+
 	var selected = "g";
 	$("#filterList > .selected").each(function(){
 									  selected += ","+$(this).html();
@@ -595,14 +602,29 @@ function getSelectedLights() {
 									 selected += ","+$(this).attr("name");
 									 });
 	
-	if ($(".light").length > 0) {
+	if ($("#lightList > .selected").length > 0) {
 			selected = "l";
+
 		$(".light").each(function(index) {
 						 if($(this).hasClass("selected")){
 							selected += "," +index;
 						 }
 						 });
 	}
+	//window.AppController.showMessage_(selected);
+	return selected;
+}
+
+function getSelectedLightsForGroup() {
+
+		selected = "";
+		
+		$(".light").each(function(index) {
+						 if($(this).hasClass("selected")){
+						 selected += index + ",";
+						 }
+						 });
+	selected = selected.substring(0, selected.length-1);;
 	//window.AppController.showMessage_(selected);
 	return selected;
 }
