@@ -302,7 +302,7 @@
     if (aSelector == @selector(prevAction:)) {
         return NO; // i.e. prevAction: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(setBrightness:)) {
+    if (aSelector == @selector(setBrightness:selectString:)) {
         return NO; // i.e. setBrightness: is NOT _excluded_ from scripting, so it can be called.
     }
     if (aSelector == @selector(addLight:numChans:newLabels:)) {
@@ -351,6 +351,7 @@
 {
     NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
     NSString* retString = [self addName:name dict:groupNames];
+
     Group* g = [[Group alloc] initWithDetails:retString size:[selectArray count]];
     int i = 0;
     for(id d in selectArray)
@@ -359,7 +360,7 @@
         i++;
     }
     [groups addObject:g];
-    
+    NSLog(@"%@", retString);
     return retString;
     
 }
@@ -461,24 +462,65 @@
     [pool release];
 }
 
-- (void) setBrightness:(NSNumber*)brightness
+- (void) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString
 {
-    Action* tempAction;
+    NSLog(@"Setting brightness to %@", brightness);
     
-    for (Light* l in lights)
+    BOOL error = NO;
+    
+    NSArray *selectArray = [selString componentsSeparatedByString:@","];
+    Action* brightnessAction;
+    
+    //if you're setting brightness for a light
+    if ([(NSString*)[selectArray objectAtIndex:0] caseInsensitiveCompare:@"l"]==NSOrderedSame) 
     {
-        tempAction = [Action alloc];
-        [tempAction initWithDetails:@"" numChans:1];
-        [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([l.startingAddress intValue]+6)]];
-        [tempAction.targetValues addObject:brightness];
-        l.currentAction = tempAction;
-        //[l applyAction];
-        //[l displayState];
-        if (!testAnimation.isRunning) {
-            //[self send:NULL];
+        NSMutableArray *lightArray = [[NSMutableArray alloc] initWithCapacity:([selectArray count]-1)];
+        for(int i = 1; i < [selectArray count]; i++)
+        {
+            [lightArray addObject:[selectArray objectAtIndex:i]];
         }
-        [tempAction release];
+        brightnessAction = [self buildBrightnessAction:lightArray brightness:brightness];
+    } //if you're setting brightness for a group of lights
+    else if ([(NSString*)[selectArray objectAtIndex:0] caseInsensitiveCompare:@"g"]==NSOrderedSame) {
+        //find group
+        if([selectArray count]==2)
+        {
+            Group* g;
+            for(id d in groups)
+            {
+                g = (Group*)d;
+                if ([g.name caseInsensitiveCompare:(NSString*)[selectArray objectAtIndex:1]]==NSOrderedSame)
+                {
+                    break;
+                }
+            }
+            NSMutableArray *lightArray = [[NSMutableArray alloc] initWithCapacity:([g.groupLights count])];
+            for(id h in g.groupLights)
+            {
+                [lightArray addObject:h];
+            }
+            brightnessAction = [self buildBrightnessAction:lightArray brightness:brightness];
+        }
+        else 
+        {
+            NSLog(@"Error! Only send one group name to setBrightness!");
+            error = YES;
+        }
+        
     }
+    else 
+    {
+        NSLog(@"Wrong string sent to setColor, send 'g' for group and 'l' for lights");
+        error = YES;
+    }
+    
+    if(!error && (brightnessAction!=nil) && ([brightnessAction.targetChannels count]>0))
+    {
+        //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
+        [self changeState:brightnessAction];
+        [self send:nil];
+    }
+    
 }
 
 - (void) changeState:(Action *)action
@@ -495,6 +537,23 @@
     {
         ((Channel*)[channels objectAtIndex:([[action.targetChannels objectAtIndex:i] intValue]-1)]).value = [[action.targetValues objectAtIndex:i] intValue];
     }
+}
+
+- (NSMutableArray*)getBrightnessChannels:(Light*)l
+{
+    NSMutableArray* a = [[NSMutableArray alloc] initWithCapacity:3];
+    for(int i = [l.startingAddress intValue]-1; i < (([l.startingAddress intValue]-1)+[l.sizeOfBlock intValue]);i++)
+    {
+        if ([((Channel*)[channels objectAtIndex:i]).label caseInsensitiveCompare:@"brightness"]==NSOrderedSame)
+        {
+            [a addObject:[[NSNumber alloc] initWithInt:i+1]];
+        }
+    }
+    if ([a count] < 3)
+    {
+        NSLog(@"Could not find a brightness channel, check channel configuration");
+    }
+    return a;
 }
 
 - (NSMutableArray*)getColorChannels:(Light*)l
@@ -530,7 +589,6 @@
     //set values appropriately
     for (id i in lightArray)
     {
-        NSLog(@"In loop");
         Light* l = [lights objectAtIndex:[(NSString*)i integerValue]];
         [colorAction.targetChannels addObjectsFromArray:[self getColorChannels:l]];
         
@@ -571,10 +629,25 @@
     return colorAction;
 }
 
+
+- (Action*) buildBrightnessAction:(NSMutableArray*)lightArray brightness:(NSNumber*)brightness
+{
+    Action* brightnessAction = [Action alloc]; 
+    [brightnessAction initWithDetails:@"Set Color" numChans:(3*[lightArray count])];
+
+    for (id i in lightArray)
+    {
+        Light* l = [lights objectAtIndex:[(NSString*)i integerValue]];
+        [brightnessAction.targetChannels addObjectsFromArray:[self getBrightnessChannels:l]];
+        [brightnessAction.targetValues addObject:brightness];
+    }
+    
+    return brightnessAction;
+}
+
 - (void) setColor:(NSString *)color selectString:(NSString*) selString
 {
-    NSLog(@"%@", color);
-    NSLog(@"%d", [selString length]);
+    NSLog(@"Setting color to %@", color);
     
     BOOL error = NO;
 
@@ -584,7 +657,6 @@
     //if you're setting color for a light
     if ([(NSString*)[selectArray objectAtIndex:0] caseInsensitiveCompare:@"l"]==NSOrderedSame) 
     {
-        printf("set color of lights\n");
         NSMutableArray *lightArray = [[NSMutableArray alloc] initWithCapacity:([selectArray count]-1)];
         for(int i = 1; i < [selectArray count]; i++)
         {
@@ -593,7 +665,6 @@
         colorAction = [self buildColorAction:lightArray color:color];
     } //if you're setting color for a group of lights
     else if ([(NSString*)[selectArray objectAtIndex:0] caseInsensitiveCompare:@"g"]==NSOrderedSame) {
-        printf("set color of group\n");
         //find group
         if([selectArray count]==2)
         {
@@ -603,7 +674,6 @@
                 g = (Group*)d;
                 if ([g.name caseInsensitiveCompare:(NSString*)[selectArray objectAtIndex:1]]==NSOrderedSame)
                 {
-                    printf("Name match\n");
                     break;
                 }
             }
@@ -628,7 +698,7 @@
         error = YES;
     }
 
-    if(!error && (colorAction!=nil))
+    if(!error && (colorAction!=nil) && ([colorAction.targetChannels count]>0))
     {
         //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
         [self changeState:colorAction];

@@ -78,7 +78,7 @@
 - (void)toggleRecord:(NSString *)rec;
 - (void)toggleLooping:(NSString *)l;
 - (void)clearCurrentAnimationActions:(NSString *)c;
-- (void)setBrightness:(NSNumber *)brightness;
+- (void) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString;
 - (NSString*)addGroup:(NSString *)name selected:(NSString *)selectLights;
 - (NSString*)addName:(NSString *)name dict:(NSMutableDictionary *)names;
 - (NSString*)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels;
@@ -96,7 +96,10 @@
 -(void)changeState:(Action *)action;
 -(void)applyState:(Action *)action;
 - (NSMutableArray*)getColorChannels:(Light*)l;
+- (NSMutableArray*)getBrightnessChannels:(Light*)l;
 - (Action*) buildColorAction:(NSMutableArray*)lightArray color:(NSString*)color;
+- (Action*) buildBrightnessAction:(NSMutableArray*)lightArray brightness:(NSNumber*)brightness;
+
 
 //@property (nonatomic, retain) IBOutlet NSPopUpButton *serialSelectMenu;
 //@property (nonatomic, retain) IBOutlet NSTextField	 *textField;
