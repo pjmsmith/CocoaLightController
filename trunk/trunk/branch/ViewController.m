@@ -52,9 +52,13 @@
     globalBrightness = 255;
     
     [groups addObject:[[Group alloc] initWithDetails:@"ALL" size:2 brightness:globalBrightness]];
-                       
+
     black_out = NO;
     isRecording = NO;
+    
+    AUTO_NAME = @"New Animation";
+    
+    currentAnimation = nil;
 	
     [self listDevices];
 
@@ -67,7 +71,7 @@
     
     // Configure webView to let JavaScript talk to this object.
     [[webView windowScriptObject] setValue:self forKey:@"AppController"]; // can be any unique name you want
-	
+
 	/*
      Notes: 
 	 1. In JavaScript, you can now talk to this object using "window.AppController".
@@ -80,12 +84,11 @@
 	 For more on method-name translation, see:
 	 http://developer.apple.com/documentation/AppleApplications/Conceptual/SafariJSProgTopics/Tasks/ObjCFromJavaScript.html#
      */
-    
+
     // Load the HTML content.
 	NSString* filePath = [[NSBundle mainBundle] pathForResource: @"scalingTest" ofType: @"html"];
 	NSURL *url = [NSURL fileURLWithPath:[filePath stringByDeletingLastPathComponent]];
 	[[webView mainFrame] loadHTMLString: [NSString stringWithContentsOfFile:filePath encoding:NSASCIIStringEncoding error:NULL] baseURL: url];
-	
 }
 
 - (IBAction)attemptConnect:(id)sender {
@@ -97,7 +100,7 @@
 
 	
 # pragma mark Serial Port Stuff
-	
+
 	- (void)initPort
 	{
 		NSString *deviceName = [serialSelectMenu titleOfSelectedItem];
@@ -315,13 +318,25 @@
     if (aSelector == @selector(addAnimation:)) {
         return NO; // i.e. addAnimation: is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(removeGroup:)) {
+        return NO; // i.e. removeGroup: is NOT _excluded_ from scripting, so it can be called.
+    }
+    if (aSelector == @selector(removeAnimation:)) {
+        return NO; // i.e. removeAnimation: is NOT _excluded_ from scripting, so it can be called.
+    }
+    if (aSelector == @selector(removeLight:)) {
+        return NO; // i.e. removeLight: is NOT _excluded_ from scripting, so it can be called.
+    }
+    if (aSelector == @selector(removeLightFromGroup:selected:)) {
+        return NO; // i.e. removeLightFromGroup:selected: is NOT _excluded_ from scripting, so it can be called.
+    }
     
     return YES; // disallow everything else
 }
 
 - (void) firstAction:(NSString*)f
 {
-
+    [webView stringByEvaluatingJavaScriptFromString:@"fullDisplay();"]; 
 }
 
 - (void) nextAction:(NSString*)n
@@ -457,6 +472,15 @@
 - (void)removeLight:(NSNumber *)lightNumber
 {
     [lights removeObjectAtIndex:[lightNumber intValue]];
+    for(Group* g in groups)
+    {
+        for(id d in g.groupLights)
+        {
+            if ([d intValue]==[lightNumber intValue]) {
+                [g.groupLights removeObject:d];
+            }
+        }
+    }
 }
 
 - (NSString*)addName:(NSString*)name dict:(NSMutableDictionary*)names
@@ -746,7 +770,7 @@
 - (void) setColor:(NSString *)color selectString:(NSString*) selString
 {
     NSLog(@"Setting color to %@", color);
-    
+
     BOOL error = NO;
 
     NSArray *selectArray = [selString componentsSeparatedByString:@","];
@@ -809,9 +833,13 @@
         {
             if (currentAnimation != nil)
             {
+                //if selected animation == current animation
                 //add color action to current animation's action list, send if not playing
+                
+                //else add to selected
             }
             else {
+                //if an animation selected 
                 //new animation, set new to current, send (can't be playing if no animation is current
             }
 
@@ -1000,5 +1028,11 @@
 {
 	[webView makeTextSmaller:sender];
 }
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
+    [webView stringByEvaluatingJavaScriptFromString:@"changeDisplay('center', 1);"]; 
+}
+
+
 
 @end
