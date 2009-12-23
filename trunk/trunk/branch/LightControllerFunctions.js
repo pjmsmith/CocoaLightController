@@ -1,6 +1,7 @@
 var loopActive = false;
 var playActive = false;
 var dialogActive = false;
+var inputActive = false;
 
 var numofAnimations = 5;
 
@@ -29,7 +30,7 @@ $(document).ready(function(){
         if(e.which == 117 || e.which == 105 || e.which == 106 || e.which == 111 || e.which == 107 || e.which == 108 || e.which == 109 || e.which == 44){
             selectedLights += getSelectedLights(false);			   
         }
-        if (!dialogActive) {
+        if (!dialogActive && !inputActive) {
             if (e.which == 117) { //u
                window.AppController.setColor_selectString_("yellow",selectedLights);			
             } 
@@ -396,7 +397,7 @@ $(document).ready(function(){
 				  
     $("body").keyup(function(e) {
         if (e.keyCode == 13) {
-            if(dialogActive){	
+            if(dialogActive && !inputActive){	
                 addLight();
             }
         }
@@ -496,6 +497,13 @@ $(document).ready(function(){
         });
     });
     
+				  $("input").focus(function(){
+								   inputActive = true;
+								   })
+				  $("input").focus(function(){
+								   inputActive = false;
+								   })
+				  
     $("#tempGroupNameInput").keyup(function(e) {
         if (e.keyCode == 13) {
             if(!$(this).is(':hidden')){	
@@ -625,8 +633,14 @@ function getSelectedLights() {
             }
         });
 	}
-	window.AppController.showMessage_(selected);
-	return selected;
+	//window.AppController.showMessage_(selected);
+	if (selected.length > 2){
+		return selected;
+	}
+	else {
+		//window.AppController.showMessage_("g,All");
+		return "g,all";
+	}
 }
 
 function getSelectedLightsForGroup() {
@@ -638,9 +652,17 @@ function getSelectedLightsForGroup() {
             selected += index + ",";
         }
     });
-    selected = selected.substring(0, selected.length-1);;
+    selected = selected.substring(0, selected.length-1); //remove last comma
     //window.AppController.showMessage_(selected);
-    return selected;
+	
+	if (selected.length > 0){
+		return selected;
+	}
+	else {
+		//window.AppController.showMessage_("-1");
+		return "-1";
+	}
+	
 }
 
 jQuery.fn.getGroupNameInput = function() {
