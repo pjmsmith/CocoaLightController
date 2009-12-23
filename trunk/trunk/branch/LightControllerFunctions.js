@@ -420,7 +420,7 @@ $(document).ready(function(){
         }
         else {
             $("#filterList > *").removeClass("selected");
-            $("#groupList > li").removeClass("selected");
+            $("#groupList > div").removeClass("selected");
             $(".light").removeClass("selected");
 
 
@@ -524,7 +524,7 @@ $(document).ready(function(){
 
     $(".light").live("click",function(e) {
         $("#filterList > li").removeClass("selected");
-        $("#groupList > li").removeClass("selected");
+        $("#groupList > div").removeClass("selected");
 
         if(e.metaKey){
             $(this).toggleClass("selected");
