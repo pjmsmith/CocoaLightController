@@ -325,8 +325,8 @@ $(document).ready(function(){
 
 
 	$("#AnimationsLeft").sortable({ cursor: 'move', opacity: 0.6, containment: 'window' });
-	$("#groupList > li").droppable({drop:function() {LightDropOnGroup($(this))},hoverClass:"groupHoverDrop"});
-	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", helper: 'clone', revert:true, revertDuration:'1' });
+	$(".lightGroup").droppable({drop:function() {LightDropOnGroup($(this))},hoverClass:"groupHoverDrop"});
+	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:".lightGroup", helper: 'clone', revert:true, revertDuration:'1' });
 
 	$(".physicalButtons").droppable({
 		drop: function() { 
@@ -458,7 +458,7 @@ $(document).ready(function(){
         }  
     });
 
-    $("#groupList > li").live("click",function() {
+    $("#groupList > div").live("click",function() {
                               
         if($(this).hasClass("selected")){
             $(this).removeClass("selected")
@@ -466,21 +466,21 @@ $(document).ready(function(){
         else {
             $("#filterList > li").removeClass("selected");
             $(".light").removeClass("selected");
-            $("#groupList > li").removeClass("selected");
+            $("#groupList > div").removeClass("selected");
             $(this).addClass("selected");
         }
 
     });
 				  
-    $("#groupList > li").live("dblclick",function() {
-        if(!$(this).children("ul").is(":hidden")) {
-            $(this).children("ul").slideUp();
+    $("#groupList > div").live("dblclick",function() {
+        if(!$(this).children("div").is(":hidden")) {
+            $(this).children("div").slideUp();
             //$(this).removeClass("selected");
         }
         else{
-            if($(this).attr("name") != "allLightsGroup") {
-                $(".lightsInGroup").slideUp();
-                $(this).children("ul").slideDown();
+            if($(this).attr("name") != "all") {
+                $("#groupList > div > div.light").slideUp();
+                $(this).children("div").slideDown();
             }
             //$(this).addClass("selected");
         }
@@ -490,11 +490,11 @@ $(document).ready(function(){
 				  
     $("#addGroupButton").click(function(){
 
-        $("#groupList > li").removeClass("selected");
-        $(".lightsInGroup").slideUp(function(){
+       // $("#groupList > li").removeClass("selected");
+        //$(".lightGroup").slideUp(function(){
             $("#tempGroupNameInput").show();
             $("#tempGroupNameInput").focus();
-        });
+        //});
     });
     
 				  $("input").focus(function(){
@@ -561,8 +561,8 @@ function addLight() {
 	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
 	//window.AppController.addLight_(lightName,channelNumber,channelNames);
 	var lightName =window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
-	$("#lightList").append("<div class='light' id='"+numberofLights+"'>"+lightName+"</div>");
-	$("#group0").append("<li id='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</li>");
+	$("#lightList").append("<div class='light' index='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
+	//$("#group0").append("<div id='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
 	//window.AppController.showMessage_(lightName+","+numberofLights+","+channelNames);
 	
 	
@@ -607,22 +607,50 @@ function LightDropOnGroup(el) {
 	
 	var numLights = $("#lightList > .selected").length;
 	
-	if (numLights == 0) {
+	/*if (numLights == 0) {
 		$(".ui-draggable-dragging").addClass("selected");
-	}
+	}*/
 	
 	var lightsToAdd = "";
 	var nameOfGroupBeingDroppedOn = el.attr("name");
+	//var numLights = ".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']";
+	//window.AppController.showMessage_(""+numLights);
 	
-	$("#lightList > .selected").each(function(){
-        var lightName = $(this).text();
-									 if (el.children("ul").children("li[name='"+lightName+"']").length == 0)	{						 
-									 el.children("ul").append("<li name='"+lightName+"'>"+lightName+"</li>")
-									 lightsToAdd += $(this).attr("id") + ",";
-									 }
-    });
+	if(numLights == 0) {
+		var lightName = $(".ui-draggable-dragging").attr("name");
+		var lightIndex = $(".ui-draggable-dragging").attr("index");
+		if(el.children("div[name='"+lightName+"']").length == 0){
+			//$("#lightList > .light[name='"+lightName+"']").clone(true).appendTo(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']");
+			$(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']").append("<div name='"+lightName+"' index='"+lightIndex+"' class='light'>"+lightName+"</div>");
+			lightsToAdd = lightIndex;
+		}
+	}
+	else {	
+		$("#lightList > .selected").each(function(){
+										var lightName = $(this).attr("name");
+										 $(this).removeClass("selected");
+
+										 if(el.children("div[name='"+lightName+"']").length == 0){
+											$(this).clone(true).appendTo(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']");
+											lightsToAdd += $(this).attr("index") +",";
+										 }
+										 //window.AppController.showMessage_("dropped on: "+nameOfGroupBeingDroppedOn);
+										 //window.AppController.showMessage_("dropped on: "+$(this).attr("name"));
+										 $(this).addClass("selected");
+										 
+		});
+		lightsToAdd = lightsToAdd.substring(0, lightsToAdd.length-1); //remove last comma
+	}
+	//var numLights = $(".lightGroup > .light").length;
+	//window.AppController.showMessage_(""+numLights);
 	
-	lightsToAdd = lightsToAdd.substring(0, lightsToAdd.length-1); //remove last comma
+	/*$("#groupList > li > ul > li").draggable('destroy');
+	$("#groupList > li > ul > li").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", revert:true,revertDuration:'100' });*/
+	
+	if(lightsToAdd.length == 0) {
+			lightsToAdd = "-1";
+	}
+	
 	//window.AppController.showMessage_(nameOfGroupBeingDroppedOn+" : "+lightsToAdd);
 	window.AppController.appendToGroup_selected_(nameOfGroupBeingDroppedOn,lightsToAdd);
 	
@@ -683,16 +711,21 @@ function getSelectedLightsForGroup() {
 
 jQuery.fn.getGroupNameInput = function() {
     var tempGroupName = $(this).attr("value");
-    var passedGroupName ="";
+    var passedGroupName = "";
     var lightsInGroup = "";
     
     passedGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup());
     
     $("#lightList > .selected").each(function(){
-                                     lightsInGroup += "<li>"+$(this).text()+"</li>";
+                                     lightsInGroup += "<div class='light' name='"+$(this).text()+"'>"+$(this).text()+"</div>";
                                      });
-    $("#groupList").append("<li name='"+passedGroupName+"'>"+passedGroupName+"<ul class='lightsInGroup'>"+lightsInGroup+"</ul></li>");
 	
-	$("#groupList > li").droppable('destroy');
-	$("#groupList > li").droppable({drop:function() {LightDropOnGroup($(this))},hoverClass:"groupHoverDrop"});
+    $("#groupList").append("<div class='lightGroup' name='"+passedGroupName+"'>"+passedGroupName+lightsInGroup+"</div>");
+	
+	$(".lightGroup").droppable('destroy');
+	$(".lightGroup").droppable({drop:function() {LightDropOnGroup($(this))},hoverClass:"groupHoverDrop"});
+	
+	/*$("#groupList > li > ul > li").draggable('destroy');
+	$("#groupList > li > ul > li").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", revert:true,revertDuration:'100' });*/
+
 }
