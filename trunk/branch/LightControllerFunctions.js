@@ -28,7 +28,7 @@ $(document).ready(function(){
 	$("body").keypress(function(e){
         var selectedLights = "";
         if(e.which == 117 || e.which == 105 || e.which == 106 || e.which == 111 || e.which == 107 || e.which == 108 || e.which == 109 || e.which == 44){
-            selectedLights += getSelectedLights(false);			   
+            selectedLights += getSelectedLights();			   
         }
         if (!dialogActive && !inputActive) {
             if (e.which == 117) { //u
@@ -61,7 +61,7 @@ $(document).ready(function(){
 	$(".colorButton").click(function(){
 		var selectedLights = getSelectedLights();			   
 		var color = $(this).attr("id"); 
-		//window.AppController.showMessage_(color);
+		window.AppController.showMessage_(color+" : "+selectedLights);
 		window.AppController.setColor_selectString_(color, selectedLights);
 	});
 
@@ -736,7 +736,7 @@ function getSelectedLights() {
 
 	var selected = "g";
 	$("#filterList > .selected").each(function(){
-		selected += ","+$(this).html();
+		selected += ","+$(this).attr("name");
     });
 	$("#groupList > .selected").each(function() {
         selected += ","+$(this).attr("name");
@@ -751,7 +751,7 @@ function getSelectedLights() {
             }
         });
 	}
-	//window.AppController.showMessage_(selected+": "+selected.length);
+	//window.AppController.showMessage_(selected);
 	if (selected.length > 1){
 		return selected;
 	}
@@ -765,7 +765,7 @@ function getSelectedLightsForGroup() {
 
     selected = "";
 
-    $(".light").each(function(index) {
+    $("#lightList > .light").each(function(index) {
         if($(this).hasClass("selected")){
             selected += index + ",";
         }
