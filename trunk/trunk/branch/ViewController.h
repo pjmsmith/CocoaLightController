@@ -88,6 +88,7 @@
 - (void)removeGroup:(NSString *)name;
 - (void)removeAnimation:(NSString *)name;
 - (void)removeLight:(NSNumber *)lightNumber;
+- (void)removeLightFromGroup:(NSString*)name selected:(NSString*)selectLights;
 
 // WebView Methods
 -(IBAction)makeTextLarger:(id)sender;

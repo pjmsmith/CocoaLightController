@@ -376,13 +376,41 @@
             break;
         }
     }
-    int i = 0;
+
     if([selectArray count] && ([((NSString*)[selectArray objectAtIndex:0]) integerValue]!= -1))
     {
         for(id d in selectArray)
         {
-            [g.groupLights addObject:(NSString*)[selectArray objectAtIndex:i]];
-            i++;
+            [g.groupLights addObject:(NSString*)d];
+        }
+    }    
+}
+
+- (void)removeLightFromGroup:(NSString*)name selected:(NSString*)selectLights
+{
+    NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
+    Group* g;
+    for(id d in groups)
+    {
+        g = (Group*)d;
+        if ([g.name caseInsensitiveCompare:name]==NSOrderedSame)
+        {
+            break;
+        }
+    }
+    
+    if([selectArray count] && ([((NSString*)[selectArray objectAtIndex:0]) integerValue]!= -1))
+    {
+        for(id d in g.groupLights)
+        {
+            for(id s in selectArray)
+            {
+                if ([((NSString*)d) caseInsensitiveCompare:((NSString*)s)]==NSOrderedSame)
+                {
+                    [g.groupLights removeObject:d];
+                    break;
+                }
+            }
         }
     }    
 }
@@ -392,13 +420,12 @@
     NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
     NSString* retString = [self addName:name dict:groupNames];
     Group* g = [[Group alloc] initWithDetails:retString size:0];
-    int i = 0;
+
     if([selectArray count] && ([((NSString*)[selectArray objectAtIndex:0]) integerValue]!= -1))
     {
         for(id d in selectArray)
         {
-            [g.groupLights addObject:(NSString*)[selectArray objectAtIndex:i]];
-            i++;
+            [g.groupLights addObject:(NSString*)d];
         }
     }
     [groups addObject:g];
