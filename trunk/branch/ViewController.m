@@ -365,16 +365,19 @@
 {
     NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
     NSString* retString = [self addName:name dict:groupNames];
-
-    Group* g = [[Group alloc] initWithDetails:retString size:[selectArray count]];
+    Group* g = [[Group alloc] initWithDetails:retString size:0];
     int i = 0;
-    for(id d in selectArray)
+    if([selectArray count] && ([((NSString*)[selectArray objectAtIndex:0]) integerValue]!= -1))
     {
-        [g.groupLights addObject:(NSString*)[selectArray objectAtIndex:i]];
-        i++;
+        for(id d in selectArray)
+        {
+            [g.groupLights addObject:(NSString*)[selectArray objectAtIndex:i]];
+            i++;
+        }
+        if (i>0) {
+            [groups addObject:g];
+        }
     }
-    [groups addObject:g];
-
     return retString;
     
 }
@@ -739,6 +742,7 @@
 
     if(!error && (colorAction!=nil) && ([colorAction.targetChannels count]>0))
     {
+        NSLog(@"Here");
         //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
         [self changeState:colorAction];
         [self send:nil];
