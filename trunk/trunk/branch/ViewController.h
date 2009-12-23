@@ -38,8 +38,7 @@
     
     NSInteger globalBrightness;
     
-	Light *testLight;
-    Animation *testAnimation;    
+    NSString* currentAnimation;
     
     BOOL black_out;
     BOOL isRecording;
