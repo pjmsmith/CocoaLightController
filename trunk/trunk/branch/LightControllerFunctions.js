@@ -529,6 +529,13 @@ $(document).ready(function(){
         if(e.metaKey){
             $(this).toggleClass("selected");
         }
+					 
+		/*if (e.shiftKey{
+			$(".light").each(function(index){
+					//$this).		 
+			});
+		}*/
+					 
         else {
             $(".light").removeClass("selected");
             $(this).toggleClass("selected");
@@ -548,12 +555,15 @@ function addLight() {
 		var selector = "ch"+i;
 		channelNames = channelNames + ","+$("input[name="+selector+"]").attr("value");
 	}
+	
+	var numberofLights = $(".light").length;
+	
 	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
 	//window.AppController.addLight_(lightName,channelNumber,channelNames);
 	var lightName =window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
-	$("#lightList").append("<div class='light'>"+lightName+"</div>");
-	$("#group0").append("<li name='"+lightName+"'>"+lightName+"</li>");
-	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
+	$("#lightList").append("<div class='light' id='"+numberofLights+"'>"+lightName+"</div>");
+	$("#group0").append("<li id='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</li>");
+	//window.AppController.showMessage_(lightName+","+numberofLights+","+channelNames);
 	
 	
 	$(".light").draggable( 'destroy' );
@@ -601,14 +611,20 @@ function LightDropOnGroup(el) {
 		$(".ui-draggable-dragging").addClass("selected");
 	}
 	
+	var lightsToAdd = "";
+	var nameOfGroupBeingDroppedOn = el.attr("name");
 	
 	$("#lightList > .selected").each(function(){
         var lightName = $(this).text();
 									 if (el.children("ul").children("li[name='"+lightName+"']").length == 0)	{						 
 									 el.children("ul").append("<li name='"+lightName+"'>"+lightName+"</li>")
+									 lightsToAdd += $(this).attr("id") + ",";
 									 }
-        //window.AppController.showMessage_(""+lightName);
     });
+	
+	lightsToAdd = lightsToAdd.substring(0, lightsToAdd.length-1); //remove last comma
+	//window.AppController.showMessage_(nameOfGroupBeingDroppedOn+" : "+lightsToAdd);
+	window.AppController.appendToGroup_selected_(nameOfGroupBeingDroppedOn,lightsToAdd);
 	
 	//$("#AnimationsLeft").append("<div class='animation'>Animation "+numofAnimations+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");
 	
@@ -633,8 +649,8 @@ function getSelectedLights() {
             }
         });
 	}
-	//window.AppController.showMessage_(selected);
-	if (selected.length > 2){
+	//window.AppController.showMessage_(selected+": "+selected.length);
+	if (selected.length > 1){
 		return selected;
 	}
 	else {
