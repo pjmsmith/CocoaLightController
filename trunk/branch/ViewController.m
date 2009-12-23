@@ -51,10 +51,8 @@
     
     globalBrightness = 255;
     
-    [groups addObject:[[Group alloc] initWithDetails:@"ALL" size:2]];
+    [groups addObject:[[Group alloc] initWithDetails:@"ALL" size:2 brightness:globalBrightness]];
                        
-    testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
-
     black_out = NO;
     isRecording = NO;
 	
@@ -368,6 +366,7 @@
 {
     NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
     Group* g;
+
     for(id d in groups)
     {
         g = (Group*)d;
@@ -383,6 +382,7 @@
         {
             [g.groupLights addObject:(NSString*)d];
         }
+        [self setBrightness:[[NSNumber alloc] initWithInt:g.brightness] selectString:[@"l," stringByAppendingString:selectLights]];
     }    
 }
 
@@ -419,8 +419,8 @@
 {
     NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
     NSString* retString = [self addName:name dict:groupNames];
-    Group* g = [[Group alloc] initWithDetails:retString size:0];
-
+    Group* g = [[Group alloc] initWithDetails:retString size:0 brightness:globalBrightness];
+    
     if([selectArray count] && ([((NSString*)[selectArray objectAtIndex:0]) integerValue]!= -1))
     {
         for(id d in selectArray)
@@ -478,7 +478,7 @@
     }
 }
 
-- (NSString*) addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels
+- (NSString*)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels
 {
     NSInteger newAddr = 1;
     
@@ -506,7 +506,7 @@
 
 - (void) runAnimation:(NSString*) run //string is arbitrary
 {
-    testAnimation.isRunning = !testAnimation.isRunning;
+    /*//testAnimation.isRunning = !testAnimation.isRunning;
     if(testAnimation.isRunning && [testAnimation.actions count])
     {
         
@@ -516,14 +516,14 @@
     else 
     {
         printf("animation already running\n");
-    }
+    }*/
 
     
 }
 
 - (void) threadedRunAnimation:(NSNumber*) startActionIndex
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    /*NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     if(testAnimation.isRunning && [testAnimation.actions count])
     {
         NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
@@ -553,7 +553,7 @@
         }
         [immutableActionList dealloc];
     }
-    [pool release];
+    [pool release];*/
 }
 
 - (void) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString
@@ -579,12 +579,16 @@
         //find group
         if([selectArray count]==2)
         {
+            if ([((NSString*)[selectArray objectAtIndex:1]) caseInsensitiveCompare:@"all"]==NSOrderedSame) {
+                globalBrightness = [brightness intValue];
+            }
             Group* g;
             for(id d in groups)
             {
                 g = (Group*)d;
                 if ([g.name caseInsensitiveCompare:(NSString*)[selectArray objectAtIndex:1]]==NSOrderedSame)
                 {
+                    g.brightness = [brightness intValue];
                     break;
                 }
             }
@@ -762,12 +766,17 @@
         //find group
         if([selectArray count]==2)
         {
+            if ([((NSString*)[selectArray objectAtIndex:1]) caseInsensitiveCompare:@"all"]==NSOrderedSame) {
+                [self setBrightness:[[NSNumber alloc] initWithInt:globalBrightness] selectString:selString];
+            }
+            
             Group* g;
             for(id d in groups)
-            {
+            { 
                 g = (Group*)d;
                 if ([g.name caseInsensitiveCompare:(NSString*)[selectArray objectAtIndex:1]]==NSOrderedSame)
                 {
+                    [self setBrightness:[[NSNumber alloc] initWithInt:g.brightness] selectString:selString];
                     break;
                 }
             }
@@ -796,6 +805,17 @@
     if(!error && (colorAction!=nil) && ([colorAction.targetChannels count]>0))
     {
         //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
+        if(isRecording)
+        {
+            if (currentAnimation != nil)
+            {
+                //add color action to current animation's action list, send if not playing
+            }
+            else {
+                //new animation, set new to current, send (can't be playing if no animation is current
+            }
+
+        }
         [self changeState:colorAction];
         [self send:nil];
     }
@@ -816,20 +836,20 @@
 
 - (void) toggleLooping:(NSString *)l
 {
-    testAnimation.isLooping = !testAnimation.isLooping;
+    //testAnimation.isLooping = !testAnimation.isLooping;
 }
 
 - (void) setAnimationSpeed:(NSNumber *)speed
 {
     if([speed doubleValue] > 0)
     {
-        testAnimation.timeBetweenSteps = speed;
+        //testAnimation.timeBetweenSteps = speed;
     }
 }
 
 - (void)blackout:(NSString *)black
 {
-    testAnimation.isRunning = NO;
+    /*testAnimation.isRunning = NO;
     black_out = YES;
     Action* tempAction = [Action alloc];
     [tempAction initWithDetails:@"" numChans:3];
@@ -844,7 +864,7 @@
     testLight.currentAction = tempAction;
     //[testLight applyAction];
     //[self send:NULL];
-    testLight.currentAction = recoverAction;
+    testLight.currentAction = recoverAction;*/
 }
 
 - (void)recover:(NSString *)r
@@ -857,7 +877,7 @@
 
 - (void)clearCurrentAnimationActions:(NSString *)c
 {
-    Action* tempAction = [Action alloc];
+    /*Action* tempAction = [Action alloc];
     testAnimation.isRunning = NO;
     [tempAction initWithDetails:@"" numChans:3];
     [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue])]];
@@ -872,7 +892,7 @@
     
     [testAnimation.actions setArray:[[NSMutableArray alloc] initWithCapacity:10]];
 	
-	[webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
+	[webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];*/
 }
 
 - (void)showMessage:(NSString *)message

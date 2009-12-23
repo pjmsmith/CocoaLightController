@@ -12,18 +12,19 @@
 @implementation Group
 @synthesize name;
 @synthesize groupLights;
+@synthesize brightness;
 
 - (id) init
 {
-    return [self initWithDetails:@"" size:1];
+    return [self initWithDetails:@"" size:1 brightness:255];
 }
 
-- (id) initWithDetails: (NSString*)newName size:(NSInteger)newSize
+- (id) initWithDetails: (NSString*)newName size:(NSInteger)newSize brightness:(NSInteger)b
 {
     self = [super init];
     self.name = newName;
     self.groupLights = [[NSMutableArray alloc] initWithCapacity:newSize];
-    
+    self.brightness = b;
     return self;
 }
 

@@ -17,14 +17,11 @@
     NSString* name;
     NSNumber* sizeOfBlock; //# of channels
     NSNumber* startingAddress;
-    BOOL changed;
     Action* currentAction; //current action
 }
 @property (readwrite, retain) NSString* name;
 @property (readwrite, retain) NSNumber* sizeOfBlock;
 @property (readwrite, retain) NSNumber* startingAddress;
-@property (readwrite, retain) NSMutableArray* channels;
-@property (readwrite, assign) BOOL changed;
 @property (readwrite, retain) Action* currentAction;
 
 - (id) initWithDetails: (NSString*)newName size:(NSNumber*)newSize address:(NSNumber*)newAddress;
