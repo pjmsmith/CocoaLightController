@@ -324,7 +324,7 @@ $(document).ready(function(){
 
 
 	$("#AnimationsLeft").sortable({ cursor: 'move', opacity: 0.6, containment: 'window' });
-	$("#groupList > li").droppable({drop:LightDropOnGroup,hoverClass:"groupHoverDrop"});
+	$("#groupList > li").droppable({drop:function() {LightDropOnGroup($(this))},hoverClass:"groupHoverDrop"});
 	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", helper: 'clone', revert:true, revertDuration:'1' });
 
 	$(".physicalButtons").droppable({
@@ -544,7 +544,7 @@ function addLight() {
 	//window.AppController.addLight_(lightName,channelNumber,channelNames);
 	var lightName =window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
 	$("#lightList").append("<div class='light'>"+lightName+"</div>");
-	$("#group0").append("<li>"+lightName+"</li>");
+	$("#group0").append("<li name='"+lightName+"'>"+lightName+"</li>");
 	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
 	
 	
@@ -580,14 +580,26 @@ function changeDisplay(display,value) {
 	
 }
 
-function LightDropOnGroup() {
+function LightDropOnGroup(el) {
 	//var numLights = 0;
-	var numLights = $("#lightList > .selected").length;
+	
+	$(".ui-draggable-dragging").removeClass("selected");
 	//window.AppController.showMessage_(""+numLights);
-	window.AppController.showMessage_("inside");
+	//window.AppController.showMessage_(""+el.text());
+	
+	var numLights = $("#lightList > .selected").length;
+	
+	if (numLights == 0) {
+		$(".ui-draggable-dragging").addClass("selected");
+	}
+	
+	
 	$("#lightList > .selected").each(function(){
         var lightName = $(this).text();
-        window.AppController.showMessage_(""+lightName);
+									 if (el.children("ul").children("li[name='"+lightName+"']").length == 0)	{						 
+									 el.children("ul").append("<li name='"+lightName+"'>"+lightName+"</li>")
+									 }
+        //window.AppController.showMessage_(""+lightName);
     });
 	
 	//$("#AnimationsLeft").append("<div class='animation'>Animation "+numofAnimations+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");
@@ -613,7 +625,7 @@ function getSelectedLights() {
             }
         });
 	}
-	//window.AppController.showMessage_(selected);
+	window.AppController.showMessage_(selected);
 	return selected;
 }
 
@@ -642,4 +654,7 @@ jQuery.fn.getGroupNameInput = function() {
                                      lightsInGroup += "<li>"+$(this).text()+"</li>";
                                      });
     $("#groupList").append("<li name='"+passedGroupName+"'>"+passedGroupName+"<ul class='lightsInGroup'>"+lightsInGroup+"</ul></li>");
+	
+	$("#groupList > li").droppable('destroy');
+	$("#groupList > li").droppable({drop:function() {LightDropOnGroup($(this))},hoverClass:"groupHoverDrop"});
 }
