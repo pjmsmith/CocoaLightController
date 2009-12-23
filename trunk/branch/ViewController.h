@@ -84,6 +84,7 @@
 - (NSString*)addName:(NSString *)name dict:(NSMutableDictionary *)names;
 - (NSString*)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels;
 - (void)addChannels:(NSNumber *)numberOfChans newLabels:(NSArray *)labelArray startingAddr:(NSInteger)addr;
+- (void)appendToGroup:(NSString*)name selected:(NSString*)selectLights;
 - (void)removeGroup:(NSString *)name;
 - (void)removeAnimation:(NSString *)name;
 - (void)removeLight:(NSNumber *)lightNumber;

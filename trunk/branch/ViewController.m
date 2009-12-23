@@ -311,8 +311,11 @@
     if (aSelector == @selector(addGroup:selected:)) {
         return NO; // i.e. addGroup:selected: is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(appendToGroup:selected:)) {
+        return NO; // i.e. appendToGroup:selected: is NOT _excluded_ from scripting, so it can be called.
+    }
     if (aSelector == @selector(addAnimation:)) {
-        return NO; // i.e. addGroup:selected: is NOT _excluded_ from scripting, so it can be called.
+        return NO; // i.e. addAnimation: is NOT _excluded_ from scripting, so it can be called.
     }
     
     return YES; // disallow everything else
@@ -361,6 +364,29 @@
     
 }
 
+- (void)appendToGroup:(NSString*)name selected:(NSString*)selectLights
+{
+    NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
+    Group* g;
+    for(id d in groups)
+    {
+        g = (Group*)d;
+        if ([g.name caseInsensitiveCompare:name]==NSOrderedSame)
+        {
+            break;
+        }
+    }
+    int i = 0;
+    if([selectArray count] && ([((NSString*)[selectArray objectAtIndex:0]) integerValue]!= -1))
+    {
+        for(id d in selectArray)
+        {
+            [g.groupLights addObject:(NSString*)[selectArray objectAtIndex:i]];
+            i++;
+        }
+    }    
+}
+
 - (NSString*)addGroup:(NSString*)name selected:(NSString*)selectLights
 {
     NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
@@ -374,10 +400,9 @@
             [g.groupLights addObject:(NSString*)[selectArray objectAtIndex:i]];
             i++;
         }
-        if (i>0) {
-            [groups addObject:g];
-        }
     }
+    [groups addObject:g];
+
     return retString;
     
 }
@@ -726,6 +751,7 @@
             }
             colorAction = [self buildColorAction:lightArray color:color];
             [self displayState:colorAction];
+            [self displayState:g];
         }
         else 
         {
@@ -742,7 +768,6 @@
 
     if(!error && (colorAction!=nil) && ([colorAction.targetChannels count]>0))
     {
-        NSLog(@"Here");
         //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
         [self changeState:colorAction];
         [self send:nil];
