@@ -332,7 +332,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A233238E10E20E14002143EC</string>
+										<string>A233243C10E23B25002143EC</string>
 										<key>history</key>
 										<array>
 											<string>A2E53F4210C38C9D0035A4BA</string>
@@ -374,7 +374,6 @@
 											<string>A219417910D0910F006CADB8</string>
 											<string>A219433410D47023006CADB8</string>
 											<string>A2DE4BE810D5D65200FD4F51</string>
-											<string>A2DE4BE910D5D65200FD4F51</string>
 											<string>A2DE4BEA10D5D65200FD4F51</string>
 											<string>A2D2DF4710DC8829003627BD</string>
 											<string>A2D2DF4910DC8829003627BD</string>
@@ -385,8 +384,9 @@
 											<string>A29AFFE510DF18FB0088952F</string>
 											<string>A2F7979A10E1838A00937E4E</string>
 											<string>A2E4C58410E19CBA002E893C</string>
-											<string>A233236410E20899002143EC</string>
-											<string>A233237B10E20BD3002143EC</string>
+											<string>A233242D10E23ABC002143EC</string>
+											<string>A233243810E23AE0002143EC</string>
+											<string>A233243910E23AE0002143EC</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -476,6 +476,19 @@
 											<string>A233233910E20504002143EC</string>
 											<string>A233235110E2079A002143EC</string>
 											<string>A233236610E20899002143EC</string>
+											<string>A233239910E20FC2002143EC</string>
+											<string>A233239A10E20FC2002143EC</string>
+											<string>A233240010E22AEF002143EC</string>
+											<string>A233240110E22AEF002143EC</string>
+											<string>A233240210E22AEF002143EC</string>
+											<string>A233240310E22AEF002143EC</string>
+											<string>A233241210E22CD4002143EC</string>
+											<string>A233241710E22E98002143EC</string>
+											<string>A233242210E22F89002143EC</string>
+											<string>A233242F10E23ABC002143EC</string>
+											<string>A233243010E23ABC002143EC</string>
+											<string>A233243510E23AD0002143EC</string>
+											<string>A233243A10E23AE0002143EC</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -489,18 +502,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1088, 426}}</string>
+								<string>{{0, 0}, {1088, 672}}</string>
 								<key>RubberWindowFrame</key>
 								<string>28 159 1412 718 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>426pt</string>
+							<string>672pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>246pt</string>
+							<string>0pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -514,7 +527,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1088, 219}}</string>
+										<string>{{10, 27}, {1088, -27}}</string>
 										<key>RubberWindowFrame</key>
 										<string>28 159 1412 718 0 0 1440 878 </string>
 									</dict>

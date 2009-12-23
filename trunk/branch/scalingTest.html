@@ -383,15 +383,6 @@ div#AnimationsLeft .selected{
 	display:none;
 }
 
-#groupList > li.groupHoverDrop{
-	background-color:grey;
-}
-
-#groupList > div.selected{
-	//background-color:#222;
-	border:1px solid white;
-}
-
 #tempGroupNameInput {
 	//background-color:inherit;
 	display:none;
@@ -412,6 +403,16 @@ div#AnimationsLeft .selected{
 	background-color:red;
 }
 
+#groupList {
+	color:white;
+}
+
+#groupList > div.selected{
+	border:1px solid white;
+	background-color:#222;
+
+}
+
 .lightGroup {
 	border:1px solid #333;
 	width:90%;
@@ -420,7 +421,8 @@ div#AnimationsLeft .selected{
 }
 
 .lightGroup:hover, .groupHoverDrop {
-	border:1px solid black;
+	border:1px solid #333;
+	background-color:#222;
 }
 
 .lightGroup .light {
@@ -471,7 +473,7 @@ div#AnimationsLeft .selected{
 
 <input type="button" value="All Full" onclick="changeDisplay('left',1);changeDisplay('center',1);changeDisplay('right',1);" />
 
-<ul id="filterList" style=""><li class="selected">All</li><li>group 1</li><li>group 2</li><li>group 3</li><li>group 4</li><li>group 5</li></ul>
+<ul id="filterList" style=""><li name="all" class="selected">All</li></ul>
 
 </div>
 
@@ -574,9 +576,9 @@ div#AnimationsLeft .selected{
 		
 			<div id="groupList">
 				<div name="all" class='lightGroup'>All Lights</div>
-				<div name="group 1" class="lightGroup">group 1
-					<!--<div class="light">asdf</div>-->
-				</div>
+				<!--<div name="group 1" class="lightGroup">group 1
+					<div class="light">asdf</div>
+				</div>-->
 
 			</div>
 			
