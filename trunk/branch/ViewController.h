@@ -42,6 +42,8 @@
     
     BOOL black_out;
     BOOL isRecording;
+    
+    NSString* AUTO_NAME;
 	
     IBOutlet NSPopUpButton	*serialSelectMenu;
 	IBOutlet NSTextField	*textField;
@@ -104,7 +106,6 @@
 - (NSMutableArray*)getBrightnessChannels:(Light*)l;
 - (Action*) buildColorAction:(NSMutableArray*)lightArray color:(NSString*)color;
 - (Action*) buildBrightnessAction:(NSMutableArray*)lightArray brightness:(NSNumber*)brightness;
-
 
 //@property (nonatomic, retain) IBOutlet NSPopUpButton *serialSelectMenu;
 //@property (nonatomic, retain) IBOutlet NSTextField	 *textField;
