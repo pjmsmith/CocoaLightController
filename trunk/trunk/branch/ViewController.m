@@ -54,7 +54,7 @@
     [groups addObject:[[Group alloc] initWithDetails:@"ALL" size:2]];
                        
     testAnimation = [[Animation alloc] initWithDetails:@"testAnimation" isLooping:NO time:0.5];
-    //[self addLight:@"newLight" numChans:[[NSNumber alloc] initWithInt:7] newLabels:@"RED,GREEN,BLUE,N/A,N/A,N/A,BRIGHTNESS"];
+
     black_out = NO;
     isRecording = NO;
 	
@@ -309,7 +309,10 @@
         return NO; // i.e. addLight:numChans:newLabels is NOT _excluded_ from scripting, so it can be called.
     }
     if (aSelector == @selector(addGroup:selected:)) {
-        return NO; // i.e. addLight:numChans:newLabels is NOT _excluded_ from scripting, so it can be called.
+        return NO; // i.e. addGroup:selected: is NOT _excluded_ from scripting, so it can be called.
+    }
+    if (aSelector == @selector(addAnimation:)) {
+        return NO; // i.e. addGroup:selected: is NOT _excluded_ from scripting, so it can be called.
     }
     
     return YES; // disallow everything else
@@ -347,6 +350,17 @@
     }    
 }
 
+- (NSString*)addAnimation:(NSString*)name
+{
+    NSString* retString = [self addName:name dict:animationNames];
+    
+    Animation* a = [[Animation alloc] initWithDetails:name numChans:1];
+    [animations addObject:a];
+
+    return retString;
+    
+}
+
 - (NSString*)addGroup:(NSString*)name selected:(NSString*)selectLights
 {
     NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
@@ -360,9 +374,34 @@
         i++;
     }
     [groups addObject:g];
-    NSLog(@"%@", retString);
+
     return retString;
     
+}
+
+- (void)removeGroup:(NSString *)name
+{
+    for (Group* g in groups)
+    {
+        if ([g.name caseInsensitiveCompare:name]==NSOrderedSame) {
+            [groups removeObject:g];
+        }
+    }
+}
+
+- (void)removeAnimation:(NSString *)name
+{
+    for (Animation* a in animations)
+    {
+        if ([a.name caseInsensitiveCompare:name]==NSOrderedSame) {
+            [animations removeObject:a];
+        }
+    }
+}
+
+- (void)removeLight:(NSNumber *)lightNumber
+{
+    [lights removeObjectAtIndex:[lightNumber intValue]];
 }
 
 - (NSString*)addName:(NSString*)name dict:(NSMutableDictionary*)names
@@ -549,7 +588,7 @@
             [a addObject:[[NSNumber alloc] initWithInt:i+1]];
         }
     }
-    if ([a count] < 3)
+    if ([a count] < 1)
     {
         NSLog(@"Could not find a brightness channel, check channel configuration");
     }
