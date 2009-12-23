@@ -348,7 +348,6 @@ div#AnimationsLeft .selected{
 #lightsListLeft {
 	//padding-left:2%;
 	width:50%;
-	overflow-x:hidden;
 }
 #lightsListCenter {
 	width:50%;
@@ -388,6 +387,11 @@ div#AnimationsLeft .selected{
 	background-color:grey;
 }
 
+#groupList > div.selected{
+	//background-color:#222;
+	border:1px solid white;
+}
+
 #tempGroupNameInput {
 	//background-color:inherit;
 	display:none;
@@ -396,16 +400,33 @@ div#AnimationsLeft .selected{
 	outline:0 none;
 }
 
-li.light {
-	list-style-type: none;
+.light {
+	cursor:pointer;
 }
 
-div.selected {
+#lightList div.selected {
 	background-color:grey;
 }
 
 .ui-draggable-dragging, .selected.ui-draggable-dragging {
 	background-color:red;
+}
+
+.lightGroup {
+	border:1px solid #333;
+	width:90%;
+	padding: 0 0 0 5%;
+	-webkit-border-radius: 10px;
+}
+
+.lightGroup:hover, .groupHoverDrop {
+	border:1px solid black;
+}
+
+.lightGroup .light {
+	margin-left:20px;
+	background-inherit;
+	clear:both;
 }
 
 </style>
@@ -545,21 +566,31 @@ div.selected {
 	</div>
 
 	<div id="columnRight" class="layoutColumns">
-
+		<input type="button" id="addGroupButton" value="add group"/>
+		<input type="button" id="addLightButton" value="add light"/>
+		
+				
 		<div id="lightsListLeft" class="listBox">
 		
+			<div id="groupList">
+				<div name="all" class='lightGroup'>All Lights</div>
+				<div name="group 1" class="lightGroup">group 1
+					<!--<div class="light">asdf</div>-->
+				</div>
+
+			</div>
 			
-			<ul id="groupList">
+			<!-- <ul id="groupList">
 				<li name="all">All Lights
 					<ul class="lightsInGroup" id="group0">
 					</ul>
 				</li>
-				<li name="Test Group"> Test Group
+				<!-- <li name="Test Group"> Test Group
 					<ul class="lightsInGroup">
 						<li name="asdf">asdf</li>
 					</ul>
 				</li>
-			</ul>
+			</ul> -->
 			<input type='text' size='10' id='tempGroupNameInput' value='New Group'>
 		</div>
 		<div id="lightsListCenter" class="listBox" style="background-color:white;">
@@ -588,8 +619,7 @@ div.selected {
 				<li>Note 3</li>
 			</ul>
 		</div>-->
-		<input type="button" id="addGroupButton" value="add group"/>
-		<input type="button" id="addLightButton" value="add light"/>
+
 
 					
 	</div>
