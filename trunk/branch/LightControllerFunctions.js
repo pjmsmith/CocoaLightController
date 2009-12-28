@@ -3,12 +3,10 @@ var playActive = false;
 var dialogActive = false;
 var inputActive = false;
 
-var numofAnimations = 5;
-
 var hoverConfig = {    
 sensitivity: 3, // number = sensitivity threshold (must be 1 or higher)    
 interval: 300, // number = milliseconds for onMouseOver polling interval    
-over: function(){$(this).children("img").fadeIn("fast");}, // function = onMouseOver callback (REQUIRED)    
+over: function(){if(!$(this).hasClass("playing")){$(this).children("img").fadeIn("fast");}}, // function = onMouseOver callback (REQUIRED)    
 timeout: 500, // number = milliseconds delay before onMouseOut    
 out: function(){$(this).children("img").fadeOut("fast");} // function = onMouseOut callback (REQUIRED)    
 };
@@ -61,7 +59,7 @@ $(document).ready(function(){
 	$(".colorButton").click(function(){
 		var selectedLights = getSelectedLights();			   
 		var color = $(this).attr("id"); 
-		window.AppController.showMessage_(color+" : "+selectedLights);
+		//window.AppController.showMessage_(color+" : "+selectedLights);
 		window.AppController.setColor_selectString_(color, selectedLights);
 	});
 
@@ -240,13 +238,26 @@ $(document).ready(function(){
 			$(this).attr("src","NewTrack0D.tiff");
 		});
 		$("#newButton").mouseup(function(){
+			var numofAnimations = $(".animation").length;
 			$(this).attr("src","NewTrack0D.tiff");
 			numofAnimations = numofAnimations + 1;
-			$("#AnimationsLeft").append("<div class='animation'>Animation "+numofAnimations+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");
+			//--------window.AppController.addAnimation_name_("");
+			$("#AnimationNameInputBox").attr("value","Animation "+numofAnimations);
+			$("#AnimationNameInputBox").show();
+			$("#AnimationNameInputBox").focus();
+			
+			//$("#AnimationsLeft").append("<div class='animation'>Animation "+numofAnimations+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");
 			//$(".animation").hoverIntent( hoverConfig );
-
 			
 	});
+				  
+		$("#AnimationNameInputBox").blur(function(){
+			if(!$(this).is(':hidden')){	
+			$("#AnimationNameInputBox").hide();
+			$(this).getAnimationNameInput();
+			}
+		});
+				  
 
 	$("#clearButton").mousedown(function(){
 		window.AppController.clearCurrentAnimationActions_("");
@@ -405,13 +416,31 @@ $(document).ready(function(){
 				  
 				  
     $(".animation").live("click",function() {
-        $(".animation").removeClass("selected");		
-        $(this).toggleClass("selected");
+		 if(!$(this).hasClass("playing")){
+			$(".animation").removeClass("selected");		
+			$(this).toggleClass("selected");
+		 }
     });
 				  
     $(".animation > .animationControlRemove").live("click",function() {
         $(this).parents(".animation").fadeOut("slow");
+		window.AppController.removeAnimation_($(this).attr("name"));
     });
+				  
+	  $("#AnimationsLeft > div.animation").live("dblclick",function() {
+		if(!$(this).hasClass("playing")) {
+			$(".animation").removeClass("playing");
+			$(this).removeClass("selected");
+			$(this).addClass("playing");
+			window.AppController.setCurrentAnimation_($(this).attr("name"));
+			$(this).children("img").hide();
+		}
+		else {
+			$(this).removeClass("playing");
+			window.AppController.setCurrentAnimation_("");
+		}
+	});
+				  
 	  
     $("#filterList > *").live("click",function() {
         //$(this).toggleClass("selected");
@@ -489,8 +518,8 @@ $(document).ready(function(){
         }
     });
 				  
-				  
-				  
+	
+  				  
     $("#addGroupButton").click(function(){
 
        // $("#groupList > li").removeClass("selected");
@@ -527,7 +556,7 @@ $(document).ready(function(){
 	$("body").keypress(function(e){
 					   if(e.metaKey){
 						   //window.AppController.showMessage_("command Key");
-						   if(e.which > 48 && e.which < 57 ){ //numbers 1-9 and 0 on keyboard
+						   if(e.which > 47 && e.which < 58 ){ //numbers 1-9 and 0 on keyboard
 								   e.preventDefault();
 								   e.stopPropagation();
 							   if($("#groupList > div.selected").length == 1){ // command + number assigns selected group to filter
@@ -546,7 +575,7 @@ $(document).ready(function(){
 					   else{
 					   e.preventDefault();
 					   e.stopPropagation();
-							if(e.which > 48 && e.which < 57 ){ //numbers 1-9 and 0 on keyboard
+							if(e.which > 47 && e.which < 58 ){ //numbers 1-9 and 0 on keyboard
 								var tempGroupName = $("#filterList > li[key='"+e.which+"']").attr("name");
 								$("#groupList > div").removeClass("selected");
 								$("#lightList > div").removeClass("selected");
@@ -583,6 +612,7 @@ $(document).ready(function(){
 						var maxSelectedIndex = -1;
 					 $("#lightList > .light").each(function(){
 												  if($(this).hasClass("selected")) {
+												   //window.AppController.showMessage_("finding min/max"+$(this).attr("name"));
 													 var tempIndex = $(this).attr("index");
 													 if(tempIndex < minSelectedIndex ) { minSelectedIndex = tempIndex; }
 													 if(tempIndex > maxSelectedIndex ) { maxSelectedIndex = tempIndex; }
@@ -590,6 +620,7 @@ $(document).ready(function(){
 						});
 					 $("#lightList > .light").each(function(){
 						var tempIndex = $(this).attr("index");
+												   //window.AppController.showMessage_("lightIndex: "+tempIndex+" minSelected:"+minSelected+" maxSelectedIndex:"+maxSelectedIndex+" = "+$(this).attr("name"));
 												   if(tempIndex >= minSelectedIndex && tempIndex <= maxSelectedIndex && !$(this).hasClass("selected")) {
 													$(this).addClass("selected");
 												   }
@@ -804,6 +835,17 @@ jQuery.fn.getGroupNameInput = function() {
 	/*$("#groupList > li > ul > li").draggable('destroy');
 	$("#groupList > li > ul > li").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", revert:true,revertDuration:'100' });*/
 
+}
+
+
+jQuery.fn.getAnimationNameInput = function() {
+    var tempAnimationName = $(this).attr("value");
+    var passedAnimationName = "";
+    
+    passedAnimationName = window.AppController.addAnimation_(tempAnimationName);
+	
+    $("#AnimationsLeft").append("<div class='animation' name='"+passedAnimationName+"'>"+passedAnimationName+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");	
+	$("#AnimationsLeft").scrollTop($("#AnimationsLeft").attr("scrollHeight"));
 }
 
 jQuery.fn.checkIfSingleDrag = function() {
