@@ -2,6 +2,7 @@ var loopActive = false;
 var playActive = false;
 var dialogActive = false;
 var inputActive = false;
+var inputWithFocus;
 
 var hoverConfig = {    
 sensitivity: 3, // number = sensitivity threshold (must be 1 or higher)    
@@ -238,13 +239,15 @@ $(document).ready(function(){
 			$(this).attr("src","NewTrack0D.tiff");
 		});
 		$("#newButton").mouseup(function(){
-			var numofAnimations = $(".animation").length;
+			//var numofAnimations = $(".animation").length;
+			//numofAnimations = numofAnimations + 1;
 			$(this).attr("src","NewTrack0D.tiff");
-			numofAnimations = numofAnimations + 1;
 			//--------window.AppController.addAnimation_name_("");
-			$("#AnimationNameInputBox").attr("value","Animation "+numofAnimations);
+			$("#AnimationNameInputBox").attr("value","New Animation");
 			$("#AnimationNameInputBox").show();
 			$("#AnimationNameInputBox").focus();
+			$("#AnimationNameInputBox").select();
+			inputWithFocus = $("#AnimationNameInputBox");
 			
 			//$("#AnimationsLeft").append("<div class='animation'>Animation "+numofAnimations+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");
 			//$(".animation").hoverIntent( hoverConfig );
@@ -253,10 +256,11 @@ $(document).ready(function(){
 				  
 		$("#AnimationNameInputBox").blur(function(){
 			if(!$(this).is(':hidden')){	
-			$("#AnimationNameInputBox").hide();
-			$(this).getAnimationNameInput();
+										 $(this).getAnimationNameInput();
 			}
 		});
+						
+				  
 				  
 
 	$("#clearButton").mousedown(function(){
@@ -362,7 +366,7 @@ $(document).ready(function(){
             value = 255;
 		}
 		$("#brightnessSliderInput").attr("value",value);
-		window.AppController.setBrightness_selectString_(value,getSelectedLights());
+		window.AppController.setBrightness_selectString_selectAnimation_(value,getSelectedLights(),$("#AnimationsLeft > div.selected").attr("name"));
 
 	});
 	
@@ -411,6 +415,9 @@ $(document).ready(function(){
             if(dialogActive && !inputActive){	
                 addLight();
             }
+			if(!inputWithFocus.is(":hidden")){
+					inputWithFocus.getAnimationNameInput();	
+			}
         }
     });
 				  
@@ -573,7 +580,7 @@ $(document).ready(function(){
 						   }
 					   }
 					   else{
-					   e.preventDefault();
+					   //e.preventDefault();
 					   e.stopPropagation();
 							if(e.which > 47 && e.which < 58 ){ //numbers 1-9 and 0 on keyboard
 								var tempGroupName = $("#filterList > li[key='"+e.which+"']").attr("name");
@@ -686,7 +693,7 @@ function changeDisplay(display,value) {
             $("#centerCenterDisplay > .modifier").animate({ height: heightValue },animateSpeed);
             var brightnessValue = 255 * value;
             //window.AppController.showMessage_(""+brightnessValue);
-            window.AppController.setBrightness_selectString_(brightnessValue,getSelectedLights());
+            window.AppController.setBrightness_selectString_selectAnimation_(brightnessValue,getSelectedLights(),$("#AnimationsLeft > div.selected").attr("name"));
         break;
         case "right":
             value = $("#centerRightDisplay").height() * ( 1 - value);
@@ -846,6 +853,8 @@ jQuery.fn.getAnimationNameInput = function() {
 	
     $("#AnimationsLeft").append("<div class='animation' name='"+passedAnimationName+"'>"+passedAnimationName+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");	
 	$("#AnimationsLeft").scrollTop($("#AnimationsLeft").attr("scrollHeight"));
+	
+	$("#AnimationNameInputBox").hide();
 }
 
 jQuery.fn.checkIfSingleDrag = function() {

@@ -302,7 +302,7 @@
 							<real>302</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>75 74 1427 804 0 0 1440 878 </string>
+						<string>4 74 1427 804 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -332,7 +332,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A27E237610E896080082F308</string>
+										<string>A27E23C510E8A92B0082F308</string>
 										<key>history</key>
 										<array>
 											<string>A28C0A5910C4D4100077602E</string>
@@ -391,10 +391,10 @@
 											<string>A23A1E6B10E75B6800B36A47</string>
 											<string>A2148CB510E8765700C230F6</string>
 											<string>A2CDB33F10E87B2A00A96928</string>
-											<string>A2CDB34010E87B2A00A96928</string>
 											<string>A27E236B10E895960082F308</string>
 											<string>A27E236C10E895960082F308</string>
-											<string>A27E236D10E895960082F308</string>
+											<string>A27E239110E89A6C0082F308</string>
+											<string>A27E23C410E8A92B0082F308</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -461,6 +461,12 @@
 											<string>A27E236E10E895960082F308</string>
 											<string>A27E236F10E895960082F308</string>
 											<string>A27E237010E895960082F308</string>
+											<string>A27E237F10E899140082F308</string>
+											<string>A27E238010E899140082F308</string>
+											<string>A27E238110E899140082F308</string>
+											<string>A27E238210E899140082F308</string>
+											<string>A27E238910E899B40082F308</string>
+											<string>A27E239310E89A6C0082F308</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -476,7 +482,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1103, 758}}</string>
 								<key>RubberWindowFrame</key>
-								<string>75 74 1427 804 0 0 1440 878 </string>
+								<string>4 74 1427 804 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -501,7 +507,7 @@
 										<key>Frame</key>
 										<string>{{10, 27}, {1103, -27}}</string>
 										<key>RubberWindowFrame</key>
-										<string>75 74 1427 804 0 0 1440 878 </string>
+										<string>4 74 1427 804 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -774,7 +780,7 @@
 		<string>/Users/florianmaurer/Documents/LightController/trunk/branch/LightController.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>75 74 1427 804 0 0 1440 878 </string>
+	<string>4 74 1427 804 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
