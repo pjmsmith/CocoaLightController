@@ -68,7 +68,7 @@
 
 // This method is called from JavaScript on the web page.
 - (void)showMessage:(NSString *)message;
-- (void)setColor:(NSString *)color selectString:(NSString*)selString;
+- (void)setColor:(NSString *)color selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation;
 - (void)firstAction:(NSString *)f;
 - (void)nextAction:(NSString *)n;
 - (void)prevAction:(NSString *)p;
@@ -78,18 +78,20 @@
 - (void)recover:(NSString *)r;
 - (void)toggleRecord:(NSString *)rec;
 - (void)toggleLooping:(NSString *)l;
-- (void)clearCurrentAnimationActions:(NSString *)c;
-- (void) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString;
+- (void)clearCurrentAnimationActions:(NSString *)selectedAnimations;
+- (void)setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation;
 - (NSString*)addGroup:(NSString *)name selected:(NSString *)selectLights;
 - (NSString*)addAnimation:(NSString *)name;
 - (NSString*)addName:(NSString *)name dict:(NSMutableDictionary *)names;
 - (NSString*)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels;
 - (void)addChannels:(NSNumber *)numberOfChans newLabels:(NSArray *)labelArray startingAddr:(NSInteger)addr;
-- (void)appendToGroup:(NSString*)name selected:(NSString*)selectLights;
+- (void)appendToGroup:(NSString*)name selected:(NSString*)selectLights selectAnimation:(NSString*)selectedAnimation;
 - (void)removeGroup:(NSString *)name;
 - (void)removeAnimation:(NSString *)name;
 - (void)removeLight:(NSNumber *)lightNumber;
 - (void)removeLightFromGroup:(NSString*)name selected:(NSString*)selectLights;
+- (void)setCurrentAnimation:(NSString*)selectedAnimation;
+- (void)setAnimationSpeed:(NSNumber *)speed selectAnimation:(NSString*)selectedAnimation;
 
 // WebView Methods
 -(IBAction)makeTextLarger:(id)sender;
@@ -97,15 +99,16 @@
 
 //Helper methods
 -(void)setColorHelper:(NSMutableArray *) valueList red:(int)r green:(int)g blue:(int)b;
--(NSString*) numberToTriple: (NSNumber*) num;
+-(NSString*)numberToTriple: (NSNumber*) num;
 -(void)displayState:(id)d;
 -(Action *)diffChannels;
 -(void)changeState:(Action *)action;
 -(void)applyState:(Action *)action;
-- (NSMutableArray*)getColorChannels:(Light*)l;
-- (NSMutableArray*)getBrightnessChannels:(Light*)l;
-- (Action*) buildColorAction:(NSMutableArray*)lightArray color:(NSString*)color;
-- (Action*) buildBrightnessAction:(NSMutableArray*)lightArray brightness:(NSNumber*)brightness;
+-(NSMutableArray*)getColorChannels:(Light*)l;
+-(NSMutableArray*)getBrightnessChannels:(Light*)l;
+-(Action*) buildColorAction:(NSMutableArray*)lightArray color:(NSString*)color;
+-(Action*) buildBrightnessAction:(NSMutableArray*)lightArray brightness:(NSNumber*)brightness;
+-(Animation*)getAnimationByName:(NSString*)name;
 
 //@property (nonatomic, retain) IBOutlet NSPopUpButton *serialSelectMenu;
 //@property (nonatomic, retain) IBOutlet NSTextField	 *textField;

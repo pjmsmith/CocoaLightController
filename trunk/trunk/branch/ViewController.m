@@ -58,7 +58,7 @@
     
     AUTO_NAME = @"New Animation";
     
-    currentAnimation = nil;
+    currentAnimation = @"";
 	
     [self listDevices];
 
@@ -270,7 +270,7 @@
     if (aSelector == @selector(showMessage:)) {
         return NO; // i.e. showMessage: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(setColor:selectString:)) {
+    if (aSelector == @selector(setColor:selectString:selectAnimation:)) {
         return NO; // i.e. setColor: is NOT _excluded_ from scripting, so it can be called.
     }
     if (aSelector == @selector(runAnimation:)) {
@@ -291,7 +291,7 @@
     if (aSelector == @selector(toggleLooping:)) {
         return NO; // i.e. toggleLooping: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(setAnimationSpeed:)) {
+    if (aSelector == @selector(setAnimationSpeed:selectAnimation:)) {
         return NO; // i.e. setAnimationSpeed: is NOT _excluded_ from scripting, so it can be called.
     }
     if (aSelector == @selector(firstAction:)) {
@@ -303,7 +303,7 @@
     if (aSelector == @selector(prevAction:)) {
         return NO; // i.e. prevAction: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(setBrightness:selectString:)) {
+    if (aSelector == @selector(setBrightness:selectString:selectAnimation:)) {
         return NO; // i.e. setBrightness: is NOT _excluded_ from scripting, so it can be called.
     }
     if (aSelector == @selector(addLight:numChans:newLabels:)) {
@@ -312,7 +312,7 @@
     if (aSelector == @selector(addGroup:selected:)) {
         return NO; // i.e. addGroup:selected: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(appendToGroup:selected:)) {
+    if (aSelector == @selector(appendToGroup:selected:selectAnimation:)) {
         return NO; // i.e. appendToGroup:selected: is NOT _excluded_ from scripting, so it can be called.
     }
     if (aSelector == @selector(addAnimation:)) {
@@ -329,6 +329,9 @@
     }
     if (aSelector == @selector(removeLightFromGroup:selected:)) {
         return NO; // i.e. removeLightFromGroup:selected: is NOT _excluded_ from scripting, so it can be called.
+    }
+    if (aSelector == @selector(setCurrentAnimation:)) {
+        return NO; // i.e. setCurrentAnimation: is NOT _excluded_ from scripting, so it can be called.
     }
     
     return YES; // disallow everything else
@@ -370,14 +373,15 @@
 {
     NSString* retString = [self addName:name dict:animationNames];
     
-    Animation* a = [[Animation alloc] initWithDetails:name numChans:1];
+    Animation* a = [[Animation alloc] initWithDetails:name isLooping:NO time:0.4];
+
     [animations addObject:a];
 
     return retString;
     
 }
 
-- (void)appendToGroup:(NSString*)name selected:(NSString*)selectLights
+- (void)appendToGroup:(NSString*)name selected:(NSString*)selectLights selectAnimation:(NSString*)selectedAnimation
 {
     NSArray *selectArray = [selectLights componentsSeparatedByString:@","];
     Group* g;
@@ -397,7 +401,7 @@
         {
             [g.groupLights addObject:(NSString*)d];
         }
-        [self setBrightness:[[NSNumber alloc] initWithInt:g.brightness] selectString:[@"l," stringByAppendingString:selectLights]];
+        [self setBrightness:[[NSNumber alloc] initWithInt:g.brightness] selectString:[@"l," stringByAppendingString:selectLights] selectAnimation:selectedAnimation];
     }    
 }
 
@@ -528,59 +532,67 @@
     return retString;
 }
 
-- (void) runAnimation:(NSString*) run //string is arbitrary
+- (void) setCurrentAnimation:(NSString*)selectedAnimation
 {
-    /*//testAnimation.isRunning = !testAnimation.isRunning;
-    if(testAnimation.isRunning && [testAnimation.actions count])
+    Animation* a = [self getAnimationByName:currentAnimation];
+    a.isRunning = NO;
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
+    
+    currentAnimation = selectedAnimation;
+}
+
+- (void) runAnimation:(NSString*)run
+{
+    Animation* a = [self getAnimationByName:currentAnimation];
+    if(a==nil)
     {
-        
-        [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:0];
-        
+        NSLog(@"No animation on deck. Double-click one to make it active.");
     }
     else 
     {
-        printf("animation already running\n");
-    }*/
-
-    
+        a.isRunning = !a.isRunning;
+        if(a.isRunning && [a.actions count])
+        {
+            [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:[[NSNumber alloc] initWithInt:4]];
+        }
+    }
 }
 
 - (void) threadedRunAnimation:(NSNumber*) startActionIndex
 {
-    /*NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    if(testAnimation.isRunning && [testAnimation.actions count])
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    Animation* a = [self getAnimationByName:currentAnimation];
+    if(a.isRunning && [a.actions count])
     {
-        NSArray *immutableActionList = [[NSArray alloc] initWithArray:testAnimation.actions];
-        for(int i = 0; i < [immutableActionList count]; i++)        {
-            for(Light* l in lights) 
-            {
-                l.currentAction = (Action*)[immutableActionList objectAtIndex:i];
-                
-                //[l applyAction];
-            }
+        NSArray *immutableActionList = [[NSArray alloc] initWithArray:a.actions];
+        for(int i = 0; i < [immutableActionList count]; i++)
+        {
+            [self changeState:(Action*)[immutableActionList objectAtIndex:i]];
+            
             if(black_out)
             {
                 //testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
                 break;
             }
-            if (!testAnimation.isRunning || [testAnimation.actions count] == 0)
+            if (!a.isRunning || [a.actions count] == 0)
             {
                 //testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
                 break;
             }
-            //[self send:NULL];
-            usleep((int)([testAnimation.timeBetweenSteps doubleValue]*1000000)); //timeInBetweenSteps
+            [self send:NULL];
+            usleep((int)([a.timeBetweenSteps doubleValue]*1000000)); //timeInBetweenSteps
         }
-        if (testAnimation.isLooping && !black_out)
+        if (a.isLooping && !black_out)
         {
             [self threadedRunAnimation:0];
         }
         [immutableActionList dealloc];
     }
-    [pool release];*/
+    [pool release];
 }
 
-- (void) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString
+- (void) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation
 {
     NSLog(@"Setting brightness to %@", brightness);
     
@@ -639,8 +651,32 @@
     if(!error && (brightnessAction!=nil) && ([brightnessAction.targetChannels count]>0))
     {
         //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
-        [self changeState:brightnessAction];
-        [self send:nil];
+        Animation* selected = [self getAnimationByName:selectedAnimation];
+        if(isRecording)
+        {
+            if (selected!=nil)
+            {
+                //add to selected animation
+                [selected.actions addObject:brightnessAction];
+                
+                [self changeState:brightnessAction];
+                if (!selected.isRunning)
+                {
+                    [self send:nil];
+                }
+            }
+            else {
+                //add to a new animation, select that animation
+                //call javascript
+                [self changeState:brightnessAction];
+                [self send:nil];
+            }
+        }
+        else {
+            [self changeState:brightnessAction];
+            [self send:nil];
+        }
+        
     }
     
 }
@@ -751,7 +787,6 @@
     return colorAction;
 }
 
-
 - (Action*) buildBrightnessAction:(NSMutableArray*)lightArray brightness:(NSNumber*)brightness
 {
     Action* brightnessAction = [Action alloc]; 
@@ -767,7 +802,7 @@
     return brightnessAction;
 }
 
-- (void) setColor:(NSString *)color selectString:(NSString*) selString
+- (void) setColor:(NSString *)color selectString:(NSString*) selString selectAnimation:(NSString*)selectedAnimation 
 {
     NSLog(@"Setting color to %@", color);
 
@@ -791,7 +826,7 @@
         if([selectArray count]==2)
         {
             if ([((NSString*)[selectArray objectAtIndex:1]) caseInsensitiveCompare:@"all"]==NSOrderedSame) {
-                [self setBrightness:[[NSNumber alloc] initWithInt:globalBrightness] selectString:selString];
+                [self setBrightness:[[NSNumber alloc] initWithInt:globalBrightness] selectString:selString selectAnimation:selectedAnimation];
             }
             
             Group* g;
@@ -800,7 +835,7 @@
                 g = (Group*)d;
                 if ([g.name caseInsensitiveCompare:(NSString*)[selectArray objectAtIndex:1]]==NSOrderedSame)
                 {
-                    [self setBrightness:[[NSNumber alloc] initWithInt:g.brightness] selectString:selString];
+                    [self setBrightness:[[NSNumber alloc] initWithInt:g.brightness] selectString:selString selectAnimation:selectedAnimation];
                     break;
                 }
             }
@@ -829,24 +864,46 @@
     if(!error && (colorAction!=nil) && ([colorAction.targetChannels count]>0))
     {
         //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
+        Animation* selected = [self getAnimationByName:selectedAnimation];
         if(isRecording)
         {
-            if (currentAnimation != nil)
+            if (selected!=nil)
             {
-                //if selected animation == current animation
-                //add color action to current animation's action list, send if not playing
+                //add to selected animation
+                [selected.actions addObject:colorAction];
                 
-                //else add to selected
+                [self changeState:colorAction];
+                if (!selected.isRunning)
+                {
+                    [self send:nil];
+                }
             }
             else {
-                //if an animation selected 
-                //new animation, set new to current, send (can't be playing if no animation is current
+                //add to a new animation, select that animation
+                //call javascript
+                [self changeState:colorAction];
+                [self send:nil];
             }
-
         }
-        [self changeState:colorAction];
-        [self send:nil];
+        else {
+            [self changeState:colorAction];
+            [self send:nil];
+        }
+        
     }
+}
+
+- (Animation*)getAnimationByName:(NSString*)name
+{
+    for(id a in animations)
+    {
+        Animation* target = (Animation*)a;
+        if ([target.name caseInsensitiveCompare:name]==NSOrderedSame)
+        {
+            return target;
+        }
+    }
+    return nil;
 }
 
 - (void) setColorHelper:(NSMutableArray *)valueList red:(int)r green:(int)g blue:(int)b
@@ -867,11 +924,13 @@
     //testAnimation.isLooping = !testAnimation.isLooping;
 }
 
-- (void) setAnimationSpeed:(NSNumber *)speed
+- (void)setAnimationSpeed:(NSNumber *)speed selectAnimation:(NSString*)selectedAnimation
 {
+    Animation* a = [self getAnimationByName:currentAnimation];
+
     if([speed doubleValue] > 0)
     {
-        //testAnimation.timeBetweenSteps = speed;
+        a.timeBetweenSteps = speed;
     }
 }
 
@@ -903,7 +962,7 @@
     //[self send:NULL];
 }
 
-- (void)clearCurrentAnimationActions:(NSString *)c
+- (void)clearCurrentAnimationActions:(NSString *)selectedAnimation
 {
     /*Action* tempAction = [Action alloc];
     testAnimation.isRunning = NO;
@@ -1003,7 +1062,6 @@
 
 //Added methods to disable functions:
 
-
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element 
     defaultMenuItems:(NSArray *)defaultMenuItems
 {
@@ -1036,3 +1094,4 @@
 
 
 @end
+

@@ -18,7 +18,7 @@
 
 - (id) init
 {
-    return [self initWithDetails:@"" isLooping:NO time:0];
+    return [self initWithDetails:@"" isLooping:NO time:0.2];
 }
 
 - (id) initWithDetails:(NSString*)newName isLooping:(BOOL)loop time:(double)newTime
