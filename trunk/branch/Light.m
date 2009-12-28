@@ -12,7 +12,6 @@
 @synthesize name;
 @synthesize sizeOfBlock;
 @synthesize startingAddress;
-@synthesize currentAction;
 
 - (id) init
 {
@@ -33,9 +32,7 @@
 {
     self.name = nil;
     self.sizeOfBlock = nil;
-    self.startingAddress = nil;
-    self.currentAction = nil;
-    
+    self.startingAddress = nil;    
     [super dealloc];
 }
 
