@@ -58,7 +58,7 @@
     
     AUTO_NAME = @"New Animation";
     
-    currentAnimation = @"";
+    currentAnimation = [[NSString alloc] initWithString:@""];
 	
     [self listDevices];
 
@@ -125,7 +125,7 @@
 				//the top of AMSerialPort.h. Those can be preceeded with a 'B' as below. However, I've had success
 				//with non standard rates (such as the one for the MIDI protocol). Just omit the 'B' for those.
 			
-				[port setSpeed:B9600]; 
+				[port setSpeed:B14400]; 
 				
 
 				// listen for data in a separate thread
@@ -141,8 +141,6 @@
 			}
 		}
 	}
-	
-	
 	
 	- (void)serialPortReadData:(NSDictionary *)dataDictionary
 	{
@@ -291,7 +289,7 @@
     if (aSelector == @selector(toggleLooping:)) {
         return NO; // i.e. toggleLooping: is NOT _excluded_ from scripting, so it can be called.
     }
-    if (aSelector == @selector(setAnimationSpeed:selectAnimation:)) {
+    if (aSelector == @selector(setAnimationSpeed:)) {
         return NO; // i.e. setAnimationSpeed: is NOT _excluded_ from scripting, so it can be called.
     }
     if (aSelector == @selector(firstAction:)) {
@@ -373,7 +371,7 @@
 {
     NSString* retString = [self addName:name dict:animationNames];
     
-    Animation* a = [[Animation alloc] initWithDetails:name isLooping:NO time:0.4];
+    Animation* a = [[Animation alloc] initWithDetails:retString isLooping:NO time:0.4];
 
     [animations addObject:a];
 
@@ -535,15 +533,18 @@
 - (void) setCurrentAnimation:(NSString*)selectedAnimation
 {
     Animation* a = [self getAnimationByName:currentAnimation];
-    a.isRunning = NO;
-    
+    if(a!=nil)
+    {
+        a.isRunning = NO;
+    }
     [webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
     
-    currentAnimation = selectedAnimation;
+    currentAnimation = [[NSString alloc] initWithString:selectedAnimation];
 }
 
 - (void) runAnimation:(NSString*)run
 {
+    NSLog(@"%@", currentAnimation);
     Animation* a = [self getAnimationByName:currentAnimation];
     if(a==nil)
     {
@@ -587,6 +588,12 @@
         {
             [self threadedRunAnimation:0];
         }
+        else 
+        {
+            a.isRunning = NO;
+            [webView performSelectorOnMainThread:@selector(stringByEvaluatingJavaScriptFromString:) withObject:@"deactivatePlaying();" waitUntilDone:NO];
+        }
+
         [immutableActionList dealloc];
     }
     [pool release];
@@ -921,10 +928,14 @@
 
 - (void) toggleLooping:(NSString *)l
 {
-    //testAnimation.isLooping = !testAnimation.isLooping;
+    Animation* selected = [self getAnimationByName:currentAnimation];
+    if(selected!=nil)
+    {
+        selected.isLooping = !selected.isLooping;
+    }
 }
 
-- (void)setAnimationSpeed:(NSNumber *)speed selectAnimation:(NSString*)selectedAnimation
+- (void)setAnimationSpeed:(NSNumber *)speed
 {
     Animation* a = [self getAnimationByName:currentAnimation];
 
