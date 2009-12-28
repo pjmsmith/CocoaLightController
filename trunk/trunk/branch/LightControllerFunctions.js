@@ -756,8 +756,8 @@ function LightDropOnGroup(el) {
 			lightsToAdd = "-1";
 	}
 	
-	//window.AppController.showMessage_(nameOfGroupBeingDroppedOn+" : "+lightsToAdd);
-	window.AppController.appendToGroup_selected_(nameOfGroupBeingDroppedOn,lightsToAdd);
+	//window.AppController.showMessage_(""+$("#AnimationsLeft > div.selected").attr("name"));
+	window.AppController.appendToGroup_selected_selectAnimation_(nameOfGroupBeingDroppedOn,lightsToAdd,$("#AnimationsLeft > div.selected").attr("name"));
 	
 	//$("#AnimationsLeft").append("<div class='animation'>Animation "+numofAnimations+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");
 	
