@@ -267,8 +267,14 @@ div.animation img {
 }
 
 div#AnimationsLeft .selected{
-	border: 1px solid #ddd;
+	border: 1px dashed #ddd;
 	background-color: #222;
+}
+
+div#AnimationsLeft .playing{
+	color:black;
+	border: 1px solid black;
+	background-color: #ccc;
 }
 
 
@@ -351,6 +357,7 @@ div#AnimationsLeft .selected{
 }
 #lightsListCenter {
 	width:50%;
+	overflow:auto;
 }
 #lightsListRight {
 	width:36%;
@@ -492,12 +499,11 @@ div#AnimationsLeft .selected{
 		
 		</div>	
 			
-		<div id="AnimationsLeft" style="margin:10px 0px 10px 0px;">	
-			<div class="animation">Animation 1 <img class="animationControlRemove" src="removeAnimation.png"/></div>
-			<div class="animation">Animation 2 <img class="animationControlRemove" src="removeAnimation.png"/></div>
-			<div class="animation">Animation 3 <img class="animationControlRemove" src="removeAnimation.png"/></div>
-			<div class="animation">Animation 4 <img class="animationControlRemove" src="removeAnimation.png"/></div>
-			<div class="animation">Animation 5 <img class="animationControlRemove" src="removeAnimation.png"/></div>
+		<div id="AnimationsLeft" style="margin:10px 0px 10px 0px;overflow-x:hidden;">	
+			<!-- <div class="animation" name="Animation 1">Animation 1 <img class="animationControlRemove" src="removeAnimation.png"/></div>-->
+		</div>
+		<div>
+		<input type="text" id="AnimationNameInputBox" style="display:none;" value="Animation"/>
 		</div>
 		
 		<img class="actionControls" id="newButton" src="NewTrack0D.tiff" />
