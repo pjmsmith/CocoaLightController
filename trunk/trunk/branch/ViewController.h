@@ -91,7 +91,7 @@
 - (void)removeLight:(NSNumber *)lightNumber;
 - (void)removeLightFromGroup:(NSString*)name selected:(NSString*)selectLights;
 - (void)setCurrentAnimation:(NSString*)selectedAnimation;
-- (void)setAnimationSpeed:(NSNumber *)speed selectAnimation:(NSString*)selectedAnimation;
+- (void)setAnimationSpeed:(NSNumber *)speed;
 
 // WebView Methods
 -(IBAction)makeTextLarger:(id)sender;
