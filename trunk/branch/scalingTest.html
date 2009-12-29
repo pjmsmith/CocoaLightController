@@ -508,7 +508,7 @@ div#AnimationsLeft .playing{
 		
 		<img class="actionControls addButton" id="newAnimationButton" src="NewTrack0D.tiff" />
 		<img class="actionControls" id="clearButton" src="ClearTrack0N.tiff"/>
-		<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
+		<img class="actionControls removeButton" id="removeAnimationButton" src="RemoveAnimation0D.tiff"/>
 		<input type="text" id="animationSpeedInput" value="0.5" style="float:right;width:50px;margin-right:10px;">
 		
 		<!-- <table style="clear:both;float:left;" border="1px" width="100%">
@@ -574,10 +574,21 @@ div#AnimationsLeft .playing{
 	</div>
 
 	<div id="columnRight" class="layoutColumns">
-		<input type="button" id="addGroupButton" value="add group"/>
-		<input type="button" id="addLightButton" value="add light"/>
 		
-				
+		<!-- <input type="button" id="addGroupButton" value="add group"/>
+		<input type="button" id="addLightButton" value="add light"/> -->
+		
+		<div style="float:left;width:49%;">
+			<img class="actionControls addButton" id="newGroupButton" src="NewTrack0D.tiff" />
+			<img class="actionControls removeButton" id="removeGroupButton" src="RemoveAnimation0D.tiff"/>
+		</div>
+		
+		
+		<div style="float:right;width:49%;">
+			<img class="actionControls addButton" id="newLightButton" src="NewTrack0D.tiff" />
+			<img class="actionControls removeButton" id="removeLightButton" src="RemoveAnimation0D.tiff"/>
+		</div>	
+						
 		<div id="lightsListLeft" class="listBox">
 		
 			<div id="groupList">
@@ -610,16 +621,6 @@ div#AnimationsLeft .playing{
 			</div>
 		</div>
 		
-		<div style="float:left;width:49%;">
-			<img class="actionControls addButton" id="newGroupButton" src="NewTrack0D.tiff" />
-			<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
-		</div>
-		
-		
-		<div style="float:right;width:49%;">
-			<img class="actionControls addButton" id="newLightButton" src="NewTrack0D.tiff" />
-			<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
-		</div>	
 			 	 
 				 	 
 		<!--<ul id="lightList">
