@@ -331,13 +331,16 @@
     if (aSelector == @selector(setCurrentAnimation:)) {
         return NO; // i.e. setCurrentAnimation: is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(pulse:selectAnimation:lowValue:highValue:)) {
+        return NO; // i.e. pulse:selectedAnimation:lowValue:highValue: is NOT _excluded_ from scripting, so it can be called.
+    }
     
     return YES; // disallow everything else
 }
 
 - (void) firstAction:(NSString*)f
 {
-    [webView stringByEvaluatingJavaScriptFromString:@"fullDisplay();"]; 
+
 }
 
 - (void) nextAction:(NSString*)n
@@ -548,6 +551,7 @@
     Animation* a = [self getAnimationByName:currentAnimation];
     if(a==nil)
     {
+        [webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
         NSLog(@"No animation on deck. Double-click one to make it active.");
     }
     else 
@@ -597,6 +601,17 @@
         [immutableActionList dealloc];
     }
     [pool release];
+}
+
+- (void) pulse:(NSString*)selectedLights selectAnimation:(NSString*)selectedAnimation lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal
+{
+    NSInteger low = [lowVal intValue];
+    NSInteger high = [highVal intValue];
+    NSLog(@"PULSE %d", low);
+    for (int i = high; i > low; i-=20)
+    {
+        [self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:selectedAnimation];
+    }
 }
 
 - (void) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation
