@@ -43,6 +43,8 @@
     BOOL black_out;
     BOOL isRecording;
     
+    NSThread* runThread;
+    
     NSString* AUTO_NAME;
 	
     IBOutlet NSPopUpButton	*serialSelectMenu;
@@ -86,9 +88,9 @@
 - (NSString*)addLight:(NSString *)name numChans:(NSNumber *)numberOfChans newLabels:(NSString *)labels;
 - (void)addChannels:(NSNumber *)numberOfChans newLabels:(NSArray *)labelArray startingAddr:(NSInteger)addr;
 - (void)appendToGroup:(NSString*)name selected:(NSString*)selectLights selectAnimation:(NSString*)selectedAnimation;
-- (void)removeGroup:(NSString *)name;
+- (void)removeGroup:(NSString*)name;
 - (void)removeAnimation:(NSString *)name;
-- (void)removeLight:(NSNumber *)lightNumber;
+- (void)removeLight:(NSNumber*)lightNumber;
 - (void)removeLightFromGroup:(NSString*)name selected:(NSString*)selectLights;
 - (void)setCurrentAnimation:(NSString*)selectedAnimation;
 - (void)setAnimationSpeed:(NSNumber *)speed;
