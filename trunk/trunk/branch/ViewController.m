@@ -374,7 +374,7 @@
 {
     NSString* retString = [self addName:name dict:animationNames];
     
-    Animation* a = [[Animation alloc] initWithDetails:retString isLooping:NO time:0.4];
+    Animation* a = [[Animation alloc] initWithDetails:retString isLooping:NO time:0.5];
 
     [animations addObject:a];
 
@@ -481,7 +481,7 @@
     {
         for(id d in g.groupLights)
         {
-            if ([d intValue]==[lightNumber intValue]) {
+            if ([d integerValue]==[lightNumber intValue]) {
                 [g.groupLights removeObject:d];
             }
         }
@@ -559,23 +559,32 @@
         a.isRunning = !a.isRunning;
         if(a.isRunning && [a.actions count])
         {
-            runThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadedRunAnimation:) object:[[NSNumber alloc] initWithInt:4]];
+            runThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadedRunAnimation:) object:[self getAnimationByName:currentAnimation]];
             [runThread start];
         }
     }
 }
 
-- (void) threadedRunAnimation:(NSNumber*) startActionIndex
+- (void) threadedRunAnimation:(Animation*)a
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    Animation* a = [self getAnimationByName:currentAnimation];
+    
     if(a.isRunning && [a.actions count])
     {
         NSArray *immutableActionList = [[NSArray alloc] initWithArray:a.actions];
         for(int i = 0; i < [immutableActionList count]; i++)
         {
-            [self changeState:(Action*)[immutableActionList objectAtIndex:i]];
-            
+            if ([[immutableActionList objectAtIndex:i] isKindOfClass:[Animation class]])
+            {
+                NSLog(@"Found a sub animation");
+                ((Animation*)[immutableActionList objectAtIndex:i]).isRunning = YES;
+                [self threadedRunAnimation:(Animation*)[immutableActionList objectAtIndex:i]];
+                ((Animation*)[immutableActionList objectAtIndex:i]).isRunning = NO;
+            }
+            else
+            {
+                [self changeState:(Action*)[immutableActionList objectAtIndex:i]];
+            }
             if(black_out)
             {
                 //testAnimation.lastActionIndex = [[NSNumber alloc] initWithInt:i];
@@ -601,7 +610,7 @@
         }
         if (a.isLooping && !black_out)
         {
-            [self threadedRunAnimation:0];
+            [self threadedRunAnimation:a];
         }
         else 
         {
@@ -622,31 +631,43 @@
     Animation* a = [self getAnimationByName:selectedAnimation];
     if (a!=nil) 
     {
-        difference *= [a.timeBetweenSteps doubleValue];
-        NSLog(@"%d", difference);
+        NSInteger frames = [a.timeBetweenSteps doubleValue]*30.0;
+        difference /= frames;
+        NSLog(@"Number of Frames: %d", frames);
     }
     else 
     {
         difference = 20;
     }
-    Animation* subAnimation = [[Animation alloc] initWithDetails:AUTO_NAME isLooping:NO time:0];
+    Animation* subAnimation = [[Animation alloc] initWithDetails:AUTO_NAME isLooping:NO time:(double)(1.0/30.0)];
     if (high < low)
     {
         for (int i = high; i < low; i+=difference)
         {
-            [self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:selectedAnimation];
+            [subAnimation.actions addObject:[self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:@""]];
         }
     }
     else 
     {
         for (int i = high; i > low; i-=difference)
         {
-            [self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:selectedAnimation];
+            NSLog(@"Frame: %d", i);
+
+            [subAnimation.actions addObject:[self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:@""]];
         }
+    }
+
+    if(a!=nil)
+    {
+        [a.actions addObject:subAnimation];
+    }
+    else
+    {
+        [subAnimation dealloc];
     }
 }
 
-- (void) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation
+- (Action*) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation
 {
     NSLog(@"Setting brightness to %@", brightness);
     
@@ -732,6 +753,7 @@
         }
         
     }
+    return brightnessAction;
     
 }
 
