@@ -2,6 +2,9 @@ var loopActive = false;
 var playActive = false;
 var dialogActive = false;
 var inputActive = false;
+
+var numberofLights = 0;
+
 var inputWithFocus;
 
 var hoverConfig = {    
@@ -235,6 +238,40 @@ $(document).ready(function(){
 			$(this).attr("src","Record0N.tiff");
 	});
 	
+	$(".removeButton").setButtonEvents("RemoveAnimation0D.tiff","RemoveAnimationBH.tiff");
+
+	  $("#removeAnimationButton").mouseup(function(){
+		 $("div#AnimationsLeft > div.selected").hide("fast");
+		 $(this).parents("div.animation").removeClass("selected");
+		window.AppController.runAnimation_("");
+		deactivatePlaying();
+		 removeAnimation($("div#AnimationsLeft > div.selected").attr("name"));
+		 });
+				  
+	  $("#removeGroupButton").mouseup(function() {
+		  var group = $("div#groupList > div.selected");					  
+		var groupName = $("div#groupList > div.selected").attr("name");					  
+		  if( groupName != "all"){				  
+				group.hide("fast");
+				  removeGroup(group.attr("name"));
+					group.removeClass("selected");
+									  
+				  }
+		});
+				  
+	  $("#removeLightButton").mouseup(function() {
+		  var group = $("div#lightList > div.selected");					  
+									  group.each(function(){
+												 //$(this).hide("fast");
+												 var tempIndex = $(this).attr("index");
+												 $("div[index='"+tempIndex+"']").remove();
+												 removeLight(tempIndex);
+												 });
+		  //removeGroup(group.attr("name"));
+		  //group.remove();
+									  
+	  });
+				  
 				  
 	$(".addButton").setButtonEvents("NewTrack0D.tiff","NewTrackBH.tiff");			  
 
@@ -255,7 +292,40 @@ $(document).ready(function(){
 			}
 		});
 						
+		  $("#newGroupButton").mouseup(function(){
+									   
+									   $("#tempGroupNameInput").show();
+									   $("#tempGroupNameInput").focus();
+	   });
 				  
+	  $("input").focus(function(){
+					   inputActive = true;
+					   })
+	  $("input").focus(function(){
+					   inputActive = false;
+					   })
+	  
+	  $("#tempGroupNameInput").keyup(function(e) {
+									 if (e.keyCode == 13) {
+									 if(!$(this).is(':hidden')){	
+									 $("#tempGroupNameInput").hide();
+									 $(this).getGroupNameInput();
+									 }
+									 }
+									 });
+	  
+	  
+	  $("#tempGroupNameInput").blur(function(){
+									if(!$(this).is(':hidden')){	
+									$("#tempGroupNameInput").hide();
+									$(this).getGroupNameInput();
+									}
+									});
+				  
+	  $("#newLightButton").click(function() {
+								 $("#dialog").dialog('open');
+								 dialogActive = true;
+								 });
 				  
 
 	$("#clearButton").mousedown(function(){
@@ -268,20 +338,6 @@ $(document).ready(function(){
 	$("#clearButton").mouseup(function(){
 		$(this).attr("src","ClearTrack0N.tiff");				  
 	});
-
-	$("#removeButton").mousedown(function(){
-		//window.AppController.clearCurrentAnimationActions_("");
-			$(this).attr("src","RemoveAnimationBH.tiff");
-		});
-		$("#removeButton").mouseleave(function(){
-			$(this).attr("src","RemoveAnimation0D.tiff");
-		});
-		$("#removeButton").mouseup(function(){
-			$(this).attr("src","RemoveAnimation0D.tiff");
-			$("div#AnimationsLeft > div.selected").hide("fast");
-			$(this).parents("div.animation").removeClass("selected");
-		   removeAnimation($("div#AnimationsLeft > div.selected").attr("name"));	
-	   });
 
 	$("#animationSpeedInput").keydown(function(e) {
 		if (e.which == 13) {
@@ -401,10 +457,7 @@ $(document).ready(function(){
         } 
     });
 
-    $("#addLightButton").click(function() {
-         $("#dialog").dialog('open');
-         dialogActive = true;
-    });
+
 
     $("#dialog").dialog("close");
 				  
@@ -527,38 +580,7 @@ $(document).ready(function(){
 				  
 	
   				  
-    $("#addGroupButton").click(function(){
 
-       // $("#groupList > li").removeClass("selected");
-        //$(".lightGroup").slideUp(function(){
-            $("#tempGroupNameInput").show();
-            $("#tempGroupNameInput").focus();
-        //});
-    });
-    
-				  $("input").focus(function(){
-								   inputActive = true;
-								   })
-				  $("input").focus(function(){
-								   inputActive = false;
-								   })
-				  
-    $("#tempGroupNameInput").keyup(function(e) {
-        if (e.keyCode == 13) {
-            if(!$(this).is(':hidden')){	
-                $("#tempGroupNameInput").hide();
-                $(this).getGroupNameInput();
-            }
-        }
-    });
-                                                 
-				  
-    $("#tempGroupNameInput").blur(function(){
-        if(!$(this).is(':hidden')){	
-            $("#tempGroupNameInput").hide();
-            $(this).getGroupNameInput();
-        }
-    });
 	
 	$("body").keypress(function(e){
 					   if(e.metaKey){
@@ -605,6 +627,7 @@ $(document).ready(function(){
     $(".light").live("click",function(e) {
         $("#filterList > li").removeClass("selected");
         $("#groupList > div").removeClass("selected");
+		//window.AppController.showMessage_(""+$(this).attr('index'));
 
         if(e.metaKey){
             $(this).toggleClass("selected");
@@ -630,7 +653,7 @@ $(document).ready(function(){
 												   //window.AppController.showMessage_("lightIndex: "+tempIndex+" minSelected:"+minSelected+" maxSelectedIndex:"+maxSelectedIndex+" = "+$(this).attr("name"));
 												   if(tempIndex >= minSelectedIndex && tempIndex <= maxSelectedIndex && !$(this).hasClass("selected")) {
 													$(this).addClass("selected");
-												   window.AppController.showMessage_(""+tempIndex);
+												   //window.AppController.showMessage_(""+tempIndex);
 												   }
 						});
 					 }
@@ -662,7 +685,7 @@ function addLight() {
 		channelNames = channelNames + ","+$("input[name="+selector+"]").attr("value");
 	}
 	
-	var numberofLights = $(".light").length;
+	//var numberofLights = $(".light").length;
 	
 	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
 	//window.AppController.addLight_(lightName,channelNumber,channelNames);
@@ -670,7 +693,8 @@ function addLight() {
 	$("#lightList").append("<div class='light' index='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
 	//$("#group0").append("<div id='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
 	//window.AppController.showMessage_(""+numberofLights);
-	
+
+	numberofLights++;
 	
 	$(".light").draggable( 'destroy' );
 	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", helper: 'clone', revert:true, revertDuration:'1',drag: $(this).checkIfSingleDrag  });
@@ -849,7 +873,7 @@ jQuery.fn.getGroupNameInput = function() {
     passedGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup());
     
     $("#lightList > .selected").each(function(){
-                                     lightsInGroup += "<div class='light' name='"+$(this).text()+"'>"+$(this).text()+"</div>";
+                                     lightsInGroup += "<div class='light' index='"+$(this).attr('index')+"' name='"+$(this).text()+"'>"+$(this).text()+"</div>";
                                      });
 	
     $("#groupList").append("<div class='lightGroup' collapsed='true' name='"+passedGroupName+"'>"+passedGroupName+lightsInGroup+"</div>");
@@ -934,12 +958,12 @@ function removeAnimation(name) {
 
 function removeGroup(name) {
 	// removes a group from the cocoa code. Takes a name as parameter since names are unique to a group
-	window.AppController.removeGroup(name+"");
+	window.AppController.removeGroup_(name+"");
 	//window.AppController.showMessage_(name+"");
 }
 
 function removeLight(index) {
 	// removes a light from the cocoa code. Takes the index of the light because the lights are always in the same order
-	window.AppController.removeLight(index);
+	window.AppController.removeLight_(index);
 	//window.AppController.showMessage_(name+"");
 }
