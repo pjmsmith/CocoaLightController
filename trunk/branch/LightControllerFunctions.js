@@ -31,28 +31,28 @@ $(document).ready(function(){
         }
         if (!dialogActive && !inputActive) {
             if (e.which == 117) { //u
-					   window.AppController.setColor_selectString_selectAnimation_("yellow",selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+					   window.AppController.setColor_selectString_selectAnimation_("yellow",selectedLights,returnSelectedAnimations());
             } 
             if (e.which == 105) { //i
-					   window.AppController.setColor_selectString_selectAnimation_("green",selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+					   window.AppController.setColor_selectString_selectAnimation_("green",selectedLights,returnSelectedAnimations());
             } 
             if (e.which == 111) { //o
-					   window.AppController.setColor_selectString_selectAnimation_("cyan",selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+					   window.AppController.setColor_selectString_selectAnimation_("cyan",selectedLights,returnSelectedAnimations());
             } 
             if (e.which == 106) { //j
-					   window.AppController.setColor_selectString_selectAnimation_("red",selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+					   window.AppController.setColor_selectString_selectAnimation_("red",selectedLights,returnSelectedAnimations());
             }
             if (e.which == 107) { //k
-					   window.AppController.setColor_selectString_selectAnimation_("magenta",selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+					   window.AppController.setColor_selectString_selectAnimation_("magenta",selectedLights,returnSelectedAnimations());
             } 
             if (e.which == 108) { //l
-					   window.AppController.setColor_selectString_selectAnimation_("blue",selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+					   window.AppController.setColor_selectString_selectAnimation_("blue",selectedLights,returnSelectedAnimations());
             }
             if (e.which == 109) { //m
-					   window.AppController.setColor_selectString_selectAnimation_("white",selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+					   window.AppController.setColor_selectString_selectAnimation_("white",selectedLights,returnSelectedAnimations());
             }
             if (e.which == 44) { //,
-					   window.AppController.setColor_selectString_selectAnimation_("black",selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+					   window.AppController.setColor_selectString_selectAnimation_("black",selectedLights,returnSelectedAnimations());
             }
         }
 	});
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		var selectedLights = getSelectedLights();			   
 		var color = $(this).attr("id"); 
 		//window.AppController.showMessage_(color+" : "+selectedLights);
-		window.AppController.setColor_selectString_selectAnimation_(color,selectedLights,$("#AnimationsLeft > div.selected").attr("name"));
+		window.AppController.setColor_selectString_selectAnimation_(color,selectedLights,returnSelectedAnimations());
 	});
 
 	$(".colorButton").mousedown(function(){
@@ -234,29 +234,20 @@ $(document).ready(function(){
 			window.AppController.toggleRecord_("");
 			$(this).attr("src","Record0N.tiff");
 	});
+	
+				  
+	$(".addButton").setButtonEvents("NewTrack0D.tiff","NewTrackBH.tiff");			  
 
-	$("#newButton").mousedown(function(){
+		$("#newAnimationButton").mouseup(function(){
 			window.AppController.clearCurrentAnimationActions_("");
-			$(this).attr("src","NewTrackBH.tiff");
-		});
-		$("#newButton").mouseleave(function(){
-			$(this).attr("src","NewTrack0D.tiff");
-		});
-		$("#newButton").mouseup(function(){
-			//var numofAnimations = $(".animation").length;
-			//numofAnimations = numofAnimations + 1;
-			$(this).attr("src","NewTrack0D.tiff");
-			//--------window.AppController.addAnimation_name_("");
 			$("#AnimationNameInputBox").attr("value","New Animation");
 			$("#AnimationNameInputBox").show();
+			inputActive = true;
 			$("#AnimationNameInputBox").focus();
 			$("#AnimationNameInputBox").select();
 			inputWithFocus = $("#AnimationNameInputBox");
-			
-			//$("#AnimationsLeft").append("<div class='animation'>Animation "+numofAnimations+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");
-			//$(".animation").hoverIntent( hoverConfig );
-			
-	});
+		});
+				  
 				  
 		$("#AnimationNameInputBox").blur(function(){
 			if(!$(this).is(':hidden')){	
@@ -275,7 +266,7 @@ $(document).ready(function(){
 		$(this).attr("src","ClearTrack0N.tiff");
 	});
 	$("#clearButton").mouseup(function(){
-		$(this).attr("src","ClearTrack0N.tiff");
+		$(this).attr("src","ClearTrack0N.tiff");				  
 	});
 
 	$("#removeButton").mousedown(function(){
@@ -287,7 +278,10 @@ $(document).ready(function(){
 		});
 		$("#removeButton").mouseup(function(){
 			$(this).attr("src","RemoveAnimation0D.tiff");
-	});
+			$("div#AnimationsLeft > div.selected").hide("fast");
+			$(this).parents("div.animation").removeClass("selected");
+		   removeAnimation($("div#AnimationsLeft > div.selected").attr("name"));	
+	   });
 
 	$("#animationSpeedInput").keydown(function(e) {
 		if (e.which == 13) {
@@ -427,15 +421,17 @@ $(document).ready(function(){
 				  
 				  
     $(".animation").live("click",function() {
-		 if(!$(this).hasClass("playing")){
+		 if(/*!$(this).hasClass("playing")*/true){
 			$(".animation").removeClass("selected");		
 			$(this).toggleClass("selected");
 		 }
     });
 				  
     $(".animation > .animationControlRemove").live("click",function() {
-        $(this).parents(".animation").fadeOut("slow");
-		window.AppController.removeAnimation_($(this).attr("name"));
+        $(this).parents("div.animation").hide("fast");
+		$(this).parents("div.animation").removeClass("selected");
+		//window.AppController.removeAnimation_($(this).attr("name"));
+		 removeAnimation($(this).parents("div.animation").attr('name'));
     });
 				  
 	  $("#AnimationsLeft > div.animation").live("dblclick",function() {
@@ -623,7 +619,6 @@ $(document).ready(function(){
 						var maxSelectedIndex = -1;
 					 $("#lightList > .light").each(function(){
 												  if($(this).hasClass("selected")) {
-												   //window.AppController.showMessage_("finding min/max"+$(this).attr("name"));
 													 var tempIndex = $(this).attr("index");
 													 if(tempIndex < minSelectedIndex ) { minSelectedIndex = tempIndex; }
 													 if(tempIndex > maxSelectedIndex ) { maxSelectedIndex = tempIndex; }
@@ -631,9 +626,11 @@ $(document).ready(function(){
 						});
 					 $("#lightList > .light").each(function(){
 						var tempIndex = $(this).attr("index");
+
 												   //window.AppController.showMessage_("lightIndex: "+tempIndex+" minSelected:"+minSelected+" maxSelectedIndex:"+maxSelectedIndex+" = "+$(this).attr("name"));
 												   if(tempIndex >= minSelectedIndex && tempIndex <= maxSelectedIndex && !$(this).hasClass("selected")) {
 													$(this).addClass("selected");
+												   window.AppController.showMessage_(""+tempIndex);
 												   }
 						});
 					 }
@@ -672,7 +669,7 @@ function addLight() {
 	var lightName =window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
 	$("#lightList").append("<div class='light' index='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
 	//$("#group0").append("<div id='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
-	//window.AppController.showMessage_(lightName+","+numberofLights+","+channelNames);
+	//window.AppController.showMessage_(""+numberofLights);
 	
 	
 	$(".light").draggable( 'destroy' );
@@ -878,6 +875,7 @@ jQuery.fn.getAnimationNameInput = function() {
 	$("#AnimationsLeft").scrollTop($("#AnimationsLeft").attr("scrollHeight"));
 	
 	$("#AnimationNameInputBox").hide();
+	inputActive = false;
 }
 
 jQuery.fn.checkIfSingleDrag = function() {
@@ -886,4 +884,62 @@ jQuery.fn.checkIfSingleDrag = function() {
 		$("#lightList > .light").removeClass("selected");
 		$(".lightList > .light[name='"+tempName+"']").addClass("selected");
 	}
+}
+
+
+
+
+function returnSelectedAnimations(){
+	return $("#AnimationsLeft > div.selected").attr("name")+"";
+}
+
+jQuery.fn.setButtonEvents = function(img, mousedownimg, hoverimg) {
+	
+	//First 2 arguments are required. Include the third if you wish to have a hover img to display as well.
+
+	$(this).mousedown(function(){
+				$(this).attr("src",mousedownimg);
+  });
+
+	$(this).mouseup(function(){
+				$(this).attr("src",img);
+	});
+	
+	if (arguments.length == 3) {
+		
+		$(this).mouseover(function(){
+				$(this).attr("src",hoverimg);
+	   });
+		
+		$(this).mouseleave(function(){
+				$(this).attr("src",img);
+		});
+		
+	}
+	
+}
+
+/*
+ ---------------------System Private Functions----------------------------
+
+ These functions are static: they don't have javascript/jquery selectors or perform dom manipulation. They are independant of the html layout.
+ 
+*/
+
+function removeAnimation(name) {
+	// removes an animation from the cocoa code. Takes a name as parameter since names are unique to an animation
+	window.AppController.removeAnimation_(name+"");
+	//window.AppController.showMessage_(name+"");
+}
+
+function removeGroup(name) {
+	// removes a group from the cocoa code. Takes a name as parameter since names are unique to a group
+	window.AppController.removeGroup(name+"");
+	//window.AppController.showMessage_(name+"");
+}
+
+function removeLight(index) {
+	// removes a light from the cocoa code. Takes the index of the light because the lights are always in the same order
+	window.AppController.removeLight(index);
+	//window.AppController.showMessage_(name+"");
 }
