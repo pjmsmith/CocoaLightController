@@ -266,15 +266,15 @@ div.animation img {
 	display:none;
 }
 
-div#AnimationsLeft .selected{
-	border: 1px dashed #ddd;
-	background-color: #222;
+div#AnimationsLeft div.selected{
+	border: 1px dashed #fff;
+	//background-color: #222;
 }
 
 div#AnimationsLeft .playing{
 	color:black;
-	border: 1px solid black;
-	background-color: #ccc;
+	border: 0px solid #333;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#333), color-stop(1, #fff));
 }
 
 
@@ -506,7 +506,7 @@ div#AnimationsLeft .playing{
 		<input type="text" id="AnimationNameInputBox" style="display:none;" value="New Animation" >
 		</div>
 		
-		<img class="actionControls" id="newButton" src="NewTrack0D.tiff" />
+		<img class="actionControls addButton" id="newAnimationButton" src="NewTrack0D.tiff" />
 		<img class="actionControls" id="clearButton" src="ClearTrack0N.tiff"/>
 		<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
 		<input type="text" id="animationSpeedInput" value="0.5" style="float:right;width:50px;margin-right:10px;">
@@ -608,6 +608,17 @@ div#AnimationsLeft .playing{
 				<div class="light">Light 1</div>
 				<div class="light">Light 1</div> -->
 			</div>
+		</div>
+		
+		<div style="float:left;width:49%;">
+			<img class="actionControls addButton" id="newGroupButton" src="NewTrack0D.tiff" />
+			<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
+		</div>
+		
+		
+		<div style="float:right;width:49%;">
+			<img class="actionControls addButton" id="newLightButton" src="NewTrack0D.tiff" />
+			<img class="actionControls" id="removeButton" src="RemoveAnimation0D.tiff"/>
 		</div>	
 			 	 
 				 	 
