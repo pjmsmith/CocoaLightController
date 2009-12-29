@@ -90,6 +90,8 @@ $(document).ready(function(){
 			'opacity' : '1'
 		}
 		$(this).css(cssObj);
+        var selectedLights = getSelectedLights();
+        window.AppController.pulse_selectAnimation_lowValue_highValue_(selectedLights, $("#AnimationsLeft > div.selected").attr("name"), 75, 255);
 	});
 
 	/*$(".aniControls").mousedown(function(){
