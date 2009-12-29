@@ -91,7 +91,9 @@ $(document).ready(function(){
 		}
 		$(this).css(cssObj);
         var selectedLights = getSelectedLights();
-        window.AppController.pulse_selectAnimation_lowValue_highValue_(selectedLights, $("#AnimationsLeft > div.selected").attr("name"), 75, 255);
+		
+		//window.AppController.showMessage_(displayValue("left")+"");
+        window.AppController.pulse_selectAnimation_lowValue_highValue_(selectedLights, $("#AnimationsLeft > div.selected").attr("name"), displayValue("left"), displayValue("right"));
 	});
 
 	/*$(".aniControls").mousedown(function(){
@@ -703,6 +705,25 @@ function changeDisplay(display,value) {
         break;
 	}
 	
+}
+
+function displayValue(display){
+	display = display.toLowerCase();
+	var value;
+
+	switch(display) {
+			case "left":
+				value = ( $("#centerLeftDisplay > .modifier").height() / $("#centerLeftDisplay").height());
+			break;
+			case "center":
+				value = ( $("#centerCenterDisplay > .modifier").height() / $("#centerCenterDisplay").height());
+			break;
+			case "right":
+				value = ( $("#centerRightDisplay > .modifier").height() / $("#centerRightDisplay").height());
+			break;
+	}
+	value = 255 * (1-value);
+	return value;
 }
 
 function LightDropOnGroup(el) {
