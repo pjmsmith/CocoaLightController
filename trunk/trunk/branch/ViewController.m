@@ -559,7 +559,8 @@
         a.isRunning = !a.isRunning;
         if(a.isRunning && [a.actions count])
         {
-            [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:[[NSNumber alloc] initWithInt:4]];
+            runThread = [[NSThread alloc] initWithTarget:self selector:@selector(threadedRunAnimation:) object:[[NSNumber alloc] initWithInt:4]];
+            [runThread start];
         }
     }
 }
@@ -586,7 +587,17 @@
                 break;
             }
             [self send:NULL];
-            usleep((int)([a.timeBetweenSteps doubleValue]*1000000)); //timeInBetweenSteps
+            for(int j = 0; j < 100; j++)
+            {
+                if(a.isRunning)
+                {
+                    usleep((int)([a.timeBetweenSteps doubleValue]*10000)); //timeInBetweenSteps
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
         if (a.isLooping && !black_out)
         {
@@ -607,10 +618,31 @@
 {
     NSInteger low = [lowVal intValue];
     NSInteger high = [highVal intValue];
-    NSLog(@"PULSE %d", low);
-    for (int i = high; i > low; i-=20)
+    NSInteger difference = abs(high-low);
+    Animation* a = [self getAnimationByName:selectedAnimation];
+    if (a!=nil) 
     {
-        [self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:selectedAnimation];
+        difference *= [a.timeBetweenSteps doubleValue];
+        NSLog(@"%d", difference);
+    }
+    else 
+    {
+        difference = 20;
+    }
+    Animation* subAnimation = [[Animation alloc] initWithDetails:AUTO_NAME isLooping:NO time:0];
+    if (high < low)
+    {
+        for (int i = high; i < low; i+=difference)
+        {
+            [self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:selectedAnimation];
+        }
+    }
+    else 
+    {
+        for (int i = high; i > low; i-=difference)
+        {
+            [self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:selectedAnimation];
+        }
     }
 }
 
@@ -908,6 +940,7 @@
             }
         }
         else {
+            NSLog(@"No animation selected still sending");
             [self changeState:colorAction];
             [self send:nil];
         }
@@ -917,12 +950,15 @@
 
 - (Animation*)getAnimationByName:(NSString*)name
 {
-    for(id a in animations)
+    if(name!=nil)
     {
-        Animation* target = (Animation*)a;
-        if ([target.name caseInsensitiveCompare:name]==NSOrderedSame)
+        for(id a in animations)
         {
-            return target;
+            Animation* target = (Animation*)a;
+            if ([target.name caseInsensitiveCompare:name]==NSOrderedSame)
+            {
+                return target;
+            }
         }
     }
     return nil;
@@ -953,7 +989,6 @@
 - (void)setAnimationSpeed:(NSNumber *)speed
 {
     Animation* a = [self getAnimationByName:currentAnimation];
-
     if([speed doubleValue] > 0)
     {
         a.timeBetweenSteps = speed;
