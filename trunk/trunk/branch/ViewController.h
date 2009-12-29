@@ -75,13 +75,13 @@
 - (void)nextAction:(NSString *)n;
 - (void)prevAction:(NSString *)p;
 - (void)runAnimation:(NSString *)run;
-- (void)threadedRunAnimation:(NSNumber*)startActionIndex;
+- (void)threadedRunAnimation:(Animation*)a;
 - (void)blackout:(NSString *)black;
 - (void)recover:(NSString *)r;
 - (void)toggleRecord:(NSString *)rec;
 - (void)toggleLooping:(NSString *)l;
 - (void)clearCurrentAnimationActions:(NSString *)selectedAnimations;
-- (void)setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation;
+- (Action*)setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation;
 - (NSString*)addGroup:(NSString *)name selected:(NSString *)selectLights;
 - (NSString*)addAnimation:(NSString *)name;
 - (NSString*)addName:(NSString *)name dict:(NSMutableDictionary *)names;
