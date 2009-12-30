@@ -171,6 +171,11 @@
                     if(buttonNum==1 && state==1)
                     {
                         NSLog(@"%@", button1);
+                        Animation* a = [self getAnimationByName: button1];
+                        if(a!=nil)
+                        {
+                            [webView stringByEvaluatingJavaScriptFromString:[@"" stringByAppendingFormat:@"switchToAnimation('%@');", button1]];
+                        }
                     } 
                     else if(buttonNum==2 && state==1)
                     {
