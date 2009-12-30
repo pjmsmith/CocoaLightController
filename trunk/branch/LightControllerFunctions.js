@@ -872,6 +872,12 @@ function displayValue(display){
 	return value;
 }
 
+function switchToAnimation(animationName) {
+	window.AppController.runAnimation_("");
+	window.AppController.setCurrentAnimation_(animationName);
+	$("div.animation[name='"+animationName+"']").addClass("playing");
+}
+
 function LightDropOnGroup(el) {
 	//var numLights = 0;
 	

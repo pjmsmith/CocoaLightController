@@ -374,6 +374,11 @@
 			A2F6439210EB601E00A1EB95 /* PBXTextBookmark */ = A2F6439210EB601E00A1EB95 /* PBXTextBookmark */;
 			A2F6439310EB603300A1EB95 /* PBXTextBookmark */ = A2F6439310EB603300A1EB95 /* PBXTextBookmark */;
 			A2F6439510EB604900A1EB95 /* PBXTextBookmark */ = A2F6439510EB604900A1EB95 /* PBXTextBookmark */;
+			A2F6439810EB669700A1EB95 /* PBXTextBookmark */ = A2F6439810EB669700A1EB95 /* PBXTextBookmark */;
+			A2F6439910EB669700A1EB95 /* PBXTextBookmark */ = A2F6439910EB669700A1EB95 /* PBXTextBookmark */;
+			A2F6439A10EB669700A1EB95 /* PBXTextBookmark */ = A2F6439A10EB669700A1EB95 /* PBXTextBookmark */;
+			A2F6439B10EB669700A1EB95 /* PBXTextBookmark */ = A2F6439B10EB669700A1EB95 /* PBXTextBookmark */;
+			A2F6439C10EB669700A1EB95 /* PBXTextBookmark */ = A2F6439C10EB669700A1EB95 /* PBXTextBookmark */;
 			A2F7979A10E1838A00937E4E = A2F7979A10E1838A00937E4E /* PBXBookmark */;
 		};
 		sourceControlManager = A2E53E8210C3659F0035A4BA /* Source Control */;
@@ -898,7 +903,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 851";
 		rLen = 9;
-		rLoc = 31850;
+		rLoc = 32064;
 		rType = 0;
 		vrLen = 1527;
 		vrLoc = 27491;
@@ -918,7 +923,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 851";
 		rLen = 0;
-		rLoc = 31857;
+		rLoc = 32071;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 27491;
@@ -1182,9 +1187,9 @@
 	};
 	A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1074, 15554}}";
-			sepNavSelRange = "{15914, 0}";
-			sepNavVisRange = "{14662, 2087}";
+			sepNavIntBoundsRect = "{{0, 0}, {1314, 15190}}";
+			sepNavSelRange = "{28983, 0}";
+			sepNavVisRange = "{28070, 1553}";
 		};
 	};
 	A28C0A5910C4D4100077602E /* PBXTextBookmark */ = {
@@ -1483,9 +1488,9 @@
 	};
 	A2E53EC210C383910035A4BA /* scalingTest.html */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {3216, 8302}}";
+			sepNavIntBoundsRect = "{{0, 0}, {3216, 8162}}";
 			sepNavSelRange = "{14536, 0}";
-			sepNavVisRange = "{12004, 2994}";
+			sepNavVisRange = "{10100, 2062}";
 			sepNavWindowFrame = "{{15, 239}, {762, 634}}";
 		};
 	};
@@ -1832,7 +1837,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 928";
 		rLen = 0;
-		rLoc = 32775;
+		rLoc = 32989;
 		rType = 0;
 		vrLen = 1487;
 		vrLoc = 29316;
@@ -1852,7 +1857,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 898";
 		rLen = 0;
-		rLoc = 32028;
+		rLoc = 32242;
 		rType = 0;
 		vrLen = 1506;
 		vrLoc = 29319;
@@ -1862,7 +1867,7 @@
 		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
 		name = "LightControllerFunctions.js: 898";
 		rLen = 0;
-		rLoc = 32028;
+		rLoc = 32242;
 		rType = 0;
 		vrLen = 1514;
 		vrLoc = 29319;
@@ -3066,6 +3071,56 @@
 		rType = 0;
 		vrLen = 2087;
 		vrLoc = 14662;
+	};
+	A2F6439810EB669700A1EB95 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 649";
+		rLen = 0;
+		rLoc = 14536;
+		rType = 0;
+		vrLen = 2062;
+		vrLoc = 10100;
+	};
+	A2F6439910EB669700A1EB95 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 878";
+		rLen = 0;
+		rLoc = 28934;
+		rType = 0;
+		vrLen = 1540;
+		vrLoc = 28070;
+	};
+	A2F6439A10EB669700A1EB95 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 878";
+		rLen = 0;
+		rLoc = 28934;
+		rType = 0;
+		vrLen = 1562;
+		vrLoc = 28048;
+	};
+	A2F6439B10EB669700A1EB95 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A2E53EC210C383910035A4BA /* scalingTest.html */;
+		name = "scalingTest.html: 649";
+		rLen = 0;
+		rLoc = 14536;
+		rType = 0;
+		vrLen = 2062;
+		vrLoc = 10100;
+	};
+	A2F6439C10EB669700A1EB95 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 878";
+		rLen = 0;
+		rLoc = 28983;
+		rType = 0;
+		vrLen = 1553;
+		vrLoc = 28070;
 	};
 	A2F7979A10E1838A00937E4E /* PBXBookmark */ = {
 		isa = PBXBookmark;
