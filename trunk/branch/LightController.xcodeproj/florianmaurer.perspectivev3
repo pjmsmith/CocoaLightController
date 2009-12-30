@@ -304,7 +304,7 @@
 							<real>302</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>0 74 1427 804 0 0 1440 878 </string>
+						<string>-27 74 1427 804 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -334,7 +334,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A2F6427810EB0DF400A1EB95</string>
+										<string>A2F6439510EB604900A1EB95</string>
 										<key>history</key>
 										<array>
 											<string>A28C0A5910C4D4100077602E</string>
@@ -395,8 +395,8 @@
 											<string>A29FB2B710EAE44900EE32E8</string>
 											<string>A29FB2B810EAE44900EE32E8</string>
 											<string>A29FB2B910EAE44900EE32E8</string>
-											<string>A23E85B510EB06FF003AEE62</string>
-											<string>A2F6424E10EB08B100A1EB95</string>
+											<string>A2F6438C10EB601E00A1EB95</string>
+											<string>A2F6438D10EB601E00A1EB95</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -460,6 +460,24 @@
 											<string>A23A1E7A10E75B6800B36A47</string>
 											<string>A23A1E7B10E75B6800B36A47</string>
 											<string>A2148CBC10E8765700C230F6</string>
+											<string>A2F6429710EB184400A1EB95</string>
+											<string>A2F6429810EB184400A1EB95</string>
+											<string>A2F642D710EB456300A1EB95</string>
+											<string>A2F642D810EB456300A1EB95</string>
+											<string>A2F642EA10EB473E00A1EB95</string>
+											<string>A2F642EB10EB473E00A1EB95</string>
+											<string>A2F642EC10EB473E00A1EB95</string>
+											<string>A2F642ED10EB473E00A1EB95</string>
+											<string>A2F642EE10EB473E00A1EB95</string>
+											<string>A2F642EF10EB473E00A1EB95</string>
+											<string>A2F6437010EB5BF700A1EB95</string>
+											<string>A2F6437110EB5BF700A1EB95</string>
+											<string>A2F6438810EB5F3300A1EB95</string>
+											<string>A2F6438910EB5F3300A1EB95</string>
+											<string>A2F6438E10EB601E00A1EB95</string>
+											<string>A2F6438F10EB601E00A1EB95</string>
+											<string>A2F6439010EB601E00A1EB95</string>
+											<string>A2F6439110EB601E00A1EB95</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -475,7 +493,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1103, 758}}</string>
 								<key>RubberWindowFrame</key>
-								<string>0 74 1427 804 0 0 1440 878 </string>
+								<string>-27 74 1427 804 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -500,7 +518,7 @@
 										<key>Frame</key>
 										<string>{{10, 27}, {1103, -27}}</string>
 										<key>RubberWindowFrame</key>
-										<string>0 74 1427 804 0 0 1440 878 </string>
+										<string>-27 74 1427 804 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -773,7 +791,7 @@
 		<string>/Users/florianmaurer/Documents/LightController/trunk/branch/LightController.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>0 74 1427 804 0 0 1440 878 </string>
+	<string>-27 74 1427 804 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

@@ -511,6 +511,14 @@ div.filterDropBox span {
 <div id="dialog" title="Add Light">
 
 <form id="addLight">
+<label>How many? </label><select name="numLights">
+<option value="1" SELECTED>1</option>
+<option value="2" >2</option>
+<option value="3" >3</option>
+<option value="4" >4</option>
+<option value="5" >5</option>
+<option value="6" >6</option></select>
+<br />
 <label>Name:</label><input name="lightName" type="text" value="New Light"/>
 <label>Channels:</label><select name="lightChannels"><option value="7" SELECTED>7</option></select>
 <input name="ch1" type="text" value="red" />
@@ -636,9 +644,9 @@ All</li></ul>
 		</div></div><div class="clearfix"></div></div>
 
 		<div id="physicalButtons">
-			<img class="physicalButtons" id="arcadeBlue" src="ArcadeBlue.png"/>
-			<img class="physicalButtons" id="arcadeGreen" src="ArcadeGreen.png"/>
-			<img class="physicalButtons" id="arcadeYellow" src="ArcadeYellow.png"/>
+			<img class="physicalButtons" name="arcadeBlue" id="1" src="ArcadeBlue.png"/>
+			<img class="physicalButtons" name="arcadeGreen" id="2" src="ArcadeGreen.png"/>
+			<img class="physicalButtons" name="arcadeYellow" id="3" src="ArcadeYellow.png"/>
 		</div>
 
 	</div>

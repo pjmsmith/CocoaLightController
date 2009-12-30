@@ -72,7 +72,54 @@ $(document).ready(function(){
 					   e.stopPropagation();
 					   
 					   
-					   if($("#AnimationsLeft > div.selected").length > 0){
+					   var animationThatsSelected = $("#AnimationsLeft > div.selected");
+					   
+					   /*if ($("#AnimationsLeft > div.selected").length == 0){
+							
+					   }*/
+					   if ($("#AnimationsLeft > div.selected").length == 1 && $("#AnimationsLeft > div.playing").length == 0){
+
+							window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
+							window.AppController.runAnimation_("");
+							animationThatsSelected.addClass("playing");
+							$("#playButton").attr("src","PlayBN.tiff");
+							playActive = true;
+
+					   }
+					   else if ( animationThatsSelected.hasClass("playing") ){
+
+							window.AppController.runAnimation_("");
+					   
+						   if(playActive) {
+								deactivatePlaying();
+								playActive = false;
+						   }
+						   else {
+								$("#playButton").attr("src","PlayBN.tiff");
+								playActive = true;
+						   }
+					   
+					   }
+					   else if ($("#AnimationsLeft > div.selected").length == 1 && $("#AnimationsLeft > div.playing").length == 1 && (!animationThatsSelected.hasClass("playing"))) {
+	
+					   $("#AnimationsLeft > div").removeClass("playing");
+							window.AppController.runAnimation_("");
+							window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
+							animationThatsSelected.addClass("playing");
+							$("#playButton").attr("src","PlayBN.tiff");
+							playActive = true;
+
+					   }
+					   
+					   else if ($("#AnimationsLeft > div.selected").length == 0 && $("#AnimationsLeft > div.playing").length == 1) {
+
+							window.AppController.runAnimation_("");
+							if(playActive){ deactivatePlaying();playActive = false	}
+							else {$("#playButton").attr("src","PlayBN.tiff"); playActive = true;}
+					   }
+
+
+					   /*if($("#AnimationsLeft > div.selected").length > 0){
 						   var animationThatsSelected = $("#AnimationsLeft > div.selected");
 						   
 					   if(animationThatsSelected.hasClass("playing")){
@@ -88,7 +135,7 @@ $(document).ready(function(){
 					   }
 					   }
 
-						/*if($("#AnimationsLeft > div.selected").length > 0){
+						if($("#AnimationsLeft > div.selected").length > 0){
 						   if(playActive){
 								window.AppController.runAnimation_("");
 								playActive = false;
@@ -445,12 +492,18 @@ $(document).ready(function(){
 	$("#AnimationsLeft").sortable({ cursor: 'move', opacity: 0.6, containment: 'window' });
 	$(".lightGroup").droppable({drop:function() {LightDropOnGroup($(this))},hoverClass:"groupHoverDrop"});
 	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:".lightGroup", helper: 'clone', revert:true, revertDuration:'1',drag: $(this).checkIfSingleDrag });
-				  $(".filterDropBoxContent").droppable({drop:function(){$(".filterDropBoxContent").removeClass("selected");$(this).addClass("selected");},hoverClass:"selected"});
+	$(".filterDropBoxContent").droppable({drop:function(){$(".filterDropBoxContent").removeClass("selected");$(this).addClass("selected");},hoverClass:"selected"});
 				  
 				  
 	$(".physicalButtons").droppable({
-		drop: function() { 
-			window.AppController.showMessage_("physical buttons");
+		drop: function(event,ui) {
+			
+			var tempName = $(ui.draggable).attr("name");
+			var droppableId = $(this).attr("id");
+																		
+			window.AppController.setButtonAction_action_(droppableId,tempName+"");
+			//window.AppController.showMessage_(""+droppableId +" : "+ tempName);
+									
 		},
 		hoverClass: 'droppableHover',
 		tolerance: 'pointer'
@@ -689,7 +742,7 @@ $(document).ready(function(){
 						   $("#filterList > li").removeClass("selected");
 						   
 						   
-						   $("#filterList > li[name='all']").addClass("selected");
+						   $("#groupList > .lightGroup[name='all']").addClass("selected");
 						   }
 					   }
 	});
@@ -759,12 +812,14 @@ function addLight() {
 	
 	//window.AppController.showMessage_(lightName+","+channelNumber+","+channelNames);
 	//window.AppController.addLight_(lightName,channelNumber,channelNames);
-	var lightName =window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
-	$("#lightList").append("<div class='light' index='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
-	//$("#group0").append("<div id='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
-	//window.AppController.showMessage_(""+numberofLights);
-
-	numberofLights++;
+	for(i = 0; i<$("select[name='numLights']").attr("value");i++)
+	{
+		var lightName2 = window.AppController.addLight_numChans_newLabels_(lightName, channelNumber, channelNames);
+		$("#lightList").append("<div class='light' index='"+numberofLights+"' name='"+lightName2+"'>"+lightName2+"</div>");
+		//$("#group0").append("<div id='"+numberofLights+"' name='"+lightName+"'>"+lightName+"</div>");
+		//window.AppController.showMessage_(""+numberofLights);
+		numberofLights++;
+	}
 	
 	$(".light").draggable( 'destroy' );
 	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:"#groupList", helper: 'clone', revert:true, revertDuration:'1',drag: $(this).checkIfSingleDrag  });
@@ -925,7 +980,7 @@ function getSelectedLightsForGroup() {
         //}
     });
     selected = selected.substring(0, selected.length-1); //remove last comma
-    window.AppController.showMessage_(selected);
+    //window.AppController.showMessage_(selected);
 	
 	if (selected.length > 0){
 		return selected;
