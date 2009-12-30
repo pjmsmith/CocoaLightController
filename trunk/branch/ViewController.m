@@ -56,7 +56,7 @@
     black_out = NO;
     isRecording = NO;
     
-    AUTO_NAME = @"New Animation";
+    AUTO_NAME = @"Pulse";
     
     currentAnimation = [[NSString alloc] initWithString:@""];
 	
@@ -151,7 +151,7 @@
 		if ([data length] > 0) {
 			
 			NSString *receivedText = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-			NSLog(@"%@", receivedText);			
+			//NSLog(@"%@", receivedText);			
 
             NSArray *dataArray = [receivedText componentsSeparatedByString:@","];
             if([dataArray count]==3)
@@ -169,7 +169,7 @@
                 
             }
             else {
-                printf("No buttons\n");
+                //printf("No buttons\n");
             }
 			
 			// continue listening
@@ -223,7 +223,7 @@
             i++;
         }
         [self applyState:sendAction];
-        [self displayState:[lights objectAtIndex:0]];
+        //[self displayState:[lights objectAtIndex:0]];
         
     }
 
@@ -524,10 +524,10 @@
     NSArray *labelArray = [labels componentsSeparatedByString:@","];
     [self addChannels:numberOfChans newLabels:labelArray startingAddr:newAddr];
 
-    [self displayState:newLight];
+    //[self displayState:newLight];
 
     [((Group*)[groups objectAtIndex:0]).groupLights addObject:[[NSNumber alloc] initWithInt:[lights count]]]; //add to ALL group
-    [self displayState:[groups objectAtIndex:0]];
+    //[self displayState:[groups objectAtIndex:0]];
     [lights addObject:newLight];
     
     return retString;
@@ -539,8 +539,8 @@
     if(a!=nil)
     {
         a.isRunning = NO;
+        [webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
     }
-    [webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
     
     currentAnimation = [[NSString alloc] initWithString:selectedAnimation];
 }
@@ -568,18 +568,24 @@
 - (void) threadedRunAnimation:(Animation*)a
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
+    BOOL subAnim = NO;
+    double timeMod = 1000000.0/3.0;
     if(a.isRunning && [a.actions count])
     {
         NSArray *immutableActionList = [[NSArray alloc] initWithArray:a.actions];
+        NSLog(@"%@", a.name);
+        if ([a.name caseInsensitiveCompare:AUTO_NAME]==NSOrderedSame)
+        {
+            timeMod = 1000000;
+        }
         for(int i = 0; i < [immutableActionList count]; i++)
         {
             if ([[immutableActionList objectAtIndex:i] isKindOfClass:[Animation class]])
             {
-                NSLog(@"Found a sub animation");
                 ((Animation*)[immutableActionList objectAtIndex:i]).isRunning = YES;
                 [self threadedRunAnimation:(Animation*)[immutableActionList objectAtIndex:i]];
                 ((Animation*)[immutableActionList objectAtIndex:i]).isRunning = NO;
+                subAnim = YES;
             }
             else
             {
@@ -596,17 +602,26 @@
                 break;
             }
             [self send:NULL];
-            for(int j = 0; j < 100; j++)
+            if(!subAnim)
             {
-                if(a.isRunning)
+                for(int j = 0; j < (NSInteger)([a.timeBetweenSteps doubleValue]*15.0); j++)
                 {
-                    usleep((int)([a.timeBetweenSteps doubleValue]*10000)); //timeInBetweenSteps
-                }
-                else
-                {
-                    break;
+                    if(a.isRunning)
+                    {
+                        usleep((int)((1.0/15.0)*timeMod)); //timeInBetweenSteps
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
+            else {
+                subAnim = NO;
+                timeMod = 1000000.0/3.0;
+            }
+
+
         }
         if (a.isLooping && !black_out)
         {
@@ -623,23 +638,19 @@
     [pool release];
 }
 
-- (void) pulse:(NSString*)selectedLights selectAnimation:(NSString*)selectedAnimation lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal
+- (NSMutableArray*) pulseActions:(NSString *)selectedLights lowValue:(NSNumber *)lowVal highValue:(NSNumber *)highVal time:(NSNumber*)timeBetweenSteps
 {
+    Animation* subAnimation = [[Animation alloc] initWithDetails:AUTO_NAME isLooping:NO time:(double)(1.0/15.0)];
     NSInteger low = [lowVal intValue];
     NSInteger high = [highVal intValue];
     NSInteger difference = abs(high-low);
-    Animation* a = [self getAnimationByName:selectedAnimation];
-    if (a!=nil) 
+    
+    NSInteger frames = [timeBetweenSteps doubleValue]*15.0;
+    if(frames>0)
     {
-        NSInteger frames = [a.timeBetweenSteps doubleValue]*30.0;
         difference /= frames;
-        NSLog(@"Number of Frames: %d", frames);
     }
-    else 
-    {
-        difference = 20;
-    }
-    Animation* subAnimation = [[Animation alloc] initWithDetails:AUTO_NAME isLooping:NO time:(double)(1.0/30.0)];
+    
     if (high < low)
     {
         for (int i = high; i < low; i+=difference)
@@ -650,14 +661,50 @@
     else 
     {
         for (int i = high; i > low; i-=difference)
-        {
-            NSLog(@"Frame: %d", i);
-
+        {            
             [subAnimation.actions addObject:[self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:@""]];
         }
     }
+    return subAnimation.actions;
+}
 
-    if(a!=nil)
+- (void) pulse:(NSString*)selectedLights selectAnimation:(NSString*)selectedAnimation lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal
+{
+    NSInteger low = [lowVal intValue];
+    NSInteger high = [highVal intValue];
+    NSInteger difference = abs(high-low);
+    Animation* a = [self getAnimationByName:selectedAnimation];
+    Animation* subAnimation = [[Animation alloc] initWithDetails:AUTO_NAME isLooping:NO time:(double)(1.0/30.0)];
+    
+    subAnimation.selectedLights = [[NSString alloc] initWithString:selectedLights];
+    subAnimation.highValue = highVal;
+    subAnimation.lowValue = lowVal;
+    if (a!=nil) 
+    {
+        subAnimation.actions = [self pulseActions:selectedLights lowValue:lowVal highValue:highVal time:a.timeBetweenSteps];
+    }
+    else 
+    {
+        difference = 20;
+        if (high < low)
+        {
+            for (int i = high; i < low; i+=difference)
+            {
+                [subAnimation.actions addObject:[self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:@""]];
+            }
+        }
+        else 
+        {
+            for (int i = high; i > low; i-=difference)
+            {
+                NSLog(@"Frame: %d", i);
+
+                [subAnimation.actions addObject:[self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:@""]];
+            }
+        }
+    }
+
+    if(a!=nil && isRecording)
     {
         [a.actions addObject:subAnimation];
     }
@@ -734,15 +781,20 @@
                 //add to selected animation
                 [selected.actions addObject:brightnessAction];
                 
-                [self changeState:brightnessAction];
-                if (!selected.isRunning)
+                Animation* current = [self getAnimationByName:currentAnimation];
+                BOOL currentRunning = NO;
+                if (current!=nil) {
+                    currentRunning = current.isRunning;
+                }
+                if (!selected.isRunning && !currentRunning)
                 {
+                    [self changeState:brightnessAction];
                     [self send:nil];
                 }
             }
             else {
                 //add to a new animation, select that animation
-                //call javascript
+                ///call javascript
                 [self changeState:brightnessAction];
                 [self send:nil];
             }
@@ -921,8 +973,8 @@
                 [lightArray addObject:h];
             }
             colorAction = [self buildColorAction:lightArray color:color];
-            [self displayState:colorAction];
-            [self displayState:g];
+            //[self displayState:colorAction];
+            //[self displayState:g];
         }
         else 
         {
@@ -948,9 +1000,14 @@
                 //add to selected animation
                 [selected.actions addObject:colorAction];
                 
-                [self changeState:colorAction];
-                if (!selected.isRunning)
+                Animation* current = [self getAnimationByName:currentAnimation];
+                BOOL currentRunning = NO;
+                if (current!=nil) {
+                    currentRunning = current.isRunning;
+                }
+                if (!selected.isRunning && !currentRunning)
                 {
+                    [self changeState:colorAction];
                     [self send:nil];
                 }
             }
@@ -1011,9 +1068,22 @@
 - (void)setAnimationSpeed:(NSNumber *)speed
 {
     Animation* a = [self getAnimationByName:currentAnimation];
-    if([speed doubleValue] > 0)
+    
+    if(a!=nil && [a.actions count])
     {
-        a.timeBetweenSteps = speed;
+        if([speed doubleValue] > 0)
+        {
+            a.timeBetweenSteps = speed;
+        }
+        for(id action in a.actions)
+        {
+            if([action isKindOfClass:[Animation class]] && ([((Animation*)action).name caseInsensitiveCompare:AUTO_NAME]==NSOrderedSame))
+            {
+                //get high and low values, call pulseActions and replace previous actions
+                [((Animation*)action).actions removeAllObjects];
+                ((Animation*)action).actions = [self pulseActions:((Animation*)action).selectedLights lowValue:((Animation*)action).lowValue highValue:((Animation*)action).highValue time:a.timeBetweenSteps];
+            }
+        }
     }
 }
 
@@ -1047,22 +1117,10 @@
 
 - (void)clearCurrentAnimationActions:(NSString *)selectedAnimation
 {
-    /*Action* tempAction = [Action alloc];
-    testAnimation.isRunning = NO;
-    [tempAction initWithDetails:@"" numChans:3];
-    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue])]];
-    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+1)]];
-    [tempAction.targetChannels addObject:[[NSNumber alloc] initWithInt:([testLight.startingAddress intValue]+2)]];
-    
-    [self setColorHelper:tempAction.targetValues red:0 green:0 blue:0];
-    
-    testLight.currentAction = tempAction;
-    //[testLight applyAction];
-    //[self send:NULL];
-    
-    [testAnimation.actions setArray:[[NSMutableArray alloc] initWithCapacity:10]];
-	
-	[webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];*/
+    Animation* selected = [self getAnimationByName:selectedAnimation];
+    selected.isRunning = NO;
+    [selected.actions setArray:[[NSMutableArray alloc] initWithCapacity:10]];
+	[webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
 }
 
 - (void)showMessage:(NSString *)message

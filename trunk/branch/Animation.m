@@ -15,6 +15,10 @@
 @synthesize isRunning;
 @synthesize lastActionIndex;
 @synthesize timeBetweenSteps;
+@synthesize selectedLights;
+@synthesize lowValue;
+@synthesize highValue;
+
 
 - (id) init
 {
@@ -27,6 +31,7 @@
     self.actions = [[NSMutableArray alloc] initWithCapacity:10];
     self.isLooping = loop;
     self.isRunning = NO;
+    self.selectedLights = @"";
     self.timeBetweenSteps = [[NSNumber alloc] initWithDouble:newTime];
     return self;
 }
