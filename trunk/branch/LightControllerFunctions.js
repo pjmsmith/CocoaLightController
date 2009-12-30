@@ -873,8 +873,8 @@ function displayValue(display){
 }
 
 function switchToAnimation(animationName) {
-	window.AppController.runAnimation_("");
 	window.AppController.setCurrentAnimation_(animationName);
+	window.AppController.runAnimation_("");
 	$("div.animation[name='"+animationName+"']").addClass("playing");
 }
 
