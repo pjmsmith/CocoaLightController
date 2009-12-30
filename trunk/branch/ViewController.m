@@ -58,6 +58,10 @@
     
     AUTO_NAME = @"Pulse";
     
+    button1 = @"":
+    button2 = @"":
+    button3 = @"":
+    
     currentAnimation = [[NSString alloc] initWithString:@""];
 	
     [self listDevices];
@@ -164,7 +168,16 @@
                     printf("Button Number: %d\n", buttonNum);
                     NSInteger state = [(NSString*)[dataArray objectAtIndex:2] integerValue];
                     printf("State of Button %d: %d\n", buttonNum, state);
-                    
+                    if(buttonNum==1 && state==1)
+                    {
+                        NSLog(@"%@", button1);
+                    } 
+                    else if(buttonNum==2 && state==1)
+                    {
+                        [self pulseActions:@"g,all" lowValue:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"displayValue('left');"]
+                                                    highValue:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"displayValue('right');"]
+                                                    time:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"$('#animationSpeedInput').attr('value');"]];
+                    }
                 }
                 
             }
@@ -214,7 +227,7 @@
             //port will be open
             if([port isOpen]) {
                 [port writeString:sendString usingEncoding:NSUTF8StringEncoding error:NULL];
-                NSLog(@"Sending %@", [sendString substringToIndex:([sendString length]-1)]);
+                //NSLog(@"Sending %@", [sendString substringToIndex:([sendString length]-1)]);
             }
             else 
             {
@@ -340,17 +353,61 @@
 
 - (void) firstAction:(NSString*)f
 {
-
+    Animation* a = [self getAnimationByName:currentAnimation];
+    if(a!=nil)
+    {
+        a.isRunning = NO;
+        [webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
+        a.lastActionIndex = [[NSNumber alloc] initWithInt:0];
+        NSArray *immutableActionList = [[NSArray alloc] initWithArray:a.actions];
+        [self changeState:(Action*)[immutableActionList objectAtIndex:[a.lastActionIndex intValue]]];
+        [self send:NULL];
+    }
 }
 
 - (void) nextAction:(NSString*)n
 {
-    
+    Animation* a = [self getAnimationByName:currentAnimation];
+    if(a!=nil)
+    {
+        a.isRunning = NO;
+        [webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
+        NSInteger prevIndex = [a.lastActionIndex intValue];
+        if ((prevIndex+1)<[a.actions count])
+        {
+            a.lastActionIndex = [[NSNumber alloc] initWithInt:(prevIndex+1)];
+        }
+        else {
+            a.lastActionIndex = [[NSNumber alloc] initWithInt:0];
+        }
+        
+        NSArray *immutableActionList = [[NSArray alloc] initWithArray:a.actions];
+        NSLog(@"NEXT");
+        [self changeState:(Action*)[immutableActionList objectAtIndex:[a.lastActionIndex intValue]]];
+        [self send:NULL];
+    }    
 }
 
 - (void) prevAction:(NSString*)p
 {
-    
+    Animation* a = [self getAnimationByName:currentAnimation];
+    if(a!=nil)
+    {
+        a.isRunning = NO;
+        [webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
+        NSInteger prevIndex = [a.lastActionIndex intValue];
+        if ((prevIndex-1)<0)
+        {
+            a.lastActionIndex = [[NSNumber alloc] initWithInt:([a.actions count]-1)];
+        }
+        else {
+            a.lastActionIndex = [[NSNumber alloc] initWithInt:(prevIndex-1)];
+        }
+
+        NSArray *immutableActionList = [[NSArray alloc] initWithArray:a.actions];
+        [self changeState:(Action*)[immutableActionList objectAtIndex:[a.lastActionIndex intValue]]];
+        [self send:NULL];
+    }
 }
 
 - (void) addChannels:(NSNumber *)numberOfChans newLabels:(NSArray *)labelArray startingAddr:(NSInteger)addr
@@ -547,7 +604,7 @@
 
 - (void) runAnimation:(NSString*)run
 {
-    NSLog(@"%@", currentAnimation);
+    //NSLog(@"%@", currentAnimation);
     Animation* a = [self getAnimationByName:currentAnimation];
     if(a==nil)
     {
@@ -569,14 +626,14 @@
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     BOOL subAnim = NO;
-    double timeMod = 1000000.0/3.0;
+    double timeMod = 1000000.0;
     if(a.isRunning && [a.actions count])
     {
         NSArray *immutableActionList = [[NSArray alloc] initWithArray:a.actions];
-        NSLog(@"%@", a.name);
+        //NSLog(@"%@", a.name);
         if ([a.name caseInsensitiveCompare:AUTO_NAME]==NSOrderedSame)
         {
-            timeMod = 1000000;
+            timeMod = 1000000.0;
         }
         for(int i = 0; i < [immutableActionList count]; i++)
         {
@@ -618,7 +675,7 @@
             }
             else {
                 subAnim = NO;
-                timeMod = 1000000.0/3.0;
+                timeMod = 1000000.0;
             }
 
 
@@ -716,7 +773,7 @@
 
 - (Action*) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation
 {
-    NSLog(@"Setting brightness to %@", brightness);
+    // NSLog(@"Setting brightness to %@", brightness);
     
     BOOL error = NO;
     
@@ -766,7 +823,7 @@
     }
     else 
     {
-        NSLog(@"Wrong string sent to setColor, send 'g' for group and 'l' for lights");
+        NSLog(@"Wrong string sent to setBrightness, send 'g' for group and 'l' for lights");
         error = YES;
     }
     
@@ -932,7 +989,7 @@
 
 - (void) setColor:(NSString *)color selectString:(NSString*) selString selectAnimation:(NSString*)selectedAnimation 
 {
-    NSLog(@"Setting color to %@", color);
+    //NSLog(@"Setting color to %@", color);
 
     BOOL error = NO;
 
@@ -1019,7 +1076,7 @@
             }
         }
         else {
-            NSLog(@"No animation selected still sending");
+            //NSLog(@"No animation selected still sending");
             [self changeState:colorAction];
             [self send:nil];
         }
@@ -1121,6 +1178,23 @@
     selected.isRunning = NO;
     [selected.actions setArray:[[NSMutableArray alloc] initWithCapacity:10]];
 	[webView stringByEvaluatingJavaScriptFromString:@"deactivatePlaying();"];
+}
+
+- (void) setButtonAction:(NSNumber*)button action:(NSString*)a
+{
+    switch ([button intValue]) {
+        case 1:
+            button1 = [[NSString alloc] initWithString:a];
+            break;
+        case 2:
+            button2 = [[NSString alloc] initWithString:a];
+            break;
+        case 3:
+            button3 = [[NSString alloc] initWithString:a];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)showMessage:(NSString *)message

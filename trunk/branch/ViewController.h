@@ -24,7 +24,7 @@
 @interface ViewController : NSObject {
 
 	AMSerialPort *port;
-    
+
     NSMutableArray* channels;
     NSMutableArray* stateChange;
     
@@ -43,9 +43,14 @@
     BOOL black_out;
     BOOL isRecording;
     
+    
     NSThread* runThread;
     
     NSString* AUTO_NAME;
+    
+    NSString* button1;
+    NSString* button2;
+    NSString* button3;
 	
     IBOutlet NSPopUpButton	*serialSelectMenu;
 	IBOutlet NSTextField	*textField;
@@ -113,6 +118,7 @@
 -(Animation*)getAnimationByName:(NSString*)name;
 -(void)pulse:(NSString*)selectedLights selectAnimation:(NSString*)selectedAnimation lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal;
 -(NSMutableArray*)pulseActions:(NSString *)selectedLights lowValue:(NSNumber *)lowVal highValue:(NSNumber *)highVal time:(NSNumber*)timeBetweenSteps;
+-(void)setButtonAction:(NSNumber*)button action:(NSString*)a;
 
 //@property (nonatomic, retain) IBOutlet NSPopUpButton *serialSelectMenu;
 //@property (nonatomic, retain) IBOutlet NSTextField	 *textField;
