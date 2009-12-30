@@ -347,6 +347,9 @@
     if (aSelector == @selector(pulse:selectAnimation:lowValue:highValue:)) {
         return NO; // i.e. pulse:selectedAnimation:lowValue:highValue: is NOT _excluded_ from scripting, so it can be called.
     }
+    if (aSelector == @selector(setButtonAction:action:)) {
+        return NO; // i.e. setButtonAction:action: is NOT _excluded_ from scripting, so it can be called.
+    }
     
     return YES; // disallow everything else
 }
@@ -773,7 +776,7 @@
 
 - (Action*) setBrightness:(NSNumber*)brightness selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation
 {
-    // NSLog(@"Setting brightness to %@", brightness);
+    NSLog(@"Setting brightness to %@", brightness);
     
     BOOL error = NO;
     
@@ -1011,7 +1014,7 @@
         if([selectArray count]==2)
         {
             if ([((NSString*)[selectArray objectAtIndex:1]) caseInsensitiveCompare:@"all"]==NSOrderedSame) {
-                [self setBrightness:[[NSNumber alloc] initWithInt:globalBrightness] selectString:selString selectAnimation:selectedAnimation];
+                //[self setBrightness:[[NSNumber alloc] initWithInt:globalBrightness] selectString:selString selectAnimation:selectedAnimation];
             }
             
             Group* g;
@@ -1020,7 +1023,7 @@
                 g = (Group*)d;
                 if ([g.name caseInsensitiveCompare:(NSString*)[selectArray objectAtIndex:1]]==NSOrderedSame)
                 {
-                    [self setBrightness:[[NSNumber alloc] initWithInt:g.brightness] selectString:selString selectAnimation:selectedAnimation];
+                    //[self setBrightness:[[NSNumber alloc] initWithInt:g.brightness] selectString:selString selectAnimation:selectedAnimation];
                     break;
                 }
             }
