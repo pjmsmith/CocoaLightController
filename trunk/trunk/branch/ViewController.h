@@ -111,8 +111,8 @@
 -(Action*)buildColorAction:(NSMutableArray*)lightArray color:(NSString*)color;
 -(Action*)buildBrightnessAction:(NSMutableArray*)lightArray brightness:(NSNumber*)brightness;
 -(Animation*)getAnimationByName:(NSString*)name;
-- (void)pulse:(NSString*)selectedLights selectAnimation:(NSString*)selectedAnimation lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal;
-
+-(void)pulse:(NSString*)selectedLights selectAnimation:(NSString*)selectedAnimation lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal;
+-(NSMutableArray*)pulseActions:(NSString *)selectedLights lowValue:(NSNumber *)lowVal highValue:(NSNumber *)highVal time:(NSNumber*)timeBetweenSteps;
 
 //@property (nonatomic, retain) IBOutlet NSPopUpButton *serialSelectMenu;
 //@property (nonatomic, retain) IBOutlet NSTextField	 *textField;
