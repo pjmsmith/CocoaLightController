@@ -875,6 +875,7 @@ function displayValue(display){
 function switchToAnimation(animationName) {
 	window.AppController.setCurrentAnimation_(animationName);
 	window.AppController.runAnimation_("");
+	$("div.animation").removeClass("playing");
 	$("div.animation[name='"+animationName+"']").addClass("playing");
 }
 
