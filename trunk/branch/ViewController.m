@@ -58,9 +58,9 @@
     
     AUTO_NAME = @"Pulse";
     
-    button1 = @"":
-    button2 = @"":
-    button3 = @"":
+    button1 = @"";
+    button2 = @"";
+    button3 = @"";
     
     currentAnimation = [[NSString alloc] initWithString:@""];
 	
