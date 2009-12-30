@@ -12,7 +12,15 @@ sensitivity: 3, // number = sensitivity threshold (must be 1 or higher)
 interval: 300, // number = milliseconds for onMouseOver polling interval    
 over: function(){if(!$(this).hasClass("playing")){$(this).children("img").fadeIn("fast");}}, // function = onMouseOver callback (REQUIRED)    
 timeout: 500, // number = milliseconds delay before onMouseOut    
-out: function(){$(this).children("img").fadeOut("fast");} // function = onMouseOut callback (REQUIRED)    
+out: function(){$(this).children("img").hide();} // function = onMouseOut callback (REQUIRED)    
+};
+
+var hoverConfigGroup = {
+sensitivity: 3, // number = sensitivity threshold (must be 1 or higher)    
+interval: 300, // number = milliseconds for onMouseOver polling interval    
+over: function(){$(this).children("img").fadeIn("fast");}, // function = onMouseOver callback (REQUIRED)    
+timeout: 500, // number = milliseconds delay before onMouseOut    
+out: function(){$(this).children("img").hide();} // function = onMouseOut callback (REQUIRED)    
 };
 
 function deactivateLooping() {
@@ -396,7 +404,9 @@ $(document).ready(function(){
 	$("#AnimationsLeft").sortable({ cursor: 'move', opacity: 0.6, containment: 'window' });
 	$(".lightGroup").droppable({drop:function() {LightDropOnGroup($(this))},hoverClass:"groupHoverDrop"});
 	$(".light").draggable({ cursor: 'move', containment: 'window',connectWith:".lightGroup", helper: 'clone', revert:true, revertDuration:'1',drag: $(this).checkIfSingleDrag });
-
+				  $(".filterDropBoxContent").droppable({drop:function(){$(".filterDropBoxContent").removeClass("selected");$(this).addClass("selected");},hoverClass:"selected"});
+				  
+				  
 	$(".physicalButtons").droppable({
 		drop: function() { 
 			window.AppController.showMessage_("physical buttons");
@@ -471,13 +481,16 @@ $(document).ready(function(){
 			}
         }
     });
-				  
+				
 				  
     $(".animation").live("click",function() {
-		 if(/*!$(this).hasClass("playing")*/true){
-			$(".animation").removeClass("selected");		
-			$(this).toggleClass("selected");
-		 }
+						 $(this).toggleClass("selected");
+						 var animationHadClass = $(this).hasClass("selected");
+						 $(".animation").removeClass("selected");
+						 if(animationHadClass)
+						{
+							$(this).addClass("selected");
+						 }
     });
 				  
     $(".animation > .animationControlRemove").live("click",function() {
@@ -502,13 +515,13 @@ $(document).ready(function(){
 	});
 				  
 	  
-    $("#filterList > *").live("click",function() {
+    $(".filterDropBoxContent").live("click",function() {
         //$(this).toggleClass("selected");
         if ($(this).hasClass("selected")) {
             $(this).removeClass("selected");
         }
         else {
-            $("#filterList > *").removeClass("selected");
+            $(".filterDropBoxContent").removeClass("selected");
             $("#groupList > div").removeClass("selected");
             $(".light").removeClass("selected");
 
@@ -546,6 +559,14 @@ $(document).ready(function(){
             $(this).trigger('mouseover');  
         }  
     });
+				  
+	  $('.lightGroup > .light').live('mouseover',function(){
+								  if (!$(this).data('init')) {  
+								  $(this).data('init', true);
+								  $(this).hoverIntent(hoverConfigGroup);			     
+								  $(this).trigger('mouseover');  
+								  }
+		});
 
     $("#groupList > div").live("click",function() {
                               
@@ -579,26 +600,26 @@ $(document).ready(function(){
     });
 				  
 	
-  				  
+	  $(".lightGroup > .light > img").live("click",function() {
+													 $(this).parents("div.light").hide("fast");
+													 $(this).parents("div.light").removeClass("selected");
+													 //window.AppController.removeAnimation_($(this).attr("name"));
+													 removeLight($(this).parents("div.light").attr('index'));
+													$(this).parents("div.light").remove();
+													 });
+
 
 	
 	$("body").keypress(function(e){
+					   var tempKeyNumberConvert = e.which - 48;
 					   if(e.metaKey){
 						   //window.AppController.showMessage_("command Key");
 						   if(e.which > 47 && e.which < 58 ){ //numbers 1-9 and 0 on keyboard
 								   e.preventDefault();
 								   e.stopPropagation();
-							   if($("#groupList > div.selected").length == 1){ // command + number assigns selected group to filter
-									var tempGroupName = $("#groupList > div.selected").attr("name");
-								   var tempKeyNumberConvert = e.which - 48;
-								   if($("#filterList > li[name='"+tempGroupName+"']").length == 0){
-										$("#filterList").append("<li key='"+e.which+"'name='"+tempGroupName+"'>("+tempKeyNumberConvert+") "+tempGroupName+"</li>");
-								   }
-								   else{
-										$("#filterList > li[name='"+tempGroupName+"']").html("("+tempKeyNumberConvert+") "+tempGroupName)
-										$("#filterList > li[name='"+tempGroupName+"']").attr("key",e.which);
-								   }
-							   }
+
+								AssignToFilterDropBox(tempKeyNumberConvert);
+							   
 						   }
 					   }
 					   else{
@@ -606,12 +627,20 @@ $(document).ready(function(){
 					   e.stopPropagation();
 							if(e.which > 47 && e.which < 58 ){ //numbers 1-9 and 0 on keyboard
 								var tempGroupName = $("#filterList > li[key='"+e.which+"']").attr("name");
-								$("#groupList > div").removeClass("selected");
-								$("#lightList > div").removeClass("selected");
-								$("#filterList > li").removeClass("selected");
+							
 
+					   if (!$(".filterDropBoxContent[name='filter"+tempKeyNumberConvert+"']").hasClass("selected")) {
+					   $(".filterDropBoxContent").removeClass("selected");
+					   $("#groupList > div").removeClass("selected");
+
+					   $("#lightList > div").removeClass("selected");
+					   //$("#filterList > li").removeClass("selected");
+								$(".filterDropBoxContent[name='filter"+tempKeyNumberConvert+"']").addClass("selected");
+					   }
+					   else {
+						$(".filterDropBoxContent[name='filter"+tempKeyNumberConvert+"']").removeClass("selected");
+					   }
 					   
-								$("#filterList > li[name='"+tempGroupName+"']").addClass("selected");
 							}
 					   if (e.which == 96){
 						   $("#groupList > div").removeClass("selected");
@@ -770,17 +799,19 @@ function LightDropOnGroup(el) {
 		var lightIndex = $(".ui-draggable-dragging").attr("index");
 		if(el.children("div[name='"+lightName+"']").length == 0){
 			//$("#lightList > .light[name='"+lightName+"']").clone(true).appendTo(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']");
-			$(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']").append("<div name='"+lightName+"' index='"+lightIndex+"' class='light'>"+lightName+"</div>");
+			$(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']").append("<div name='"+lightName+"' index='"+lightIndex+"' class='light'>"+lightName+"<img class='removeGroupImage' src='removeAnimation.png'/></div>");
 			lightsToAdd = lightIndex;
 		}
 	}
 	else {	
 		$("#lightList > .selected").each(function(){
 										var lightName = $(this).attr("name");
+										 var lightIndex = $(this).attr("index");
 										 $(this).removeClass("selected");
 
 										 if(el.children("div[name='"+lightName+"']").length == 0){
-											$(this).clone(true).appendTo(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']");
+											//$(this).clone(true).appendTo(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']");
+										 $(".lightGroup[name='"+nameOfGroupBeingDroppedOn+"']").append("<div name='"+lightName+"' index='"+lightIndex+"' class='light'>"+lightName+"<img class='removeGroupImage' src='removeAnimation.png'/></div>");
 											lightsToAdd += $(this).attr("index") +",";
 										 }
 										 //window.AppController.showMessage_("dropped on: "+nameOfGroupBeingDroppedOn);
@@ -873,7 +904,7 @@ jQuery.fn.getGroupNameInput = function() {
     passedGroupName = window.AppController.addGroup_selected_(tempGroupName,getSelectedLightsForGroup());
     
     $("#lightList > .selected").each(function(){
-                                     lightsInGroup += "<div class='light' index='"+$(this).attr('index')+"' name='"+$(this).text()+"'>"+$(this).text()+"</div>";
+                                     lightsInGroup += "<div class='light' index='"+$(this).attr('index')+"' name='"+$(this).text()+"'>"+$(this).text()+"<img class='removeGroupImage' src='removeAnimation.png'/></div>";
                                      });
 	
     $("#groupList").append("<div class='lightGroup' collapsed='true' name='"+passedGroupName+"'>"+passedGroupName+lightsInGroup+"</div>");
@@ -941,6 +972,14 @@ jQuery.fn.setButtonEvents = function(img, mousedownimg, hoverimg) {
 		
 	}
 	
+}
+
+function AssignToFilterDropBox(KeyNumber){
+	
+	if($("#groupList > div.selected").length == 1){ // command + number assigns selected group to filter
+		var tempGroupName = $("#groupList > div.selected").attr("name");
+		$(".filterDropBoxContent[name='filter"+KeyNumber+"']").children("span").text(""+tempGroupName);
+	}
 }
 
 /*
