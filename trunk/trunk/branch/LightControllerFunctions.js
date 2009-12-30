@@ -574,7 +574,7 @@ $(document).ready(function(){
             $(this).removeClass("selected")
         }
         else {
-            $("#filterList > li").removeClass("selected");
+            $(".filterDropBoxContent").removeClass("selected");
             $(".light").removeClass("selected");
             $("#groupList > div").removeClass("selected");
             $(this).addClass("selected");
@@ -848,20 +848,20 @@ function LightDropOnGroup(el) {
 function getSelectedLights() {
 
 	var selected = "g";
-	$("#filterList > .selected").each(function(){
-		selected += ","+$(this).attr("name");
+	$(".filterDropBox > div.selected>span").each(function(){
+		selected += ","+$(this).text();
     });
 	$("#groupList > .selected").each(function() {
         selected += ","+$(this).attr("name");
     });
 	
-	if ($("#lightList > .selected").length > 0) {
+	if ($("#lightList > div.selected").length > 0) {
 		selected = "l";
 
-		$(".light").each(function(index) {
-            if($(this).hasClass("selected")){
-                selected += "," +index;
-            }
+		$("#lightList > div.selected").each(function() {
+            //if($(this).hasClass("selected")){
+                selected += "," +$(this).attr("index");;
+            //}
         });
 	}
 	//window.AppController.showMessage_(selected);
@@ -878,13 +878,13 @@ function getSelectedLightsForGroup() {
 
     selected = "";
 
-    $("#lightList > .light").each(function(index) {
-        if($(this).hasClass("selected")){
-            selected += index + ",";
-        }
+    $("#lightList > div.selected").each(function() {
+        //if($(this).hasClass("selected")){
+            selected += $(this).attr('index') + ",";
+        //}
     });
     selected = selected.substring(0, selected.length-1); //remove last comma
-    //window.AppController.showMessage_(selected);
+    window.AppController.showMessage_(selected);
 	
 	if (selected.length > 0){
 		return selected;
