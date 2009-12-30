@@ -379,6 +379,7 @@
 			A2F6439A10EB669700A1EB95 /* PBXTextBookmark */ = A2F6439A10EB669700A1EB95 /* PBXTextBookmark */;
 			A2F6439B10EB669700A1EB95 /* PBXTextBookmark */ = A2F6439B10EB669700A1EB95 /* PBXTextBookmark */;
 			A2F6439C10EB669700A1EB95 /* PBXTextBookmark */ = A2F6439C10EB669700A1EB95 /* PBXTextBookmark */;
+			A2F6439D10EB684600A1EB95 /* PBXTextBookmark */ = A2F6439D10EB684600A1EB95 /* PBXTextBookmark */;
 			A2F7979A10E1838A00937E4E = A2F7979A10E1838A00937E4E /* PBXBookmark */;
 		};
 		sourceControlManager = A2E53E8210C3659F0035A4BA /* Source Control */;
@@ -1188,7 +1189,7 @@
 	A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1314, 15190}}";
-			sepNavSelRange = "{28983, 0}";
+			sepNavSelRange = "{28816, 0}";
 			sepNavVisRange = "{28070, 1553}";
 		};
 	};
@@ -3118,6 +3119,16 @@
 		name = "LightControllerFunctions.js: 878";
 		rLen = 0;
 		rLoc = 28983;
+		rType = 0;
+		vrLen = 1553;
+		vrLoc = 28070;
+	};
+	A2F6439D10EB684600A1EB95 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A281BA3310CCD9DB00DFE30E /* LightControllerFunctions.js */;
+		name = "LightControllerFunctions.js: 875";
+		rLen = 0;
+		rLoc = 28816;
 		rType = 0;
 		vrLen = 1553;
 		vrLoc = 28070;
