@@ -66,6 +66,47 @@ $(document).ready(function(){
 					   window.AppController.setColor_selectString_selectAnimation_("black",selectedLights,returnSelectedAnimations());
             }
         }
+					   
+					   if(e.which == 32) {
+					   e.preventDefault();
+					   e.stopPropagation();
+					   
+					   
+					   if($("#AnimationsLeft > div.selected").length > 0){
+						   var animationThatsSelected = $("#AnimationsLeft > div.selected");
+						   
+					   if(animationThatsSelected.hasClass("playing")){
+						   window.AppController.setCurrentAnimation_("");
+							window.AppController.runAnimation_("");
+						   $("#AnimationsLeft > .animation").removeClass("playing");
+					   }
+					   else {
+						   window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.playing").attr("name"));
+						   $("#AnimationsLeft > div.playing").removeClass("playing");
+						   animationThatsSelected.addClass("playing");
+						   $("#playButton").attr("src","PlayBN.tiff");
+					   }
+					   }
+
+						/*if($("#AnimationsLeft > div.selected").length > 0){
+						   if(playActive){
+								window.AppController.runAnimation_("");
+								playActive = false;
+								$("#AnimationsLeft > div.playing").removeClass("playing");
+					   }
+						   else{
+								$("#playButton").attr("src","PlayBN.tiff");
+								$("#AnimationsLeft > div.selected").addClass("playing");
+								//window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
+								//window.AppController.runAnimation_("");
+								playActive = true;
+						   }
+						   }*/
+					   
+					   
+					   
+					   }
+					   
 	});
 
 	$(".colorButton").click(function(){
@@ -308,10 +349,10 @@ $(document).ready(function(){
 				  
 	  $("input").focus(function(){
 					   inputActive = true;
-					   })
-	  $("input").focus(function(){
+					   });
+	  $("input").blur(function(){
 					   inputActive = false;
-					   })
+					  });
 	  
 	  $("#tempGroupNameInput").keyup(function(e) {
 									 if (e.keyCode == 13) {
@@ -473,7 +514,7 @@ $(document).ready(function(){
 				  
     $("body").keyup(function(e) {
         if (e.keyCode == 13) {
-            if(dialogActive && !inputActive){	
+            if(dialogActive){	
                 addLight();
             }
 			if(!inputWithFocus.is(":hidden")){
