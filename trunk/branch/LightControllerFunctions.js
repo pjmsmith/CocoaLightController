@@ -67,92 +67,92 @@ $(document).ready(function(){
             }
         }
 					   
-					   if(e.which == 32) {
-					   e.preventDefault();
-					   e.stopPropagation();
-					   
-					   
-					   var animationThatsSelected = $("#AnimationsLeft > div.selected");
-					   
-					   /*if ($("#AnimationsLeft > div.selected").length == 0){
-							
-					   }*/
-					   if ($("#AnimationsLeft > div.selected").length == 1 && $("#AnimationsLeft > div.playing").length == 0){
+       if(e.which == 32 && !inputActive) {
+           e.preventDefault();
+           e.stopPropagation();
+           
+           
+           var animationThatsSelected = $("#AnimationsLeft > div.selected");
+           
+           /*if ($("#AnimationsLeft > div.selected").length == 0){
+                
+           }*/
+           if ($("#AnimationsLeft > div.selected").length == 1 && $("#AnimationsLeft > div.playing").length == 0){
 
-							window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
-							window.AppController.runAnimation_("");
-							animationThatsSelected.addClass("playing");
-							$("#playButton").attr("src","PlayBN.tiff");
-							playActive = true;
+                window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
+                window.AppController.runAnimation_("");
+                animationThatsSelected.addClass("playing");
+                $("#playButton").attr("src","PlayBN.tiff");
+                playActive = true;
 
-					   }
-					   else if ( animationThatsSelected.hasClass("playing") ){
+           }
+           else if ( animationThatsSelected.hasClass("playing") ){
 
-							window.AppController.runAnimation_("");
-					   
-						   if(playActive) {
-								deactivatePlaying();
-								playActive = false;
-						   }
-						   else {
-								$("#playButton").attr("src","PlayBN.tiff");
-								playActive = true;
-						   }
-					   
-					   }
-					   else if ($("#AnimationsLeft > div.selected").length == 1 && $("#AnimationsLeft > div.playing").length == 1 && (!animationThatsSelected.hasClass("playing"))) {
-	
-					   $("#AnimationsLeft > div").removeClass("playing");
-							window.AppController.runAnimation_("");
-							window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
-							animationThatsSelected.addClass("playing");
-							$("#playButton").attr("src","PlayBN.tiff");
-							playActive = true;
+                window.AppController.runAnimation_("");
+           
+               if(playActive) {
+                    deactivatePlaying();
+                    playActive = false;
+               }
+               else {
+                    $("#playButton").attr("src","PlayBN.tiff");
+                    playActive = true;
+               }
+           
+           }
+           else if ($("#AnimationsLeft > div.selected").length == 1 && $("#AnimationsLeft > div.playing").length == 1 && (!animationThatsSelected.hasClass("playing"))) {
 
-					   }
-					   
-					   else if ($("#AnimationsLeft > div.selected").length == 0 && $("#AnimationsLeft > div.playing").length == 1) {
+           $("#AnimationsLeft > div").removeClass("playing");
+                window.AppController.runAnimation_("");
+                window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
+                animationThatsSelected.addClass("playing");
+                $("#playButton").attr("src","PlayBN.tiff");
+                playActive = true;
 
-							window.AppController.runAnimation_("");
-							if(playActive){ deactivatePlaying();playActive = false	}
-							else {$("#playButton").attr("src","PlayBN.tiff"); playActive = true;}
-					   }
+           }
+           
+           else if ($("#AnimationsLeft > div.selected").length == 0 && $("#AnimationsLeft > div.playing").length == 1) {
+
+                window.AppController.runAnimation_("");
+                if(playActive){ deactivatePlaying();playActive = false	}
+                else {$("#playButton").attr("src","PlayBN.tiff"); playActive = true;}
+           }
 
 
-					   /*if($("#AnimationsLeft > div.selected").length > 0){
-						   var animationThatsSelected = $("#AnimationsLeft > div.selected");
-						   
-					   if(animationThatsSelected.hasClass("playing")){
-						   window.AppController.setCurrentAnimation_("");
-							window.AppController.runAnimation_("");
-						   $("#AnimationsLeft > .animation").removeClass("playing");
-					   }
-					   else {
-						   window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.playing").attr("name"));
-						   $("#AnimationsLeft > div.playing").removeClass("playing");
-						   animationThatsSelected.addClass("playing");
-						   $("#playButton").attr("src","PlayBN.tiff");
-					   }
-					   }
+       /*if($("#AnimationsLeft > div.selected").length > 0){
+           var animationThatsSelected = $("#AnimationsLeft > div.selected");
+           
+       if(animationThatsSelected.hasClass("playing")){
+           window.AppController.setCurrentAnimation_("");
+            window.AppController.runAnimation_("");
+           $("#AnimationsLeft > .animation").removeClass("playing");
+       }
+       else {
+           window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.playing").attr("name"));
+           $("#AnimationsLeft > div.playing").removeClass("playing");
+           animationThatsSelected.addClass("playing");
+           $("#playButton").attr("src","PlayBN.tiff");
+       }
+       }
 
-						if($("#AnimationsLeft > div.selected").length > 0){
-						   if(playActive){
-								window.AppController.runAnimation_("");
-								playActive = false;
-								$("#AnimationsLeft > div.playing").removeClass("playing");
-					   }
-						   else{
-								$("#playButton").attr("src","PlayBN.tiff");
-								$("#AnimationsLeft > div.selected").addClass("playing");
-								//window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
-								//window.AppController.runAnimation_("");
-								playActive = true;
-						   }
-						   }*/
-					   
-					   
-					   
-					   }
+        if($("#AnimationsLeft > div.selected").length > 0){
+           if(playActive){
+                window.AppController.runAnimation_("");
+                playActive = false;
+                $("#AnimationsLeft > div.playing").removeClass("playing");
+       }
+           else{
+                $("#playButton").attr("src","PlayBN.tiff");
+                $("#AnimationsLeft > div.selected").addClass("playing");
+                //window.AppController.setCurrentAnimation_($("#AnimationsLeft > div.selected").attr("name"));
+                //window.AppController.runAnimation_("");
+                playActive = true;
+           }
+           }*/
+       
+       
+       
+       }
 					   
 	});
 
@@ -189,10 +189,10 @@ $(document).ready(function(){
 			'opacity' : '1'
 		}
 		$(this).css(cssObj);
-        var selectedLights = getSelectedLights();
+        //var selectedLights = getSelectedLights();
 		
 		//window.AppController.showMessage_(displayValue("left")+"");
-        window.AppController.pulse_selectAnimation_lowValue_highValue_(selectedLights, $("#AnimationsLeft > div.selected").attr("name"), displayValue("left"), displayValue("right"));
+        //window.AppController.pulse_selectAnimation_lowValue_highValue_(selectedLights, $("#AnimationsLeft > div.selected").attr("name"), displayValue("left"), displayValue("right"));
 	});
 
 	/*$(".aniControls").mousedown(function(){
@@ -401,6 +401,13 @@ $(document).ready(function(){
 					   inputActive = false;
 					  });
 	  
+      $("select").focus(function(){
+                       inputActive = true;
+                       });
+      $("select").blur(function(){
+                      inputActive = false;
+                      });
+                  
 	  $("#tempGroupNameInput").keyup(function(e) {
 									 if (e.keyCode == 13) {
 									 if(!$(this).is(':hidden')){	
@@ -533,7 +540,6 @@ $(document).ready(function(){
         "Save": function() { 
 
             addLight();
-
             /*$(this).dialog("close");
             dialogActive = false;
             var lightName = $("input[name='lightName']").attr("value");
@@ -554,7 +560,7 @@ $(document).ready(function(){
             },
         "Cancel":function() {
             $(this).dialog("close");
-
+            $("select").blur();
             dialogActive = false;
 
             }
@@ -706,7 +712,8 @@ $(document).ready(function(){
 	
 	$("body").keypress(function(e){
 					   var tempKeyNumberConvert = e.which - 48;
-					   if(e.metaKey){
+					   if(!inputActive) {
+                       if(e.metaKey){
 						   //window.AppController.showMessage_("command Key");
 						   if(e.which > 47 && e.which < 58 ){ //numbers 1-9 and 0 on keyboard
 								   e.preventDefault();
@@ -740,11 +747,12 @@ $(document).ready(function(){
 						   $("#groupList > div").removeClass("selected");
 						   $("#lightList > div").removeClass("selected");
 						   $("#filterList > li").removeClass("selected");
-						   
-						   
+                           $(".filterDropBoxContent").removeClass("selected");
+
 						   $("#groupList > .lightGroup[name='all']").addClass("selected");
 						   }
 					   }
+                       }
 	});
 
     $(".light").live("click",function(e) {
@@ -798,6 +806,7 @@ $(document).ready(function(){
 
 function addLight() {
 	$("#dialog").dialog("close");
+    $("select").blur();
 	dialogActive = false;
 	var lightName = $("input[name='lightName']").attr("value");
 	//var channelNumber = $("select[name='lightChannels']").attr("value");
@@ -1036,6 +1045,14 @@ jQuery.fn.getAnimationNameInput = function() {
 	inputActive = false;
 }
 
+function addAnimationWithName(animationName)
+{
+    passedAnimationName = window.AppController.addAnimation_(animationName);
+	
+    $("#AnimationsLeft").append("<div class='animation' name='"+passedAnimationName+"'>"+passedAnimationName+"<img class='animationControlRemove' src='removeAnimation.png'/></div>");	
+	$("#AnimationsLeft").scrollTop($("#AnimationsLeft").attr("scrollHeight"));    
+}
+
 jQuery.fn.checkIfSingleDrag = function() {
 	if(!$(this).hasClass("selected")){
 		var tempName = $(this).attr("name");
@@ -1083,6 +1100,10 @@ function AssignToFilterDropBox(KeyNumber){
 		var tempGroupName = $("#groupList > div.selected").attr("name");
 		$(".filterDropBoxContent[name='filter"+KeyNumber+"']").children("span").text(""+tempGroupName);
 	}
+}
+
+function setAnimationSpeedInputText(speed) {
+    $("#animationSpeedInput").attr('value', speed);
 }
 
 /*

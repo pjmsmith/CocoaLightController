@@ -55,8 +55,10 @@
 
     black_out = NO;
     isRecording = NO;
+    serviceStarted=NO;
     
-    AUTO_NAME = @"Pulse";
+    PULSE_NAME = @"Pulse";
+    CHASE_NAME = @"Chase";
     
     button1 = @"";
     button2 = @"";
@@ -159,32 +161,73 @@
 
             NSArray *dataArray = [receivedText componentsSeparatedByString:@","];
             if([dataArray count]==3)
-            {
+            {   
+#pragma mark button work
                 NSInteger cmd = [(NSString*)[dataArray objectAtIndex:0] integerValue];
                 if(cmd == 9)
                 {
                     //button press
                     NSInteger buttonNum = [(NSString*)[dataArray objectAtIndex:1] integerValue];
-                    printf("Button Number: %d\n", buttonNum);
+                    //printf("Button Number: %d\n", buttonNum);
                     NSInteger state = [(NSString*)[dataArray objectAtIndex:2] integerValue];
-                    printf("State of Button %d: %d\n", buttonNum, state);
-                    if(buttonNum==1 && state==1)
+                    //printf("State of Button %d: %d\n", buttonNum, state);
+                    if(state==1)
                     {
-                        NSLog(@"%@", button1);
-                        Animation* a = [self getAnimationByName: button1];
-                        if(a!=nil)
+                        NSString* button;
+                        switch (buttonNum) 
                         {
-                            [webView stringByEvaluatingJavaScriptFromString:[@"" stringByAppendingFormat:@"switchToAnimation('%@');", button1]];
+                            case 1:
+                                button = button1;
+                                break;
+                            case 2:
+                                button = button2;
+                                break;
+                            case 3:
+                                button = button3;
+                                break;                                
+                            default:
+                                break;
+                        }
+                        
+                        if([button caseInsensitiveCompare:PULSE_NAME]==NSOrderedSame)
+                        {
+                            NSLog(@"Pulse");
+                            [self pulseActions:@"g,all" lowValue:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"displayValue('left');"]
+                                     highValue:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"displayValue('right');"]
+                                          time:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"$('#animationSpeedInput').attr('value');"]];
+                        }
+                        else if([([([[button componentsSeparatedByString:@":"] objectAtIndex:0]) stringByReplacingOccurrencesOfString:@" " withString:@""]) caseInsensitiveCompare:CHASE_NAME]==NSOrderedSame)
+                        {
+                            NSLog(@"Chase");
+                            button = [button stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+                            NSArray* buttonElements = [button componentsSeparatedByString:@":"];
+                            if ([buttonElements count]==4)
+                            {
+                                NSString* color = [self validateColor:((NSString*)[buttonElements objectAtIndex:1])];
+                                NSString* chaseRange = [self getLightStringFromRange:((NSString*)[buttonElements objectAtIndex:2])];
+                                NSString* chaseType = (NSString*)[buttonElements objectAtIndex:3];
+                                if((color!=nil)&&(chaseRange!=nil))
+                                {
+                                    [self chaseActions:color range:chaseRange type:chaseType time:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"$('#animationSpeedInput').attr('value');"]];
+                                }
+                            }
+                            else 
+                            {
+                                NSLog(@"Malformed Chase string. Format: Chase : <color> : [<#-#>|<#,#,#,...>] : <[single|elastic|sweep]>");
+                            }
+
+                        }
+                        else
+                        {
+                            Animation* a = [self getAnimationByName: button1];
+                            if(a!=nil)
+                            {
+                                [webView stringByEvaluatingJavaScriptFromString:[@"" stringByAppendingFormat:@"switchToAnimation('%@');", button]];
+                            }
                         }
                     } 
-                    else if(buttonNum==2 && state==1)
-                    {
-                        [self pulseActions:@"g,all" lowValue:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"displayValue('left');"]
-                                                    highValue:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"displayValue('right');"]
-                                                    time:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"$('#animationSpeedInput').attr('value');"]];
-                    }
                 }
-                
             }
             else {
                 //printf("No buttons\n");
@@ -221,7 +264,7 @@
         NSMutableString *sendString;
         int i = 0;
         
-        Action* sendAction = [self diffChannels];
+        Action* sendAction = [self diffChannels:stateChange with:channels];
 
         for(id c in sendAction.targetChannels)
         {
@@ -639,7 +682,7 @@
     {
         NSArray *immutableActionList = [[NSArray alloc] initWithArray:a.actions];
         //NSLog(@"%@", a.name);
-        if ([a.name caseInsensitiveCompare:AUTO_NAME]==NSOrderedSame)
+        if ([a.name caseInsensitiveCompare:PULSE_NAME]==NSOrderedSame)
         {
             timeMod = 1000000.0;
         }
@@ -669,7 +712,7 @@
             [self send:NULL];
             if(!subAnim)
             {
-                for(int j = 0; j < (NSInteger)([a.timeBetweenSteps doubleValue]*15.0); j++)
+                for(int j = 0; j < (NSInteger)([a.timeBetweenSteps doubleValue]*30.0); j++)
                 {
                     if(a.isRunning)
                     {
@@ -703,14 +746,207 @@
     [pool release];
 }
 
-- (NSMutableArray*) pulseActions:(NSString *)selectedLights lowValue:(NSNumber *)lowVal highValue:(NSNumber *)highVal time:(NSNumber*)timeBetweenSteps
+- (Action*) combineAction:(Action*)a with:(Action*)b
 {
-    Animation* subAnimation = [[Animation alloc] initWithDetails:AUTO_NAME isLooping:NO time:(double)(1.0/15.0)];
+    Action* comboAction;
+    for(id addr in b.targetChannels)
+    {
+        [a.targetChannels addObject:addr];
+    }
+    for(id val in b.targetValues)
+    {
+        [a.targetValues addObject:val];
+    }
+    comboAction = a;
+    comboAction.name = [[NSMutableString alloc] initWithString:@"Combo"];
+    return comboAction;
+}
+
+- (NSMutableArray*) chaseActions:(NSString*)color range:(NSString*)chaseRange type:(NSString*)chaseType time:(NSNumber*)timeBetweenSteps
+{
+    Animation* subAnimation = [[Animation alloc] initWithDetails:CHASE_NAME isLooping:NO time:[timeBetweenSteps doubleValue]];
+    if([chaseType caseInsensitiveCompare:@"single"]==NSOrderedSame)
+    {
+        NSArray* lightList = [chaseRange componentsSeparatedByString:@","];
+        NSString* lightString = @"";
+        lightString = [lightString stringByAppendingFormat:@"l,%@", [lightList objectAtIndex:0]];
+        [subAnimation.actions addObject:[self setColor:color selectString:lightString selectAnimation:CHASE_NAME]];
+        lightString = @"";
+        for(int i = 1; i < [lightList count]; i++)
+        {
+            Action* comboAction;
+            lightString = [lightString stringByAppendingFormat:@"l,%@", [lightList objectAtIndex:i-1]];
+            comboAction = [self setColor:@"black" selectString:lightString selectAnimation:CHASE_NAME];
+            lightString = @"";
+            lightString = [lightString stringByAppendingFormat:@"l,%@", [lightList objectAtIndex:i]];
+            [self combineAction:comboAction with:[self setColor:color selectString:lightString selectAnimation:CHASE_NAME]];
+            lightString = @"";
+            [subAnimation.actions addObject:comboAction];
+        }
+        lightString = [lightString stringByAppendingFormat:@"l,%@", [lightList objectAtIndex:([lightList count]-1)]];
+        [subAnimation.actions addObject:[self setColor:@"black" selectString:lightString selectAnimation:CHASE_NAME]];
+        
+        subAnimation.isRunning = YES;
+
+        [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:subAnimation];
+    }
+    else if([chaseType caseInsensitiveCompare:@"elastic"]==NSOrderedSame)
+    {
+        NSArray* lightList = [chaseRange componentsSeparatedByString:@","];
+        NSString* lightString = @"";
+        for(int i = 0; i < [lightList count]; i++)
+        {
+            lightString = [lightString stringByAppendingFormat:@"l,%@", [lightList objectAtIndex:i]];
+            [subAnimation.actions addObject:[self setColor:color selectString:lightString selectAnimation:CHASE_NAME]];
+            lightString = @"";
+
+        }
+        for(int i = ([lightList count]-1); i >= 0; i--)
+        {
+            lightString = [lightString stringByAppendingFormat:@"l,%@", [lightList objectAtIndex:i]];
+            [subAnimation.actions addObject:[self setColor:@"black" selectString:lightString selectAnimation:CHASE_NAME]];
+            lightString = @"";
+        }
+        subAnimation.isRunning = YES;
+
+        [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:subAnimation];
+    }
+    else if([chaseType caseInsensitiveCompare:@"sweep"]==NSOrderedSame)
+    {
+        NSArray* lightList = [chaseRange componentsSeparatedByString:@","];
+        NSString* lightString = @"";
+        for(int i = 0; i < [lightList count]; i++)
+        {
+            lightString = [lightString stringByAppendingFormat:@"l,%@", [lightList objectAtIndex:i]];
+            [subAnimation.actions addObject:[self setColor:color selectString:lightString selectAnimation:CHASE_NAME]];
+            lightString = @"";
+        }
+        for(int i = 0; i < [lightList count]; i++)
+        {
+            lightString = [lightString stringByAppendingFormat:@"l,%@", [lightList objectAtIndex:i]];
+            [subAnimation.actions addObject:[self setColor:@"black" selectString:lightString selectAnimation:CHASE_NAME]];
+            lightString = @"";
+        }
+        subAnimation.isRunning = YES;
+
+        [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:subAnimation];
+    }
+    if(![subAnimation.actions count])
+    {
+        NSLog(@"Malformed chase type. Options are: single, elastic, sweep");
+    }
+    
+    return subAnimation.actions;
+}
+
+- (NSString*) validateColor:(NSString *)color
+{
+    NSString* retString;
+    if([color caseInsensitiveCompare:@"red"]==NSOrderedSame)
+    {
+        retString = color;
+    }
+    if([color caseInsensitiveCompare:@"green"]==NSOrderedSame)
+    {
+        retString = color;
+    }
+    if([color caseInsensitiveCompare:@"blue"]==NSOrderedSame)
+    {
+        retString = color;
+    }
+    if([color caseInsensitiveCompare:@"cyan"]==NSOrderedSame)
+    {
+        retString = color;
+    }
+    if([color caseInsensitiveCompare:@"magenta"]==NSOrderedSame)
+    {
+        retString = color;
+    }
+    if([color caseInsensitiveCompare:@"yellow"]==NSOrderedSame)
+    {
+        retString = color;
+    }
+    if([color caseInsensitiveCompare:@"white"]==NSOrderedSame)
+    {
+        retString = color;
+    }
+    
+    return retString;
+}
+
+- (NSString*) getLightStringFromRange:(NSString *)range
+{
+    NSString* retString;
+    if([[range componentsSeparatedByString:@"-"] count] == 2)
+    {
+        NSArray* hyphenRange = [range componentsSeparatedByString:@"-"];
+
+        if([self validateNumberList:hyphenRange])
+        {
+            //build list of strings in range
+            NSInteger lowIndex = [[hyphenRange objectAtIndex:0] integerValue];
+            NSInteger highIndex = [[hyphenRange objectAtIndex:1] integerValue];
+            NSMutableString* tempString = [[NSMutableString alloc] initWithString:@""];
+            if(highIndex < lowIndex)
+            {
+                for(int i = lowIndex; i>=highIndex; i--)//6-1 = 6,5,4,3,2,1
+                {
+                    [tempString appendFormat:@"%d,", i];
+                }
+            }
+            else 
+            {
+                for(int i = lowIndex; i<=highIndex; i++)//1-6 = 1,2,3,4,5,6
+                {
+                    [tempString appendFormat:@"%d,", i];
+                }
+            }
+            retString = [tempString substringToIndex:([tempString length]-1)];
+        }
+        else 
+        {
+            NSLog(@"Malformed number range.");
+            retString = nil;
+        }
+
+    }
+    else //check comma separated
+    {
+        NSArray* commaRange = [range componentsSeparatedByString:@","];
+
+        if([self validateNumberList:commaRange])
+        {
+            retString = range;
+            NSLog(@"%@", retString);
+        }
+        else
+        {
+            NSLog(@"Malformed number range.");
+            retString = nil;
+        }
+    }
+    return retString;
+}
+               
+- (BOOL) validateNumberList:(NSArray*)list
+{
+    BOOL isValid = YES;
+    for(id d in list)
+    {
+        NSString* value = (NSString*)d;
+        isValid &= [[NSScanner scannerWithString:value] scanInt:nil];
+    }
+    return isValid;
+}
+
+- (NSMutableArray*) pulseActions:(NSString *)selectedLights lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal time:(NSNumber*)timeBetweenSteps
+{
+    Animation* subAnimation = [[Animation alloc] initWithDetails:PULSE_NAME isLooping:NO time:(double)(1.0/15.0)];
     NSInteger low = [lowVal intValue];
     NSInteger high = [highVal intValue];
     NSInteger difference = abs(high-low);
     
-    NSInteger frames = [timeBetweenSteps doubleValue]*15.0;
+    NSInteger frames = [timeBetweenSteps doubleValue]*30.0;
     if(frames>0)
     {
         difference /= frames;
@@ -730,6 +966,8 @@
             [subAnimation.actions addObject:[self setBrightness:[[NSNumber alloc] initWithInt:i] selectString:selectedLights selectAnimation:@""]];
         }
     }
+    [self performSelectorInBackground:@selector(threadedRunAnimation:) withObject:subAnimation];
+
     return subAnimation.actions;
 }
 
@@ -739,7 +977,7 @@
     NSInteger high = [highVal intValue];
     NSInteger difference = abs(high-low);
     Animation* a = [self getAnimationByName:selectedAnimation];
-    Animation* subAnimation = [[Animation alloc] initWithDetails:AUTO_NAME isLooping:NO time:(double)(1.0/30.0)];
+    Animation* subAnimation = [[Animation alloc] initWithDetails:PULSE_NAME isLooping:NO time:(double)(1.0/15.0)];
     
     subAnimation.selectedLights = [[NSString alloc] initWithString:selectedLights];
     subAnimation.highValue = highVal;
@@ -838,37 +1076,39 @@
     if(!error && (brightnessAction!=nil) && ([brightnessAction.targetChannels count]>0))
     {
         //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
-        Animation* selected = [self getAnimationByName:selectedAnimation];
-        if(isRecording)
+        if([selectedAnimation caseInsensitiveCompare:PULSE_NAME]!=NSOrderedSame)
         {
-            if (selected!=nil)
+            Animation* selected = [self getAnimationByName:selectedAnimation];
+            if(isRecording)
             {
-                //add to selected animation
-                [selected.actions addObject:brightnessAction];
-                
-                Animation* current = [self getAnimationByName:currentAnimation];
-                BOOL currentRunning = NO;
-                if (current!=nil) {
-                    currentRunning = current.isRunning;
-                }
-                if (!selected.isRunning && !currentRunning)
+                if (selected!=nil)
                 {
+                    //add to selected animation
+                    [selected.actions addObject:brightnessAction];
+                    
+                    Animation* current = [self getAnimationByName:currentAnimation];
+                    BOOL currentRunning = NO;
+                    if (current!=nil) {
+                        currentRunning = current.isRunning;
+                    }
+                    if (!selected.isRunning && !currentRunning)
+                    {
+                        [self changeState:brightnessAction];
+                        [self send:nil];
+                    }
+                }
+                else {
+                    //add to a new animation, select that animation
+                    ///call javascript
                     [self changeState:brightnessAction];
                     [self send:nil];
                 }
             }
             else {
-                //add to a new animation, select that animation
-                ///call javascript
                 [self changeState:brightnessAction];
                 [self send:nil];
             }
         }
-        else {
-            [self changeState:brightnessAction];
-            [self send:nil];
-        }
-        
     }
     return brightnessAction;
     
@@ -940,40 +1180,48 @@
     //set values appropriately
     for (id i in lightArray)
     {
-        Light* l = [lights objectAtIndex:[(NSString*)i integerValue]];
-        [colorAction.targetChannels addObjectsFromArray:[self getColorChannels:l]];
-        
-        if ([color isEqualToString:@"red"])
+        if([(NSString*)i integerValue]>=[lights count])
         {
-            [self setColorHelper:colorAction.targetValues red:255 green:0 blue:0];        
+            NSLog(@"Light out of range");
+            break;
         }
-        else if ([color isEqualToString:@"green"])
+        else
         {
-            [self setColorHelper:colorAction.targetValues red:0 green:255 blue:0];
-        }
-        else if ([color isEqualToString:@"blue"])
-        {
-            [self setColorHelper:colorAction.targetValues red:0 green:75 blue:255];        
-        }
-        else if ([color isEqualToString:@"cyan"])
-        {
-            [self setColorHelper:colorAction.targetValues red:0 green:255 blue:255];        
-        }
-        else if ([color isEqualToString:@"magenta"])
-        {
-            [self setColorHelper:colorAction.targetValues red:255 green:0 blue:255];        
-        }
-        else if ([color isEqualToString:@"yellow"])
-        {
-            [self setColorHelper:colorAction.targetValues red:180 green:75 blue:0];        
-        }
-        else if ([color isEqualToString:@"white"])
-        {
-            [self setColorHelper:colorAction.targetValues red:255 green:255 blue:255];        
-        }
-        else if ([color isEqualToString:@"black"])
-        {
-            [self setColorHelper:colorAction.targetValues red:0 green:0 blue:0];        
+            Light* l = [lights objectAtIndex:[(NSString*)i integerValue]];
+            [colorAction.targetChannels addObjectsFromArray:[self getColorChannels:l]];
+            
+            if ([color caseInsensitiveCompare:@"red"]==NSOrderedSame)
+            {
+                [self setColorHelper:colorAction.targetValues red:255 green:0 blue:0];        
+            }
+            else if ([color caseInsensitiveCompare:@"green"]==NSOrderedSame)
+            {
+                [self setColorHelper:colorAction.targetValues red:0 green:255 blue:0];
+            }
+            else if ([color caseInsensitiveCompare:@"blue"]==NSOrderedSame)
+            {
+                [self setColorHelper:colorAction.targetValues red:0 green:75 blue:255];        
+            }
+            else if ([color caseInsensitiveCompare:@"cyan"]==NSOrderedSame)
+            {
+                [self setColorHelper:colorAction.targetValues red:0 green:255 blue:255];        
+            }
+            else if ([color caseInsensitiveCompare:@"magenta"]==NSOrderedSame)
+            {
+                [self setColorHelper:colorAction.targetValues red:255 green:0 blue:255];        
+            }
+            else if ([color caseInsensitiveCompare:@"yellow"]==NSOrderedSame)
+            {
+                [self setColorHelper:colorAction.targetValues red:180 green:75 blue:0];        
+            }
+            else if ([color caseInsensitiveCompare:@"white"]==NSOrderedSame)
+            {
+                [self setColorHelper:colorAction.targetValues red:255 green:255 blue:255];        
+            }
+            else if ([color caseInsensitiveCompare:@"black"]==NSOrderedSame)
+            {
+                [self setColorHelper:colorAction.targetValues red:0 green:0 blue:0];        
+            }
         }
     }
     
@@ -995,7 +1243,7 @@
     return brightnessAction;
 }
 
-- (void) setColor:(NSString *)color selectString:(NSString*) selString selectAnimation:(NSString*)selectedAnimation 
+- (Action*) setColor:(NSString *)color selectString:(NSString*) selString selectAnimation:(NSString*)selectedAnimation 
 {
     //NSLog(@"Setting color to %@", color);
 
@@ -1057,39 +1305,42 @@
     if(!error && (colorAction!=nil) && ([colorAction.targetChannels count]>0))
     {
         //check some conditions to see whether to send or not, add to animation, or build a new animation, otherwise just changeState
-        Animation* selected = [self getAnimationByName:selectedAnimation];
-        if(isRecording)
-        {
-            if (selected!=nil)
+        if ([selectedAnimation caseInsensitiveCompare:CHASE_NAME]!=NSOrderedSame)
+        {   
+            Animation* selected = [self getAnimationByName:selectedAnimation];
+            if(isRecording)
             {
-                //add to selected animation
-                [selected.actions addObject:colorAction];
-                
-                Animation* current = [self getAnimationByName:currentAnimation];
-                BOOL currentRunning = NO;
-                if (current!=nil) {
-                    currentRunning = current.isRunning;
-                }
-                if (!selected.isRunning && !currentRunning)
+                if (selected!=nil)
                 {
+                    //add to selected animation
+                    [selected.actions addObject:colorAction];
+                    
+                    Animation* current = [self getAnimationByName:currentAnimation];
+                    BOOL currentRunning = NO;
+                    if (current!=nil) {
+                        currentRunning = current.isRunning;
+                    }
+                    if (!selected.isRunning && !currentRunning)
+                    {
+                        [self changeState:colorAction];
+                        [self send:nil];
+                    }
+                }
+                else {
+                    //add to a new animation, select that animation
+                    //call javascript
                     [self changeState:colorAction];
                     [self send:nil];
                 }
             }
             else {
-                //add to a new animation, select that animation
-                //call javascript
+                //NSLog(@"No animation selected still sending");
                 [self changeState:colorAction];
                 [self send:nil];
             }
         }
-        else {
-            //NSLog(@"No animation selected still sending");
-            [self changeState:colorAction];
-            [self send:nil];
-        }
-        
     }
+    return colorAction;
 }
 
 - (Animation*)getAnimationByName:(NSString*)name
@@ -1142,7 +1393,7 @@
         }
         for(id action in a.actions)
         {
-            if([action isKindOfClass:[Animation class]] && ([((Animation*)action).name caseInsensitiveCompare:AUTO_NAME]==NSOrderedSame))
+            if([action isKindOfClass:[Animation class]] && ([((Animation*)action).name caseInsensitiveCompare:PULSE_NAME]==NSOrderedSame))
             {
                 //get high and low values, call pulseActions and replace previous actions
                 [((Animation*)action).actions removeAllObjects];
@@ -1251,16 +1502,16 @@
     }
 }
 
-- (Action *)diffChannels
+- (Action *)diffChannels:(NSMutableArray*)a with:(NSMutableArray*)b
 {
     Action* diff = [[Action alloc] initWithDetails:@"DIFF" numChans:3];
     
     for(int i = 0; i < [channels count]; i++)
     {
-        if(((Channel*)[channels objectAtIndex:i]).value != ((Channel*)[stateChange objectAtIndex:i]).value)
+        if(((Channel*)[b objectAtIndex:i]).value != ((Channel*)[a objectAtIndex:i]).value)
         {
-            [diff.targetChannels addObject:[[NSNumber alloc] initWithInt:((Channel*)[stateChange objectAtIndex:i]).address]];
-            [diff.targetValues addObject:[[NSNumber alloc] initWithInt:(((Channel*)[stateChange objectAtIndex:i]).value)]];
+            [diff.targetChannels addObject:[[NSNumber alloc] initWithInt:((Channel*)[a objectAtIndex:i]).address]];
+            [diff.targetValues addObject:[[NSNumber alloc] initWithInt:(((Channel*)[a objectAtIndex:i]).value)]];
         }
     }
  
@@ -1312,6 +1563,105 @@
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
     [webView stringByEvaluatingJavaScriptFromString:@"changeDisplay('center', 1);"]; 
+    [webView stringByEvaluatingJavaScriptFromString:@"addAnimationWithName('Pulse');"]; 
+    [webView stringByEvaluatingJavaScriptFromString:@"$(\"select\").blur();"];
+    [webView stringByEvaluatingJavaScriptFromString:@"$('#groupList > .lightGroup[name=\"all\"]').addClass('selected');"];
+    
+    [self startServer];
+}
+
+#pragma mark Networking
+- (void)connectionReceived:(NSNotification *)aNotification 
+{
+    NSFileHandle *incomingConnection = [[aNotification userInfo] objectForKey:NSFileHandleNotificationFileHandleItem];
+	
+    [[aNotification object] acceptConnectionInBackgroundAndNotify];
+	
+    NSData *receivedData = [incomingConnection availableData];
+    NSString* receivedString = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    if ([[receivedString componentsSeparatedByString:@","] count] == 2) {
+        NSString* color = [[receivedString componentsSeparatedByString:@","] objectAtIndex:1];
+        [self setColor:color selectString:@"g,all" selectAnimation:@""];
+    }
+    else if([receivedString caseInsensitiveCompare:PULSE_NAME]==NSOrderedSame)
+    {
+        NSLog(@"Pulse");
+        [self pulseActions:@"g,all" lowValue:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"displayValue('left');"]
+                 highValue:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"displayValue('right');"]
+                      time:(NSNumber*)[webView stringByEvaluatingJavaScriptFromString:@"$('#animationSpeedInput').attr('value');"]];
+    }
+    else {
+        NSString* speedString = [[NSString alloc] initWithFormat:@"setAnimationSpeedInputText('%@');",receivedString];
+        NSLog(@"%@", speedString);
+        [webView performSelectorOnMainThread:@selector(stringByEvaluatingJavaScriptFromString:) withObject:speedString waitUntilDone:NO];
+        [self setAnimationSpeed:[[NSNumber alloc] initWithDouble:[receivedString doubleValue]]];
+    }
+
+    [incomingConnection closeFile];
+}
+
+-(void) startServer
+{
+	uint16_t chosenPort = 0;
+    
+    if(!listeningSocket) {
+        // Here, create the socket from traditional BSD socket calls, and then set up an NSFileHandle with that to listen for incoming connections.
+        int fdForListening;
+        struct sockaddr_in serverAddress;
+        socklen_t namelen = sizeof(serverAddress);
+		
+        // In order to use NSFileHandle's acceptConnectionInBackgroundAndNotify method, we need to create a file descriptor that is itself a socket, bind that socket, and then set it up for listening. At this point, it's ready to be handed off to acceptConnectionInBackgroundAndNotify.
+        if((fdForListening = socket(AF_INET, SOCK_STREAM, 0)) > 0) {
+            memset(&serverAddress, 0, sizeof(serverAddress));
+            serverAddress.sin_family = AF_INET;
+            serverAddress.sin_addr.s_addr = htonl(INADDR_ANY);
+            serverAddress.sin_port = 0; // allows the kernel to choose the port for us.
+			
+            if(bind(fdForListening, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) < 0) {
+                close(fdForListening);
+                return;
+            }
+			
+            // Find out what port number was chosen for us.
+            if(getsockname(fdForListening, (struct sockaddr *)&serverAddress, &namelen) < 0) {
+                close(fdForListening);
+                return;
+            }
+			
+            chosenPort = ntohs(serverAddress.sin_port);
+            
+            if(listen(fdForListening, 1) == 0) {
+                listeningSocket = [[NSFileHandle alloc] initWithFileDescriptor:fdForListening closeOnDealloc:YES];
+            }
+        }
+    }
+    
+    if(!netService) {
+        // lazily instantiate the NSNetService object that will advertise on our behalf.
+        SCDynamicStoreContext context = { 0, NULL, NULL, NULL };
+        SCDynamicStoreRef store = SCDynamicStoreCreate(kCFAllocatorDefault, CFSTR("testStrings"), NULL, &context);
+        NSString* name = (NSString*)SCDynamicStoreCopyLocalHostName(store);
+        netService = [[NSNetService alloc] initWithDomain:@"" type:@"_lightctrl._tcp." name:name port:chosenPort];
+        [netService setDelegate:self];
+    }
+    
+    if(netService && listeningSocket) {
+        if(!serviceStarted) {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionReceived:) name:NSFileHandleConnectionAcceptedNotification object:listeningSocket];
+            [listeningSocket acceptConnectionInBackgroundAndNotify];
+            [netService publish];
+			serviceStarted = YES;
+			
+        } else {
+            [netService stop];
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:NSFileHandleConnectionAcceptedNotification object:listeningSocket];
+            // There is at present no way to get an NSFileHandle to -stop- listening for events, so we'll just have to tear it down and recreate it the next time we need it.
+            [listeningSocket release];
+            listeningSocket = nil;
+			serviceStarted = NO;
+        }
+    }
+	
 }
 
 
