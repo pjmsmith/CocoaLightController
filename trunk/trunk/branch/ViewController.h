@@ -19,10 +19,17 @@
 #import "Light.h"
 #import "Group.h"
 #import <WebKit/WebKit.h>
-
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 
 @interface ViewController : NSObject {
 
+    NSNetService	*netService;
+    NSFileHandle	*listeningSocket;
+	bool			serviceStarted;
+    
 	AMSerialPort *port;
 
     NSMutableArray* channels;
@@ -46,7 +53,8 @@
     
     NSThread* runThread;
     
-    NSString* AUTO_NAME;
+    NSString* PULSE_NAME;
+    NSString* CHASE_NAME;
     
     NSString* button1;
     NSString* button2;
@@ -75,7 +83,7 @@
 
 // This method is called from JavaScript on the web page.
 - (void)showMessage:(NSString *)message;
-- (void)setColor:(NSString *)color selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation;
+- (Action*)setColor:(NSString *)color selectString:(NSString*)selString selectAnimation:(NSString*)selectedAnimation;
 - (void)firstAction:(NSString *)f;
 - (void)nextAction:(NSString *)n;
 - (void)prevAction:(NSString *)p;
@@ -108,7 +116,7 @@
 -(void)setColorHelper:(NSMutableArray *) valueList red:(int)r green:(int)g blue:(int)b;
 -(NSString*)numberToTriple: (NSNumber*) num;
 -(void)displayState:(id)d;
--(Action *)diffChannels;
+-(Action *)diffChannels:(NSMutableArray*)a with:(NSMutableArray*)b;
 -(void)changeState:(Action *)action;
 -(void)applyState:(Action *)action;
 -(NSMutableArray*)getColorChannels:(Light*)l;
@@ -117,8 +125,16 @@
 -(Action*)buildBrightnessAction:(NSMutableArray*)lightArray brightness:(NSNumber*)brightness;
 -(Animation*)getAnimationByName:(NSString*)name;
 -(void)pulse:(NSString*)selectedLights selectAnimation:(NSString*)selectedAnimation lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal;
--(NSMutableArray*)pulseActions:(NSString *)selectedLights lowValue:(NSNumber *)lowVal highValue:(NSNumber *)highVal time:(NSNumber*)timeBetweenSteps;
+-(NSMutableArray*)pulseActions:(NSString*)selectedLights lowValue:(NSNumber*)lowVal highValue:(NSNumber*)highVal time:(NSNumber*)timeBetweenSteps;
+-(NSMutableArray*)chaseActions:(NSString*)color range:(NSString*)chaseRange type:(NSString*)chaseType time:(NSNumber*)timeBetweenSteps;
+-(NSString*)validateColor:(NSString*)color;
+-(NSString*)getLightStringFromRange:(NSString*)range;
+-(BOOL)validateNumberList:(NSArray*)list;
 -(void)setButtonAction:(NSNumber*)button action:(NSString*)a;
+-(Action*)combineAction:(Action*)a with:(Action*)b;
+
+
+-(void) startServer;
 
 //@property (nonatomic, retain) IBOutlet NSPopUpButton *serialSelectMenu;
 //@property (nonatomic, retain) IBOutlet NSTextField	 *textField;
