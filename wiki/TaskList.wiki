@@ -18,4 +18,11 @@ Long Term:
 
 *Beat these guys: http://www.youtube.com/watch?v=fkKcEgDt4_E
 *Ride elevator backwards
+
+Important Links:
+* Cocoa Audio Info:
+http://developer.apple.com/Mac/library/referencelibrary/GettingStarted/GS_MusicAudio/index.html
+
+*Beat Detection:
+http://www.gamedev.net/reference/programming/features/beatdetection/
   
