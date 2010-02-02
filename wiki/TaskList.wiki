@@ -1,0 +1,16 @@
+Branching of project
+
+OLD = BACK UP VERSION
+
+New interface = super sleek
+
+Shit to do:
+
+  # streamline interface
+  # design method of collapsing/combining state changes, e.g. relative timelines 
+  # proof of concepts (2/8/10)
+    * beat detection
+    * particle filtering/fitness functions
+    * microphone/line out audio capturing
+  # redesign on paper/whiteboard (2/15/10)
+  
